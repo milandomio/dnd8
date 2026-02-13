@@ -9,6 +9,7 @@
         .back-link { display: block; text-align: center; margin-bottom: 10px; color: #FFC107; font-size: 18px; text-decoration: none; font-weight: bold; }
         .back-link:hover { text-decoration: underline; color: #fff; }
         h1 { margin-bottom: 8px; font-size: 28px; text-align: center; color: #00bcd4; }
+        .disclaimer { text-align: center; color: #ff6b6b; font-size: 14px; margin-bottom: 10px; padding: 8px; background-color: #3a3a3a; border-radius: 5px; }
         .debug-title { display: none; font-size: 16px; color: #888; text-align: center; margin-bottom: 5px; }
         .debug-title.visible { display: block; }
         .maps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px; }
@@ -63,6 +64,7 @@
 <body>
     <a href="index.html" class="back-link">&lt;&lt; 返回总览</a>
     <h1>幻影花 位置汇总</h1>
+    <div class="disclaimer">⚠️ 数据有误差，以实际游戏内为准</div>
     <div class="debug-title" id="debug-title">幻影花 (PhantomFlower)</div>
     <div class="maps-grid" id="maps-grid">    <div class="group-header">废墟2层地牢</div>
     <div class="map-card" id="map-card-Crypt_AltarRoomAB_HR_D-json">
@@ -80,9 +82,9 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Crypt_AltarRoomAB_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Crypt_AltarRoomAB_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Crypt_AltarRoomAB_HR_D-json"><img src="images/AltarRoomAB.webp" class="image">        <div class="dot" data-index="1284" data-x="220.0" data-y="-1080.0" data-z="0.0" style="left: 56.88%; top: 16.25%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="1285" data-x="-190.0" data-y="230.0" data-z="0.0" style="left: 44.06%; top: 57.19%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="1293" data-x="950.0" data-y="410.0" data-z="0.0" style="left: 79.69%; top: 62.81%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Crypt_AltarRoomAB_HR_D-json"><img src="images/AltarRoomAB.webp" class="image">        <div class="dot" data-index="1286" data-x="220.0" data-y="-1080.0" data-z="0.0" style="left: 56.88%; top: 16.25%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1287" data-x="-190.0" data-y="230.0" data-z="0.0" style="left: 44.06%; top: 57.19%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1295" data-x="950.0" data-y="410.0" data-z="0.0" style="left: 79.69%; top: 62.81%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-Cemetery_02_HR_D-json">
@@ -100,9 +102,9 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Cemetery_02_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Cemetery_02_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Cemetery_02_HR_D-json"><img src="images/Cemetery_02.webp" class="image">        <div class="dot" data-index="1447" data-x="620.0" data-y="-540.0" data-z="-500.0" style="left: 69.38%; top: 33.12%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="1448" data-x="580.0" data-y="-560.0" data-z="-500.0" style="left: 68.12%; top: 32.50%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="1449" data-x="600.0" data-y="360.0" data-z="-500.0" style="left: 68.75%; top: 61.25%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Cemetery_02_HR_D-json"><img src="images/Cemetery_02.webp" class="image">        <div class="dot" data-index="1458" data-x="620.0" data-y="-540.0" data-z="-500.0" style="left: 69.38%; top: 33.12%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1459" data-x="580.0" data-y="-560.0" data-z="-500.0" style="left: 68.12%; top: 32.50%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1460" data-x="600.0" data-y="360.0" data-z="-500.0" style="left: 68.75%; top: 61.25%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-CenterTower_HR_D-json">
@@ -120,8 +122,8 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('CenterTower_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('CenterTower_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-CenterTower_HR_D-json"><img src="images/CenterTower.webp" class="image">        <div class="dot" data-index="1512" data-x="-520.0" data-y="280.0" data-z="-10.0" style="left: 45.94%; top: 52.19%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="1529" data-x="-2150.0" data-y="3190.0" data-z="-10.0" style="left: 33.20%; top: 74.92%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-CenterTower_HR_D-json"><img src="images/CenterTower.webp" class="image">        <div class="dot" data-index="1523" data-x="-520.0" data-y="280.0" data-z="-10.0" style="left: 45.94%; top: 52.19%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1540" data-x="-2150.0" data-y="3190.0" data-z="-10.0" style="left: 33.20%; top: 74.92%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-CliffBridge_HR_D-json">
@@ -139,9 +141,9 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('CliffBridge_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('CliffBridge_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-CliffBridge_HR_D-json"><img src="images/CliffBridge.webp" class="image">        <div class="dot" data-index="1589" data-x="-410.0" data-y="720.0" data-z="-960.0" style="left: 37.19%; top: 72.50%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="1590" data-x="-130.0" data-y="-620.0" data-z="-960.0" style="left: 45.94%; top: 30.62%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="1591" data-x="-220.0" data-y="-620.0" data-z="-960.0" style="left: 43.12%; top: 30.62%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-CliffBridge_HR_D-json"><img src="images/CliffBridge.webp" class="image">        <div class="dot" data-index="1600" data-x="-410.0" data-y="720.0" data-z="-960.0" style="left: 37.19%; top: 72.50%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1601" data-x="-130.0" data-y="-620.0" data-z="-960.0" style="left: 45.94%; top: 30.62%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1602" data-x="-220.0" data-y="-620.0" data-z="-960.0" style="left: 43.12%; top: 30.62%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-EightToOne_02_HR_D-json">
@@ -159,9 +161,9 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('EightToOne_02_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('EightToOne_02_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-EightToOne_02_HR_D-json"><img src="images/EightToOne_02.webp" class="image">        <div class="dot" data-index="1840" data-x="-340.0" data-y="-510.0" data-z="0.0" style="left: 39.38%; top: 34.06%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="1841" data-x="-250.0" data-y="-520.0" data-z="0.0" style="left: 42.19%; top: 33.75%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="1843" data-x="1150.0" data-y="-900.0" data-z="-399.9999" style="left: 85.94%; top: 21.88%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-EightToOne_02_HR_D-json"><img src="images/EightToOne_02.webp" class="image">        <div class="dot" data-index="1851" data-x="-340.0" data-y="-510.0" data-z="0.0" style="left: 39.38%; top: 34.06%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1852" data-x="-250.0" data-y="-520.0" data-z="0.0" style="left: 42.19%; top: 33.75%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1854" data-x="1150.0" data-y="-900.0" data-z="-399.9999" style="left: 85.94%; top: 21.88%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-HBridge_HR_D-json">
@@ -179,9 +181,9 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('HBridge_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('HBridge_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-HBridge_HR_D-json"><img src="images/HBridge.webp" class="image">        <div class="dot" data-index="2029" data-x="-160.0" data-y="-500.0" data-z="-500.0" style="left: 45.00%; top: 34.38%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="2031" data-x="1210.0" data-y="-260.0" data-z="-350.0" style="left: 87.81%; top: 41.88%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="2032" data-x="1100.0" data-y="-340.0" data-z="-350.0" style="left: 84.38%; top: 39.38%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-HBridge_HR_D-json"><img src="images/HBridge.webp" class="image">        <div class="dot" data-index="2049" data-x="-160.0" data-y="-500.0" data-z="-500.0" style="left: 45.00%; top: 34.38%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2051" data-x="1210.0" data-y="-260.0" data-z="-350.0" style="left: 87.81%; top: 41.88%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2052" data-x="1100.0" data-y="-340.0" data-z="-350.0" style="left: 84.38%; top: 39.38%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-Maze_HR_D-json">
@@ -199,9 +201,9 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Maze_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Maze_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Maze_HR_D-json"><img src="images/Maze.webp" class="image">        <div class="dot" data-index="2152" data-x="130.0" data-y="190.0" data-z="-100.0" style="left: 54.06%; top: 55.94%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="2153" data-x="180.0" data-y="160.0" data-z="-100.0" style="left: 55.62%; top: 55.00%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="2154" data-x="-1300.0" data-y="-80.0" data-z="0.0" style="left: 9.38%; top: 47.50%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Maze_HR_D-json"><img src="images/Maze.webp" class="image">        <div class="dot" data-index="2172" data-x="130.0" data-y="190.0" data-z="-100.0" style="left: 54.06%; top: 55.94%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2173" data-x="180.0" data-y="160.0" data-z="-100.0" style="left: 55.62%; top: 55.00%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2174" data-x="-1300.0" data-y="-80.0" data-z="0.0" style="left: 9.38%; top: 47.50%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-AdmirerRoom_HR_D-json">
@@ -219,9 +221,9 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('AdmirerRoom_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('AdmirerRoom_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-AdmirerRoom_HR_D-json"><img src="images/AdmirerRoom.webp" class="image">        <div class="dot" data-index="2435" data-x="600.0" data-y="-800.0" data-z="0.0" style="left: 68.75%; top: 25.00%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="2436" data-x="-30.0" data-y="-470.0" data-z="0.0" style="left: 49.06%; top: 35.31%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="2437" data-x="-970.0" data-y="140.0" data-z="0.0" style="left: 19.69%; top: 54.38%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-AdmirerRoom_HR_D-json"><img src="images/AdmirerRoom.webp" class="image">        <div class="dot" data-index="2461" data-x="600.0" data-y="-800.0" data-z="0.0" style="left: 68.75%; top: 25.00%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2462" data-x="-30.0" data-y="-470.0" data-z="0.0" style="left: 49.06%; top: 35.31%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2463" data-x="-970.0" data-y="140.0" data-z="0.0" style="left: 19.69%; top: 54.38%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-Catacomb_HR_D-json">
@@ -239,9 +241,9 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Catacomb_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Catacomb_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Catacomb_HR_D-json"><img src="images/Catacomb.webp" class="image">        <div class="dot" data-index="2526" data-x="750.0" data-y="330.0" data-z="-420.0" style="left: 73.44%; top: 60.31%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="2544" data-x="340.0" data-y="290.0" data-z="0.0" style="left: 60.62%; top: 59.06%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="2545" data-x="800.0" data-y="290.0" data-z="-420.0" style="left: 75.00%; top: 59.06%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Catacomb_HR_D-json"><img src="images/Catacomb.webp" class="image">        <div class="dot" data-index="2552" data-x="750.0" data-y="330.0" data-z="-420.0" style="left: 73.44%; top: 60.31%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2570" data-x="340.0" data-y="290.0" data-z="0.0" style="left: 60.62%; top: 59.06%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2571" data-x="800.0" data-y="290.0" data-z="-420.0" style="left: 75.00%; top: 59.06%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-Connector_Trap_02_HR_D-json">
@@ -259,9 +261,9 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Connector_Trap_02_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Connector_Trap_02_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Connector_Trap_02_HR_D-json"><img src="images/Connector_Trap_02.webp" class="image">        <div class="dot" data-index="2659" data-x="840.0" data-y="480.0" data-z="-400.0" style="left: 76.25%; top: 65.00%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="2660" data-x="1080.0" data-y="500.0" data-z="-400.0" style="left: 83.75%; top: 65.62%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="2661" data-x="1240.0" data-y="230.0" data-z="-400.0" style="left: 88.75%; top: 57.19%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Connector_Trap_02_HR_D-json"><img src="images/Connector_Trap_02.webp" class="image">        <div class="dot" data-index="2685" data-x="840.0" data-y="480.0" data-z="-400.0" style="left: 76.25%; top: 65.00%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2686" data-x="1080.0" data-y="500.0" data-z="-400.0" style="left: 83.75%; top: 65.62%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2687" data-x="1240.0" data-y="230.0" data-z="-400.0" style="left: 88.75%; top: 57.19%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-CorridorofDarkPriests_HR_D-json">
@@ -279,9 +281,9 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('CorridorofDarkPriests_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('CorridorofDarkPriests_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-CorridorofDarkPriests_HR_D-json"><img src="images/CorridorofDarkPriests.webp" class="image">        <div class="dot" data-index="2721" data-x="-1180.0" data-y="-1010.0" data-z="0.0" style="left: 13.12%; top: 18.44%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="2728" data-x="1190.0" data-y="370.0" data-z="0.0" style="left: 87.19%; top: 61.56%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="2730" data-x="1160.0" data-y="440.0" data-z="0.0" style="left: 86.25%; top: 63.75%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-CorridorofDarkPriests_HR_D-json"><img src="images/CorridorofDarkPriests.webp" class="image">        <div class="dot" data-index="2747" data-x="-1180.0" data-y="-1010.0" data-z="0.0" style="left: 13.12%; top: 18.44%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2754" data-x="1190.0" data-y="370.0" data-z="0.0" style="left: 87.19%; top: 61.56%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2756" data-x="1160.0" data-y="440.0" data-z="0.0" style="left: 86.25%; top: 63.75%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-CrossRoad_HR_D-json">
@@ -299,9 +301,9 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('CrossRoad_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('CrossRoad_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-CrossRoad_HR_D-json"><img src="images/CrossRoad.webp" class="image">        <div class="dot" data-index="2769" data-x="160.0" data-y="-120.0" data-z="-400.0" style="left: 55.00%; top: 46.25%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="2770" data-x="-770.0" data-y="840.0" data-z="-400.0" style="left: 25.94%; top: 76.25%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="2771" data-x="-860.0" data-y="1370.0" data-z="-400.0" style="left: 23.12%; top: 92.81%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-CrossRoad_HR_D-json"><img src="images/CrossRoad.webp" class="image">        <div class="dot" data-index="2795" data-x="160.0" data-y="-120.0" data-z="-400.0" style="left: 55.00%; top: 46.25%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2796" data-x="-770.0" data-y="840.0" data-z="-400.0" style="left: 25.94%; top: 76.25%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2797" data-x="-860.0" data-y="1370.0" data-z="-400.0" style="left: 23.12%; top: 92.81%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-FishingGround_HR_D-json">
@@ -319,9 +321,9 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('FishingGround_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('FishingGround_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-FishingGround_HR_D-json"><img src="images/FishingGround.webp" class="image">        <div class="dot" data-index="2834" data-x="-1050.0" data-y="-880.0" data-z="100.0" style="left: 17.19%; top: 22.50%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="2835" data-x="-965.0" data-y="-428.0" data-z="100.0" style="left: 19.84%; top: 36.62%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="2836" data-x="-440.0" data-y="1240.0" data-z="0.0" style="left: 36.25%; top: 88.75%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-FishingGround_HR_D-json"><img src="images/FishingGround.webp" class="image">        <div class="dot" data-index="2858" data-x="-1050.0" data-y="-880.0" data-z="100.0" style="left: 17.19%; top: 22.50%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2859" data-x="-965.0" data-y="-428.0" data-z="100.0" style="left: 19.84%; top: 36.62%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2860" data-x="-440.0" data-y="1240.0" data-z="0.0" style="left: 36.25%; top: 88.75%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-HighPriestOssuary_HR_D-json">
@@ -339,9 +341,9 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('HighPriestOssuary_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('HighPriestOssuary_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-HighPriestOssuary_HR_D-json"><img src="images/HighPriestOssuary.webp" class="image">        <div class="dot" data-index="2899" data-x="-1220.0" data-y="710.0" data-z="-500.0" style="left: 11.88%; top: 72.19%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="2926" data-x="1130.0" data-y="-110.0" data-z="-699.11755" style="left: 85.31%; top: 46.56%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="2927" data-x="360.0" data-y="-400.0" data-z="-499.9685" style="left: 61.25%; top: 37.50%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-HighPriestOssuary_HR_D-json"><img src="images/HighPriestOssuary.webp" class="image">        <div class="dot" data-index="2921" data-x="-1220.0" data-y="710.0" data-z="-500.0" style="left: 11.88%; top: 72.19%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2948" data-x="1130.0" data-y="-110.0" data-z="-699.11755" style="left: 85.31%; top: 46.56%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2949" data-x="360.0" data-y="-400.0" data-z="-499.9685" style="left: 61.25%; top: 37.50%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-LowPyramid_HR_D-json">
@@ -359,9 +361,9 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('LowPyramid_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('LowPyramid_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-LowPyramid_HR_D-json"><img src="images/LowPyramid.webp" class="image">        <div class="dot" data-index="2970" data-x="-1170.0" data-y="110.0" data-z="-399.9999" style="left: 13.44%; top: 53.44%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="2977" data-x="-360.0" data-y="250.0" data-z="-399.9999" style="left: 38.75%; top: 57.81%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="2978" data-x="30.0" data-y="50.0" data-z="-399.9999" style="left: 50.94%; top: 51.56%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-LowPyramid_HR_D-json"><img src="images/LowPyramid.webp" class="image">        <div class="dot" data-index="2992" data-x="-1170.0" data-y="110.0" data-z="-399.9999" style="left: 13.44%; top: 53.44%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2999" data-x="-360.0" data-y="250.0" data-z="-399.9999" style="left: 38.75%; top: 57.81%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="3000" data-x="30.0" data-y="50.0" data-z="-399.9999" style="left: 50.94%; top: 51.56%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-Prison_01_HR_D-json">
@@ -379,9 +381,9 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Prison_01_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Prison_01_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Prison_01_HR_D-json"><img src="images/Prison_01.webp" class="image">        <div class="dot" data-index="3084" data-x="-870.0" data-y="-1000.0" data-z="0.0" style="left: 22.81%; top: 18.75%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="3098" data-x="900.0" data-y="-1270.0" data-z="0.0" style="left: 78.12%; top: 10.31%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="3100" data-x="-1000.0" data-y="270.0" data-z="0.0" style="left: 18.75%; top: 58.44%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Prison_01_HR_D-json"><img src="images/Prison_01.webp" class="image">        <div class="dot" data-index="3104" data-x="-870.0" data-y="-1000.0" data-z="0.0" style="left: 22.81%; top: 18.75%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="3118" data-x="900.0" data-y="-1270.0" data-z="0.0" style="left: 78.12%; top: 10.31%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="3120" data-x="-1000.0" data-y="270.0" data-z="0.0" style="left: 18.75%; top: 58.44%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-Sanctum_HR_D-json">
@@ -399,9 +401,9 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Sanctum_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Sanctum_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Sanctum_HR_D-json"><img src="images/Sanctum.webp" class="image">        <div class="dot" data-index="3112" data-x="-210.0" data-y="870.0" data-z="0.0" style="left: 43.44%; top: 77.19%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="3117" data-x="-190.0" data-y="920.0" data-z="0.0" style="left: 44.06%; top: 78.75%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="3120" data-x="-190.0" data-y="610.0" data-z="0.0" style="left: 44.06%; top: 69.06%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Sanctum_HR_D-json"><img src="images/Sanctum.webp" class="image">        <div class="dot" data-index="3132" data-x="-210.0" data-y="870.0" data-z="0.0" style="left: 43.44%; top: 77.19%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="3137" data-x="-190.0" data-y="920.0" data-z="0.0" style="left: 44.06%; top: 78.75%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="3140" data-x="-190.0" data-y="610.0" data-z="0.0" style="left: 44.06%; top: 69.06%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-Sewers_HR_D-json">
@@ -419,9 +421,9 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Sewers_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Sewers_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Sewers_HR_D-json"><img src="images/Sewers.webp" class="image">        <div class="dot" data-index="3161" data-x="680.0" data-y="1400.0" data-z="0.0" style="left: 71.25%; top: 93.75%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="3162" data-x="-1510.0" data-y="1340.0" data-z="0.0" style="left: 2.81%; top: 91.88%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="3163" data-x="-1410.0" data-y="-1510.0" data-z="0.0" style="left: 5.94%; top: 2.81%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Sewers_HR_D-json"><img src="images/Sewers.webp" class="image">        <div class="dot" data-index="3179" data-x="680.0" data-y="1400.0" data-z="0.0" style="left: 71.25%; top: 93.75%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="3180" data-x="-1510.0" data-y="1340.0" data-z="0.0" style="left: 2.81%; top: 91.88%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="3181" data-x="-1410.0" data-y="-1510.0" data-z="0.0" style="left: 5.94%; top: 2.81%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-SingleLogBridge_HR_D-json">
@@ -439,9 +441,9 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('SingleLogBridge_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('SingleLogBridge_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-SingleLogBridge_HR_D-json"><img src="images/SingleLogBridge.webp" class="image">        <div class="dot" data-index="3219" data-x="-270.0" data-y="1340.0" data-z="-600.0" style="left: 41.56%; top: 91.88%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="3221" data-x="-440.0" data-y="1470.0" data-z="-540.42615" style="left: 36.25%; top: 95.94%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="3228" data-x="-1210.0" data-y="1140.0" data-z="-620.0" style="left: 12.19%; top: 85.62%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-SingleLogBridge_HR_D-json"><img src="images/SingleLogBridge.webp" class="image">        <div class="dot" data-index="3237" data-x="-270.0" data-y="1340.0" data-z="-600.0" style="left: 41.56%; top: 91.88%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="3239" data-x="-440.0" data-y="1470.0" data-z="-540.42615" style="left: 36.25%; top: 95.94%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="3246" data-x="-1210.0" data-y="1140.0" data-z="-620.0" style="left: 12.19%; top: 85.62%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-UndergroundAltar_HR_D-json">
@@ -459,9 +461,9 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('UndergroundAltar_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('UndergroundAltar_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-UndergroundAltar_HR_D-json"><img src="images/UndergroundAltar.webp" class="image">        <div class="dot" data-index="3375" data-x="630.0" data-y="-1150.0" data-z="-400.0" style="left: 69.69%; top: 14.06%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="3377" data-x="-1190.0" data-y="-1050.0" data-z="0.0" style="left: 12.81%; top: 17.19%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="3386" data-x="260.0" data-y="-120.0" data-z="0.0" style="left: 58.12%; top: 46.25%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-UndergroundAltar_HR_D-json"><img src="images/UndergroundAltar.webp" class="image">        <div class="dot" data-index="3387" data-x="630.0" data-y="-1150.0" data-z="-400.0" style="left: 69.69%; top: 14.06%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="3389" data-x="-1190.0" data-y="-1050.0" data-z="0.0" style="left: 12.81%; top: 17.19%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="3398" data-x="260.0" data-y="-120.0" data-z="0.0" style="left: 58.12%; top: 46.25%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="group-header">废墟1层</div>
@@ -480,8 +482,8 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_Forest_06_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Ruins_Forest_06_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Ruins_Forest_06_HR_D-json"><img src="images/Ruins_Forest_06.webp" class="image">        <div class="dot" data-index="6865" data-x="530.0" data-y="860.0" data-z="-20.0" style="left: 66.56%; top: 76.88%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="6866" data-x="930.0" data-y="570.0" data-z="-599.9999" style="left: 79.06%; top: 67.81%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Ruins_Forest_06_HR_D-json"><img src="images/Ruins_Forest_06.webp" class="image">        <div class="dot" data-index="6846" data-x="530.0" data-y="860.0" data-z="-20.0" style="left: 66.56%; top: 76.88%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="6847" data-x="930.0" data-y="570.0" data-z="-599.9999" style="left: 79.06%; top: 67.81%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-Ruins_SlimeForest_01_HR_D-json">
@@ -499,8 +501,8 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_SlimeForest_01_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Ruins_SlimeForest_01_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Ruins_SlimeForest_01_HR_D-json"><img src="images/Ruins_SlimeForest_01.webp" class="image">        <div class="dot" data-index="7300" data-x="-1000.0" data-y="-129.99995" data-z="0.0" style="left: 18.75%; top: 45.94%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="7309" data-x="-560.0" data-y="500.00003" data-z="0.0" style="left: 32.50%; top: 65.63%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Ruins_SlimeForest_01_HR_D-json"><img src="images/Ruins_SlimeForest_01.webp" class="image">        <div class="dot" data-index="7275" data-x="-1000.0" data-y="-129.99995" data-z="0.0" style="left: 18.75%; top: 45.94%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="7284" data-x="-560.0" data-y="500.00003" data-z="0.0" style="left: 32.50%; top: 65.63%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-Ruins_Square_02_HR_D-json">
@@ -518,8 +520,8 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_Square_02_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Ruins_Square_02_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Ruins_Square_02_HR_D-json"><img src="images/Ruins_Square_02.webp" class="image">        <div class="dot" data-index="7352" data-x="140.0" data-y="120.0" data-z="0.0" style="left: 54.38%; top: 53.75%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="7357" data-x="-1430.0" data-y="680.00006" data-z="0.0" style="left: 5.31%; top: 71.25%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Ruins_Square_02_HR_D-json"><img src="images/Ruins_Square_02.webp" class="image">        <div class="dot" data-index="7328" data-x="140.0" data-y="120.0" data-z="0.0" style="left: 54.38%; top: 53.75%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="7333" data-x="-1430.0" data-y="680.00006" data-z="0.0" style="left: 5.31%; top: 71.25%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-Ruins_Wells_02_HR_D-json">
@@ -537,8 +539,8 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_Wells_02_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Ruins_Wells_02_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Ruins_Wells_02_HR_D-json"><img src="images/Ruins_Wells_02.webp" class="image">        <div class="dot" data-index="7848" data-x="250.0" data-y="180.0" data-z="0.0" style="left: 57.81%; top: 55.62%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="7849" data-x="-1070.0" data-y="540.0" data-z="0.0" style="left: 16.56%; top: 66.88%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Ruins_Wells_02_HR_D-json"><img src="images/Ruins_Wells_02.webp" class="image">        <div class="dot" data-index="7817" data-x="250.0" data-y="180.0" data-z="0.0" style="left: 57.81%; top: 55.62%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="7818" data-x="-1070.0" data-y="540.0" data-z="0.0" style="left: 16.56%; top: 66.88%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
 </div>
@@ -551,8 +553,8 @@
     </div>
     <div class="summary" id="summary-section">
         <h2>所有坐标详情</h2>
-        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-1284">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1284, this)"></td>
+        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-1286">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1286, this)"></td>
         <td>废墟2层地牢</td>
         <td>Crypt_AltarRoomAB_HR_D.json</td>
         <td>祭坛室</td>
@@ -561,8 +563,8 @@
         <td>-1080.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-1285">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1285, this)"></td>
+    <tr id="row-1287">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1287, this)"></td>
         <td>废墟2层地牢</td>
         <td>Crypt_AltarRoomAB_HR_D.json</td>
         <td>祭坛室</td>
@@ -571,8 +573,8 @@
         <td>230.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-1293">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1293, this)"></td>
+    <tr id="row-1295">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1295, this)"></td>
         <td>废墟2层地牢</td>
         <td>Crypt_AltarRoomAB_HR_D.json</td>
         <td>祭坛室</td>
@@ -581,8 +583,8 @@
         <td>410.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-1447">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Cemetery_02_HR_D-json', 1447, this)"></td>
+    <tr id="row-1458">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Cemetery_02_HR_D-json', 1458, this)"></td>
         <td>废墟2层地牢</td>
         <td>Cemetery_02_HR_D.json</td>
         <td>棺材房</td>
@@ -591,8 +593,8 @@
         <td>-540.00</td>
         <td>-500.00</td>
     </tr>
-    <tr id="row-1448">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Cemetery_02_HR_D-json', 1448, this)"></td>
+    <tr id="row-1459">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Cemetery_02_HR_D-json', 1459, this)"></td>
         <td>废墟2层地牢</td>
         <td>Cemetery_02_HR_D.json</td>
         <td>棺材房</td>
@@ -601,8 +603,8 @@
         <td>-560.00</td>
         <td>-500.00</td>
     </tr>
-    <tr id="row-1449">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Cemetery_02_HR_D-json', 1449, this)"></td>
+    <tr id="row-1460">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Cemetery_02_HR_D-json', 1460, this)"></td>
         <td>废墟2层地牢</td>
         <td>Cemetery_02_HR_D.json</td>
         <td>棺材房</td>
@@ -611,8 +613,8 @@
         <td>360.00</td>
         <td>-500.00</td>
     </tr>
-    <tr id="row-1512">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CenterTower_HR_D-json', 1512, this)"></td>
+    <tr id="row-1523">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CenterTower_HR_D-json', 1523, this)"></td>
         <td>废墟2层地牢</td>
         <td>CenterTower_HR_D.json</td>
         <td>巨型环厅</td>
@@ -621,8 +623,8 @@
         <td>280.00</td>
         <td>-10.00</td>
     </tr>
-    <tr id="row-1529">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CenterTower_HR_D-json', 1529, this)"></td>
+    <tr id="row-1540">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CenterTower_HR_D-json', 1540, this)"></td>
         <td>废墟2层地牢</td>
         <td>CenterTower_HR_D.json</td>
         <td>巨型环厅</td>
@@ -631,8 +633,8 @@
         <td>3190.00</td>
         <td>-10.00</td>
     </tr>
-    <tr id="row-1589">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CliffBridge_HR_D-json', 1589, this)"></td>
+    <tr id="row-1600">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CliffBridge_HR_D-json', 1600, this)"></td>
         <td>废墟2层地牢</td>
         <td>CliffBridge_HR_D.json</td>
         <td>悬崖</td>
@@ -641,8 +643,8 @@
         <td>720.00</td>
         <td>-960.00</td>
     </tr>
-    <tr id="row-1590">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CliffBridge_HR_D-json', 1590, this)"></td>
+    <tr id="row-1601">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CliffBridge_HR_D-json', 1601, this)"></td>
         <td>废墟2层地牢</td>
         <td>CliffBridge_HR_D.json</td>
         <td>悬崖</td>
@@ -651,8 +653,8 @@
         <td>-620.00</td>
         <td>-960.00</td>
     </tr>
-    <tr id="row-1591">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CliffBridge_HR_D-json', 1591, this)"></td>
+    <tr id="row-1602">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CliffBridge_HR_D-json', 1602, this)"></td>
         <td>废墟2层地牢</td>
         <td>CliffBridge_HR_D.json</td>
         <td>悬崖</td>
@@ -661,8 +663,8 @@
         <td>-620.00</td>
         <td>-960.00</td>
     </tr>
-    <tr id="row-1840">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('EightToOne_02_HR_D-json', 1840, this)"></td>
+    <tr id="row-1851">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('EightToOne_02_HR_D-json', 1851, this)"></td>
         <td>废墟2层地牢</td>
         <td>EightToOne_02_HR_D.json</td>
         <td>幽鬼巢穴</td>
@@ -671,8 +673,8 @@
         <td>-510.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-1841">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('EightToOne_02_HR_D-json', 1841, this)"></td>
+    <tr id="row-1852">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('EightToOne_02_HR_D-json', 1852, this)"></td>
         <td>废墟2层地牢</td>
         <td>EightToOne_02_HR_D.json</td>
         <td>幽鬼巢穴</td>
@@ -681,8 +683,8 @@
         <td>-520.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-1843">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('EightToOne_02_HR_D-json', 1843, this)"></td>
+    <tr id="row-1854">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('EightToOne_02_HR_D-json', 1854, this)"></td>
         <td>废墟2层地牢</td>
         <td>EightToOne_02_HR_D.json</td>
         <td>幽鬼巢穴</td>
@@ -691,8 +693,8 @@
         <td>-900.00</td>
         <td>-400.00</td>
     </tr>
-    <tr id="row-2029">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('HBridge_HR_D-json', 2029, this)"></td>
+    <tr id="row-2049">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('HBridge_HR_D-json', 2049, this)"></td>
         <td>废墟2层地牢</td>
         <td>HBridge_HR_D.json</td>
         <td>中心桥</td>
@@ -701,8 +703,8 @@
         <td>-500.00</td>
         <td>-500.00</td>
     </tr>
-    <tr id="row-2031">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('HBridge_HR_D-json', 2031, this)"></td>
+    <tr id="row-2051">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('HBridge_HR_D-json', 2051, this)"></td>
         <td>废墟2层地牢</td>
         <td>HBridge_HR_D.json</td>
         <td>中心桥</td>
@@ -711,8 +713,8 @@
         <td>-260.00</td>
         <td>-350.00</td>
     </tr>
-    <tr id="row-2032">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('HBridge_HR_D-json', 2032, this)"></td>
+    <tr id="row-2052">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('HBridge_HR_D-json', 2052, this)"></td>
         <td>废墟2层地牢</td>
         <td>HBridge_HR_D.json</td>
         <td>中心桥</td>
@@ -721,8 +723,8 @@
         <td>-340.00</td>
         <td>-350.00</td>
     </tr>
-    <tr id="row-2152">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Maze_HR_D-json', 2152, this)"></td>
+    <tr id="row-2172">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Maze_HR_D-json', 2172, this)"></td>
         <td>废墟2层地牢</td>
         <td>Maze_HR_D.json</td>
         <td>迷宫</td>
@@ -731,8 +733,8 @@
         <td>190.00</td>
         <td>-100.00</td>
     </tr>
-    <tr id="row-2153">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Maze_HR_D-json', 2153, this)"></td>
+    <tr id="row-2173">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Maze_HR_D-json', 2173, this)"></td>
         <td>废墟2层地牢</td>
         <td>Maze_HR_D.json</td>
         <td>迷宫</td>
@@ -741,8 +743,8 @@
         <td>160.00</td>
         <td>-100.00</td>
     </tr>
-    <tr id="row-2154">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Maze_HR_D-json', 2154, this)"></td>
+    <tr id="row-2174">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Maze_HR_D-json', 2174, this)"></td>
         <td>废墟2层地牢</td>
         <td>Maze_HR_D.json</td>
         <td>迷宫</td>
@@ -751,8 +753,8 @@
         <td>-80.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-2435">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('AdmirerRoom_HR_D-json', 2435, this)"></td>
+    <tr id="row-2461">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('AdmirerRoom_HR_D-json', 2461, this)"></td>
         <td>废墟2层地牢</td>
         <td>AdmirerRoom_HR_D.json</td>
         <td>信徒会所</td>
@@ -761,8 +763,8 @@
         <td>-800.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-2436">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('AdmirerRoom_HR_D-json', 2436, this)"></td>
+    <tr id="row-2462">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('AdmirerRoom_HR_D-json', 2462, this)"></td>
         <td>废墟2层地牢</td>
         <td>AdmirerRoom_HR_D.json</td>
         <td>信徒会所</td>
@@ -771,8 +773,8 @@
         <td>-470.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-2437">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('AdmirerRoom_HR_D-json', 2437, this)"></td>
+    <tr id="row-2463">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('AdmirerRoom_HR_D-json', 2463, this)"></td>
         <td>废墟2层地牢</td>
         <td>AdmirerRoom_HR_D.json</td>
         <td>信徒会所</td>
@@ -781,8 +783,8 @@
         <td>140.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-2526">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Catacomb_HR_D-json', 2526, this)"></td>
+    <tr id="row-2552">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Catacomb_HR_D-json', 2552, this)"></td>
         <td>废墟2层地牢</td>
         <td>Catacomb_HR_D.json</td>
         <td>地下墓穴</td>
@@ -791,8 +793,8 @@
         <td>330.00</td>
         <td>-420.00</td>
     </tr>
-    <tr id="row-2544">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Catacomb_HR_D-json', 2544, this)"></td>
+    <tr id="row-2570">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Catacomb_HR_D-json', 2570, this)"></td>
         <td>废墟2层地牢</td>
         <td>Catacomb_HR_D.json</td>
         <td>地下墓穴</td>
@@ -801,8 +803,8 @@
         <td>290.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-2545">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Catacomb_HR_D-json', 2545, this)"></td>
+    <tr id="row-2571">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Catacomb_HR_D-json', 2571, this)"></td>
         <td>废墟2层地牢</td>
         <td>Catacomb_HR_D.json</td>
         <td>地下墓穴</td>
@@ -811,8 +813,8 @@
         <td>290.00</td>
         <td>-420.00</td>
     </tr>
-    <tr id="row-2659">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Connector_Trap_02_HR_D-json', 2659, this)"></td>
+    <tr id="row-2685">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Connector_Trap_02_HR_D-json', 2685, this)"></td>
         <td>废墟2层地牢</td>
         <td>Connector_Trap_02_HR_D.json</td>
         <td>陷阱走廊 B</td>
@@ -821,8 +823,8 @@
         <td>480.00</td>
         <td>-400.00</td>
     </tr>
-    <tr id="row-2660">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Connector_Trap_02_HR_D-json', 2660, this)"></td>
+    <tr id="row-2686">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Connector_Trap_02_HR_D-json', 2686, this)"></td>
         <td>废墟2层地牢</td>
         <td>Connector_Trap_02_HR_D.json</td>
         <td>陷阱走廊 B</td>
@@ -831,8 +833,8 @@
         <td>500.00</td>
         <td>-400.00</td>
     </tr>
-    <tr id="row-2661">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Connector_Trap_02_HR_D-json', 2661, this)"></td>
+    <tr id="row-2687">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Connector_Trap_02_HR_D-json', 2687, this)"></td>
         <td>废墟2层地牢</td>
         <td>Connector_Trap_02_HR_D.json</td>
         <td>陷阱走廊 B</td>
@@ -841,8 +843,8 @@
         <td>230.00</td>
         <td>-400.00</td>
     </tr>
-    <tr id="row-2721">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CorridorofDarkPriests_HR_D-json', 2721, this)"></td>
+    <tr id="row-2747">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CorridorofDarkPriests_HR_D-json', 2747, this)"></td>
         <td>废墟2层地牢</td>
         <td>CorridorofDarkPriests_HR_D.json</td>
         <td>黑暗祭司</td>
@@ -851,8 +853,8 @@
         <td>-1010.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-2728">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CorridorofDarkPriests_HR_D-json', 2728, this)"></td>
+    <tr id="row-2754">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CorridorofDarkPriests_HR_D-json', 2754, this)"></td>
         <td>废墟2层地牢</td>
         <td>CorridorofDarkPriests_HR_D.json</td>
         <td>黑暗祭司</td>
@@ -861,8 +863,8 @@
         <td>370.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-2730">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CorridorofDarkPriests_HR_D-json', 2730, this)"></td>
+    <tr id="row-2756">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CorridorofDarkPriests_HR_D-json', 2756, this)"></td>
         <td>废墟2层地牢</td>
         <td>CorridorofDarkPriests_HR_D.json</td>
         <td>黑暗祭司</td>
@@ -871,8 +873,8 @@
         <td>440.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-2769">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CrossRoad_HR_D-json', 2769, this)"></td>
+    <tr id="row-2795">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CrossRoad_HR_D-json', 2795, this)"></td>
         <td>废墟2层地牢</td>
         <td>CrossRoad_HR_D.json</td>
         <td>十字路口</td>
@@ -881,8 +883,8 @@
         <td>-120.00</td>
         <td>-400.00</td>
     </tr>
-    <tr id="row-2770">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CrossRoad_HR_D-json', 2770, this)"></td>
+    <tr id="row-2796">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CrossRoad_HR_D-json', 2796, this)"></td>
         <td>废墟2层地牢</td>
         <td>CrossRoad_HR_D.json</td>
         <td>十字路口</td>
@@ -891,8 +893,8 @@
         <td>840.00</td>
         <td>-400.00</td>
     </tr>
-    <tr id="row-2771">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CrossRoad_HR_D-json', 2771, this)"></td>
+    <tr id="row-2797">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CrossRoad_HR_D-json', 2797, this)"></td>
         <td>废墟2层地牢</td>
         <td>CrossRoad_HR_D.json</td>
         <td>十字路口</td>
@@ -901,8 +903,8 @@
         <td>1370.00</td>
         <td>-400.00</td>
     </tr>
-    <tr id="row-2834">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('FishingGround_HR_D-json', 2834, this)"></td>
+    <tr id="row-2858">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('FishingGround_HR_D-json', 2858, this)"></td>
         <td>废墟2层地牢</td>
         <td>FishingGround_HR_D.json</td>
         <td>渔场</td>
@@ -911,8 +913,8 @@
         <td>-880.00</td>
         <td>100.00</td>
     </tr>
-    <tr id="row-2835">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('FishingGround_HR_D-json', 2835, this)"></td>
+    <tr id="row-2859">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('FishingGround_HR_D-json', 2859, this)"></td>
         <td>废墟2层地牢</td>
         <td>FishingGround_HR_D.json</td>
         <td>渔场</td>
@@ -921,8 +923,8 @@
         <td>-428.00</td>
         <td>100.00</td>
     </tr>
-    <tr id="row-2836">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('FishingGround_HR_D-json', 2836, this)"></td>
+    <tr id="row-2860">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('FishingGround_HR_D-json', 2860, this)"></td>
         <td>废墟2层地牢</td>
         <td>FishingGround_HR_D.json</td>
         <td>渔场</td>
@@ -931,8 +933,8 @@
         <td>1240.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-2899">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('HighPriestOssuary_HR_D-json', 2899, this)"></td>
+    <tr id="row-2921">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('HighPriestOssuary_HR_D-json', 2921, this)"></td>
         <td>废墟2层地牢</td>
         <td>HighPriestOssuary_HR_D.json</td>
         <td>大祭司</td>
@@ -941,8 +943,8 @@
         <td>710.00</td>
         <td>-500.00</td>
     </tr>
-    <tr id="row-2926">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('HighPriestOssuary_HR_D-json', 2926, this)"></td>
+    <tr id="row-2948">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('HighPriestOssuary_HR_D-json', 2948, this)"></td>
         <td>废墟2层地牢</td>
         <td>HighPriestOssuary_HR_D.json</td>
         <td>大祭司</td>
@@ -951,8 +953,8 @@
         <td>-110.00</td>
         <td>-699.12</td>
     </tr>
-    <tr id="row-2927">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('HighPriestOssuary_HR_D-json', 2927, this)"></td>
+    <tr id="row-2949">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('HighPriestOssuary_HR_D-json', 2949, this)"></td>
         <td>废墟2层地牢</td>
         <td>HighPriestOssuary_HR_D.json</td>
         <td>大祭司</td>
@@ -961,8 +963,8 @@
         <td>-400.00</td>
         <td>-499.97</td>
     </tr>
-    <tr id="row-2970">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('LowPyramid_HR_D-json', 2970, this)"></td>
+    <tr id="row-2992">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('LowPyramid_HR_D-json', 2992, this)"></td>
         <td>废墟2层地牢</td>
         <td>LowPyramid_HR_D.json</td>
         <td>金字塔</td>
@@ -971,8 +973,8 @@
         <td>110.00</td>
         <td>-400.00</td>
     </tr>
-    <tr id="row-2977">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('LowPyramid_HR_D-json', 2977, this)"></td>
+    <tr id="row-2999">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('LowPyramid_HR_D-json', 2999, this)"></td>
         <td>废墟2层地牢</td>
         <td>LowPyramid_HR_D.json</td>
         <td>金字塔</td>
@@ -981,8 +983,8 @@
         <td>250.00</td>
         <td>-400.00</td>
     </tr>
-    <tr id="row-2978">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('LowPyramid_HR_D-json', 2978, this)"></td>
+    <tr id="row-3000">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('LowPyramid_HR_D-json', 3000, this)"></td>
         <td>废墟2层地牢</td>
         <td>LowPyramid_HR_D.json</td>
         <td>金字塔</td>
@@ -991,8 +993,8 @@
         <td>50.00</td>
         <td>-400.00</td>
     </tr>
-    <tr id="row-3084">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Prison_01_HR_D-json', 3084, this)"></td>
+    <tr id="row-3104">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Prison_01_HR_D-json', 3104, this)"></td>
         <td>废墟2层地牢</td>
         <td>Prison_01_HR_D.json</td>
         <td>监狱 B</td>
@@ -1001,8 +1003,8 @@
         <td>-1000.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-3098">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Prison_01_HR_D-json', 3098, this)"></td>
+    <tr id="row-3118">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Prison_01_HR_D-json', 3118, this)"></td>
         <td>废墟2层地牢</td>
         <td>Prison_01_HR_D.json</td>
         <td>监狱 B</td>
@@ -1011,8 +1013,8 @@
         <td>-1270.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-3100">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Prison_01_HR_D-json', 3100, this)"></td>
+    <tr id="row-3120">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Prison_01_HR_D-json', 3120, this)"></td>
         <td>废墟2层地牢</td>
         <td>Prison_01_HR_D.json</td>
         <td>监狱 B</td>
@@ -1021,8 +1023,8 @@
         <td>270.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-3112">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Sanctum_HR_D-json', 3112, this)"></td>
+    <tr id="row-3132">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Sanctum_HR_D-json', 3132, this)"></td>
         <td>废墟2层地牢</td>
         <td>Sanctum_HR_D.json</td>
         <td>圣所</td>
@@ -1031,8 +1033,8 @@
         <td>870.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-3117">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Sanctum_HR_D-json', 3117, this)"></td>
+    <tr id="row-3137">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Sanctum_HR_D-json', 3137, this)"></td>
         <td>废墟2层地牢</td>
         <td>Sanctum_HR_D.json</td>
         <td>圣所</td>
@@ -1041,8 +1043,8 @@
         <td>920.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-3120">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Sanctum_HR_D-json', 3120, this)"></td>
+    <tr id="row-3140">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Sanctum_HR_D-json', 3140, this)"></td>
         <td>废墟2层地牢</td>
         <td>Sanctum_HR_D.json</td>
         <td>圣所</td>
@@ -1051,8 +1053,8 @@
         <td>610.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-3161">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Sewers_HR_D-json', 3161, this)"></td>
+    <tr id="row-3179">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Sewers_HR_D-json', 3179, this)"></td>
         <td>废墟2层地牢</td>
         <td>Sewers_HR_D.json</td>
         <td>下水道</td>
@@ -1061,8 +1063,8 @@
         <td>1400.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-3162">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Sewers_HR_D-json', 3162, this)"></td>
+    <tr id="row-3180">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Sewers_HR_D-json', 3180, this)"></td>
         <td>废墟2层地牢</td>
         <td>Sewers_HR_D.json</td>
         <td>下水道</td>
@@ -1071,8 +1073,8 @@
         <td>1340.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-3163">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Sewers_HR_D-json', 3163, this)"></td>
+    <tr id="row-3181">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Sewers_HR_D-json', 3181, this)"></td>
         <td>废墟2层地牢</td>
         <td>Sewers_HR_D.json</td>
         <td>下水道</td>
@@ -1081,8 +1083,8 @@
         <td>-1510.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-3219">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('SingleLogBridge_HR_D-json', 3219, this)"></td>
+    <tr id="row-3237">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('SingleLogBridge_HR_D-json', 3237, this)"></td>
         <td>废墟2层地牢</td>
         <td>SingleLogBridge_HR_D.json</td>
         <td>长桥</td>
@@ -1091,8 +1093,8 @@
         <td>1340.00</td>
         <td>-600.00</td>
     </tr>
-    <tr id="row-3221">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('SingleLogBridge_HR_D-json', 3221, this)"></td>
+    <tr id="row-3239">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('SingleLogBridge_HR_D-json', 3239, this)"></td>
         <td>废墟2层地牢</td>
         <td>SingleLogBridge_HR_D.json</td>
         <td>长桥</td>
@@ -1101,8 +1103,8 @@
         <td>1470.00</td>
         <td>-540.43</td>
     </tr>
-    <tr id="row-3228">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('SingleLogBridge_HR_D-json', 3228, this)"></td>
+    <tr id="row-3246">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('SingleLogBridge_HR_D-json', 3246, this)"></td>
         <td>废墟2层地牢</td>
         <td>SingleLogBridge_HR_D.json</td>
         <td>长桥</td>
@@ -1111,8 +1113,8 @@
         <td>1140.00</td>
         <td>-620.00</td>
     </tr>
-    <tr id="row-3375">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('UndergroundAltar_HR_D-json', 3375, this)"></td>
+    <tr id="row-3387">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('UndergroundAltar_HR_D-json', 3387, this)"></td>
         <td>废墟2层地牢</td>
         <td>UndergroundAltar_HR_D.json</td>
         <td>地下神坛</td>
@@ -1121,8 +1123,8 @@
         <td>-1150.00</td>
         <td>-400.00</td>
     </tr>
-    <tr id="row-3377">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('UndergroundAltar_HR_D-json', 3377, this)"></td>
+    <tr id="row-3389">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('UndergroundAltar_HR_D-json', 3389, this)"></td>
         <td>废墟2层地牢</td>
         <td>UndergroundAltar_HR_D.json</td>
         <td>地下神坛</td>
@@ -1131,8 +1133,8 @@
         <td>-1050.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-3386">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('UndergroundAltar_HR_D-json', 3386, this)"></td>
+    <tr id="row-3398">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('UndergroundAltar_HR_D-json', 3398, this)"></td>
         <td>废墟2层地牢</td>
         <td>UndergroundAltar_HR_D.json</td>
         <td>地下神坛</td>
@@ -1141,8 +1143,8 @@
         <td>-120.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-6865">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Forest_06_HR_D-json', 6865, this)"></td>
+    <tr id="row-6846">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Forest_06_HR_D-json', 6846, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_Forest_06_HR_D.json</td>
         <td>迷失森林</td>
@@ -1151,8 +1153,8 @@
         <td>860.00</td>
         <td>-20.00</td>
     </tr>
-    <tr id="row-6866">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Forest_06_HR_D-json', 6866, this)"></td>
+    <tr id="row-6847">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Forest_06_HR_D-json', 6847, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_Forest_06_HR_D.json</td>
         <td>迷失森林</td>
@@ -1161,8 +1163,8 @@
         <td>570.00</td>
         <td>-600.00</td>
     </tr>
-    <tr id="row-7300">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_SlimeForest_01_HR_D-json', 7300, this)"></td>
+    <tr id="row-7275">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_SlimeForest_01_HR_D-json', 7275, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_SlimeForest_01_HR_D.json</td>
         <td>史莱姆森林</td>
@@ -1171,8 +1173,8 @@
         <td>-130.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-7309">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_SlimeForest_01_HR_D-json', 7309, this)"></td>
+    <tr id="row-7284">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_SlimeForest_01_HR_D-json', 7284, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_SlimeForest_01_HR_D.json</td>
         <td>史莱姆森林</td>
@@ -1181,8 +1183,8 @@
         <td>500.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-7352">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Square_02_HR_D-json', 7352, this)"></td>
+    <tr id="row-7328">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Square_02_HR_D-json', 7328, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_Square_02_HR_D.json</td>
         <td>广场 B</td>
@@ -1191,8 +1193,8 @@
         <td>120.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-7357">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Square_02_HR_D-json', 7357, this)"></td>
+    <tr id="row-7333">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Square_02_HR_D-json', 7333, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_Square_02_HR_D.json</td>
         <td>广场 B</td>
@@ -1201,8 +1203,8 @@
         <td>680.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-7848">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Wells_02_HR_D-json', 7848, this)"></td>
+    <tr id="row-7817">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Wells_02_HR_D-json', 7817, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_Wells_02_HR_D.json</td>
         <td>水井</td>
@@ -1211,8 +1213,8 @@
         <td>180.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-7849">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Wells_02_HR_D-json', 7849, this)"></td>
+    <tr id="row-7818">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Wells_02_HR_D-json', 7818, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_Wells_02_HR_D.json</td>
         <td>水井</td>

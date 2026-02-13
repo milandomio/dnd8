@@ -9,6 +9,7 @@
         .back-link { display: block; text-align: center; margin-bottom: 10px; color: #FFC107; font-size: 18px; text-decoration: none; font-weight: bold; }
         .back-link:hover { text-decoration: underline; color: #fff; }
         h1 { margin-bottom: 8px; font-size: 28px; text-align: center; color: #00bcd4; }
+        .disclaimer { text-align: center; color: #ff6b6b; font-size: 14px; margin-bottom: 10px; padding: 8px; background-color: #3a3a3a; border-radius: 5px; }
         .debug-title { display: none; font-size: 16px; color: #888; text-align: center; margin-bottom: 5px; }
         .debug-title.visible { display: block; }
         .maps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px; }
@@ -63,8 +64,10 @@
 <body>
     <a href="index.html" class="back-link">&lt;&lt; 返回总览</a>
     <h1>粗厚前足>目标>地狱三头犬 位置汇总</h1>
+    <div class="disclaimer">⚠️ 数据有误差，以实际游戏内为准</div>
     <div class="debug-title" id="debug-title">粗厚前足 (ThickForefoot) 目标 地狱三头犬 (Cerberus)</div>
-    <div class="maps-grid" id="maps-grid">    <div class="map-card" id="map-card-Inferno_Doomcage_HR_D-json">
+    <div class="maps-grid" id="maps-grid">    <div class="group-header">废墟3层炼狱</div>
+    <div class="map-card" id="map-card-Inferno_Doomcage_HR_D-json">
         <h3 class="map-title">末日囚笼<span class='debug-text'> (Doomcage)</span><div class='map-filename'>Inferno_Doomcage_HR_D.json</div></h3>
         <div class="map-info">Inferno_Doomcage.png | 找到 1 个位置 | 自动范围: ±1600</div>
         <div class="controls">
@@ -79,7 +82,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Inferno_Doomcage_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Inferno_Doomcage_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Inferno_Doomcage_HR_D-json"><img src="images/Inferno_Doomcage.webp" class="image">        <div class="dot" data-index="5569" data-x="0.0" data-y="205.0" data-z="0.0" style="left: 50.00%; top: 56.41%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Inferno_Doomcage_HR_D-json"><img src="images/Inferno_Doomcage.webp" class="image">        <div class="dot" data-index="5536" data-x="0.0" data-y="205.0" data-z="0.0" style="left: 50.00%; top: 56.41%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-Inferno_Hellcrossbridge_HR_D-json">
@@ -97,8 +100,8 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Inferno_Hellcrossbridge_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Inferno_Hellcrossbridge_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Inferno_Hellcrossbridge_HR_D-json"><img src="images/Inferno_Hellcrossbridge.webp" class="image">        <div class="dot" data-index="5700" data-x="0.0" data-y="150.0" data-z="-900.0" style="left: 50.00%; top: 54.69%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="5736" data-x="-70.0" data-y="150.0" data-z="0.0" style="left: 47.81%; top: 54.69%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Inferno_Hellcrossbridge_HR_D-json"><img src="images/Inferno_Hellcrossbridge.webp" class="image">        <div class="dot" data-index="5670" data-x="0.0" data-y="150.0" data-z="-900.0" style="left: 50.00%; top: 54.69%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5706" data-x="-70.0" data-y="150.0" data-z="0.0" style="left: 47.81%; top: 54.69%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-InfernoColumns_HR_D-json">
@@ -116,7 +119,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('InfernoColumns_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('InfernoColumns_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-InfernoColumns_HR_D-json"><img src="images/InfernoColumns.webp" class="image">        <div class="dot" data-index="6118" data-x="331.0" data-y="382.0" data-z="-449.9999" style="left: 60.34%; top: 61.94%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-InfernoColumns_HR_D-json"><img src="images/InfernoColumns.webp" class="image">        <div class="dot" data-index="6102" data-x="331.0" data-y="382.0" data-z="-449.9999" style="left: 60.34%; top: 61.94%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
 </div>
@@ -129,8 +132,8 @@
     </div>
     <div class="summary" id="summary-section">
         <h2>所有坐标详情</h2>
-        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-5569">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Inferno_Doomcage_HR_D-json', 5569, this)"></td>
+        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-5536">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Inferno_Doomcage_HR_D-json', 5536, this)"></td>
         <td>废墟3层炼狱</td>
         <td>Inferno_Doomcage_HR_D.json</td>
         <td>末日囚笼</td>
@@ -139,8 +142,8 @@
         <td>205.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-5700">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Inferno_Hellcrossbridge_HR_D-json', 5700, this)"></td>
+    <tr id="row-5670">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Inferno_Hellcrossbridge_HR_D-json', 5670, this)"></td>
         <td>废墟3层炼狱</td>
         <td>Inferno_Hellcrossbridge_HR_D.json</td>
         <td>百鬼桥</td>
@@ -149,8 +152,8 @@
         <td>150.00</td>
         <td>-900.00</td>
     </tr>
-    <tr id="row-5736">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Inferno_Hellcrossbridge_HR_D-json', 5736, this)"></td>
+    <tr id="row-5706">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Inferno_Hellcrossbridge_HR_D-json', 5706, this)"></td>
         <td>废墟3层炼狱</td>
         <td>Inferno_Hellcrossbridge_HR_D.json</td>
         <td>百鬼桥</td>
@@ -159,8 +162,8 @@
         <td>150.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-6118">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('InfernoColumns_HR_D-json', 6118, this)"></td>
+    <tr id="row-6102">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('InfernoColumns_HR_D-json', 6102, this)"></td>
         <td>废墟3层炼狱</td>
         <td>InfernoColumns_HR_D.json</td>
         <td>鲜血柱廊</td>

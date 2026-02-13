@@ -9,6 +9,7 @@
         .back-link { display: block; text-align: center; margin-bottom: 10px; color: #FFC107; font-size: 18px; text-decoration: none; font-weight: bold; }
         .back-link:hover { text-decoration: underline; color: #fff; }
         h1 { margin-bottom: 8px; font-size: 28px; text-align: center; color: #00bcd4; }
+        .disclaimer { text-align: center; color: #ff6b6b; font-size: 14px; margin-bottom: 10px; padding: 8px; background-color: #3a3a3a; border-radius: 5px; }
         .debug-title { display: none; font-size: 16px; color: #888; text-align: center; margin-bottom: 5px; }
         .debug-title.visible { display: block; }
         .maps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px; }
@@ -63,8 +64,10 @@
 <body>
     <a href="index.html" class="back-link">&lt;&lt; 返回总览</a>
     <h1>踏潮者飞镖投手 位置汇总</h1>
+    <div class="disclaimer">⚠️ 数据有误差，以实际游戏内为准</div>
     <div class="debug-title" id="debug-title">踏潮者飞镖投手 (TidewalkerSlinger)</div>
-    <div class="maps-grid" id="maps-grid">    <div class="map-card" id="map-card-ShipGraveyard_Hole_D-json">
+    <div class="maps-grid" id="maps-grid">    <div class="group-header">水图</div>
+    <div class="map-card" id="map-card-ShipGraveyard_Hole_D-json">
         <h3 class="map-title">蓝洞<span class='debug-text'> (ShipGraveyard_Hole)</span><div class='map-filename'>ShipGraveyard_Hole_D.json</div></h3>
         <div class="map-info">ShipGraveyard_Hole.png | 找到 2 个位置 | 自动范围: ±6400</div>
         <div class="controls">
@@ -79,8 +82,8 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('ShipGraveyard_Hole_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('ShipGraveyard_Hole_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-ShipGraveyard_Hole_D-json"><img src="images/ShipGraveyard_Hole.webp" class="image">        <div class="dot" data-index="8525" data-x="-110.0" data-y="-50.0" data-z="0.0" style="left: 49.14%; top: 49.61%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="8527" data-x="-110.0" data-y="-50.0" data-z="0.0" style="left: 49.14%; top: 49.61%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-ShipGraveyard_Hole_D-json"><img src="images/ShipGraveyard_Hole.webp" class="image">        <div class="dot" data-index="8495" data-x="-110.0" data-y="-50.0" data-z="0.0" style="left: 49.14%; top: 49.61%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8497" data-x="-110.0" data-y="-50.0" data-z="0.0" style="left: 49.14%; top: 49.61%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
 </div>
@@ -93,8 +96,8 @@
     </div>
     <div class="summary" id="summary-section">
         <h2>所有坐标详情</h2>
-        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-8525">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Hole_D-json', 8525, this)"></td>
+        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-8495">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Hole_D-json', 8495, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_Hole_D.json</td>
         <td>蓝洞</td>
@@ -103,8 +106,8 @@
         <td>-50.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-8527">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Hole_D-json', 8527, this)"></td>
+    <tr id="row-8497">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Hole_D-json', 8497, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_Hole_D.json</td>
         <td>蓝洞</td>

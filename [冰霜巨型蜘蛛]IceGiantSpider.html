@@ -9,6 +9,7 @@
         .back-link { display: block; text-align: center; margin-bottom: 10px; color: #FFC107; font-size: 18px; text-decoration: none; font-weight: bold; }
         .back-link:hover { text-decoration: underline; color: #fff; }
         h1 { margin-bottom: 8px; font-size: 28px; text-align: center; color: #00bcd4; }
+        .disclaimer { text-align: center; color: #ff6b6b; font-size: 14px; margin-bottom: 10px; padding: 8px; background-color: #3a3a3a; border-radius: 5px; }
         .debug-title { display: none; font-size: 16px; color: #888; text-align: center; margin-bottom: 5px; }
         .debug-title.visible { display: block; }
         .maps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px; }
@@ -63,8 +64,10 @@
 <body>
     <a href="index.html" class="back-link">&lt;&lt; 返回总览</a>
     <h1>冰霜巨型蜘蛛 位置汇总</h1>
+    <div class="disclaimer">⚠️ 数据有误差，以实际游戏内为准</div>
     <div class="debug-title" id="debug-title">冰霜巨型蜘蛛 (IceGiantSpider)</div>
-    <div class="maps-grid" id="maps-grid">    <div class="map-card" id="map-card-IceAbyss_DeathPit_D-json">
+    <div class="maps-grid" id="maps-grid">    <div class="group-header">冰图2层</div>
+    <div class="map-card" id="map-card-IceAbyss_DeathPit_D-json">
         <h3 class="map-title">死亡深渊<span class='debug-text'> (IceAbyss_DeathPit)</span><div class='map-filename'>IceAbyss_DeathPit_D.json</div></h3>
         <div class="map-info">IceAbyss_DeathPit.png | 找到 8 个位置 | 自动范围: ±1600</div>
         <div class="controls">
@@ -79,14 +82,14 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('IceAbyss_DeathPit_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('IceAbyss_DeathPit_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceAbyss_DeathPit_D-json"><img src="images/IceAbyss_DeathPit.webp" class="image">        <div class="dot" data-index="3681" data-x="140.0" data-y="391.0" data-z="1.2604399" style="left: 54.38%; top: 62.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="3682" data-x="-571.0" data-y="443.0" data-z="1.2604399" style="left: 32.16%; top: 63.84%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="3685" data-x="730.0" data-y="30.0" data-z="-500.0" style="left: 72.81%; top: 50.94%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="3688" data-x="-685.0" data-y="-261.0" data-z="1.2604399" style="left: 28.59%; top: 41.84%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="3689" data-x="-710.0" data-y="30.0" data-z="-500.0" style="left: 27.81%; top: 50.94%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="3690" data-x="-132.0" data-y="339.0" data-z="1.2604399" style="left: 45.88%; top: 60.59%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="3691" data-x="-441.0" data-y="819.0" data-z="1.2604399" style="left: 36.22%; top: 75.59%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="3692" data-x="201.0" data-y="22.0" data-z="1.2604399" style="left: 56.28%; top: 50.69%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceAbyss_DeathPit_D-json"><img src="images/IceAbyss_DeathPit.webp" class="image">        <div class="dot" data-index="3693" data-x="140.0" data-y="391.0" data-z="1.2604399" style="left: 54.38%; top: 62.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="3694" data-x="-571.0" data-y="443.0" data-z="1.2604399" style="left: 32.16%; top: 63.84%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="3697" data-x="730.0" data-y="30.0" data-z="-500.0" style="left: 72.81%; top: 50.94%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="3700" data-x="-685.0" data-y="-261.0" data-z="1.2604399" style="left: 28.59%; top: 41.84%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="3702" data-x="-710.0" data-y="30.0" data-z="-500.0" style="left: 27.81%; top: 50.94%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="3703" data-x="-132.0" data-y="339.0" data-z="1.2604399" style="left: 45.88%; top: 60.59%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="3704" data-x="-441.0" data-y="819.0" data-z="1.2604399" style="left: 36.22%; top: 75.59%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="3706" data-x="201.0" data-y="22.0" data-z="1.2604399" style="left: 56.28%; top: 50.69%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-IceAbyss_ImpRitualRooms_D-json">
@@ -104,7 +107,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('IceAbyss_ImpRitualRooms_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('IceAbyss_ImpRitualRooms_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceAbyss_ImpRitualRooms_D-json"><img src="images/IceAbyss_ImpRitualRooms.webp" class="image">        <div class="dot" data-index="4010" data-x="130.0" data-y="149.0" data-z="-600.0" style="left: 54.06%; top: 54.66%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceAbyss_ImpRitualRooms_D-json"><img src="images/IceAbyss_ImpRitualRooms.webp" class="image">        <div class="dot" data-index="4024" data-x="130.0" data-y="149.0" data-z="-600.0" style="left: 54.06%; top: 54.66%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-IceAbyss_ReversedPyramid_D-json">
@@ -122,10 +125,10 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('IceAbyss_ReversedPyramid_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('IceAbyss_ReversedPyramid_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceAbyss_ReversedPyramid_D-json"><img src="images/IceAbyss_ReversedPyramid.webp" class="image">        <div class="dot" data-index="4091" data-x="1227.0" data-y="921.0" data-z="0.00010944726" style="left: 88.34%; top: 78.78%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4092" data-x="303.0" data-y="2060.0" data-z="0.6426265" style="left: 59.47%; top: 114.38%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4093" data-x="-897.0" data-y="1103.0" data-z="0.00010181787" style="left: 21.97%; top: 84.47%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4094" data-x="274.0" data-y="-8.0" data-z="2.4163082" style="left: 58.56%; top: 49.75%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceAbyss_ReversedPyramid_D-json"><img src="images/IceAbyss_ReversedPyramid.webp" class="image">        <div class="dot" data-index="4105" data-x="1227.0" data-y="921.0" data-z="0.00010944726" style="left: 88.34%; top: 78.78%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4106" data-x="303.0" data-y="2060.0" data-z="0.6426265" style="left: 59.47%; top: 114.38%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4107" data-x="-897.0" data-y="1103.0" data-z="0.00010181787" style="left: 21.97%; top: 84.47%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4108" data-x="274.0" data-y="-8.0" data-z="2.4163082" style="left: 58.56%; top: 49.75%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
 </div>
@@ -138,8 +141,8 @@
     </div>
     <div class="summary" id="summary-section">
         <h2>所有坐标详情</h2>
-        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-3681">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_DeathPit_D-json', 3681, this)"></td>
+        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-3693">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_DeathPit_D-json', 3693, this)"></td>
         <td>冰图2层</td>
         <td>IceAbyss_DeathPit_D.json</td>
         <td>死亡深渊</td>
@@ -148,8 +151,8 @@
         <td>391.00</td>
         <td>1.26</td>
     </tr>
-    <tr id="row-3682">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_DeathPit_D-json', 3682, this)"></td>
+    <tr id="row-3694">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_DeathPit_D-json', 3694, this)"></td>
         <td>冰图2层</td>
         <td>IceAbyss_DeathPit_D.json</td>
         <td>死亡深渊</td>
@@ -158,8 +161,8 @@
         <td>443.00</td>
         <td>1.26</td>
     </tr>
-    <tr id="row-3685">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_DeathPit_D-json', 3685, this)"></td>
+    <tr id="row-3697">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_DeathPit_D-json', 3697, this)"></td>
         <td>冰图2层</td>
         <td>IceAbyss_DeathPit_D.json</td>
         <td>死亡深渊</td>
@@ -168,8 +171,8 @@
         <td>30.00</td>
         <td>-500.00</td>
     </tr>
-    <tr id="row-3688">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_DeathPit_D-json', 3688, this)"></td>
+    <tr id="row-3700">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_DeathPit_D-json', 3700, this)"></td>
         <td>冰图2层</td>
         <td>IceAbyss_DeathPit_D.json</td>
         <td>死亡深渊</td>
@@ -178,8 +181,8 @@
         <td>-261.00</td>
         <td>1.26</td>
     </tr>
-    <tr id="row-3689">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_DeathPit_D-json', 3689, this)"></td>
+    <tr id="row-3702">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_DeathPit_D-json', 3702, this)"></td>
         <td>冰图2层</td>
         <td>IceAbyss_DeathPit_D.json</td>
         <td>死亡深渊</td>
@@ -188,8 +191,8 @@
         <td>30.00</td>
         <td>-500.00</td>
     </tr>
-    <tr id="row-3690">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_DeathPit_D-json', 3690, this)"></td>
+    <tr id="row-3703">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_DeathPit_D-json', 3703, this)"></td>
         <td>冰图2层</td>
         <td>IceAbyss_DeathPit_D.json</td>
         <td>死亡深渊</td>
@@ -198,8 +201,8 @@
         <td>339.00</td>
         <td>1.26</td>
     </tr>
-    <tr id="row-3691">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_DeathPit_D-json', 3691, this)"></td>
+    <tr id="row-3704">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_DeathPit_D-json', 3704, this)"></td>
         <td>冰图2层</td>
         <td>IceAbyss_DeathPit_D.json</td>
         <td>死亡深渊</td>
@@ -208,8 +211,8 @@
         <td>819.00</td>
         <td>1.26</td>
     </tr>
-    <tr id="row-3692">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_DeathPit_D-json', 3692, this)"></td>
+    <tr id="row-3706">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_DeathPit_D-json', 3706, this)"></td>
         <td>冰图2层</td>
         <td>IceAbyss_DeathPit_D.json</td>
         <td>死亡深渊</td>
@@ -218,8 +221,8 @@
         <td>22.00</td>
         <td>1.26</td>
     </tr>
-    <tr id="row-4010">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_ImpRitualRooms_D-json', 4010, this)"></td>
+    <tr id="row-4024">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_ImpRitualRooms_D-json', 4024, this)"></td>
         <td>冰图2层</td>
         <td>IceAbyss_ImpRitualRooms_D.json</td>
         <td>恶灵仪式室</td>
@@ -228,8 +231,8 @@
         <td>149.00</td>
         <td>-600.00</td>
     </tr>
-    <tr id="row-4091">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_ReversedPyramid_D-json', 4091, this)"></td>
+    <tr id="row-4105">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_ReversedPyramid_D-json', 4105, this)"></td>
         <td>冰图2层</td>
         <td>IceAbyss_ReversedPyramid_D.json</td>
         <td>倒金字塔</td>
@@ -238,8 +241,8 @@
         <td>921.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-4092">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_ReversedPyramid_D-json', 4092, this)"></td>
+    <tr id="row-4106">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_ReversedPyramid_D-json', 4106, this)"></td>
         <td>冰图2层</td>
         <td>IceAbyss_ReversedPyramid_D.json</td>
         <td>倒金字塔</td>
@@ -248,8 +251,8 @@
         <td>2060.00</td>
         <td>0.64</td>
     </tr>
-    <tr id="row-4093">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_ReversedPyramid_D-json', 4093, this)"></td>
+    <tr id="row-4107">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_ReversedPyramid_D-json', 4107, this)"></td>
         <td>冰图2层</td>
         <td>IceAbyss_ReversedPyramid_D.json</td>
         <td>倒金字塔</td>
@@ -258,8 +261,8 @@
         <td>1103.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-4094">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_ReversedPyramid_D-json', 4094, this)"></td>
+    <tr id="row-4108">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_ReversedPyramid_D-json', 4108, this)"></td>
         <td>冰图2层</td>
         <td>IceAbyss_ReversedPyramid_D.json</td>
         <td>倒金字塔</td>

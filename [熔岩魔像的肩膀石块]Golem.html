@@ -9,6 +9,7 @@
         .back-link { display: block; text-align: center; margin-bottom: 10px; color: #FFC107; font-size: 18px; text-decoration: none; font-weight: bold; }
         .back-link:hover { text-decoration: underline; color: #fff; }
         h1 { margin-bottom: 8px; font-size: 28px; text-align: center; color: #00bcd4; }
+        .disclaimer { text-align: center; color: #ff6b6b; font-size: 14px; margin-bottom: 10px; padding: 8px; background-color: #3a3a3a; border-radius: 5px; }
         .debug-title { display: none; font-size: 16px; color: #888; text-align: center; margin-bottom: 5px; }
         .debug-title.visible { display: block; }
         .maps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px; }
@@ -63,27 +64,9 @@
 <body>
     <a href="index.html" class="back-link">&lt;&lt; 返回总览</a>
     <h1>熔岩魔像的肩膀石块 位置汇总</h1>
+    <div class="disclaimer">⚠️ 数据有误差，以实际游戏内为准</div>
     <div class="debug-title" id="debug-title">熔岩魔像的肩膀石块 (Golem)</div>
-    <div class="maps-grid" id="maps-grid">    <div class="group-header">哥布林洞穴2层</div>
-    <div class="map-card" id="map-card-Firedeep_BurningCourt_D-json">
-        <h3 class="map-title">焚庭<span class='debug-text'> (BurningCourt)</span><div class='map-filename'>Firedeep_BurningCourt_D.json</div></h3>
-        <div class="map-info">BurningCourt.png | 找到 1 个位置 | 自动范围: ±1600</div>
-        <div class="controls">
-            <div class="input-group">
-                <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('Firedeep_BurningCourt_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-Firedeep_BurningCourt_D-json" value="1600" step="100" onchange="updateMapRange('Firedeep_BurningCourt_D-json')">
-                <button class="btn-scale" onclick="scaleRange('Firedeep_BurningCourt_D-json', 2.0)">x2</button>
-            </div>
-            <button class="btn-rotate" onclick="toggleRotate('Firedeep_BurningCourt_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('Firedeep_BurningCourt_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('Firedeep_BurningCourt_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('Firedeep_BurningCourt_D-json')">↺ 重置</button>
-        </div>
-        <div class="container" id="container-Firedeep_BurningCourt_D-json"><img src="images/BurningCourt.webp" class="image">        <div class="dot" data-index="3464" data-x="675.0" data-y="120.0" data-z="-3.2717965" style="left: 71.09%; top: 53.75%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-</div>
-    </div>
-    <div class="group-header">废墟1层</div>
+    <div class="maps-grid" id="maps-grid">    <div class="group-header">废墟1层</div>
     <div class="map-card" id="map-card-Ruins_Passage_Inner_04_D-json">
         <h3 class="map-title">陷落隘口<span class='debug-text'> (Ruins_FallenPass)</span><div class='map-filename'>Ruins_Passage_Inner_04_D.json</div></h3>
         <div class="map-info">Ruins_Passage_Inner_04.png | 找到 1 个位置 | 自动范围: ±1600</div>
@@ -99,7 +82,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_Passage_Inner_04_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Ruins_Passage_Inner_04_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Ruins_Passage_Inner_04_D-json"><img src="images/Ruins_Passage_Inner_04.webp" class="image">        <div class="dot" data-index="7218" data-x="30.0" data-y="595.0" data-z="55.93702" style="left: 50.94%; top: 68.59%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Ruins_Passage_Inner_04_D-json"><img src="images/Ruins_Passage_Inner_04.webp" class="image">        <div class="dot" data-index="7198" data-x="30.0" data-y="595.0" data-z="55.93702" style="left: 50.94%; top: 68.59%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-Ruins_Square_01_HR_D-json">
@@ -117,7 +100,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_Square_01_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Ruins_Square_01_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Ruins_Square_01_HR_D-json"><img src="images/Ruins_Square_01.webp" class="image">        <div class="dot" data-index="7322" data-x="71.00001" data-y="-50.0" data-z="0.000101" style="left: 52.22%; top: 48.44%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Ruins_Square_01_HR_D-json"><img src="images/Ruins_Square_01.webp" class="image">        <div class="dot" data-index="7298" data-x="71.00001" data-y="-50.0" data-z="0.000101" style="left: 52.22%; top: 48.44%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-Ruins_TowerBridge_Destroyed_HR_D-json">
@@ -135,8 +118,8 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_TowerBridge_Destroyed_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Ruins_TowerBridge_Destroyed_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Ruins_TowerBridge_Destroyed_HR_D-json"><img src="images/Ruins_TowerBridge_Destroyed.webp" class="image">        <div class="dot" data-index="7544" data-x="-102.00003" data-y="-1111.0" data-z="0.0" style="left: 46.81%; top: 15.28%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="7561" data-x="-7.999997" data-y="-107.0" data-z="7.8e-05" style="left: 49.75%; top: 46.66%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Ruins_TowerBridge_Destroyed_HR_D-json"><img src="images/Ruins_TowerBridge_Destroyed.webp" class="image">        <div class="dot" data-index="7520" data-x="-102.00003" data-y="-1111.0" data-z="0.0" style="left: 46.81%; top: 15.28%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="7537" data-x="-7.999997" data-y="-107.0" data-z="7.8e-05" style="left: 49.75%; top: 46.66%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
 </div>
@@ -145,22 +128,12 @@
         <span class="color-dot" style="background-color: cyan;"></span> Z &gt; 299 (高于地面)
         <span class="color-dot" style="background-color: yellow;"></span> -299 ≤ Z ≤ 299 (正常高度)
         <span class="color-dot" style="background-color: red;"></span> Z &lt; -299 (低于地面)
-        <br><strong>位置统计：共 5 个位置点</strong><br><strong>包含地图：</strong> 塔桥, 广场 A, 焚庭, 陷落隘口
+        <br><strong>位置统计：共 4 个位置点</strong><br><strong>包含地图：</strong> 塔桥, 广场 A, 陷落隘口
     </div>
     <div class="summary" id="summary-section">
         <h2>所有坐标详情</h2>
-        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-3464">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_BurningCourt_D-json', 3464, this)"></td>
-        <td>哥布林洞穴2层</td>
-        <td>Firedeep_BurningCourt_D.json</td>
-        <td>焚庭</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_LavaGolem</td>
-        <td>675.00</td>
-        <td>120.00</td>
-        <td>-3.27</td>
-    </tr>
-    <tr id="row-7218">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Passage_Inner_04_D-json', 7218, this)"></td>
+        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-7198">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Passage_Inner_04_D-json', 7198, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_Passage_Inner_04_D.json</td>
         <td>陷落隘口</td>
@@ -169,8 +142,8 @@
         <td>595.00</td>
         <td>55.94</td>
     </tr>
-    <tr id="row-7322">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Square_01_HR_D-json', 7322, this)"></td>
+    <tr id="row-7298">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Square_01_HR_D-json', 7298, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_Square_01_HR_D.json</td>
         <td>广场 A</td>
@@ -179,8 +152,8 @@
         <td>-50.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-7544">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_TowerBridge_Destroyed_HR_D-json', 7544, this)"></td>
+    <tr id="row-7520">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_TowerBridge_Destroyed_HR_D-json', 7520, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_TowerBridge_Destroyed_HR_D.json</td>
         <td>塔桥</td>
@@ -189,8 +162,8 @@
         <td>-1111.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-7561">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_TowerBridge_Destroyed_HR_D-json', 7561, this)"></td>
+    <tr id="row-7537">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_TowerBridge_Destroyed_HR_D-json', 7537, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_TowerBridge_Destroyed_HR_D.json</td>
         <td>塔桥</td>

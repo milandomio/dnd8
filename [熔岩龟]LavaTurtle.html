@@ -9,6 +9,7 @@
         .back-link { display: block; text-align: center; margin-bottom: 10px; color: #FFC107; font-size: 18px; text-decoration: none; font-weight: bold; }
         .back-link:hover { text-decoration: underline; color: #fff; }
         h1 { margin-bottom: 8px; font-size: 28px; text-align: center; color: #00bcd4; }
+        .disclaimer { text-align: center; color: #ff6b6b; font-size: 14px; margin-bottom: 10px; padding: 8px; background-color: #3a3a3a; border-radius: 5px; }
         .debug-title { display: none; font-size: 16px; color: #888; text-align: center; margin-bottom: 5px; }
         .debug-title.visible { display: block; }
         .maps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px; }
@@ -63,8 +64,10 @@
 <body>
     <a href="index.html" class="back-link">&lt;&lt; 返回总览</a>
     <h1>熔岩龟 位置汇总</h1>
+    <div class="disclaimer">⚠️ 数据有误差，以实际游戏内为准</div>
     <div class="debug-title" id="debug-title">熔岩龟 (LavaTurtle)</div>
-    <div class="maps-grid" id="maps-grid">    <div class="map-card" id="map-card-Firedeep_BurningCourt_D-json">
+    <div class="maps-grid" id="maps-grid">    <div class="group-header">哥布林洞穴2层</div>
+    <div class="map-card" id="map-card-Firedeep_BurningCourt_D-json">
         <h3 class="map-title">焚庭<span class='debug-text'> (BurningCourt)</span><div class='map-filename'>Firedeep_BurningCourt_D.json</div></h3>
         <div class="map-info">BurningCourt.png | 找到 3 个位置 | 自动范围: ±1600</div>
         <div class="controls">
@@ -79,9 +82,9 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Firedeep_BurningCourt_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Firedeep_BurningCourt_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Firedeep_BurningCourt_D-json"><img src="images/BurningCourt.webp" class="image">        <div class="dot" data-index="3457" data-x="905.0" data-y="170.0" data-z="-5.0" style="left: 78.28%; top: 55.31%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="3470" data-x="-165.0" data-y="765.0" data-z="0.0" style="left: 44.84%; top: 73.91%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="3476" data-x="-570.0" data-y="-930.0" data-z="0.0" style="left: 32.19%; top: 20.94%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Firedeep_BurningCourt_D-json"><img src="images/BurningCourt.webp" class="image">        <div class="dot" data-index="3469" data-x="905.0" data-y="170.0" data-z="-5.0" style="left: 78.28%; top: 55.31%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="3482" data-x="-165.0" data-y="765.0" data-z="0.0" style="left: 44.84%; top: 73.91%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="3488" data-x="-570.0" data-y="-930.0" data-z="0.0" style="left: 32.19%; top: 20.94%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-Firedeep_CollapsedDigSite_D-json">
@@ -99,7 +102,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Firedeep_CollapsedDigSite_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Firedeep_CollapsedDigSite_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Firedeep_CollapsedDigSite_D-json"><img src="images/CollapsedDigSite.webp" class="image">        <div class="dot" data-index="3484" data-x="350.0" data-y="720.0" data-z="10.0" style="left: 60.94%; top: 72.50%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Firedeep_CollapsedDigSite_D-json"><img src="images/CollapsedDigSite.webp" class="image">        <div class="dot" data-index="3496" data-x="350.0" data-y="720.0" data-z="10.0" style="left: 60.94%; top: 72.50%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-Firedeep_LavaCrossway_D-json">
@@ -117,8 +120,8 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Firedeep_LavaCrossway_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Firedeep_LavaCrossway_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Firedeep_LavaCrossway_D-json"><img src="images/LavaCrossway.webp" class="image">        <div class="dot" data-index="3495" data-x="-955.0" data-y="5.0" data-z="-140.0" style="left: 20.16%; top: 50.16%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="3496" data-x="915.0" data-y="-70.0" data-z="-140.0" style="left: 78.59%; top: 47.81%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Firedeep_LavaCrossway_D-json"><img src="images/LavaCrossway.webp" class="image">        <div class="dot" data-index="3507" data-x="-955.0" data-y="5.0" data-z="-140.0" style="left: 20.16%; top: 50.16%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="3508" data-x="915.0" data-y="-70.0" data-z="-140.0" style="left: 78.59%; top: 47.81%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
 </div>
@@ -131,8 +134,8 @@
     </div>
     <div class="summary" id="summary-section">
         <h2>所有坐标详情</h2>
-        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-3457">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_BurningCourt_D-json', 3457, this)"></td>
+        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-3469">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_BurningCourt_D-json', 3469, this)"></td>
         <td>哥布林洞穴2层</td>
         <td>Firedeep_BurningCourt_D.json</td>
         <td>焚庭</td>
@@ -141,8 +144,8 @@
         <td>170.00</td>
         <td>-5.00</td>
     </tr>
-    <tr id="row-3470">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_BurningCourt_D-json', 3470, this)"></td>
+    <tr id="row-3482">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_BurningCourt_D-json', 3482, this)"></td>
         <td>哥布林洞穴2层</td>
         <td>Firedeep_BurningCourt_D.json</td>
         <td>焚庭</td>
@@ -151,8 +154,8 @@
         <td>765.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-3476">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_BurningCourt_D-json', 3476, this)"></td>
+    <tr id="row-3488">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_BurningCourt_D-json', 3488, this)"></td>
         <td>哥布林洞穴2层</td>
         <td>Firedeep_BurningCourt_D.json</td>
         <td>焚庭</td>
@@ -161,8 +164,8 @@
         <td>-930.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-3484">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_CollapsedDigSite_D-json', 3484, this)"></td>
+    <tr id="row-3496">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_CollapsedDigSite_D-json', 3496, this)"></td>
         <td>哥布林洞穴2层</td>
         <td>Firedeep_CollapsedDigSite_D.json</td>
         <td>崩陷矿场</td>
@@ -171,8 +174,8 @@
         <td>720.00</td>
         <td>10.00</td>
     </tr>
-    <tr id="row-3495">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_LavaCrossway_D-json', 3495, this)"></td>
+    <tr id="row-3507">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_LavaCrossway_D-json', 3507, this)"></td>
         <td>哥布林洞穴2层</td>
         <td>Firedeep_LavaCrossway_D.json</td>
         <td>熔岩交叉口</td>
@@ -181,8 +184,8 @@
         <td>5.00</td>
         <td>-140.00</td>
     </tr>
-    <tr id="row-3496">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_LavaCrossway_D-json', 3496, this)"></td>
+    <tr id="row-3508">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_LavaCrossway_D-json', 3508, this)"></td>
         <td>哥布林洞穴2层</td>
         <td>Firedeep_LavaCrossway_D.json</td>
         <td>熔岩交叉口</td>

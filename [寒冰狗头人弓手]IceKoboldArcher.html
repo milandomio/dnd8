@@ -9,6 +9,7 @@
         .back-link { display: block; text-align: center; margin-bottom: 10px; color: #FFC107; font-size: 18px; text-decoration: none; font-weight: bold; }
         .back-link:hover { text-decoration: underline; color: #fff; }
         h1 { margin-bottom: 8px; font-size: 28px; text-align: center; color: #00bcd4; }
+        .disclaimer { text-align: center; color: #ff6b6b; font-size: 14px; margin-bottom: 10px; padding: 8px; background-color: #3a3a3a; border-radius: 5px; }
         .debug-title { display: none; font-size: 16px; color: #888; text-align: center; margin-bottom: 5px; }
         .debug-title.visible { display: block; }
         .maps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px; }
@@ -63,8 +64,10 @@
 <body>
     <a href="index.html" class="back-link">&lt;&lt; 返回总览</a>
     <h1>寒冰狗头人弓手 位置汇总</h1>
+    <div class="disclaimer">⚠️ 数据有误差，以实际游戏内为准</div>
     <div class="debug-title" id="debug-title">寒冰狗头人弓手 (IceKoboldArcher)</div>
-    <div class="maps-grid" id="maps-grid">    <div class="map-card" id="map-card-IceCave_Altar_D-json">
+    <div class="maps-grid" id="maps-grid">    <div class="group-header">冰图1层</div>
+    <div class="map-card" id="map-card-IceCave_Altar_D-json">
         <h3 class="map-title">圣坛<span class='debug-text'> (IceCave_Altar)</span><div class='map-filename'>IceCave_Altar_D.json</div></h3>
         <div class="map-info">IceCave_Altar.png | 找到 2 个位置 | 自动范围: ±1600</div>
         <div class="controls">
@@ -79,8 +82,8 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_Altar_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('IceCave_Altar_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceCave_Altar_D-json"><img src="images/IceCave_Altar.webp" class="image">        <div class="dot" data-index="4335" data-x="-203.0" data-y="247.0" data-z="0.000115706054" style="left: 43.66%; top: 57.72%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4336" data-x="226.99998" data-y="261.99997" data-z="0.00011" style="left: 57.09%; top: 58.19%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceCave_Altar_D-json"><img src="images/IceCave_Altar.webp" class="image">        <div class="dot" data-index="4349" data-x="-203.0" data-y="247.0" data-z="0.000115706054" style="left: 43.66%; top: 57.72%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4350" data-x="226.99998" data-y="261.99997" data-z="0.00011" style="left: 57.09%; top: 58.19%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-IceCave_Bridge_D-json">
@@ -98,8 +101,8 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_Bridge_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('IceCave_Bridge_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceCave_Bridge_D-json"><img src="images/IceCave_Bridge.webp" class="image">        <div class="dot" data-index="4403" data-x="-690.77264" data-y="-964.905" data-z="0.00010236375" style="left: 28.41%; top: 19.85%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4411" data-x="872.2275" data-y="935.0949" data-z="8.832714e-05" style="left: 77.26%; top: 79.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceCave_Bridge_D-json"><img src="images/IceCave_Bridge.webp" class="image">        <div class="dot" data-index="4413" data-x="-690.77264" data-y="-964.905" data-z="0.00010236375" style="left: 28.41%; top: 19.85%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4419" data-x="872.2275" data-y="935.0949" data-z="8.832714e-05" style="left: 77.26%; top: 79.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-IceCave_CrossRoad_D-json">
@@ -117,8 +120,8 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_CrossRoad_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('IceCave_CrossRoad_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceCave_CrossRoad_D-json"><img src="images/IceCave_CrossRoad.webp" class="image">        <div class="dot" data-index="4560" data-x="325.7111" data-y="-875.56104" data-z="0.000108" style="left: 60.18%; top: 22.64%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4574" data-x="1281.0" data-y="-51.0" data-z="0.314066" style="left: 90.03%; top: 48.41%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceCave_CrossRoad_D-json"><img src="images/IceCave_CrossRoad.webp" class="image">        <div class="dot" data-index="4571" data-x="325.7111" data-y="-875.56104" data-z="0.000108" style="left: 60.18%; top: 22.64%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4580" data-x="1281.0" data-y="-51.0" data-z="0.314066" style="left: 90.03%; top: 48.41%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-IceCave_DualCaverns_D-json">
@@ -155,12 +158,12 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_FourRoute_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('IceCave_FourRoute_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceCave_FourRoute_D-json"><img src="images/IceCave_FourRoute.webp" class="image">        <div class="dot" data-index="4668" data-x="954.37823" data-y="129.0" data-z="-599.9999" style="left: 79.82%; top: 54.03%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4669" data-x="-46.288918" data-y="-872.56104" data-z="0.31406647" style="left: 48.55%; top: 22.73%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4672" data-x="161.37822" data-y="-924.0" data-z="-599.9999" style="left: 55.04%; top: 21.12%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4675" data-x="161.37822" data-y="956.0" data-z="-599.9999" style="left: 55.04%; top: 79.88%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4678" data-x="-32.0" data-y="1027.0" data-z="0.31406412" style="left: 49.00%; top: 82.09%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4679" data-x="987.0" data-y="18.0" data-z="15.000101" style="left: 80.84%; top: 50.56%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceCave_FourRoute_D-json"><img src="images/IceCave_FourRoute.webp" class="image">        <div class="dot" data-index="4664" data-x="954.37823" data-y="129.0" data-z="-599.9999" style="left: 79.82%; top: 54.03%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4665" data-x="-46.288918" data-y="-872.56104" data-z="0.31406647" style="left: 48.55%; top: 22.73%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4666" data-x="161.37822" data-y="-924.0" data-z="-599.9999" style="left: 55.04%; top: 21.12%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4667" data-x="161.37822" data-y="956.0" data-z="-599.9999" style="left: 55.04%; top: 79.88%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4669" data-x="-32.0" data-y="1027.0" data-z="0.31406412" style="left: 49.00%; top: 82.09%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4670" data-x="987.0" data-y="18.0" data-z="15.000101" style="left: 80.84%; top: 50.56%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-IceCave_IcicleCave_D-json">
@@ -178,9 +181,9 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_IcicleCave_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('IceCave_IcicleCave_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceCave_IcicleCave_D-json"><img src="images/IceCave_IcicleCave.webp" class="image">        <div class="dot" data-index="4966" data-x="-237.0" data-y="323.0" data-z="0.0" style="left: 42.59%; top: 60.09%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4967" data-x="-1210.0" data-y="105.0" data-z="0.0" style="left: 12.19%; top: 53.28%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4969" data-x="-370.0" data-y="-90.0" data-z="0.0" style="left: 38.44%; top: 47.19%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceCave_IcicleCave_D-json"><img src="images/IceCave_IcicleCave.webp" class="image">        <div class="dot" data-index="4943" data-x="-237.0" data-y="323.0" data-z="0.0" style="left: 42.59%; top: 60.09%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4944" data-x="-1210.0" data-y="105.0" data-z="0.0" style="left: 12.19%; top: 53.28%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4945" data-x="-370.0" data-y="-90.0" data-z="0.0" style="left: 38.44%; top: 47.19%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-IceCave_Spiral_D-json">
@@ -198,8 +201,8 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_Spiral_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('IceCave_Spiral_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceCave_Spiral_D-json"><img src="images/IceCave_Spiral.webp" class="image">        <div class="dot" data-index="5336" data-x="1157.7726" data-y="-140.09494" data-z="0.31404105" style="left: 86.18%; top: 45.62%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="5338" data-x="-1237.0" data-y="214.0" data-z="0.31406" style="left: 11.34%; top: 56.69%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceCave_Spiral_D-json"><img src="images/IceCave_Spiral.webp" class="image">        <div class="dot" data-index="5305" data-x="1157.7726" data-y="-140.09494" data-z="0.31404105" style="left: 86.18%; top: 45.62%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5308" data-x="-1237.0" data-y="214.0" data-z="0.31406" style="left: 11.34%; top: 56.69%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
 </div>
@@ -212,8 +215,8 @@
     </div>
     <div class="summary" id="summary-section">
         <h2>所有坐标详情</h2>
-        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-4335">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Altar_D-json', 4335, this)"></td>
+        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-4349">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Altar_D-json', 4349, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_Altar_D.json</td>
         <td>圣坛</td>
@@ -222,8 +225,8 @@
         <td>247.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-4336">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Altar_D-json', 4336, this)"></td>
+    <tr id="row-4350">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Altar_D-json', 4350, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_Altar_D.json</td>
         <td>圣坛</td>
@@ -232,8 +235,8 @@
         <td>262.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-4403">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Bridge_D-json', 4403, this)"></td>
+    <tr id="row-4413">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Bridge_D-json', 4413, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_Bridge_D.json</td>
         <td>冰桥</td>
@@ -242,8 +245,8 @@
         <td>-964.90</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-4411">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Bridge_D-json', 4411, this)"></td>
+    <tr id="row-4419">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Bridge_D-json', 4419, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_Bridge_D.json</td>
         <td>冰桥</td>
@@ -252,8 +255,8 @@
         <td>935.09</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-4560">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_CrossRoad_D-json', 4560, this)"></td>
+    <tr id="row-4571">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_CrossRoad_D-json', 4571, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_CrossRoad_D.json</td>
         <td>十字路口</td>
@@ -262,8 +265,8 @@
         <td>-875.56</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-4574">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_CrossRoad_D-json', 4574, this)"></td>
+    <tr id="row-4580">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_CrossRoad_D-json', 4580, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_CrossRoad_D.json</td>
         <td>十字路口</td>
@@ -292,8 +295,8 @@
         <td>-438.56</td>
         <td>-300.00</td>
     </tr>
-    <tr id="row-4668">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FourRoute_D-json', 4668, this)"></td>
+    <tr id="row-4664">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FourRoute_D-json', 4664, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_FourRoute_D.json</td>
         <td>四方路</td>
@@ -302,8 +305,8 @@
         <td>129.00</td>
         <td>-600.00</td>
     </tr>
-    <tr id="row-4669">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FourRoute_D-json', 4669, this)"></td>
+    <tr id="row-4665">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FourRoute_D-json', 4665, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_FourRoute_D.json</td>
         <td>四方路</td>
@@ -312,8 +315,8 @@
         <td>-872.56</td>
         <td>0.31</td>
     </tr>
-    <tr id="row-4672">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FourRoute_D-json', 4672, this)"></td>
+    <tr id="row-4666">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FourRoute_D-json', 4666, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_FourRoute_D.json</td>
         <td>四方路</td>
@@ -322,8 +325,8 @@
         <td>-924.00</td>
         <td>-600.00</td>
     </tr>
-    <tr id="row-4675">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FourRoute_D-json', 4675, this)"></td>
+    <tr id="row-4667">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FourRoute_D-json', 4667, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_FourRoute_D.json</td>
         <td>四方路</td>
@@ -332,8 +335,8 @@
         <td>956.00</td>
         <td>-600.00</td>
     </tr>
-    <tr id="row-4678">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FourRoute_D-json', 4678, this)"></td>
+    <tr id="row-4669">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FourRoute_D-json', 4669, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_FourRoute_D.json</td>
         <td>四方路</td>
@@ -342,8 +345,8 @@
         <td>1027.00</td>
         <td>0.31</td>
     </tr>
-    <tr id="row-4679">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FourRoute_D-json', 4679, this)"></td>
+    <tr id="row-4670">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FourRoute_D-json', 4670, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_FourRoute_D.json</td>
         <td>四方路</td>
@@ -352,8 +355,8 @@
         <td>18.00</td>
         <td>15.00</td>
     </tr>
-    <tr id="row-4966">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_IcicleCave_D-json', 4966, this)"></td>
+    <tr id="row-4943">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_IcicleCave_D-json', 4943, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_IcicleCave_D.json</td>
         <td>冰柱洞</td>
@@ -362,8 +365,8 @@
         <td>323.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-4967">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_IcicleCave_D-json', 4967, this)"></td>
+    <tr id="row-4944">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_IcicleCave_D-json', 4944, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_IcicleCave_D.json</td>
         <td>冰柱洞</td>
@@ -372,8 +375,8 @@
         <td>105.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-4969">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_IcicleCave_D-json', 4969, this)"></td>
+    <tr id="row-4945">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_IcicleCave_D-json', 4945, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_IcicleCave_D.json</td>
         <td>冰柱洞</td>
@@ -382,8 +385,8 @@
         <td>-90.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-5336">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Spiral_D-json', 5336, this)"></td>
+    <tr id="row-5305">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Spiral_D-json', 5305, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_Spiral_D.json</td>
         <td>转楼</td>
@@ -392,8 +395,8 @@
         <td>-140.09</td>
         <td>0.31</td>
     </tr>
-    <tr id="row-5338">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Spiral_D-json', 5338, this)"></td>
+    <tr id="row-5308">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Spiral_D-json', 5308, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_Spiral_D.json</td>
         <td>转楼</td>

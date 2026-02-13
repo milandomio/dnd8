@@ -9,6 +9,7 @@
         .back-link { display: block; text-align: center; margin-bottom: 10px; color: #FFC107; font-size: 18px; text-decoration: none; font-weight: bold; }
         .back-link:hover { text-decoration: underline; color: #fff; }
         h1 { margin-bottom: 8px; font-size: 28px; text-align: center; color: #00bcd4; }
+        .disclaimer { text-align: center; color: #ff6b6b; font-size: 14px; margin-bottom: 10px; padding: 8px; background-color: #3a3a3a; border-radius: 5px; }
         .debug-title { display: none; font-size: 16px; color: #888; text-align: center; margin-bottom: 5px; }
         .debug-title.visible { display: block; }
         .maps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px; }
@@ -63,8 +64,10 @@
 <body>
     <a href="index.html" class="back-link">&lt;&lt; 返回总览</a>
     <h1>坚硬的蟹壳>目标>钳爪蟹 位置汇总</h1>
+    <div class="disclaimer">⚠️ 数据有误差，以实际游戏内为准</div>
     <div class="debug-title" id="debug-title">坚硬的蟹壳 (HardCrabShell) 目标 钳爪蟹 (PinchclawCrab)</div>
-    <div class="maps-grid" id="maps-grid">    <div class="map-card" id="map-card-ShipGraveyard_AbandonedShip_01_HR_D-json">
+    <div class="maps-grid" id="maps-grid">    <div class="group-header">水图</div>
+    <div class="map-card" id="map-card-ShipGraveyard_AbandonedShip_01_HR_D-json">
         <h3 class="map-title">废弃舰船<span class='debug-text'> (AbandonedShip_01)</span><div class='map-filename'>ShipGraveyard_AbandonedShip_01_HR_D.json</div></h3>
         <div class="map-info">ShipGraveyard_AbandonedShip_01.png | 找到 1 个位置 | 自动范围: ±1600</div>
         <div class="controls">
@@ -79,7 +82,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('ShipGraveyard_AbandonedShip_01_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('ShipGraveyard_AbandonedShip_01_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-ShipGraveyard_AbandonedShip_01_HR_D-json"><img src="images/ShipGraveyard_AbandonedShip_01.webp" class="image">        <div class="dot" data-index="7912" data-x="2943.0" data-y="-1206.0" data-z="102.0" style="left: 141.97%; top: 12.31%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-ShipGraveyard_AbandonedShip_01_HR_D-json"><img src="images/ShipGraveyard_AbandonedShip_01.webp" class="image">        <div class="dot" data-index="7881" data-x="2943.0" data-y="-1206.0" data-z="102.0" style="left: 141.97%; top: 12.31%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-ShipGraveyard_Oceanvolcano_D-json">
@@ -97,10 +100,10 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('ShipGraveyard_Oceanvolcano_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('ShipGraveyard_Oceanvolcano_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-ShipGraveyard_Oceanvolcano_D-json"><img src="images/ShipGraveyard_Oceanvolcano.webp" class="image">        <div class="dot" data-index="8619" data-x="-9.0" data-y="882.0" data-z="298.0" style="left: 49.72%; top: 77.56%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="8628" data-x="693.0" data-y="-168.0" data-z="339.0" style="left: 71.66%; top: 44.75%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="8655" data-x="-1029.0" data-y="422.0" data-z="126.0" style="left: 17.84%; top: 63.19%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="8663" data-x="-228.0" data-y="-889.0" data-z="88.0" style="left: 42.88%; top: 22.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-ShipGraveyard_Oceanvolcano_D-json"><img src="images/ShipGraveyard_Oceanvolcano.webp" class="image">        <div class="dot" data-index="8571" data-x="-9.0" data-y="882.0" data-z="298.0" style="left: 49.72%; top: 77.56%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8580" data-x="693.0" data-y="-168.0" data-z="339.0" style="left: 71.66%; top: 44.75%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8607" data-x="-1029.0" data-y="422.0" data-z="126.0" style="left: 17.84%; top: 63.19%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8615" data-x="-228.0" data-y="-889.0" data-z="88.0" style="left: 42.88%; top: 22.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-ShipGraveyard_RockIsland_D-json">
@@ -118,7 +121,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('ShipGraveyard_RockIsland_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('ShipGraveyard_RockIsland_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-ShipGraveyard_RockIsland_D-json"><img src="images/ShipGraveyard_RockIsland.webp" class="image">        <div class="dot" data-index="8924" data-x="142.0" data-y="-398.0" data-z="912.0" style="left: 54.44%; top: 37.56%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="container" id="container-ShipGraveyard_RockIsland_D-json"><img src="images/ShipGraveyard_RockIsland.webp" class="image">        <div class="dot" data-index="8875" data-x="142.0" data-y="-398.0" data-z="912.0" style="left: 54.44%; top: 37.56%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
 </div>
     </div>
 </div>
@@ -131,8 +134,8 @@
     </div>
     <div class="summary" id="summary-section">
         <h2>所有坐标详情</h2>
-        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-7912">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_AbandonedShip_01_HR_D-json', 7912, this)"></td>
+        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-7881">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_AbandonedShip_01_HR_D-json', 7881, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_AbandonedShip_01_HR_D.json</td>
         <td>废弃舰船</td>
@@ -141,8 +144,8 @@
         <td>-1206.00</td>
         <td>102.00</td>
     </tr>
-    <tr id="row-8619">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Oceanvolcano_D-json', 8619, this)"></td>
+    <tr id="row-8571">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Oceanvolcano_D-json', 8571, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_Oceanvolcano_D.json</td>
         <td>海底火山</td>
@@ -151,8 +154,8 @@
         <td>882.00</td>
         <td>298.00</td>
     </tr>
-    <tr id="row-8628">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Oceanvolcano_D-json', 8628, this)"></td>
+    <tr id="row-8580">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Oceanvolcano_D-json', 8580, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_Oceanvolcano_D.json</td>
         <td>海底火山</td>
@@ -161,8 +164,8 @@
         <td>-168.00</td>
         <td>339.00</td>
     </tr>
-    <tr id="row-8655">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Oceanvolcano_D-json', 8655, this)"></td>
+    <tr id="row-8607">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Oceanvolcano_D-json', 8607, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_Oceanvolcano_D.json</td>
         <td>海底火山</td>
@@ -171,8 +174,8 @@
         <td>422.00</td>
         <td>126.00</td>
     </tr>
-    <tr id="row-8663">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Oceanvolcano_D-json', 8663, this)"></td>
+    <tr id="row-8615">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Oceanvolcano_D-json', 8615, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_Oceanvolcano_D.json</td>
         <td>海底火山</td>
@@ -181,8 +184,8 @@
         <td>-889.00</td>
         <td>88.00</td>
     </tr>
-    <tr id="row-8924">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_RockIsland_D-json', 8924, this)"></td>
+    <tr id="row-8875">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_RockIsland_D-json', 8875, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_RockIsland_D.json</td>
         <td>岩岛</td>

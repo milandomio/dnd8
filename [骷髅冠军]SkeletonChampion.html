@@ -9,6 +9,7 @@
         .back-link { display: block; text-align: center; margin-bottom: 10px; color: #FFC107; font-size: 18px; text-decoration: none; font-weight: bold; }
         .back-link:hover { text-decoration: underline; color: #fff; }
         h1 { margin-bottom: 8px; font-size: 28px; text-align: center; color: #00bcd4; }
+        .disclaimer { text-align: center; color: #ff6b6b; font-size: 14px; margin-bottom: 10px; padding: 8px; background-color: #3a3a3a; border-radius: 5px; }
         .debug-title { display: none; font-size: 16px; color: #888; text-align: center; margin-bottom: 5px; }
         .debug-title.visible { display: block; }
         .maps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px; }
@@ -63,6 +64,7 @@
 <body>
     <a href="index.html" class="back-link">&lt;&lt; 返回总览</a>
     <h1>骷髅冠军 位置汇总</h1>
+    <div class="disclaimer">⚠️ 数据有误差，以实际游戏内为准</div>
     <div class="debug-title" id="debug-title">骷髅冠军 (SkeletonChampion)</div>
     <div class="maps-grid" id="maps-grid">    <div class="group-header">哥布林洞穴1层</div>
     <div class="map-card" id="map-card-CaveMaze_D-json">
@@ -98,7 +100,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('StoneGrave_Center_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('StoneGrave_Center_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-StoneGrave_Center_D-json"><img src="images/StoneGrave_Center.webp" class="image">        <div class="dot" data-index="910" data-x="-48.000004" data-y="-32.000008" data-z="0.0" style="left: 48.50%; top: 49.00%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-StoneGrave_Center_D-json"><img src="images/StoneGrave_Center.webp" class="image">        <div class="dot" data-index="911" data-x="-48.000004" data-y="-32.000008" data-z="0.0" style="left: 48.50%; top: 49.00%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="group-header">废墟2层地牢</div>
@@ -117,7 +119,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('TheCage_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('TheCage_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-TheCage_D-json"><img src="images/TheCage.webp" class="image">        <div class="dot" data-index="2249" data-x="-1120.0" data-y="1180.0" data-z="530.0" style="left: 15.00%; top: 86.88%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="container" id="container-TheCage_D-json"><img src="images/TheCage.webp" class="image">        <div class="dot" data-index="2270" data-x="-1120.0" data-y="1180.0" data-z="530.0" style="left: 15.00%; top: 86.88%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-TheMiniWheel_D-json">
@@ -135,7 +137,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('TheMiniWheel_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('TheMiniWheel_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-TheMiniWheel_D-json"><img src="images/TheMiniWheel.webp" class="image">        <div class="dot" data-index="2288" data-x="45.0" data-y="210.0" data-z="-500.0" style="left: 51.41%; top: 56.56%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-TheMiniWheel_D-json"><img src="images/TheMiniWheel.webp" class="image">        <div class="dot" data-index="2306" data-x="45.0" data-y="210.0" data-z="-500.0" style="left: 51.41%; top: 56.56%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-DeathHall_D-json">
@@ -153,7 +155,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('DeathHall_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('DeathHall_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-DeathHall_D-json"><img src="images/DeathHall.webp" class="image">        <div class="dot" data-index="2805" data-x="16.0" data-y="84.0" data-z="0.0" style="left: 50.50%; top: 52.62%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-DeathHall_D-json"><img src="images/DeathHall.webp" class="image">        <div class="dot" data-index="2831" data-x="16.0" data-y="84.0" data-z="0.0" style="left: 50.50%; top: 52.62%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-HighPriestOssuary_D-json">
@@ -171,7 +173,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('HighPriestOssuary_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('HighPriestOssuary_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-HighPriestOssuary_D-json"><img src="images/HighPriestOssuary.webp" class="image">        <div class="dot" data-index="2943" data-x="-236.65225" data-y="-232.07198" data-z="-500.0" style="left: 42.60%; top: 42.75%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-HighPriestOssuary_D-json"><img src="images/HighPriestOssuary.webp" class="image">        <div class="dot" data-index="2965" data-x="-236.65225" data-y="-232.07198" data-z="-500.0" style="left: 42.60%; top: 42.75%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-OldTomb_D-json">
@@ -189,7 +191,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('OldTomb_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('OldTomb_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-OldTomb_D-json"><img src="images/OldTomb.webp" class="image">        <div class="dot" data-index="3049" data-x="107.00001" data-y="-119.99996" data-z="-5.0" style="left: 53.34%; top: 46.25%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-OldTomb_D-json"><img src="images/OldTomb.webp" class="image">        <div class="dot" data-index="3071" data-x="107.00001" data-y="-119.99996" data-z="-5.0" style="left: 53.34%; top: 46.25%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="group-header">冰图1层</div>
@@ -208,7 +210,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_CavePathway_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('IceCave_CavePathway_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceCave_CavePathway_D-json"><img src="images/IceCave_CavePathway.webp" class="image">        <div class="dot" data-index="4492" data-x="265.0" data-y="255.0" data-z="-500.0" style="left: 58.28%; top: 57.97%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceCave_CavePathway_D-json"><img src="images/IceCave_CavePathway.webp" class="image">        <div class="dot" data-index="4503" data-x="265.0" data-y="255.0" data-z="-500.0" style="left: 58.28%; top: 57.97%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-IceCave_Maze_D-json">
@@ -226,7 +228,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_Maze_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('IceCave_Maze_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceCave_Maze_D-json"><img src="images/IceCave_Maze.webp" class="image">        <div class="dot" data-index="5028" data-x="-453.0" data-y="-1309.0" data-z="-599.99994" style="left: 35.84%; top: 9.09%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceCave_Maze_D-json"><img src="images/IceCave_Maze.webp" class="image">        <div class="dot" data-index="5002" data-x="-453.0" data-y="-1309.0" data-z="-599.99994" style="left: 35.84%; top: 9.09%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-IceCave_Watchtower_D-json">
@@ -244,7 +246,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_Watchtower_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('IceCave_Watchtower_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceCave_Watchtower_D-json"><img src="images/IceCave_WatchTower.webp" class="image">        <div class="dot" data-index="5420" data-x="-457.0" data-y="-398.0" data-z="-79.9999" style="left: 35.72%; top: 37.56%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceCave_Watchtower_D-json"><img src="images/IceCave_WatchTower.webp" class="image">        <div class="dot" data-index="5391" data-x="-457.0" data-y="-398.0" data-z="-79.9999" style="left: 35.72%; top: 37.56%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="group-header">废墟3层炼狱</div>
@@ -263,7 +265,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('InfernoCastleConner_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('InfernoCastleConner_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-InfernoCastleConner_D-json"><img src="images/InfernoCastleConner.webp" class="image">        <div class="dot" data-index="6117" data-x="568.3833" data-y="533.7097" data-z="0.0" style="left: 67.76%; top: 66.68%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-InfernoCastleConner_D-json"><img src="images/InfernoCastleConner.webp" class="image">        <div class="dot" data-index="6101" data-x="568.3833" data-y="533.7097" data-z="0.0" style="left: 67.76%; top: 66.68%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="group-header">废墟1层</div>
@@ -282,7 +284,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_ForsakenCloister_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Ruins_ForsakenCloister_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Ruins_ForsakenCloister_D-json"><img src="images/Ruins_ForsakenCloister.webp" class="image">        <div class="dot" data-index="7013" data-x="5.0" data-y="5.0" data-z="-430.0" style="left: 50.16%; top: 50.16%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Ruins_ForsakenCloister_D-json"><img src="images/Ruins_ForsakenCloister.webp" class="image">        <div class="dot" data-index="6997" data-x="5.0" data-y="5.0" data-z="-430.0" style="left: 50.16%; top: 50.16%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-Ruins_Tower_01_Destroyed_D-json">
@@ -300,7 +302,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_Tower_01_Destroyed_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Ruins_Tower_01_Destroyed_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Ruins_Tower_01_Destroyed_D-json"><img src="images/Ruins_Tower_01_Destroyed.webp" class="image">        <div class="dot" data-index="7637" data-x="-930.0" data-y="-10.0" data-z="-650.0" style="left: 20.94%; top: 49.69%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Ruins_Tower_01_Destroyed_D-json"><img src="images/Ruins_Tower_01_Destroyed.webp" class="image">        <div class="dot" data-index="7612" data-x="-930.0" data-y="-10.0" data-z="-650.0" style="left: 20.94%; top: 49.69%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="group-header">水图</div>
@@ -319,7 +321,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('ShipGraveyard_PiratePrison_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('ShipGraveyard_PiratePrison_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-ShipGraveyard_PiratePrison_D-json"><img src="images/ShipGraveyard_PiratePrison.webp" class="image">        <div class="dot" data-index="8901" data-x="2640.0" data-y="4580.0" data-z="1200.0" style="left: 70.62%; top: 85.78%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="container" id="container-ShipGraveyard_PiratePrison_D-json"><img src="images/ShipGraveyard_PiratePrison.webp" class="image">        <div class="dot" data-index="8836" data-x="2640.0" data-y="4580.0" data-z="1200.0" style="left: 70.62%; top: 85.78%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
 </div>
     </div>
 </div>
@@ -342,8 +344,8 @@
         <td>0.00</td>
         <td>1.51</td>
     </tr>
-    <tr id="row-910">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('StoneGrave_Center_D-json', 910, this)"></td>
+    <tr id="row-911">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('StoneGrave_Center_D-json', 911, this)"></td>
         <td>哥布林洞穴1层</td>
         <td>StoneGrave_Center_D.json</td>
         <td>石坟 A</td>
@@ -352,8 +354,8 @@
         <td>-32.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-2249">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_D-json', 2249, this)"></td>
+    <tr id="row-2270">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_D-json', 2270, this)"></td>
         <td>废墟2层地牢</td>
         <td>TheCage_D.json</td>
         <td>牢笼</td>
@@ -362,8 +364,8 @@
         <td>1180.00</td>
         <td>530.00</td>
     </tr>
-    <tr id="row-2288">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheMiniWheel_D-json', 2288, this)"></td>
+    <tr id="row-2306">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheMiniWheel_D-json', 2306, this)"></td>
         <td>废墟2层地牢</td>
         <td>TheMiniWheel_D.json</td>
         <td>迷你环厅</td>
@@ -372,8 +374,8 @@
         <td>210.00</td>
         <td>-500.00</td>
     </tr>
-    <tr id="row-2805">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DeathHall_D-json', 2805, this)"></td>
+    <tr id="row-2831">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DeathHall_D-json', 2831, this)"></td>
         <td>废墟2层地牢</td>
         <td>DeathHall_D.json</td>
         <td>死亡厅堂</td>
@@ -382,8 +384,8 @@
         <td>84.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-2943">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('HighPriestOssuary_D-json', 2943, this)"></td>
+    <tr id="row-2965">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('HighPriestOssuary_D-json', 2965, this)"></td>
         <td>废墟2层地牢</td>
         <td>HighPriestOssuary_D.json</td>
         <td>大祭司</td>
@@ -392,8 +394,8 @@
         <td>-232.07</td>
         <td>-500.00</td>
     </tr>
-    <tr id="row-3049">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('OldTomb_D-json', 3049, this)"></td>
+    <tr id="row-3071">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('OldTomb_D-json', 3071, this)"></td>
         <td>废墟2层地牢</td>
         <td>OldTomb_D.json</td>
         <td>旧陵墓</td>
@@ -402,8 +404,8 @@
         <td>-120.00</td>
         <td>-5.00</td>
     </tr>
-    <tr id="row-4492">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_CavePathway_D-json', 4492, this)"></td>
+    <tr id="row-4503">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_CavePathway_D-json', 4503, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_CavePathway_D.json</td>
         <td>洞穴通道</td>
@@ -412,8 +414,8 @@
         <td>255.00</td>
         <td>-500.00</td>
     </tr>
-    <tr id="row-5028">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Maze_D-json', 5028, this)"></td>
+    <tr id="row-5002">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Maze_D-json', 5002, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_Maze_D.json</td>
         <td>迷宫</td>
@@ -422,8 +424,8 @@
         <td>-1309.00</td>
         <td>-600.00</td>
     </tr>
-    <tr id="row-5420">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Watchtower_D-json', 5420, this)"></td>
+    <tr id="row-5391">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Watchtower_D-json', 5391, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_Watchtower_D.json</td>
         <td>了望塔</td>
@@ -432,8 +434,8 @@
         <td>-398.00</td>
         <td>-80.00</td>
     </tr>
-    <tr id="row-6117">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('InfernoCastleConner_D-json', 6117, this)"></td>
+    <tr id="row-6101">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('InfernoCastleConner_D-json', 6101, this)"></td>
         <td>废墟3层炼狱</td>
         <td>InfernoCastleConner_D.json</td>
         <td>血色城堡</td>
@@ -442,8 +444,8 @@
         <td>533.71</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-7013">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_D-json', 7013, this)"></td>
+    <tr id="row-6997">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_D-json', 6997, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_ForsakenCloister_D.json</td>
         <td>寂灭回廊</td>
@@ -452,8 +454,8 @@
         <td>5.00</td>
         <td>-430.00</td>
     </tr>
-    <tr id="row-7637">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Tower_01_Destroyed_D-json', 7637, this)"></td>
+    <tr id="row-7612">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Tower_01_Destroyed_D-json', 7612, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_Tower_01_Destroyed_D.json</td>
         <td>废弃塔楼</td>
@@ -462,8 +464,8 @@
         <td>-10.00</td>
         <td>-650.00</td>
     </tr>
-    <tr id="row-8901">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_PiratePrison_D-json', 8901, this)"></td>
+    <tr id="row-8836">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_PiratePrison_D-json', 8836, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_PiratePrison_D.json</td>
         <td>海盗监狱</td>

@@ -9,6 +9,7 @@
         .back-link { display: block; text-align: center; margin-bottom: 10px; color: #FFC107; font-size: 18px; text-decoration: none; font-weight: bold; }
         .back-link:hover { text-decoration: underline; color: #fff; }
         h1 { margin-bottom: 8px; font-size: 28px; text-align: center; color: #00bcd4; }
+        .disclaimer { text-align: center; color: #ff6b6b; font-size: 14px; margin-bottom: 10px; padding: 8px; background-color: #3a3a3a; border-radius: 5px; }
         .debug-title { display: none; font-size: 16px; color: #888; text-align: center; margin-bottom: 5px; }
         .debug-title.visible { display: block; }
         .maps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px; }
@@ -63,8 +64,10 @@
 <body>
     <a href="index.html" class="back-link">&lt;&lt; 返回总览</a>
     <h1>巨型蜈蚣 位置汇总</h1>
+    <div class="disclaimer">⚠️ 数据有误差，以实际游戏内为准</div>
     <div class="debug-title" id="debug-title">巨型蜈蚣 (GiantCentipede)</div>
-    <div class="maps-grid" id="maps-grid">    <div class="map-card" id="map-card-Cave_PitHall_D-json">
+    <div class="maps-grid" id="maps-grid">    <div class="group-header">哥布林洞穴1层</div>
+    <div class="map-card" id="map-card-Cave_PitHall_D-json">
         <h3 class="map-title">洞坑大厅<span class='debug-text'> (CavePitHall)</span><div class='map-filename'>Cave_PitHall_D.json</div></h3>
         <div class="map-info">Cave_PitHall.png | 找到 2 个位置 | 自动范围: ±1600</div>
         <div class="controls">
@@ -79,8 +82,8 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Cave_PitHall_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Cave_PitHall_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Cave_PitHall_D-json"><img src="images/Cave_PitHall.webp" class="image">        <div class="dot" data-index="496" data-x="905.7453" data-y="921.847" data-z="-399.9999" style="left: 78.30%; top: 78.81%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="497" data-x="-1000.2547" data-y="-907.153" data-z="-399.9999" style="left: 18.74%; top: 21.65%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Cave_PitHall_D-json"><img src="images/Cave_PitHall.webp" class="image">        <div class="dot" data-index="490" data-x="905.7453" data-y="921.847" data-z="-399.9999" style="left: 78.30%; top: 78.81%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="491" data-x="-1000.2547" data-y="-907.153" data-z="-399.9999" style="left: 18.74%; top: 21.65%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-GoblinJail_Center_02_D-json">
@@ -98,7 +101,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('GoblinJail_Center_02_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('GoblinJail_Center_02_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-GoblinJail_Center_02_D-json"><img src="images/GoblinJail_Center_02.webp" class="image">        <div class="dot" data-index="794" data-x="-134.0" data-y="353.0" data-z="-400.0" style="left: 45.81%; top: 61.03%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-GoblinJail_Center_02_D-json"><img src="images/GoblinJail_Center_02.webp" class="image">        <div class="dot" data-index="788" data-x="-134.0" data-y="353.0" data-z="-400.0" style="left: 45.81%; top: 61.03%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-GoblinCaveCorner_01_D-json">
@@ -116,7 +119,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('GoblinCaveCorner_01_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('GoblinCaveCorner_01_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-GoblinCaveCorner_01_D-json"><img src="images/GoblinCaveCorner_01.webp" class="image">        <div class="dot" data-index="1165" data-x="-660.09625" data-y="-683.3288" data-z="-399.9999" style="left: 29.37%; top: 28.65%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-GoblinCaveCorner_01_D-json"><img src="images/GoblinCaveCorner_01.webp" class="image">        <div class="dot" data-index="1166" data-x="-660.09625" data-y="-683.3288" data-z="-399.9999" style="left: 29.37%; top: 28.65%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
 </div>
@@ -129,8 +132,8 @@
     </div>
     <div class="summary" id="summary-section">
         <h2>所有坐标详情</h2>
-        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-496">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Cave_PitHall_D-json', 496, this)"></td>
+        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-490">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Cave_PitHall_D-json', 490, this)"></td>
         <td>哥布林洞穴1层</td>
         <td>Cave_PitHall_D.json</td>
         <td>洞坑大厅</td>
@@ -139,8 +142,8 @@
         <td>921.85</td>
         <td>-400.00</td>
     </tr>
-    <tr id="row-497">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Cave_PitHall_D-json', 497, this)"></td>
+    <tr id="row-491">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Cave_PitHall_D-json', 491, this)"></td>
         <td>哥布林洞穴1层</td>
         <td>Cave_PitHall_D.json</td>
         <td>洞坑大厅</td>
@@ -149,8 +152,8 @@
         <td>-907.15</td>
         <td>-400.00</td>
     </tr>
-    <tr id="row-794">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('GoblinJail_Center_02_D-json', 794, this)"></td>
+    <tr id="row-788">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('GoblinJail_Center_02_D-json', 788, this)"></td>
         <td>哥布林洞穴1层</td>
         <td>GoblinJail_Center_02_D.json</td>
         <td>哥布林监狱 B</td>
@@ -159,8 +162,8 @@
         <td>353.00</td>
         <td>-400.00</td>
     </tr>
-    <tr id="row-1165">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('GoblinCaveCorner_01_D-json', 1165, this)"></td>
+    <tr id="row-1166">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('GoblinCaveCorner_01_D-json', 1166, this)"></td>
         <td>哥布林洞穴1层</td>
         <td>GoblinCaveCorner_01_D.json</td>
         <td>洞穴隧道</td>
