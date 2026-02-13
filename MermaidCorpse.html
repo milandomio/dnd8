@@ -49,8 +49,8 @@
         .btn-mirror-y.active { background-color: #E91E63; box-shadow: 0 0 10px #E91E63; }
         .btn-reset { background-color: #9E9E9E; color: white; }
         .btn-reset:hover { background-color: #757575; }
-        .container { position: relative; width: 100%; max-width: 360px; margin: 0 auto; aspect-ratio: 1 / 1; background-color: #1a1a1a; border: 1px solid #444; border-radius: 3px; }
-        .image { width: 100%; height: 100%; display: block; border-radius: 2px; }
+        .container { position: relative; width: 100%; margin: 0 auto; aspect-ratio: 1 / 1; background-color: #1a1a1a; border: 1px solid #444; border-radius: 3px; }
+        .image { width: 100%; height: 100%; display: block; border-radius: 2px; object-fit: cover; }
         .image-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #666; background-color: #222; border-radius: 2px; font-size: 13px; }
         .dot { position: absolute; width: 9px; height: 9px; border-radius: 50%; transform: translate(-50%, -50%); z-index: 10; transition: left 0.3s ease, top 0.3s ease; display: block; }
         .summary { display: none; margin-top: 20px; padding: 10px; background-color: #3a3a3a; border-radius: 5px; }
@@ -84,23 +84,23 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('ShipGraveyard_MermaidTomb_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('ShipGraveyard_MermaidTomb_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-ShipGraveyard_MermaidTomb_HR_D-json"><img src="images/ShipGraveyard_MermaidTomb.webp" class="image">        <div class="dot" data-index="10506" data-x="-312.0" data-y="483.0" data-z="-453.0" style="left: 40.25%; top: 65.09%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="10508" data-x="-744.0" data-y="269.0" data-z="-711.0" style="left: 26.75%; top: 58.41%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="10509" data-x="256.0" data-y="420.0" data-z="-587.0" style="left: 58.00%; top: 63.12%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="10510" data-x="172.0" data-y="199.0" data-z="-259.0" style="left: 55.38%; top: 56.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="10511" data-x="720.0" data-y="421.0" data-z="-730.579" style="left: 72.50%; top: 63.16%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="10512" data-x="-767.0" data-y="-351.0" data-z="-617.0" style="left: 26.03%; top: 39.03%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="10513" data-x="-378.0" data-y="406.0" data-z="-1100.0" style="left: 38.19%; top: 62.69%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="10514" data-x="-259.0" data-y="-1118.0" data-z="-569.0" style="left: 41.91%; top: 15.06%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="10516" data-x="-12.0" data-y="853.0" data-z="-563.0" style="left: 49.62%; top: 76.66%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="10517" data-x="805.0" data-y="1060.0" data-z="-541.0" style="left: 75.16%; top: 83.12%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="10518" data-x="-128.0" data-y="5.0" data-z="-895.0" style="left: 46.00%; top: 50.16%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="10519" data-x="-208.0" data-y="-633.0" data-z="-1012.0" style="left: 43.50%; top: 30.22%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="10520" data-x="217.0" data-y="72.0" data-z="-1168.0" style="left: 56.78%; top: 52.25%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="10538" data-x="-312.0" data-y="-151.0" data-z="-617.0" style="left: 40.25%; top: 45.28%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="10539" data-x="87.0" data-y="-376.0" data-z="-288.0" style="left: 52.72%; top: 38.25%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="10540" data-x="-433.0" data-y="-633.0" data-z="-673.0" style="left: 36.47%; top: 30.22%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="10541" data-x="6.0" data-y="-649.0" data-z="-572.0" style="left: 50.19%; top: 29.72%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-ShipGraveyard_MermaidTomb_HR_D-json"><img src="images/ShipGraveyard_MermaidTomb.webp" class="image">        <div class="dot" data-index="10555" data-x="-312.0" data-y="483.0" data-z="-453.0" style="left: 40.25%; top: 65.09%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="10557" data-x="-744.0" data-y="269.0" data-z="-711.0" style="left: 26.75%; top: 58.41%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="10558" data-x="256.0" data-y="420.0" data-z="-587.0" style="left: 58.00%; top: 63.12%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="10559" data-x="172.0" data-y="199.0" data-z="-259.0" style="left: 55.38%; top: 56.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="10560" data-x="720.0" data-y="421.0" data-z="-730.579" style="left: 72.50%; top: 63.16%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="10561" data-x="-767.0" data-y="-351.0" data-z="-617.0" style="left: 26.03%; top: 39.03%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="10562" data-x="-378.0" data-y="406.0" data-z="-1100.0" style="left: 38.19%; top: 62.69%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="10563" data-x="-259.0" data-y="-1118.0" data-z="-569.0" style="left: 41.91%; top: 15.06%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="10565" data-x="-12.0" data-y="853.0" data-z="-563.0" style="left: 49.62%; top: 76.66%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="10566" data-x="805.0" data-y="1060.0" data-z="-541.0" style="left: 75.16%; top: 83.12%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="10567" data-x="-128.0" data-y="5.0" data-z="-895.0" style="left: 46.00%; top: 50.16%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="10568" data-x="-208.0" data-y="-633.0" data-z="-1012.0" style="left: 43.50%; top: 30.22%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="10569" data-x="217.0" data-y="72.0" data-z="-1168.0" style="left: 56.78%; top: 52.25%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="10587" data-x="-312.0" data-y="-151.0" data-z="-617.0" style="left: 40.25%; top: 45.28%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="10588" data-x="87.0" data-y="-376.0" data-z="-288.0" style="left: 52.72%; top: 38.25%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="10589" data-x="-433.0" data-y="-633.0" data-z="-673.0" style="left: 36.47%; top: 30.22%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="10590" data-x="6.0" data-y="-649.0" data-z="-572.0" style="left: 50.19%; top: 29.72%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-ShipGraveyard_Trench_D-json">
@@ -118,7 +118,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('ShipGraveyard_Trench_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('ShipGraveyard_Trench_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-ShipGraveyard_Trench_D-json"><img src="images/ShipGraveyard_Trench.webp" class="image">        <div class="dot" data-index="11476" data-x="203.0" data-y="-835.0" data-z="-2535.0" style="left: 56.34%; top: 23.91%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-ShipGraveyard_Trench_D-json"><img src="images/ShipGraveyard_Trench.webp" class="image">        <div class="dot" data-index="11468" data-x="203.0" data-y="-835.0" data-z="-2535.0" style="left: 56.34%; top: 23.91%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
 </div>
@@ -131,8 +131,8 @@
     </div>
     <div class="summary" id="summary-section">
         <h2>所有坐标详情</h2>
-        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-10506">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10506, this)"></td>
+        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-10555">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10555, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_MermaidTomb_HR_D.json</td>
         <td>人鱼冢</td>
@@ -141,8 +141,8 @@
         <td>483.00</td>
         <td>-453.00</td>
     </tr>
-    <tr id="row-10508">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10508, this)"></td>
+    <tr id="row-10557">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10557, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_MermaidTomb_HR_D.json</td>
         <td>人鱼冢</td>
@@ -151,8 +151,8 @@
         <td>269.00</td>
         <td>-711.00</td>
     </tr>
-    <tr id="row-10509">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10509, this)"></td>
+    <tr id="row-10558">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10558, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_MermaidTomb_HR_D.json</td>
         <td>人鱼冢</td>
@@ -161,8 +161,8 @@
         <td>420.00</td>
         <td>-587.00</td>
     </tr>
-    <tr id="row-10510">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10510, this)"></td>
+    <tr id="row-10559">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10559, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_MermaidTomb_HR_D.json</td>
         <td>人鱼冢</td>
@@ -171,8 +171,8 @@
         <td>199.00</td>
         <td>-259.00</td>
     </tr>
-    <tr id="row-10511">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10511, this)"></td>
+    <tr id="row-10560">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10560, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_MermaidTomb_HR_D.json</td>
         <td>人鱼冢</td>
@@ -181,8 +181,8 @@
         <td>421.00</td>
         <td>-730.58</td>
     </tr>
-    <tr id="row-10512">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10512, this)"></td>
+    <tr id="row-10561">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10561, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_MermaidTomb_HR_D.json</td>
         <td>人鱼冢</td>
@@ -191,8 +191,8 @@
         <td>-351.00</td>
         <td>-617.00</td>
     </tr>
-    <tr id="row-10513">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10513, this)"></td>
+    <tr id="row-10562">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10562, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_MermaidTomb_HR_D.json</td>
         <td>人鱼冢</td>
@@ -201,8 +201,8 @@
         <td>406.00</td>
         <td>-1100.00</td>
     </tr>
-    <tr id="row-10514">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10514, this)"></td>
+    <tr id="row-10563">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10563, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_MermaidTomb_HR_D.json</td>
         <td>人鱼冢</td>
@@ -211,8 +211,8 @@
         <td>-1118.00</td>
         <td>-569.00</td>
     </tr>
-    <tr id="row-10516">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10516, this)"></td>
+    <tr id="row-10565">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10565, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_MermaidTomb_HR_D.json</td>
         <td>人鱼冢</td>
@@ -221,8 +221,8 @@
         <td>853.00</td>
         <td>-563.00</td>
     </tr>
-    <tr id="row-10517">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10517, this)"></td>
+    <tr id="row-10566">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10566, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_MermaidTomb_HR_D.json</td>
         <td>人鱼冢</td>
@@ -231,8 +231,8 @@
         <td>1060.00</td>
         <td>-541.00</td>
     </tr>
-    <tr id="row-10518">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10518, this)"></td>
+    <tr id="row-10567">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10567, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_MermaidTomb_HR_D.json</td>
         <td>人鱼冢</td>
@@ -241,8 +241,8 @@
         <td>5.00</td>
         <td>-895.00</td>
     </tr>
-    <tr id="row-10519">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10519, this)"></td>
+    <tr id="row-10568">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10568, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_MermaidTomb_HR_D.json</td>
         <td>人鱼冢</td>
@@ -251,8 +251,8 @@
         <td>-633.00</td>
         <td>-1012.00</td>
     </tr>
-    <tr id="row-10520">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10520, this)"></td>
+    <tr id="row-10569">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10569, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_MermaidTomb_HR_D.json</td>
         <td>人鱼冢</td>
@@ -261,8 +261,8 @@
         <td>72.00</td>
         <td>-1168.00</td>
     </tr>
-    <tr id="row-10538">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10538, this)"></td>
+    <tr id="row-10587">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10587, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_MermaidTomb_HR_D.json</td>
         <td>人鱼冢</td>
@@ -271,8 +271,8 @@
         <td>-151.00</td>
         <td>-617.00</td>
     </tr>
-    <tr id="row-10539">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10539, this)"></td>
+    <tr id="row-10588">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10588, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_MermaidTomb_HR_D.json</td>
         <td>人鱼冢</td>
@@ -281,8 +281,8 @@
         <td>-376.00</td>
         <td>-288.00</td>
     </tr>
-    <tr id="row-10540">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10540, this)"></td>
+    <tr id="row-10589">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10589, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_MermaidTomb_HR_D.json</td>
         <td>人鱼冢</td>
@@ -291,8 +291,8 @@
         <td>-633.00</td>
         <td>-673.00</td>
     </tr>
-    <tr id="row-10541">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10541, this)"></td>
+    <tr id="row-10590">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_MermaidTomb_HR_D-json', 10590, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_MermaidTomb_HR_D.json</td>
         <td>人鱼冢</td>
@@ -301,8 +301,8 @@
         <td>-649.00</td>
         <td>-572.00</td>
     </tr>
-    <tr id="row-11476">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Trench_D-json', 11476, this)"></td>
+    <tr id="row-11468">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Trench_D-json', 11468, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_Trench_D.json</td>
         <td>海沟</td>

@@ -49,8 +49,8 @@
         .btn-mirror-y.active { background-color: #E91E63; box-shadow: 0 0 10px #E91E63; }
         .btn-reset { background-color: #9E9E9E; color: white; }
         .btn-reset:hover { background-color: #757575; }
-        .container { position: relative; width: 100%; max-width: 360px; margin: 0 auto; aspect-ratio: 1 / 1; background-color: #1a1a1a; border: 1px solid #444; border-radius: 3px; }
-        .image { width: 100%; height: 100%; display: block; border-radius: 2px; }
+        .container { position: relative; width: 100%; margin: 0 auto; aspect-ratio: 1 / 1; background-color: #1a1a1a; border: 1px solid #444; border-radius: 3px; }
+        .image { width: 100%; height: 100%; display: block; border-radius: 2px; object-fit: cover; }
         .image-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #666; background-color: #222; border-radius: 2px; font-size: 13px; }
         .dot { position: absolute; width: 9px; height: 9px; border-radius: 50%; transform: translate(-50%, -50%); z-index: 10; transition: left 0.3s ease, top 0.3s ease; display: block; }
         .summary { display: none; margin-top: 20px; padding: 10px; background-color: #3a3a3a; border-radius: 5px; }
@@ -69,40 +69,40 @@
     <div class="disclaimer">⚠️ 数据有误差，以实际游戏内为准<span class="time">地图生成日期：2026-02-13日21点</span></div>
     <div class="debug-title" id="debug-title">巨型蠕虫 (GiantWorm)</div>
     <div class="maps-grid" id="maps-grid">    <div class="group-header">废墟1层</div>
-    <div class="map-card" id="map-card-Ruins_Forest_08_D-json">
-        <h3 class="map-title">林间小路<span class='debug-text'> (Forest_Path)</span><div class='map-filename'>Ruins_Forest_08_D.json</div></h3>
+    <div class="map-card" id="map-card-Ruins_Forest_08_HR_D-json">
+        <h3 class="map-title">林间小路<span class='debug-text'> (Forest_Path)</span><div class='map-filename'>Ruins_Forest_08_HR_D.json</div></h3>
         <div class="map-info">Ruins_Forest_08.png | 找到 1 个位置 | 自动范围: ±1600</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('Ruins_Forest_08_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-Ruins_Forest_08_D-json" value="1600" step="100" onchange="updateMapRange('Ruins_Forest_08_D-json')">
-                <button class="btn-scale" onclick="scaleRange('Ruins_Forest_08_D-json', 2.0)">x2</button>
+                <button class="btn-scale" onclick="scaleRange('Ruins_Forest_08_HR_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-Ruins_Forest_08_HR_D-json" value="1600" step="100" onchange="updateMapRange('Ruins_Forest_08_HR_D-json')">
+                <button class="btn-scale" onclick="scaleRange('Ruins_Forest_08_HR_D-json', 2.0)">x2</button>
             </div>
-            <button class="btn-rotate" onclick="toggleRotate('Ruins_Forest_08_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('Ruins_Forest_08_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_Forest_08_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('Ruins_Forest_08_D-json')">↺ 重置</button>
+            <button class="btn-rotate" onclick="toggleRotate('Ruins_Forest_08_HR_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('Ruins_Forest_08_HR_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_Forest_08_HR_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('Ruins_Forest_08_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Ruins_Forest_08_D-json"><img src="images/Ruins_Forest_08.webp" class="image">        <div class="dot" data-index="8468" data-x="-105.00002" data-y="955.0" data-z="-899.6859" style="left: 46.72%; top: 79.84%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Ruins_Forest_08_HR_D-json"><img src="images/Ruins_Forest_08.webp" class="image">        <div class="dot" data-index="8477" data-x="-105.00002" data-y="955.0" data-z="-899.6859" style="left: 46.72%; top: 79.84%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
-    <div class="map-card" id="map-card-Ruins_Square_01_D-json">
-        <h3 class="map-title">广场 A<span class='debug-text'> (Square_A)</span><div class='map-filename'>Ruins_Square_01_D.json</div></h3>
+    <div class="map-card" id="map-card-Ruins_Square_01_HR_D-json">
+        <h3 class="map-title">广场 A<span class='debug-text'> (Square_A)</span><div class='map-filename'>Ruins_Square_01_HR_D.json</div></h3>
         <div class="map-info">Ruins_Square_01.png | 找到 1 个位置 | 自动范围: ±1600</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('Ruins_Square_01_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-Ruins_Square_01_D-json" value="1600" step="100" onchange="updateMapRange('Ruins_Square_01_D-json')">
-                <button class="btn-scale" onclick="scaleRange('Ruins_Square_01_D-json', 2.0)">x2</button>
+                <button class="btn-scale" onclick="scaleRange('Ruins_Square_01_HR_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-Ruins_Square_01_HR_D-json" value="1600" step="100" onchange="updateMapRange('Ruins_Square_01_HR_D-json')">
+                <button class="btn-scale" onclick="scaleRange('Ruins_Square_01_HR_D-json', 2.0)">x2</button>
             </div>
-            <button class="btn-rotate" onclick="toggleRotate('Ruins_Square_01_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('Ruins_Square_01_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_Square_01_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('Ruins_Square_01_D-json')">↺ 重置</button>
+            <button class="btn-rotate" onclick="toggleRotate('Ruins_Square_01_HR_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('Ruins_Square_01_HR_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_Square_01_HR_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('Ruins_Square_01_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Ruins_Square_01_D-json"><img src="images/Ruins_Square_01.webp" class="image">        <div class="dot" data-index="9017" data-x="71.00001" data-y="-50.0" data-z="0.000101" style="left: 52.22%; top: 48.44%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Ruins_Square_01_HR_D-json"><img src="images/Ruins_Square_01.webp" class="image">        <div class="dot" data-index="9029" data-x="71.00001" data-y="-50.0" data-z="0.000101" style="left: 52.22%; top: 48.44%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
 </div>
@@ -115,20 +115,20 @@
     </div>
     <div class="summary" id="summary-section">
         <h2>所有坐标详情</h2>
-        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-8468">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Forest_08_D-json', 8468, this)"></td>
+        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-8477">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Forest_08_HR_D-json', 8477, this)"></td>
         <td>废墟1层</td>
-        <td>Ruins_Forest_08_D.json</td>
+        <td>Ruins_Forest_08_HR_D.json</td>
         <td>林间小路</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantWorm</td>
         <td>-105.00</td>
         <td>955.00</td>
         <td>-899.69</td>
     </tr>
-    <tr id="row-9017">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Square_01_D-json', 9017, this)"></td>
+    <tr id="row-9029">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Square_01_HR_D-json', 9029, this)"></td>
         <td>废墟1层</td>
-        <td>Ruins_Square_01_D.json</td>
+        <td>Ruins_Square_01_HR_D.json</td>
         <td>广场 A</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantWorm</td>
         <td>71.00</td>

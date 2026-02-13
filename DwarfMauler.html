@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>矮人火铳手 位置汇总</title>
+    <title>矮人重锤手 位置汇总</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: Arial, sans-serif; background-color: #2c2c2c; color: white; padding: 10px; }
@@ -49,8 +49,8 @@
         .btn-mirror-y.active { background-color: #E91E63; box-shadow: 0 0 10px #E91E63; }
         .btn-reset { background-color: #9E9E9E; color: white; }
         .btn-reset:hover { background-color: #757575; }
-        .container { position: relative; width: 100%; max-width: 360px; margin: 0 auto; aspect-ratio: 1 / 1; background-color: #1a1a1a; border: 1px solid #444; border-radius: 3px; }
-        .image { width: 100%; height: 100%; display: block; border-radius: 2px; }
+        .container { position: relative; width: 100%; margin: 0 auto; aspect-ratio: 1 / 1; background-color: #1a1a1a; border: 1px solid #444; border-radius: 3px; }
+        .image { width: 100%; height: 100%; display: block; border-radius: 2px; object-fit: cover; }
         .image-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #666; background-color: #222; border-radius: 2px; font-size: 13px; }
         .dot { position: absolute; width: 9px; height: 9px; border-radius: 50%; transform: translate(-50%, -50%); z-index: 10; transition: left 0.3s ease, top 0.3s ease; display: block; }
         .summary { display: none; margin-top: 20px; padding: 10px; background-color: #3a3a3a; border-radius: 5px; }
@@ -65,13 +65,13 @@
 </head>
 <body>
     <a href="index.html" class="back-link">&lt;&lt; 返回总览</a>
-    <h1>矮人火铳手 位置汇总</h1>
+    <h1>矮人重锤手 位置汇总</h1>
     <div class="disclaimer">⚠️ 数据有误差，以实际游戏内为准<span class="time">地图生成日期：2026-02-13日21点</span></div>
-    <div class="debug-title" id="debug-title">矮人火铳手 (DwarfHandcannoneer)</div>
+    <div class="debug-title" id="debug-title">矮人重锤手 (DwarfMauler)</div>
     <div class="maps-grid" id="maps-grid">    <div class="group-header">哥布林洞穴2层</div>
     <div class="map-card" id="map-card-Firedeep_AnvilOutpost_D-json">
         <h3 class="map-title">砧火哨站<span class='debug-text'> (AnvilOutpost)</span><div class='map-filename'>Firedeep_AnvilOutpost_D.json</div></h3>
-        <div class="map-info">AnvilOutpost.png | 找到 3 个位置 | 自动范围: ±1600</div>
+        <div class="map-info">AnvilOutpost.png | 找到 1 个位置 | 自动范围: ±1600</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
@@ -84,14 +84,12 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Firedeep_AnvilOutpost_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Firedeep_AnvilOutpost_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Firedeep_AnvilOutpost_D-json"><img src="images/AnvilOutpost.webp" class="image">        <div class="dot" data-index="4326" data-x="0.0" data-y="-250.0" data-z="300.0" style="left: 50.00%; top: 42.19%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4332" data-x="-400.0" data-y="930.0" data-z="450.0" style="left: 37.50%; top: 79.06%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4333" data-x="400.0" data-y="930.0" data-z="450.0" style="left: 62.50%; top: 79.06%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Firedeep_AnvilOutpost_D-json"><img src="images/AnvilOutpost.webp" class="image">        <div class="dot" data-index="4367" data-x="0.0" data-y="570.0" data-z="300.0" style="left: 50.00%; top: 67.81%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-Firedeep_BrokenStonebridge_D-json">
         <h3 class="map-title">断石桥<span class='debug-text'> (BrokenStonebridge)</span><div class='map-filename'>Firedeep_BrokenStonebridge_D.json</div></h3>
-        <div class="map-info">BrokenStonebridge.png | 找到 2 个位置 | 自动范围: ±1600</div>
+        <div class="map-info">BrokenStonebridge.png | 找到 3 个位置 | 自动范围: ±1600</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
@@ -104,8 +102,9 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Firedeep_BrokenStonebridge_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Firedeep_BrokenStonebridge_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Firedeep_BrokenStonebridge_D-json"><img src="images/BrokenStonebridge.webp" class="image">        <div class="dot" data-index="4354" data-x="95.0" data-y="280.0" data-z="27.95013" style="left: 52.97%; top: 58.75%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4355" data-x="-565.0" data-y="120.0" data-z="0.0" style="left: 32.34%; top: 53.75%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Firedeep_BrokenStonebridge_D-json"><img src="images/BrokenStonebridge.webp" class="image">        <div class="dot" data-index="4384" data-x="95.0" data-y="180.0" data-z="0.0" style="left: 52.97%; top: 55.62%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4385" data-x="-575.0" data-y="325.0" data-z="0.0" style="left: 32.03%; top: 60.16%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4399" data-x="1240.0" data-y="1400.0" data-z="400.0" style="left: 88.75%; top: 93.75%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-Firedeep_CollapsedDigSite_D-json">
@@ -123,34 +122,13 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Firedeep_CollapsedDigSite_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Firedeep_CollapsedDigSite_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Firedeep_CollapsedDigSite_D-json"><img src="images/CollapsedDigSite.webp" class="image">        <div class="dot" data-index="4398" data-x="1305.0" data-y="1340.0" data-z="405.0" style="left: 90.78%; top: 91.88%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4399" data-x="-1115.0" data-y="535.0" data-z="405.0" style="left: 15.16%; top: 66.72%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-</div>
-    </div>
-    <div class="map-card" id="map-card-Firedeep_LavaCrossway_D-json">
-        <h3 class="map-title">熔岩交叉口<span class='debug-text'> (LavaCrossway)</span><div class='map-filename'>Firedeep_LavaCrossway_D.json</div></h3>
-        <div class="map-info">LavaCrossway.png | 找到 4 个位置 | 自动范围: ±1600</div>
-        <div class="controls">
-            <div class="input-group">
-                <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('Firedeep_LavaCrossway_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-Firedeep_LavaCrossway_D-json" value="1600" step="100" onchange="updateMapRange('Firedeep_LavaCrossway_D-json')">
-                <button class="btn-scale" onclick="scaleRange('Firedeep_LavaCrossway_D-json', 2.0)">x2</button>
-            </div>
-            <button class="btn-rotate" onclick="toggleRotate('Firedeep_LavaCrossway_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('Firedeep_LavaCrossway_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('Firedeep_LavaCrossway_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('Firedeep_LavaCrossway_D-json')">↺ 重置</button>
-        </div>
-        <div class="container" id="container-Firedeep_LavaCrossway_D-json"><img src="images/LavaCrossway.webp" class="image">        <div class="dot" data-index="4410" data-x="620.0" data-y="600.0" data-z="460.0" style="left: 69.38%; top: 68.75%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4411" data-x="-775.2854" data-y="-631.5367" data-z="455.0" style="left: 25.77%; top: 30.26%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4413" data-x="-198.48624" data-y="-1394.8478" data-z="5.0" style="left: 43.80%; top: 6.41%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4414" data-x="190.0" data-y="1385.0" data-z="5.0" style="left: 55.94%; top: 93.28%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Firedeep_CollapsedDigSite_D-json"><img src="images/CollapsedDigSite.webp" class="image">        <div class="dot" data-index="4433" data-x="575.0" data-y="-700.0" data-z="405.0" style="left: 67.97%; top: 28.12%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4434" data-x="1135.0" data-y="1390.0" data-z="405.0" style="left: 85.47%; top: 93.44%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-Firedeep_MiningPassage_D-json">
         <h3 class="map-title">采矿通道<span class='debug-text'> (MiningPassage)</span><div class='map-filename'>Firedeep_MiningPassage_D.json</div></h3>
-        <div class="map-info">MiningPassage.png | 找到 3 个位置 | 自动范围: ±1600</div>
+        <div class="map-info">MiningPassage.png | 找到 2 个位置 | 自动范围: ±1600</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
@@ -163,9 +141,8 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Firedeep_MiningPassage_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Firedeep_MiningPassage_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Firedeep_MiningPassage_D-json"><img src="images/MiningPassage.webp" class="image">        <div class="dot" data-index="4449" data-x="1032.5226" data-y="-2134.8015" data-z="15.704072" style="left: 82.27%; top: -16.71%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4450" data-x="-78.67882" data-y="-40.957603" data-z="0.0" style="left: 47.54%; top: 48.72%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4455" data-x="-20.0" data-y="10.0" data-z="160.71301" style="left: 49.38%; top: 50.31%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Firedeep_MiningPassage_D-json"><img src="images/MiningPassage.webp" class="image">        <div class="dot" data-index="4486" data-x="-320.0" data-y="150.0" data-z="14.787393" style="left: 40.00%; top: 54.69%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4487" data-x="494.79056" data-y="-189.54424" data-z="0.0" style="left: 65.46%; top: 44.08%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
 </div>
@@ -174,149 +151,89 @@
         <span class="color-dot" style="background-color: cyan;"></span> Z &gt; 299 (高于地面)
         <span class="color-dot" style="background-color: yellow;"></span> -299 ≤ Z ≤ 299 (正常高度)
         <span class="color-dot" style="background-color: red;"></span> Z &lt; -299 (低于地面)
-        <br><strong>位置统计：共 14 个位置点</strong><br><strong>包含地图：</strong> 崩陷矿场, 断石桥, 熔岩交叉口, 砧火哨站, 采矿通道
+        <br><strong>位置统计：共 8 个位置点</strong><br><strong>包含地图：</strong> 崩陷矿场, 断石桥, 砧火哨站, 采矿通道
     </div>
     <div class="summary" id="summary-section">
         <h2>所有坐标详情</h2>
-        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-4326">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_AnvilOutpost_D-json', 4326, this)"></td>
+        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-4367">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_AnvilOutpost_D-json', 4367, this)"></td>
         <td>哥布林洞穴2层</td>
         <td>Firedeep_AnvilOutpost_D.json</td>
         <td>砧火哨站</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_DwarfHandCannoneer</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_DwarfMauler</td>
         <td>0.00</td>
-        <td>-250.00</td>
+        <td>570.00</td>
         <td>300.00</td>
     </tr>
-    <tr id="row-4332">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_AnvilOutpost_D-json', 4332, this)"></td>
-        <td>哥布林洞穴2层</td>
-        <td>Firedeep_AnvilOutpost_D.json</td>
-        <td>砧火哨站</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_DwarfHandCannoneer</td>
-        <td>-400.00</td>
-        <td>930.00</td>
-        <td>450.00</td>
-    </tr>
-    <tr id="row-4333">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_AnvilOutpost_D-json', 4333, this)"></td>
-        <td>哥布林洞穴2层</td>
-        <td>Firedeep_AnvilOutpost_D.json</td>
-        <td>砧火哨站</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_DwarfHandCannoneer</td>
-        <td>400.00</td>
-        <td>930.00</td>
-        <td>450.00</td>
-    </tr>
-    <tr id="row-4354">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_BrokenStonebridge_D-json', 4354, this)"></td>
+    <tr id="row-4384">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_BrokenStonebridge_D-json', 4384, this)"></td>
         <td>哥布林洞穴2层</td>
         <td>Firedeep_BrokenStonebridge_D.json</td>
         <td>断石桥</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_DwarfHandCannoneer</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_DwarfMauler</td>
         <td>95.00</td>
-        <td>280.00</td>
-        <td>27.95</td>
-    </tr>
-    <tr id="row-4355">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_BrokenStonebridge_D-json', 4355, this)"></td>
-        <td>哥布林洞穴2层</td>
-        <td>Firedeep_BrokenStonebridge_D.json</td>
-        <td>断石桥</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_DwarfHandCannoneer</td>
-        <td>-565.00</td>
-        <td>120.00</td>
+        <td>180.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-4398">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_CollapsedDigSite_D-json', 4398, this)"></td>
+    <tr id="row-4385">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_BrokenStonebridge_D-json', 4385, this)"></td>
         <td>哥布林洞穴2层</td>
-        <td>Firedeep_CollapsedDigSite_D.json</td>
-        <td>崩陷矿场</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_DwarfHandCannoneer</td>
-        <td>1305.00</td>
-        <td>1340.00</td>
-        <td>405.00</td>
+        <td>Firedeep_BrokenStonebridge_D.json</td>
+        <td>断石桥</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_DwarfMauler</td>
+        <td>-575.00</td>
+        <td>325.00</td>
+        <td>0.00</td>
     </tr>
     <tr id="row-4399">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_CollapsedDigSite_D-json', 4399, this)"></td>
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_BrokenStonebridge_D-json', 4399, this)"></td>
+        <td>哥布林洞穴2层</td>
+        <td>Firedeep_BrokenStonebridge_D.json</td>
+        <td>断石桥</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_DwarfMauler</td>
+        <td>1240.00</td>
+        <td>1400.00</td>
+        <td>400.00</td>
+    </tr>
+    <tr id="row-4433">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_CollapsedDigSite_D-json', 4433, this)"></td>
         <td>哥布林洞穴2层</td>
         <td>Firedeep_CollapsedDigSite_D.json</td>
         <td>崩陷矿场</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_DwarfHandCannoneer</td>
-        <td>-1115.00</td>
-        <td>535.00</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_DwarfMauler</td>
+        <td>575.00</td>
+        <td>-700.00</td>
         <td>405.00</td>
     </tr>
-    <tr id="row-4410">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_LavaCrossway_D-json', 4410, this)"></td>
+    <tr id="row-4434">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_CollapsedDigSite_D-json', 4434, this)"></td>
         <td>哥布林洞穴2层</td>
-        <td>Firedeep_LavaCrossway_D.json</td>
-        <td>熔岩交叉口</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_DwarfHandCannoneer</td>
-        <td>620.00</td>
-        <td>600.00</td>
-        <td>460.00</td>
+        <td>Firedeep_CollapsedDigSite_D.json</td>
+        <td>崩陷矿场</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_DwarfMauler</td>
+        <td>1135.00</td>
+        <td>1390.00</td>
+        <td>405.00</td>
     </tr>
-    <tr id="row-4411">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_LavaCrossway_D-json', 4411, this)"></td>
-        <td>哥布林洞穴2层</td>
-        <td>Firedeep_LavaCrossway_D.json</td>
-        <td>熔岩交叉口</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_DwarfHandCannoneer</td>
-        <td>-775.29</td>
-        <td>-631.54</td>
-        <td>455.00</td>
-    </tr>
-    <tr id="row-4413">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_LavaCrossway_D-json', 4413, this)"></td>
-        <td>哥布林洞穴2层</td>
-        <td>Firedeep_LavaCrossway_D.json</td>
-        <td>熔岩交叉口</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_DwarfHandCannoneer</td>
-        <td>-198.49</td>
-        <td>-1394.85</td>
-        <td>5.00</td>
-    </tr>
-    <tr id="row-4414">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_LavaCrossway_D-json', 4414, this)"></td>
-        <td>哥布林洞穴2层</td>
-        <td>Firedeep_LavaCrossway_D.json</td>
-        <td>熔岩交叉口</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_DwarfHandCannoneer</td>
-        <td>190.00</td>
-        <td>1385.00</td>
-        <td>5.00</td>
-    </tr>
-    <tr id="row-4449">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_MiningPassage_D-json', 4449, this)"></td>
+    <tr id="row-4486">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_MiningPassage_D-json', 4486, this)"></td>
         <td>哥布林洞穴2层</td>
         <td>Firedeep_MiningPassage_D.json</td>
         <td>采矿通道</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_DwarfHandCannoneer</td>
-        <td>1032.52</td>
-        <td>-2134.80</td>
-        <td>15.70</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_DwarfMauler</td>
+        <td>-320.00</td>
+        <td>150.00</td>
+        <td>14.79</td>
     </tr>
-    <tr id="row-4450">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_MiningPassage_D-json', 4450, this)"></td>
+    <tr id="row-4487">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_MiningPassage_D-json', 4487, this)"></td>
         <td>哥布林洞穴2层</td>
         <td>Firedeep_MiningPassage_D.json</td>
         <td>采矿通道</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_DwarfHandCannoneer</td>
-        <td>-78.68</td>
-        <td>-40.96</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_DwarfMauler</td>
+        <td>494.79</td>
+        <td>-189.54</td>
         <td>0.00</td>
-    </tr>
-    <tr id="row-4455">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_MiningPassage_D-json', 4455, this)"></td>
-        <td>哥布林洞穴2层</td>
-        <td>Firedeep_MiningPassage_D.json</td>
-        <td>采矿通道</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_DwarfHandCannoneer</td>
-        <td>-20.00</td>
-        <td>10.00</td>
-        <td>160.71</td>
     </tr>
 </table>
     </div>

@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>骨粉>目标>DreadSpine 位置汇总</title>
+    <title>熔岩史莱姆 位置汇总</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: Arial, sans-serif; background-color: #2c2c2c; color: white; padding: 10px; }
@@ -49,8 +49,8 @@
         .btn-mirror-y.active { background-color: #E91E63; box-shadow: 0 0 10px #E91E63; }
         .btn-reset { background-color: #9E9E9E; color: white; }
         .btn-reset:hover { background-color: #757575; }
-        .container { position: relative; width: 100%; max-width: 360px; margin: 0 auto; aspect-ratio: 1 / 1; background-color: #1a1a1a; border: 1px solid #444; border-radius: 3px; }
-        .image { width: 100%; height: 100%; display: block; border-radius: 2px; }
+        .container { position: relative; width: 100%; margin: 0 auto; aspect-ratio: 1 / 1; background-color: #1a1a1a; border: 1px solid #444; border-radius: 3px; }
+        .image { width: 100%; height: 100%; display: block; border-radius: 2px; object-fit: cover; }
         .image-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #666; background-color: #222; border-radius: 2px; font-size: 13px; }
         .dot { position: absolute; width: 9px; height: 9px; border-radius: 50%; transform: translate(-50%, -50%); z-index: 10; transition: left 0.3s ease, top 0.3s ease; display: block; }
         .summary { display: none; margin-top: 20px; padding: 10px; background-color: #3a3a3a; border-radius: 5px; }
@@ -65,62 +65,66 @@
 </head>
 <body>
     <a href="index.html" class="back-link">&lt;&lt; 返回总览</a>
-    <h1>骨粉>目标>DreadSpine 位置汇总</h1>
+    <h1>熔岩史莱姆 位置汇总</h1>
     <div class="disclaimer">⚠️ 数据有误差，以实际游戏内为准<span class="time">地图生成日期：2026-02-13日21点</span></div>
-    <div class="debug-title" id="debug-title">骨粉 (BonePowder) 目标 DreadSpine</div>
-    <div class="maps-grid" id="maps-grid">    <div class="group-header">废墟3层炼狱</div>
-    <div class="map-card" id="map-card-Inferno_Doomcage_HR_D-json">
-        <h3 class="map-title">末日囚笼<span class='debug-text'> (Doomcage)</span><div class='map-filename'>Inferno_Doomcage_HR_D.json</div></h3>
-        <div class="map-info">Inferno_Doomcage.png | 找到 1 个位置 | 自动范围: ±1600</div>
+    <div class="debug-title" id="debug-title">熔岩史莱姆 (LavaSlime)</div>
+    <div class="maps-grid" id="maps-grid">    <div class="group-header">哥布林洞穴2层</div>
+    <div class="map-card" id="map-card-Firedeep_BurningCourt_D-json">
+        <h3 class="map-title">焚庭<span class='debug-text'> (BurningCourt)</span><div class='map-filename'>Firedeep_BurningCourt_D.json</div></h3>
+        <div class="map-info">BurningCourt.png | 找到 3 个位置 | 自动范围: ±1600</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('Inferno_Doomcage_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-Inferno_Doomcage_HR_D-json" value="1600" step="100" onchange="updateMapRange('Inferno_Doomcage_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('Inferno_Doomcage_HR_D-json', 2.0)">x2</button>
+                <button class="btn-scale" onclick="scaleRange('Firedeep_BurningCourt_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-Firedeep_BurningCourt_D-json" value="1600" step="100" onchange="updateMapRange('Firedeep_BurningCourt_D-json')">
+                <button class="btn-scale" onclick="scaleRange('Firedeep_BurningCourt_D-json', 2.0)">x2</button>
             </div>
-            <button class="btn-rotate" onclick="toggleRotate('Inferno_Doomcage_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('Inferno_Doomcage_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('Inferno_Doomcage_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('Inferno_Doomcage_HR_D-json')">↺ 重置</button>
+            <button class="btn-rotate" onclick="toggleRotate('Firedeep_BurningCourt_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('Firedeep_BurningCourt_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('Firedeep_BurningCourt_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('Firedeep_BurningCourt_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Inferno_Doomcage_HR_D-json"><img src="images/Inferno_Doomcage.webp" class="image">        <div class="dot" data-index="6906" data-x="-5.0" data-y="190.0" data-z="0.0" style="left: 49.84%; top: 55.94%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Firedeep_BurningCourt_D-json"><img src="images/BurningCourt.webp" class="image">        <div class="dot" data-index="4403" data-x="150.0" data-y="1190.0" data-z="205.0" style="left: 54.69%; top: 87.19%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4404" data-x="-1325.0" data-y="175.0" data-z="205.0" style="left: 8.59%; top: 55.47%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4422" data-x="-513.16986" data-y="-265.1314" data-z="210.80829" style="left: 33.96%; top: 41.71%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
-    <div class="map-card" id="map-card-Skull_HR_D-json">
-        <h3 class="map-title">鲜血监牢<span class='debug-text'> (Blood_Prison)</span><div class='map-filename'>Skull_HR_D.json</div></h3>
-        <div class="map-info">Skull.png | 找到 1 个位置 | 自动范围: ±1600</div>
+    <div class="map-card" id="map-card-Firedeep_MagmaFalls_D-json">
+        <h3 class="map-title">岩浆瀑布<span class='debug-text'> (MagmaFalls)</span><div class='map-filename'>Firedeep_MagmaFalls_D.json</div></h3>
+        <div class="map-info">Magmafalls.png | 找到 1 个位置 | 自动范围: ±1600</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('Skull_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-Skull_HR_D-json" value="1600" step="100" onchange="updateMapRange('Skull_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('Skull_HR_D-json', 2.0)">x2</button>
+                <button class="btn-scale" onclick="scaleRange('Firedeep_MagmaFalls_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-Firedeep_MagmaFalls_D-json" value="1600" step="100" onchange="updateMapRange('Firedeep_MagmaFalls_D-json')">
+                <button class="btn-scale" onclick="scaleRange('Firedeep_MagmaFalls_D-json', 2.0)">x2</button>
             </div>
-            <button class="btn-rotate" onclick="toggleRotate('Skull_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('Skull_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('Skull_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('Skull_HR_D-json')">↺ 重置</button>
+            <button class="btn-rotate" onclick="toggleRotate('Firedeep_MagmaFalls_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('Firedeep_MagmaFalls_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('Firedeep_MagmaFalls_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('Firedeep_MagmaFalls_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Skull_HR_D-json"><img src="images/Skull.webp" class="image">        <div class="dot" data-index="7835" data-x="324.0" data-y="777.0" data-z="-700.0" style="left: 60.12%; top: 74.28%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Firedeep_MagmaFalls_D-json"><img src="images/Magmafalls.webp" class="image">        <div class="dot" data-index="4456" data-x="5.0" data-y="1035.0" data-z="-26.975525" style="left: 50.16%; top: 82.34%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
-    <div class="map-card" id="map-card-ThroneRoom_02_HR_D-json">
-        <h3 class="map-title">恶魔王座<span class='debug-text'> (Demon_Throne)</span><div class='map-filename'>ThroneRoom_02_HR_D.json</div></h3>
-        <div class="map-info">ThroneRoom_02.png | 找到 1 个位置 | 自动范围: ±1600</div>
+    <div class="map-card" id="map-card-Firedeep_MoltenPit_D-json">
+        <h3 class="map-title">熔坑<span class='debug-text'> (MoltenPit)</span><div class='map-filename'>Firedeep_MoltenPit_D.json</div></h3>
+        <div class="map-info">MoltenPit.png | 找到 3 个位置 | 自动范围: ±1600</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('ThroneRoom_02_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-ThroneRoom_02_HR_D-json" value="1600" step="100" onchange="updateMapRange('ThroneRoom_02_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('ThroneRoom_02_HR_D-json', 2.0)">x2</button>
+                <button class="btn-scale" onclick="scaleRange('Firedeep_MoltenPit_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-Firedeep_MoltenPit_D-json" value="1600" step="100" onchange="updateMapRange('Firedeep_MoltenPit_D-json')">
+                <button class="btn-scale" onclick="scaleRange('Firedeep_MoltenPit_D-json', 2.0)">x2</button>
             </div>
-            <button class="btn-rotate" onclick="toggleRotate('ThroneRoom_02_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('ThroneRoom_02_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('ThroneRoom_02_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('ThroneRoom_02_HR_D-json')">↺ 重置</button>
+            <button class="btn-rotate" onclick="toggleRotate('Firedeep_MoltenPit_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('Firedeep_MoltenPit_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('Firedeep_MoltenPit_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('Firedeep_MoltenPit_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-ThroneRoom_02_HR_D-json"><img src="images/ThroneRoom_02.webp" class="image">        <div class="dot" data-index="7902" data-x="-470.0" data-y="-1.4136387e-27" data-z="400.0" style="left: 35.31%; top: 50.00%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Firedeep_MoltenPit_D-json"><img src="images/MoltenPit.webp" class="image">        <div class="dot" data-index="4499" data-x="1195.0" data-y="1115.0" data-z="390.0" style="left: 87.34%; top: 84.84%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4516" data-x="-57.365444" data-y="-104.43651" data-z="-0.6301719" style="left: 48.21%; top: 46.74%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4517" data-x="-1355.0" data-y="-1285.0" data-z="390.0" style="left: 7.66%; top: 9.84%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
 </div>
     </div>
 </div>
@@ -129,39 +133,79 @@
         <span class="color-dot" style="background-color: cyan;"></span> Z &gt; 299 (高于地面)
         <span class="color-dot" style="background-color: yellow;"></span> -299 ≤ Z ≤ 299 (正常高度)
         <span class="color-dot" style="background-color: red;"></span> Z &lt; -299 (低于地面)
-        <br><strong>位置统计：共 3 个位置点</strong><br><strong>包含地图：</strong> 恶魔王座, 末日囚笼, 鲜血监牢
+        <br><strong>位置统计：共 7 个位置点</strong><br><strong>包含地图：</strong> 岩浆瀑布, 焚庭, 熔坑
     </div>
     <div class="summary" id="summary-section">
         <h2>所有坐标详情</h2>
-        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-6906">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Inferno_Doomcage_HR_D-json', 6906, this)"></td>
-        <td>废墟3层炼狱</td>
-        <td>Inferno_Doomcage_HR_D.json</td>
-        <td>末日囚笼</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_Dreadspine</td>
-        <td>-5.00</td>
-        <td>190.00</td>
-        <td>0.00</td>
+        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-4403">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_BurningCourt_D-json', 4403, this)"></td>
+        <td>哥布林洞穴2层</td>
+        <td>Firedeep_BurningCourt_D.json</td>
+        <td>焚庭</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_LavaSlime</td>
+        <td>150.00</td>
+        <td>1190.00</td>
+        <td>205.00</td>
     </tr>
-    <tr id="row-7835">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Skull_HR_D-json', 7835, this)"></td>
-        <td>废墟3层炼狱</td>
-        <td>Skull_HR_D.json</td>
-        <td>鲜血监牢</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_Dreadspine</td>
-        <td>324.00</td>
-        <td>777.00</td>
-        <td>-700.00</td>
+    <tr id="row-4404">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_BurningCourt_D-json', 4404, this)"></td>
+        <td>哥布林洞穴2层</td>
+        <td>Firedeep_BurningCourt_D.json</td>
+        <td>焚庭</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_LavaSlime</td>
+        <td>-1325.00</td>
+        <td>175.00</td>
+        <td>205.00</td>
     </tr>
-    <tr id="row-7902">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ThroneRoom_02_HR_D-json', 7902, this)"></td>
-        <td>废墟3层炼狱</td>
-        <td>ThroneRoom_02_HR_D.json</td>
-        <td>恶魔王座</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_Dreadspine</td>
-        <td>-470.00</td>
-        <td>-0.00</td>
-        <td>400.00</td>
+    <tr id="row-4422">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_BurningCourt_D-json', 4422, this)"></td>
+        <td>哥布林洞穴2层</td>
+        <td>Firedeep_BurningCourt_D.json</td>
+        <td>焚庭</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_LavaSlime</td>
+        <td>-513.17</td>
+        <td>-265.13</td>
+        <td>210.81</td>
+    </tr>
+    <tr id="row-4456">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_MagmaFalls_D-json', 4456, this)"></td>
+        <td>哥布林洞穴2层</td>
+        <td>Firedeep_MagmaFalls_D.json</td>
+        <td>岩浆瀑布</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_LavaSlime</td>
+        <td>5.00</td>
+        <td>1035.00</td>
+        <td>-26.98</td>
+    </tr>
+    <tr id="row-4499">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_MoltenPit_D-json', 4499, this)"></td>
+        <td>哥布林洞穴2层</td>
+        <td>Firedeep_MoltenPit_D.json</td>
+        <td>熔坑</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_LavaSlime</td>
+        <td>1195.00</td>
+        <td>1115.00</td>
+        <td>390.00</td>
+    </tr>
+    <tr id="row-4516">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_MoltenPit_D-json', 4516, this)"></td>
+        <td>哥布林洞穴2层</td>
+        <td>Firedeep_MoltenPit_D.json</td>
+        <td>熔坑</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_LavaSlime</td>
+        <td>-57.37</td>
+        <td>-104.44</td>
+        <td>-0.63</td>
+    </tr>
+    <tr id="row-4517">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_MoltenPit_D-json', 4517, this)"></td>
+        <td>哥布林洞穴2层</td>
+        <td>Firedeep_MoltenPit_D.json</td>
+        <td>熔坑</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_LavaSlime</td>
+        <td>-1355.00</td>
+        <td>-1285.00</td>
+        <td>390.00</td>
     </tr>
 </table>
     </div>

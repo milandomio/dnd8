@@ -49,8 +49,8 @@
         .btn-mirror-y.active { background-color: #E91E63; box-shadow: 0 0 10px #E91E63; }
         .btn-reset { background-color: #9E9E9E; color: white; }
         .btn-reset:hover { background-color: #757575; }
-        .container { position: relative; width: 100%; max-width: 360px; margin: 0 auto; aspect-ratio: 1 / 1; background-color: #1a1a1a; border: 1px solid #444; border-radius: 3px; }
-        .image { width: 100%; height: 100%; display: block; border-radius: 2px; }
+        .container { position: relative; width: 100%; margin: 0 auto; aspect-ratio: 1 / 1; background-color: #1a1a1a; border: 1px solid #444; border-radius: 3px; }
+        .image { width: 100%; height: 100%; display: block; border-radius: 2px; object-fit: cover; }
         .image-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #666; background-color: #222; border-radius: 2px; font-size: 13px; }
         .dot { position: absolute; width: 9px; height: 9px; border-radius: 50%; transform: translate(-50%, -50%); z-index: 10; transition: left 0.3s ease, top 0.3s ease; display: block; }
         .summary { display: none; margin-top: 20px; padding: 10px; background-color: #3a3a3a; border-radius: 5px; }
@@ -69,352 +69,63 @@
     <div class="disclaimer">⚠️ 数据有误差，以实际游戏内为准<span class="time">地图生成日期：2026-02-13日21点</span></div>
     <div class="debug-title" id="debug-title">冰霜骷髅斧手 (FrostSkeletonAxeman)</div>
     <div class="maps-grid" id="maps-grid">    <div class="group-header">冰图2层</div>
-    <div class="map-card" id="map-card-IceAbyss_DeepFlow_HR_D-json">
-        <h3 class="map-title">寒渊之流<span class='debug-text'> (IceAbyss_DeepFlow)</span><div class='map-filename'>IceAbyss_DeepFlow_HR_D.json</div></h3>
-        <div class="map-info">IceAbyss_DeepFlow.png | 找到 1 个位置 | 自动范围: ±1600</div>
-        <div class="controls">
-            <div class="input-group">
-                <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_DeepFlow_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceAbyss_DeepFlow_HR_D-json" value="1600" step="100" onchange="updateMapRange('IceAbyss_DeepFlow_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_DeepFlow_HR_D-json', 2.0)">x2</button>
-            </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceAbyss_DeepFlow_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceAbyss_DeepFlow_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceAbyss_DeepFlow_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceAbyss_DeepFlow_HR_D-json')">↺ 重置</button>
-        </div>
-        <div class="container" id="container-IceAbyss_DeepFlow_HR_D-json"><img src="images/IceAbyss_DeepFlow.webp" class="image">        <div class="dot" data-index="4502" data-x="-375.0" data-y="-990.0" data-z="0.0" style="left: 38.28%; top: 19.06%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-</div>
-    </div>
-    <div class="map-card" id="map-card-IceAbyss_CharnelHouse_HR_D-json">
-        <h3 class="map-title">停尸房<span class='debug-text'> (CharnelHouse)</span><div class='map-filename'>IceAbyss_CharnelHouse_HR_D.json</div></h3>
-        <div class="map-info">IceAbyss_CharnelHouse.png | 找到 3 个位置 | 自动范围: ±1600</div>
-        <div class="controls">
-            <div class="input-group">
-                <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_CharnelHouse_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceAbyss_CharnelHouse_HR_D-json" value="1600" step="100" onchange="updateMapRange('IceAbyss_CharnelHouse_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_CharnelHouse_HR_D-json', 2.0)">x2</button>
-            </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceAbyss_CharnelHouse_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceAbyss_CharnelHouse_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceAbyss_CharnelHouse_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceAbyss_CharnelHouse_HR_D-json')">↺ 重置</button>
-        </div>
-        <div class="container" id="container-IceAbyss_CharnelHouse_HR_D-json"><img src="images/IceAbyss_CharnelHouse.webp" class="image">        <div class="dot" data-index="4583" data-x="600.0" data-y="-1125.0" data-z="-399.9999" style="left: 68.75%; top: 14.84%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4587" data-x="-148.0" data-y="-791.0" data-z="0.0" style="left: 45.38%; top: 25.28%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4588" data-x="-503.0" data-y="-445.0" data-z="0.0" style="left: 34.28%; top: 36.09%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-</div>
-    </div>
-    <div class="map-card" id="map-card-IceAbyss_DeathPit_HR_D-json">
-        <h3 class="map-title">死亡深渊<span class='debug-text'> (IceAbyss_DeathPit)</span><div class='map-filename'>IceAbyss_DeathPit_HR_D.json</div></h3>
+    <div class="map-card" id="map-card-IceAbyss_DeathPit_D-json">
+        <h3 class="map-title">死亡深渊<span class='debug-text'> (IceAbyss_DeathPit)</span><div class='map-filename'>IceAbyss_DeathPit_D.json</div></h3>
         <div class="map-info">IceAbyss_DeathPit.png | 找到 2 个位置 | 自动范围: ±1600</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_DeathPit_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceAbyss_DeathPit_HR_D-json" value="1600" step="100" onchange="updateMapRange('IceAbyss_DeathPit_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_DeathPit_HR_D-json', 2.0)">x2</button>
+                <button class="btn-scale" onclick="scaleRange('IceAbyss_DeathPit_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-IceAbyss_DeathPit_D-json" value="1600" step="100" onchange="updateMapRange('IceAbyss_DeathPit_D-json')">
+                <button class="btn-scale" onclick="scaleRange('IceAbyss_DeathPit_D-json', 2.0)">x2</button>
             </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceAbyss_DeathPit_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceAbyss_DeathPit_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceAbyss_DeathPit_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceAbyss_DeathPit_HR_D-json')">↺ 重置</button>
+            <button class="btn-rotate" onclick="toggleRotate('IceAbyss_DeathPit_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('IceAbyss_DeathPit_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('IceAbyss_DeathPit_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('IceAbyss_DeathPit_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceAbyss_DeathPit_HR_D-json"><img src="images/IceAbyss_DeathPit.webp" class="image">        <div class="dot" data-index="4598" data-x="554.0" data-y="26.0" data-z="0.000109" style="left: 67.31%; top: 50.81%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4599" data-x="-590.0" data-y="26.0" data-z="0.000109" style="left: 31.56%; top: 50.81%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceAbyss_DeathPit_D-json"><img src="images/IceAbyss_DeathPit.webp" class="image">        <div class="dot" data-index="4665" data-x="554.0" data-y="26.0" data-z="0.000109" style="left: 67.31%; top: 50.81%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4666" data-x="-590.0" data-y="26.0" data-z="0.000109" style="left: 31.56%; top: 50.81%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
-    <div class="map-card" id="map-card-IceAbyss_DemonicDen_D-json">
-        <h3 class="map-title">冰渊魔窟<span class='debug-text'> (IceAbyss_DemonicDen)</span><div class='map-filename'>IceAbyss_DemonicDen_D.json</div></h3>
-        <div class="map-info">IceAbyss_DemonicDen.png | 找到 1 个位置 | 自动范围: ±1600</div>
-        <div class="controls">
-            <div class="input-group">
-                <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_DemonicDen_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceAbyss_DemonicDen_D-json" value="1600" step="100" onchange="updateMapRange('IceAbyss_DemonicDen_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_DemonicDen_D-json', 2.0)">x2</button>
-            </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceAbyss_DemonicDen_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceAbyss_DemonicDen_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceAbyss_DemonicDen_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceAbyss_DemonicDen_D-json')">↺ 重置</button>
-        </div>
-        <div class="container" id="container-IceAbyss_DemonicDen_D-json"><img src="images/IceAbyss_DemonicDen.webp" class="image">        <div class="dot" data-index="4668" data-x="-257.0" data-y="-1613.0" data-z="0.0001" style="left: 41.97%; top: -0.41%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-</div>
-    </div>
-    <div class="map-card" id="map-card-IceAbyss_DividingHill_HR_D-json">
-        <h3 class="map-title">裂丘<span class='debug-text'> (IceAbyss_DividingHill)</span><div class='map-filename'>IceAbyss_DividingHill_HR_D.json</div></h3>
-        <div class="map-info">IceAbyss_DividingHill.png | 找到 1 个位置 | 自动范围: ±1600</div>
-        <div class="controls">
-            <div class="input-group">
-                <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_DividingHill_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceAbyss_DividingHill_HR_D-json" value="1600" step="100" onchange="updateMapRange('IceAbyss_DividingHill_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_DividingHill_HR_D-json', 2.0)">x2</button>
-            </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceAbyss_DividingHill_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceAbyss_DividingHill_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceAbyss_DividingHill_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceAbyss_DividingHill_HR_D-json')">↺ 重置</button>
-        </div>
-        <div class="container" id="container-IceAbyss_DividingHill_HR_D-json"><img src="images/IceAbyss_DividingHill.webp" class="image">        <div class="dot" data-index="4689" data-x="-1305.0" data-y="1317.0" data-z="0.0001" style="left: 9.22%; top: 91.16%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-</div>
-    </div>
-    <div class="map-card" id="map-card-IceAbyss_FalseThrone_D-json">
-        <h3 class="map-title">伪王座<span class='debug-text'> (IceAbyss_FalseThrone)</span><div class='map-filename'>IceAbyss_FalseThrone_D.json</div></h3>
-        <div class="map-info">IceAbyss_FalseThrone.png | 找到 1 个位置 | 自动范围: ±1600</div>
-        <div class="controls">
-            <div class="input-group">
-                <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_FalseThrone_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceAbyss_FalseThrone_D-json" value="1600" step="100" onchange="updateMapRange('IceAbyss_FalseThrone_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_FalseThrone_D-json', 2.0)">x2</button>
-            </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceAbyss_FalseThrone_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceAbyss_FalseThrone_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceAbyss_FalseThrone_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceAbyss_FalseThrone_D-json')">↺ 重置</button>
-        </div>
-        <div class="container" id="container-IceAbyss_FalseThrone_D-json"><img src="images/IceAbyss_FalseThrone.webp" class="image">        <div class="dot" data-index="4719" data-x="0.0" data-y="0.0" data-z="50.0" style="left: 50.00%; top: 50.00%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-</div>
-    </div>
-    <div class="map-card" id="map-card-IceAbyss_FrostMaw_D-json">
-        <h3 class="map-title">冰封之喉<span class='debug-text'> (IceAbyss_FrostMaw)</span><div class='map-filename'>IceAbyss_FrostMaw_D.json</div></h3>
-        <div class="map-info">IceAbyss_FrostMaw.png | 找到 1 个位置 | 自动范围: ±1600</div>
-        <div class="controls">
-            <div class="input-group">
-                <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_FrostMaw_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceAbyss_FrostMaw_D-json" value="1600" step="100" onchange="updateMapRange('IceAbyss_FrostMaw_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_FrostMaw_D-json', 2.0)">x2</button>
-            </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceAbyss_FrostMaw_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceAbyss_FrostMaw_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceAbyss_FrostMaw_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceAbyss_FrostMaw_D-json')">↺ 重置</button>
-        </div>
-        <div class="container" id="container-IceAbyss_FrostMaw_D-json"><img src="images/IceAbyss_FrostMaw.webp" class="image">        <div class="dot" data-index="4753" data-x="-1180.0" data-y="535.0" data-z="0.0001" style="left: 13.12%; top: 66.72%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-</div>
-    </div>
-    <div class="map-card" id="map-card-IceAbyss_Glacivia_D-json">
-        <h3 class="map-title">冰峡关<span class='debug-text'> (IceAbyss_Glacivia)</span><div class='map-filename'>IceAbyss_Glacivia_D.json</div></h3>
-        <div class="map-info">IceAbyss_Glacivia.png | 找到 2 个位置 | 自动范围: ±1600</div>
-        <div class="controls">
-            <div class="input-group">
-                <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_Glacivia_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceAbyss_Glacivia_D-json" value="1600" step="100" onchange="updateMapRange('IceAbyss_Glacivia_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_Glacivia_D-json', 2.0)">x2</button>
-            </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceAbyss_Glacivia_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceAbyss_Glacivia_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceAbyss_Glacivia_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceAbyss_Glacivia_D-json')">↺ 重置</button>
-        </div>
-        <div class="container" id="container-IceAbyss_Glacivia_D-json"><img src="images/IceAbyss_Glacivia.webp" class="image">        <div class="dot" data-index="4869" data-x="-1280.0" data-y="480.0" data-z="-450.0" style="left: 10.00%; top: 65.00%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4871" data-x="-31.068695" data-y="-149.89935" data-z="-450.0" style="left: 49.03%; top: 45.32%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-</div>
-    </div>
-    <div class="map-card" id="map-card-IceAbyss_GrandHollow_D-json">
-        <h3 class="map-title">巨坑<span class='debug-text'> (IceAbyss_GrandHollow)</span><div class='map-filename'>IceAbyss_GrandHollow_D.json</div></h3>
-        <div class="map-info">IceAbyss_GrandHollow.png | 找到 6 个位置 | 自动范围: ±1600</div>
-        <div class="controls">
-            <div class="input-group">
-                <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_GrandHollow_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceAbyss_GrandHollow_D-json" value="1600" step="100" onchange="updateMapRange('IceAbyss_GrandHollow_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_GrandHollow_D-json', 2.0)">x2</button>
-            </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceAbyss_GrandHollow_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceAbyss_GrandHollow_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceAbyss_GrandHollow_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceAbyss_GrandHollow_D-json')">↺ 重置</button>
-        </div>
-        <div class="container" id="container-IceAbyss_GrandHollow_D-json"><img src="images/IceAbyss_GrandHollow.webp" class="image">        <div class="dot" data-index="4896" data-x="-380.0" data-y="10.0" data-z="0.0" style="left: 38.12%; top: 50.31%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4897" data-x="595.0" data-y="-5.0" data-z="0.0" style="left: 68.59%; top: 49.84%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4900" data-x="-385.0" data-y="115.0" data-z="0.0" style="left: 37.97%; top: 53.59%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4901" data-x="590.0" data-y="115.0" data-z="0.0" style="left: 68.44%; top: 53.59%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4928" data-x="505.0" data-y="165.0" data-z="0.0" style="left: 65.78%; top: 55.16%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4939" data-x="-470.0" data-y="165.0" data-z="0.0" style="left: 35.31%; top: 55.16%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-</div>
-    </div>
-    <div class="map-card" id="map-card-IceAbyss_IceMaze_D-json">
-        <h3 class="map-title">冰迷宫<span class='debug-text'> (IceAbyss_IceMaze)</span><div class='map-filename'>IceAbyss_IceMaze_D.json</div></h3>
-        <div class="map-info">IceAbyss_IceMaze.png | 找到 2 个位置 | 自动范围: ±1600</div>
-        <div class="controls">
-            <div class="input-group">
-                <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_IceMaze_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceAbyss_IceMaze_D-json" value="1600" step="100" onchange="updateMapRange('IceAbyss_IceMaze_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_IceMaze_D-json', 2.0)">x2</button>
-            </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceAbyss_IceMaze_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceAbyss_IceMaze_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceAbyss_IceMaze_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceAbyss_IceMaze_D-json')">↺ 重置</button>
-        </div>
-        <div class="container" id="container-IceAbyss_IceMaze_D-json"><img src="images/IceAbyss_IceMaze.webp" class="image">        <div class="dot" data-index="5027" data-x="-225.0" data-y="-1415.0" data-z="0.0" style="left: 42.97%; top: 5.78%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="5028" data-x="-705.0" data-y="155.0" data-z="0.0" style="left: 27.97%; top: 54.84%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-</div>
-    </div>
-    <div class="map-card" id="map-card-IceAbyss_Monoliths_HR_D-json">
-        <h3 class="map-title">巨构体<span class='debug-text'> (IceAbyss_Monoliths)</span><div class='map-filename'>IceAbyss_Monoliths_HR_D.json</div></h3>
-        <div class="map-info">IceAbyss_Monoliths.png | 找到 1 个位置 | 自动范围: ±1600</div>
-        <div class="controls">
-            <div class="input-group">
-                <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_Monoliths_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceAbyss_Monoliths_HR_D-json" value="1600" step="100" onchange="updateMapRange('IceAbyss_Monoliths_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_Monoliths_HR_D-json', 2.0)">x2</button>
-            </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceAbyss_Monoliths_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceAbyss_Monoliths_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceAbyss_Monoliths_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceAbyss_Monoliths_HR_D-json')">↺ 重置</button>
-        </div>
-        <div class="container" id="container-IceAbyss_Monoliths_HR_D-json"><img src="images/IceAbyss_Monoliths.webp" class="image">        <div class="dot" data-index="5074" data-x="-615.0" data-y="-550.0" data-z="575.0" style="left: 30.78%; top: 32.81%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-</div>
-    </div>
-    <div class="map-card" id="map-card-IceAbyss_Pillars_HR_D-json">
-        <h3 class="map-title">石柱廊<span class='debug-text'> (IceAbyss_Pillars)</span><div class='map-filename'>IceAbyss_Pillars_HR_D.json</div></h3>
-        <div class="map-info">IceAbyss_Pillars.png | 找到 1 个位置 | 自动范围: ±1600</div>
-        <div class="controls">
-            <div class="input-group">
-                <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_Pillars_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceAbyss_Pillars_HR_D-json" value="1600" step="100" onchange="updateMapRange('IceAbyss_Pillars_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_Pillars_HR_D-json', 2.0)">x2</button>
-            </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceAbyss_Pillars_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceAbyss_Pillars_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceAbyss_Pillars_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceAbyss_Pillars_HR_D-json')">↺ 重置</button>
-        </div>
-        <div class="container" id="container-IceAbyss_Pillars_HR_D-json"><img src="images/IceAbyss_Pillars.webp" class="image">        <div class="dot" data-index="5119" data-x="-140.0" data-y="1323.0" data-z="0.0001" style="left: 45.62%; top: 91.34%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-</div>
-    </div>
-    <div class="map-card" id="map-card-IceAbyss_ReversedPyramid_HR_D-json">
-        <h3 class="map-title">倒金字塔<span class='debug-text'> (IceAbyss_ReversedPyramid)</span><div class='map-filename'>IceAbyss_ReversedPyramid_HR_D.json</div></h3>
+    <div class="map-card" id="map-card-IceAbyss_ReversedPyramid_D-json">
+        <h3 class="map-title">倒金字塔<span class='debug-text'> (IceAbyss_ReversedPyramid)</span><div class='map-filename'>IceAbyss_ReversedPyramid_D.json</div></h3>
         <div class="map-info">IceAbyss_ReversedPyramid.png | 找到 2 个位置 | 自动范围: ±1600</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_ReversedPyramid_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceAbyss_ReversedPyramid_HR_D-json" value="1600" step="100" onchange="updateMapRange('IceAbyss_ReversedPyramid_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_ReversedPyramid_HR_D-json', 2.0)">x2</button>
+                <button class="btn-scale" onclick="scaleRange('IceAbyss_ReversedPyramid_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-IceAbyss_ReversedPyramid_D-json" value="1600" step="100" onchange="updateMapRange('IceAbyss_ReversedPyramid_D-json')">
+                <button class="btn-scale" onclick="scaleRange('IceAbyss_ReversedPyramid_D-json', 2.0)">x2</button>
             </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceAbyss_ReversedPyramid_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceAbyss_ReversedPyramid_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceAbyss_ReversedPyramid_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceAbyss_ReversedPyramid_HR_D-json')">↺ 重置</button>
+            <button class="btn-rotate" onclick="toggleRotate('IceAbyss_ReversedPyramid_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('IceAbyss_ReversedPyramid_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('IceAbyss_ReversedPyramid_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('IceAbyss_ReversedPyramid_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceAbyss_ReversedPyramid_HR_D-json"><img src="images/IceAbyss_ReversedPyramid.webp" class="image">        <div class="dot" data-index="5148" data-x="-485.0" data-y="-408.0" data-z="-299.9999" style="left: 34.84%; top: 37.25%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="5151" data-x="842.0" data-y="-859.0" data-z="-99.9999" style="left: 76.31%; top: 23.16%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceAbyss_ReversedPyramid_D-json"><img src="images/IceAbyss_ReversedPyramid.webp" class="image">        <div class="dot" data-index="5211" data-x="-485.0" data-y="-408.0" data-z="-299.9999" style="left: 34.84%; top: 37.25%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5213" data-x="842.0" data-y="-859.0" data-z="-99.9999" style="left: 76.31%; top: 23.16%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
-    <div class="map-card" id="map-card-IceAbyss_ShallowValley_HR_D-json">
-        <h3 class="map-title">浅谷<span class='debug-text'> (IceAbyss_ShallowValley)</span><div class='map-filename'>IceAbyss_ShallowValley_HR_D.json</div></h3>
-        <div class="map-info">IceAbyss_ShallowValley.png | 找到 2 个位置 | 自动范围: ±1600</div>
-        <div class="controls">
-            <div class="input-group">
-                <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_ShallowValley_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceAbyss_ShallowValley_HR_D-json" value="1600" step="100" onchange="updateMapRange('IceAbyss_ShallowValley_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_ShallowValley_HR_D-json', 2.0)">x2</button>
-            </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceAbyss_ShallowValley_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceAbyss_ShallowValley_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceAbyss_ShallowValley_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceAbyss_ShallowValley_HR_D-json')">↺ 重置</button>
-        </div>
-        <div class="container" id="container-IceAbyss_ShallowValley_HR_D-json"><img src="images/IceAbyss_ShallowValley.webp" class="image">        <div class="dot" data-index="5198" data-x="595.0" data-y="-784.0" data-z="5.0" style="left: 68.59%; top: 25.50%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="5199" data-x="208.0" data-y="1344.0" data-z="5.0" style="left: 56.50%; top: 92.00%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-</div>
-    </div>
-    <div class="map-card" id="map-card-IceAbyss_SinkingPillars_HR_D-json">
-        <h3 class="map-title">沉墟柱廊<span class='debug-text'> (IceAbyss_SinkingPillars)</span><div class='map-filename'>IceAbyss_SinkingPillars_HR_D.json</div></h3>
-        <div class="map-info">IceAbyss_SinkingPillars.png | 找到 9 个位置 | 自动范围: ±1600</div>
-        <div class="controls">
-            <div class="input-group">
-                <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_SinkingPillars_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceAbyss_SinkingPillars_HR_D-json" value="1600" step="100" onchange="updateMapRange('IceAbyss_SinkingPillars_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_SinkingPillars_HR_D-json', 2.0)">x2</button>
-            </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceAbyss_SinkingPillars_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceAbyss_SinkingPillars_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceAbyss_SinkingPillars_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceAbyss_SinkingPillars_HR_D-json')">↺ 重置</button>
-        </div>
-        <div class="container" id="container-IceAbyss_SinkingPillars_HR_D-json"><img src="images/IceAbyss_SinkingPillars.webp" class="image">        <div class="dot" data-index="5221" data-x="-50.0" data-y="-55.0" data-z="0.0" style="left: 48.44%; top: 48.28%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="5227" data-x="-50.0" data-y="-55.0" data-z="0.0" style="left: 48.44%; top: 48.28%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="5232" data-x="-50.0" data-y="-55.0" data-z="0.0" style="left: 48.44%; top: 48.28%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="5238" data-x="-50.0" data-y="-55.0" data-z="0.0" style="left: 48.44%; top: 48.28%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="5243" data-x="-50.0" data-y="-55.0" data-z="0.0" style="left: 48.44%; top: 48.28%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="5249" data-x="-50.0" data-y="-55.0" data-z="0.0" style="left: 48.44%; top: 48.28%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="5254" data-x="-50.0" data-y="-55.0" data-z="0.0" style="left: 48.44%; top: 48.28%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="5260" data-x="-50.0" data-y="-55.0" data-z="0.0" style="left: 48.44%; top: 48.28%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="5265" data-x="-50.0" data-y="-55.0" data-z="0.0" style="left: 48.44%; top: 48.28%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-</div>
-    </div>
-    <div class="map-card" id="map-card-IceAbyss_StaircaseHill_HR_D-json">
-        <h3 class="map-title">阶梯山丘<span class='debug-text'> (IceAbyss_StaircaseHill)</span><div class='map-filename'>IceAbyss_StaircaseHill_HR_D.json</div></h3>
-        <div class="map-info">IceAbyss_StaircaseHill.png | 找到 1 个位置 | 自动范围: ±1600</div>
-        <div class="controls">
-            <div class="input-group">
-                <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_StaircaseHill_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceAbyss_StaircaseHill_HR_D-json" value="1600" step="100" onchange="updateMapRange('IceAbyss_StaircaseHill_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_StaircaseHill_HR_D-json', 2.0)">x2</button>
-            </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceAbyss_StaircaseHill_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceAbyss_StaircaseHill_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceAbyss_StaircaseHill_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceAbyss_StaircaseHill_HR_D-json')">↺ 重置</button>
-        </div>
-        <div class="container" id="container-IceAbyss_StaircaseHill_HR_D-json"><img src="images/IceAbyss_StaircaseHill.webp" class="image">        <div class="dot" data-index="5287" data-x="-500.0" data-y="447.0" data-z="250.00009" style="left: 34.38%; top: 63.97%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-</div>
-    </div>
-    <div class="map-card" id="map-card-IceAbyss_WyvernLair_HR_D-json">
-        <h3 class="map-title">冰龙巢穴<span class='debug-text'> (IceAbyss_WyvernLair)</span><div class='map-filename'>IceAbyss_WyvernLair_HR_D.json</div></h3>
+    <div class="map-card" id="map-card-IceAbyss_WyvernLair_D-json">
+        <h3 class="map-title">冰龙巢穴<span class='debug-text'> (IceAbyss_WyvernLair)</span><div class='map-filename'>IceAbyss_WyvernLair_D.json</div></h3>
         <div class="map-info">IceAbyss_WyvernLair.png | 找到 4 个位置 | 自动范围: ±6400</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_WyvernLair_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceAbyss_WyvernLair_HR_D-json" value="6400" step="100" onchange="updateMapRange('IceAbyss_WyvernLair_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceAbyss_WyvernLair_HR_D-json', 2.0)">x2</button>
+                <button class="btn-scale" onclick="scaleRange('IceAbyss_WyvernLair_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-IceAbyss_WyvernLair_D-json" value="6400" step="100" onchange="updateMapRange('IceAbyss_WyvernLair_D-json')">
+                <button class="btn-scale" onclick="scaleRange('IceAbyss_WyvernLair_D-json', 2.0)">x2</button>
             </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceAbyss_WyvernLair_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceAbyss_WyvernLair_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceAbyss_WyvernLair_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceAbyss_WyvernLair_HR_D-json')">↺ 重置</button>
+            <button class="btn-rotate" onclick="toggleRotate('IceAbyss_WyvernLair_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('IceAbyss_WyvernLair_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('IceAbyss_WyvernLair_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('IceAbyss_WyvernLair_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceAbyss_WyvernLair_HR_D-json"><img src="images/IceAbyss_WyvernLair.webp" class="image">        <div class="dot" data-index="5351" data-x="-188.0" data-y="-1385.0" data-z="0.0" style="left: 48.53%; top: 39.18%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="5354" data-x="213.0" data-y="4597.0" data-z="0.0" style="left: 51.66%; top: 85.91%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="5357" data-x="-3009.0" data-y="4597.0" data-z="0.0" style="left: 26.49%; top: 85.91%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="5361" data-x="-3393.0" data-y="-1385.0" data-z="0.0" style="left: 23.49%; top: 39.18%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-</div>
-    </div>
-    <div class="group-header">冰图1层</div>
-    <div class="map-card" id="map-card-IceCave_MountainPass_D-json">
-        <h3 class="map-title">山隘<span class='debug-text'> (IceCave_MountainPass)</span><div class='map-filename'>IceCave_MountainPass_D.json</div></h3>
-        <div class="map-info">IceCave_MountainPass.png | 找到 1 个位置 | 自动范围: ±1600</div>
-        <div class="controls">
-            <div class="input-group">
-                <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceCave_MountainPass_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceCave_MountainPass_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_MountainPass_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceCave_MountainPass_D-json', 2.0)">x2</button>
-            </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceCave_MountainPass_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_MountainPass_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_MountainPass_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceCave_MountainPass_D-json')">↺ 重置</button>
-        </div>
-        <div class="container" id="container-IceCave_MountainPass_D-json"><img src="images/IceCave_MountainPass.webp" class="image">        <div class="dot" data-index="6265" data-x="-910.0" data-y="260.0" data-z="0.0" style="left: 21.56%; top: 58.12%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceAbyss_WyvernLair_D-json"><img src="images/IceAbyss_WyvernLair.webp" class="image">        <div class="dot" data-index="5413" data-x="-188.0" data-y="-1385.0" data-z="0.0" style="left: 48.53%; top: 39.18%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5423" data-x="213.0" data-y="4597.0" data-z="0.0" style="left: 51.66%; top: 85.91%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5425" data-x="-3009.0" data-y="4597.0" data-z="0.0" style="left: 26.49%; top: 85.91%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5427" data-x="-3393.0" data-y="-1385.0" data-z="0.0" style="left: 23.49%; top: 39.18%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
 </div>
@@ -423,418 +134,88 @@
         <span class="color-dot" style="background-color: cyan;"></span> Z &gt; 299 (高于地面)
         <span class="color-dot" style="background-color: yellow;"></span> -299 ≤ Z ≤ 299 (正常高度)
         <span class="color-dot" style="background-color: red;"></span> Z &lt; -299 (低于地面)
-        <br><strong>位置统计：共 41 个位置点</strong><br><strong>包含地图：</strong> 伪王座, 倒金字塔, 停尸房, 冰封之喉, 冰峡关, 冰渊魔窟, 冰迷宫, 冰龙巢穴, 寒渊之流, 山隘, 巨坑, 巨构体, 死亡深渊, 沉墟柱廊, 浅谷, 石柱廊, 裂丘, 阶梯山丘
+        <br><strong>位置统计：共 8 个位置点</strong><br><strong>包含地图：</strong> 倒金字塔, 冰龙巢穴, 死亡深渊
     </div>
     <div class="summary" id="summary-section">
         <h2>所有坐标详情</h2>
-        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-4502">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_DeepFlow_HR_D-json', 4502, this)"></td>
+        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-4665">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_DeathPit_D-json', 4665, this)"></td>
         <td>冰图2层</td>
-        <td>IceAbyss_DeepFlow_HR_D.json</td>
-        <td>寒渊之流</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>-375.00</td>
-        <td>-990.00</td>
-        <td>0.00</td>
-    </tr>
-    <tr id="row-4583">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_CharnelHouse_HR_D-json', 4583, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_CharnelHouse_HR_D.json</td>
-        <td>停尸房</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>600.00</td>
-        <td>-1125.00</td>
-        <td>-400.00</td>
-    </tr>
-    <tr id="row-4587">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_CharnelHouse_HR_D-json', 4587, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_CharnelHouse_HR_D.json</td>
-        <td>停尸房</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>-148.00</td>
-        <td>-791.00</td>
-        <td>0.00</td>
-    </tr>
-    <tr id="row-4588">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_CharnelHouse_HR_D-json', 4588, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_CharnelHouse_HR_D.json</td>
-        <td>停尸房</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>-503.00</td>
-        <td>-445.00</td>
-        <td>0.00</td>
-    </tr>
-    <tr id="row-4598">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_DeathPit_HR_D-json', 4598, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_DeathPit_HR_D.json</td>
+        <td>IceAbyss_DeathPit_D.json</td>
         <td>死亡深渊</td>
         <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
         <td>554.00</td>
         <td>26.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-4599">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_DeathPit_HR_D-json', 4599, this)"></td>
+    <tr id="row-4666">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_DeathPit_D-json', 4666, this)"></td>
         <td>冰图2层</td>
-        <td>IceAbyss_DeathPit_HR_D.json</td>
+        <td>IceAbyss_DeathPit_D.json</td>
         <td>死亡深渊</td>
         <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
         <td>-590.00</td>
         <td>26.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-4668">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_DemonicDen_D-json', 4668, this)"></td>
+    <tr id="row-5211">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_ReversedPyramid_D-json', 5211, this)"></td>
         <td>冰图2层</td>
-        <td>IceAbyss_DemonicDen_D.json</td>
-        <td>冰渊魔窟</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>-257.00</td>
-        <td>-1613.00</td>
-        <td>0.00</td>
-    </tr>
-    <tr id="row-4689">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_DividingHill_HR_D-json', 4689, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_DividingHill_HR_D.json</td>
-        <td>裂丘</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>-1305.00</td>
-        <td>1317.00</td>
-        <td>0.00</td>
-    </tr>
-    <tr id="row-4719">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_FalseThrone_D-json', 4719, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_FalseThrone_D.json</td>
-        <td>伪王座</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>0.00</td>
-        <td>0.00</td>
-        <td>50.00</td>
-    </tr>
-    <tr id="row-4753">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_FrostMaw_D-json', 4753, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_FrostMaw_D.json</td>
-        <td>冰封之喉</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>-1180.00</td>
-        <td>535.00</td>
-        <td>0.00</td>
-    </tr>
-    <tr id="row-4869">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_Glacivia_D-json', 4869, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_Glacivia_D.json</td>
-        <td>冰峡关</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>-1280.00</td>
-        <td>480.00</td>
-        <td>-450.00</td>
-    </tr>
-    <tr id="row-4871">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_Glacivia_D-json', 4871, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_Glacivia_D.json</td>
-        <td>冰峡关</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>-31.07</td>
-        <td>-149.90</td>
-        <td>-450.00</td>
-    </tr>
-    <tr id="row-4896">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_GrandHollow_D-json', 4896, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_GrandHollow_D.json</td>
-        <td>巨坑</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>-380.00</td>
-        <td>10.00</td>
-        <td>0.00</td>
-    </tr>
-    <tr id="row-4897">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_GrandHollow_D-json', 4897, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_GrandHollow_D.json</td>
-        <td>巨坑</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>595.00</td>
-        <td>-5.00</td>
-        <td>0.00</td>
-    </tr>
-    <tr id="row-4900">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_GrandHollow_D-json', 4900, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_GrandHollow_D.json</td>
-        <td>巨坑</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>-385.00</td>
-        <td>115.00</td>
-        <td>0.00</td>
-    </tr>
-    <tr id="row-4901">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_GrandHollow_D-json', 4901, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_GrandHollow_D.json</td>
-        <td>巨坑</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>590.00</td>
-        <td>115.00</td>
-        <td>0.00</td>
-    </tr>
-    <tr id="row-4928">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_GrandHollow_D-json', 4928, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_GrandHollow_D.json</td>
-        <td>巨坑</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>505.00</td>
-        <td>165.00</td>
-        <td>0.00</td>
-    </tr>
-    <tr id="row-4939">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_GrandHollow_D-json', 4939, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_GrandHollow_D.json</td>
-        <td>巨坑</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>-470.00</td>
-        <td>165.00</td>
-        <td>0.00</td>
-    </tr>
-    <tr id="row-5027">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_IceMaze_D-json', 5027, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_IceMaze_D.json</td>
-        <td>冰迷宫</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>-225.00</td>
-        <td>-1415.00</td>
-        <td>0.00</td>
-    </tr>
-    <tr id="row-5028">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_IceMaze_D-json', 5028, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_IceMaze_D.json</td>
-        <td>冰迷宫</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>-705.00</td>
-        <td>155.00</td>
-        <td>0.00</td>
-    </tr>
-    <tr id="row-5074">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_Monoliths_HR_D-json', 5074, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_Monoliths_HR_D.json</td>
-        <td>巨构体</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>-615.00</td>
-        <td>-550.00</td>
-        <td>575.00</td>
-    </tr>
-    <tr id="row-5119">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_Pillars_HR_D-json', 5119, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_Pillars_HR_D.json</td>
-        <td>石柱廊</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>-140.00</td>
-        <td>1323.00</td>
-        <td>0.00</td>
-    </tr>
-    <tr id="row-5148">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_ReversedPyramid_HR_D-json', 5148, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_ReversedPyramid_HR_D.json</td>
+        <td>IceAbyss_ReversedPyramid_D.json</td>
         <td>倒金字塔</td>
         <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
         <td>-485.00</td>
         <td>-408.00</td>
         <td>-300.00</td>
     </tr>
-    <tr id="row-5151">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_ReversedPyramid_HR_D-json', 5151, this)"></td>
+    <tr id="row-5213">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_ReversedPyramid_D-json', 5213, this)"></td>
         <td>冰图2层</td>
-        <td>IceAbyss_ReversedPyramid_HR_D.json</td>
+        <td>IceAbyss_ReversedPyramid_D.json</td>
         <td>倒金字塔</td>
         <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
         <td>842.00</td>
         <td>-859.00</td>
         <td>-100.00</td>
     </tr>
-    <tr id="row-5198">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_ShallowValley_HR_D-json', 5198, this)"></td>
+    <tr id="row-5413">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_WyvernLair_D-json', 5413, this)"></td>
         <td>冰图2层</td>
-        <td>IceAbyss_ShallowValley_HR_D.json</td>
-        <td>浅谷</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>595.00</td>
-        <td>-784.00</td>
-        <td>5.00</td>
-    </tr>
-    <tr id="row-5199">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_ShallowValley_HR_D-json', 5199, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_ShallowValley_HR_D.json</td>
-        <td>浅谷</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>208.00</td>
-        <td>1344.00</td>
-        <td>5.00</td>
-    </tr>
-    <tr id="row-5221">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_SinkingPillars_HR_D-json', 5221, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_SinkingPillars_HR_D.json</td>
-        <td>沉墟柱廊</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>-50.00</td>
-        <td>-55.00</td>
-        <td>0.00</td>
-    </tr>
-    <tr id="row-5227">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_SinkingPillars_HR_D-json', 5227, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_SinkingPillars_HR_D.json</td>
-        <td>沉墟柱廊</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>-50.00</td>
-        <td>-55.00</td>
-        <td>0.00</td>
-    </tr>
-    <tr id="row-5232">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_SinkingPillars_HR_D-json', 5232, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_SinkingPillars_HR_D.json</td>
-        <td>沉墟柱廊</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>-50.00</td>
-        <td>-55.00</td>
-        <td>0.00</td>
-    </tr>
-    <tr id="row-5238">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_SinkingPillars_HR_D-json', 5238, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_SinkingPillars_HR_D.json</td>
-        <td>沉墟柱廊</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>-50.00</td>
-        <td>-55.00</td>
-        <td>0.00</td>
-    </tr>
-    <tr id="row-5243">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_SinkingPillars_HR_D-json', 5243, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_SinkingPillars_HR_D.json</td>
-        <td>沉墟柱廊</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>-50.00</td>
-        <td>-55.00</td>
-        <td>0.00</td>
-    </tr>
-    <tr id="row-5249">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_SinkingPillars_HR_D-json', 5249, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_SinkingPillars_HR_D.json</td>
-        <td>沉墟柱廊</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>-50.00</td>
-        <td>-55.00</td>
-        <td>0.00</td>
-    </tr>
-    <tr id="row-5254">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_SinkingPillars_HR_D-json', 5254, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_SinkingPillars_HR_D.json</td>
-        <td>沉墟柱廊</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>-50.00</td>
-        <td>-55.00</td>
-        <td>0.00</td>
-    </tr>
-    <tr id="row-5260">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_SinkingPillars_HR_D-json', 5260, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_SinkingPillars_HR_D.json</td>
-        <td>沉墟柱廊</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>-50.00</td>
-        <td>-55.00</td>
-        <td>0.00</td>
-    </tr>
-    <tr id="row-5265">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_SinkingPillars_HR_D-json', 5265, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_SinkingPillars_HR_D.json</td>
-        <td>沉墟柱廊</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>-50.00</td>
-        <td>-55.00</td>
-        <td>0.00</td>
-    </tr>
-    <tr id="row-5287">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_StaircaseHill_HR_D-json', 5287, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_StaircaseHill_HR_D.json</td>
-        <td>阶梯山丘</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>-500.00</td>
-        <td>447.00</td>
-        <td>250.00</td>
-    </tr>
-    <tr id="row-5351">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_WyvernLair_HR_D-json', 5351, this)"></td>
-        <td>冰图2层</td>
-        <td>IceAbyss_WyvernLair_HR_D.json</td>
+        <td>IceAbyss_WyvernLair_D.json</td>
         <td>冰龙巢穴</td>
         <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
         <td>-188.00</td>
         <td>-1385.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-5354">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_WyvernLair_HR_D-json', 5354, this)"></td>
+    <tr id="row-5423">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_WyvernLair_D-json', 5423, this)"></td>
         <td>冰图2层</td>
-        <td>IceAbyss_WyvernLair_HR_D.json</td>
+        <td>IceAbyss_WyvernLair_D.json</td>
         <td>冰龙巢穴</td>
         <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
         <td>213.00</td>
         <td>4597.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-5357">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_WyvernLair_HR_D-json', 5357, this)"></td>
+    <tr id="row-5425">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_WyvernLair_D-json', 5425, this)"></td>
         <td>冰图2层</td>
-        <td>IceAbyss_WyvernLair_HR_D.json</td>
+        <td>IceAbyss_WyvernLair_D.json</td>
         <td>冰龙巢穴</td>
         <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
         <td>-3009.00</td>
         <td>4597.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-5361">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_WyvernLair_HR_D-json', 5361, this)"></td>
+    <tr id="row-5427">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_WyvernLair_D-json', 5427, this)"></td>
         <td>冰图2层</td>
-        <td>IceAbyss_WyvernLair_HR_D.json</td>
+        <td>IceAbyss_WyvernLair_D.json</td>
         <td>冰龙巢穴</td>
         <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
         <td>-3393.00</td>
         <td>-1385.00</td>
-        <td>0.00</td>
-    </tr>
-    <tr id="row-6265">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_MountainPass_D-json', 6265, this)"></td>
-        <td>冰图1层</td>
-        <td>IceCave_MountainPass_D.json</td>
-        <td>山隘</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonAxeman</td>
-        <td>-910.00</td>
-        <td>260.00</td>
         <td>0.00</td>
     </tr>
 </table>

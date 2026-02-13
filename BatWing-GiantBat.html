@@ -49,8 +49,8 @@
         .btn-mirror-y.active { background-color: #E91E63; box-shadow: 0 0 10px #E91E63; }
         .btn-reset { background-color: #9E9E9E; color: white; }
         .btn-reset:hover { background-color: #757575; }
-        .container { position: relative; width: 100%; max-width: 360px; margin: 0 auto; aspect-ratio: 1 / 1; background-color: #1a1a1a; border: 1px solid #444; border-radius: 3px; }
-        .image { width: 100%; height: 100%; display: block; border-radius: 2px; }
+        .container { position: relative; width: 100%; margin: 0 auto; aspect-ratio: 1 / 1; background-color: #1a1a1a; border: 1px solid #444; border-radius: 3px; }
+        .image { width: 100%; height: 100%; display: block; border-radius: 2px; object-fit: cover; }
         .image-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #666; background-color: #222; border-radius: 2px; font-size: 13px; }
         .dot { position: absolute; width: 9px; height: 9px; border-radius: 50%; transform: translate(-50%, -50%); z-index: 10; transition: left 0.3s ease, top 0.3s ease; display: block; }
         .summary { display: none; margin-top: 20px; padding: 10px; background-color: #3a3a3a; border-radius: 5px; }
@@ -69,387 +69,230 @@
     <div class="disclaimer">⚠️ 数据有误差，以实际游戏内为准<span class="time">地图生成日期：2026-02-13日21点</span></div>
     <div class="debug-title" id="debug-title">巨型蝙蝠翅膀 (BatWing) 目标 巨型蝙蝠 (GiantBat)</div>
     <div class="maps-grid" id="maps-grid">    <div class="group-header">哥布林洞穴1层</div>
-    <div class="map-card" id="map-card-CavernLake_03_HR_D-json">
-        <h3 class="map-title">岩洞湖 B<span class='debug-text'> (Cavern_Lake_B)</span><div class='map-filename'>CavernLake_03_HR_D.json</div></h3>
+    <div class="map-card" id="map-card-CavernLake_03_D-json">
+        <h3 class="map-title">岩洞湖 B<span class='debug-text'> (Cavern_Lake_B)</span><div class='map-filename'>CavernLake_03_D.json</div></h3>
         <div class="map-info">CavernLake_03.png | 找到 1 个位置 | 自动范围: ±1600</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('CavernLake_03_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-CavernLake_03_HR_D-json" value="1600" step="100" onchange="updateMapRange('CavernLake_03_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('CavernLake_03_HR_D-json', 2.0)">x2</button>
+                <button class="btn-scale" onclick="scaleRange('CavernLake_03_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-CavernLake_03_D-json" value="1600" step="100" onchange="updateMapRange('CavernLake_03_D-json')">
+                <button class="btn-scale" onclick="scaleRange('CavernLake_03_D-json', 2.0)">x2</button>
             </div>
-            <button class="btn-rotate" onclick="toggleRotate('CavernLake_03_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('CavernLake_03_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('CavernLake_03_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('CavernLake_03_HR_D-json')">↺ 重置</button>
+            <button class="btn-rotate" onclick="toggleRotate('CavernLake_03_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('CavernLake_03_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('CavernLake_03_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('CavernLake_03_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-CavernLake_03_HR_D-json"><img src="images/CavernLake_03.webp" class="image">        <div class="dot" data-index="169" data-x="1094.8964" data-y="-597.3397" data-z="-159.9999" style="left: 84.22%; top: 31.33%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-CavernLake_03_D-json"><img src="images/CavernLake_03.webp" class="image">        <div class="dot" data-index="184" data-x="1094.8964" data-y="-597.3397" data-z="-159.9999" style="left: 84.22%; top: 31.33%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
-    <div class="map-card" id="map-card-CaveTown_02_HR_D-json">
-        <h3 class="map-title">哥布林小镇 B<span class='debug-text'> (Goblin_Town_B)</span><div class='map-filename'>CaveTown_02_HR_D.json</div></h3>
+    <div class="map-card" id="map-card-CaveTown_02_D-json">
+        <h3 class="map-title">哥布林小镇 B<span class='debug-text'> (Goblin_Town_B)</span><div class='map-filename'>CaveTown_02_D.json</div></h3>
         <div class="map-info">CaveTown_02.png | 找到 2 个位置 | 自动范围: ±1600</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('CaveTown_02_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-CaveTown_02_HR_D-json" value="1600" step="100" onchange="updateMapRange('CaveTown_02_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('CaveTown_02_HR_D-json', 2.0)">x2</button>
+                <button class="btn-scale" onclick="scaleRange('CaveTown_02_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-CaveTown_02_D-json" value="1600" step="100" onchange="updateMapRange('CaveTown_02_D-json')">
+                <button class="btn-scale" onclick="scaleRange('CaveTown_02_D-json', 2.0)">x2</button>
             </div>
-            <button class="btn-rotate" onclick="toggleRotate('CaveTown_02_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('CaveTown_02_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('CaveTown_02_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('CaveTown_02_HR_D-json')">↺ 重置</button>
+            <button class="btn-rotate" onclick="toggleRotate('CaveTown_02_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('CaveTown_02_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('CaveTown_02_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('CaveTown_02_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-CaveTown_02_HR_D-json"><img src="images/CaveTown_02.webp" class="image">        <div class="dot" data-index="230" data-x="37.00747" data-y="-37.142914" data-z="45.0" style="left: 51.16%; top: 48.84%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="249" data-x="229.11417" data-y="72.87126" data-z="5.0" style="left: 57.16%; top: 52.28%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-CaveTown_02_D-json"><img src="images/CaveTown_02.webp" class="image">        <div class="dot" data-index="270" data-x="37.00747" data-y="-37.142914" data-z="45.0" style="left: 51.16%; top: 48.84%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="273" data-x="229.11417" data-y="72.87126" data-z="5.0" style="left: 57.16%; top: 52.28%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
-    <div class="map-card" id="map-card-Cave_Altar_02_HR_D-json">
-        <h3 class="map-title">洞穴祭坛 B<span class='debug-text'> (Cave_Altar_B)</span><div class='map-filename'>Cave_Altar_02_HR_D.json</div></h3>
+    <div class="map-card" id="map-card-Cave_Altar_02_D-json">
+        <h3 class="map-title">洞穴祭坛 B<span class='debug-text'> (Cave_Altar_B)</span><div class='map-filename'>Cave_Altar_02_D.json</div></h3>
         <div class="map-info">Cave_Altar_02.png | 找到 1 个位置 | 自动范围: ±1600</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('Cave_Altar_02_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-Cave_Altar_02_HR_D-json" value="1600" step="100" onchange="updateMapRange('Cave_Altar_02_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('Cave_Altar_02_HR_D-json', 2.0)">x2</button>
+                <button class="btn-scale" onclick="scaleRange('Cave_Altar_02_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-Cave_Altar_02_D-json" value="1600" step="100" onchange="updateMapRange('Cave_Altar_02_D-json')">
+                <button class="btn-scale" onclick="scaleRange('Cave_Altar_02_D-json', 2.0)">x2</button>
             </div>
-            <button class="btn-rotate" onclick="toggleRotate('Cave_Altar_02_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('Cave_Altar_02_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('Cave_Altar_02_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('Cave_Altar_02_HR_D-json')">↺ 重置</button>
+            <button class="btn-rotate" onclick="toggleRotate('Cave_Altar_02_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('Cave_Altar_02_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('Cave_Altar_02_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('Cave_Altar_02_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Cave_Altar_02_HR_D-json"><img src="images/Cave_Altar_02.webp" class="image">        <div class="dot" data-index="326" data-x="-14.0" data-y="-39.0" data-z="-379.68594" style="left: 49.56%; top: 48.78%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Cave_Altar_02_D-json"><img src="images/Cave_Altar_02.webp" class="image">        <div class="dot" data-index="338" data-x="-14.0" data-y="-39.0" data-z="-379.68594" style="left: 49.56%; top: 48.78%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
-    <div class="map-card" id="map-card-Cave_AntsNest_D-json">
-        <h3 class="map-title">蚁巢<span class='debug-text'> (AntsNest)</span><div class='map-filename'>Cave_AntsNest_D.json</div></h3>
-        <div class="map-info">Cave_AntsNest.png | 找到 1 个位置 | 自动范围: ±1600</div>
-        <div class="controls">
-            <div class="input-group">
-                <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('Cave_AntsNest_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-Cave_AntsNest_D-json" value="1600" step="100" onchange="updateMapRange('Cave_AntsNest_D-json')">
-                <button class="btn-scale" onclick="scaleRange('Cave_AntsNest_D-json', 2.0)">x2</button>
-            </div>
-            <button class="btn-rotate" onclick="toggleRotate('Cave_AntsNest_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('Cave_AntsNest_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('Cave_AntsNest_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('Cave_AntsNest_D-json')">↺ 重置</button>
-        </div>
-        <div class="container" id="container-Cave_AntsNest_D-json"><img src="images/Cave_AntsNest.webp" class="image">        <div class="dot" data-index="455" data-x="21.114166" data-y="72.87126" data-z="5.0" style="left: 50.66%; top: 52.28%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-</div>
-    </div>
-    <div class="map-card" id="map-card-Cave_BanditCamp_Center_HR_D-json">
-        <h3 class="map-title">哥布林匪窝<span class='debug-text'> (Goblin_Bandits)</span><div class='map-filename'>Cave_BanditCamp_Center_HR_D.json</div></h3>
-        <div class="map-info">Cave_BanditCamp_Center.png | 找到 3 个位置 | 自动范围: ±1600</div>
-        <div class="controls">
-            <div class="input-group">
-                <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('Cave_BanditCamp_Center_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-Cave_BanditCamp_Center_HR_D-json" value="1600" step="100" onchange="updateMapRange('Cave_BanditCamp_Center_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('Cave_BanditCamp_Center_HR_D-json', 2.0)">x2</button>
-            </div>
-            <button class="btn-rotate" onclick="toggleRotate('Cave_BanditCamp_Center_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('Cave_BanditCamp_Center_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('Cave_BanditCamp_Center_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('Cave_BanditCamp_Center_HR_D-json')">↺ 重置</button>
-        </div>
-        <div class="container" id="container-Cave_BanditCamp_Center_HR_D-json"><img src="images/Cave_BanditCamp_Center.webp" class="image">        <div class="dot" data-index="531" data-x="-14.0" data-y="-39.0" data-z="0.0" style="left: 49.56%; top: 48.78%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="534" data-x="-14.0" data-y="-39.0" data-z="0.0" style="left: 49.56%; top: 48.78%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="540" data-x="-14.0" data-y="-39.0" data-z="0.0" style="left: 49.56%; top: 48.78%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-</div>
-    </div>
-    <div class="map-card" id="map-card-Cave_SpiderNest_02_D-json">
-        <h3 class="map-title">蛛网巢穴<span class='debug-text'> (SpiderNest)</span><div class='map-filename'>Cave_SpiderNest_02_D.json</div></h3>
-        <div class="map-info">Cave_SpiderNest_02.png | 找到 2 个位置 | 自动范围: ±1600</div>
-        <div class="controls">
-            <div class="input-group">
-                <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('Cave_SpiderNest_02_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-Cave_SpiderNest_02_D-json" value="1600" step="100" onchange="updateMapRange('Cave_SpiderNest_02_D-json')">
-                <button class="btn-scale" onclick="scaleRange('Cave_SpiderNest_02_D-json', 2.0)">x2</button>
-            </div>
-            <button class="btn-rotate" onclick="toggleRotate('Cave_SpiderNest_02_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('Cave_SpiderNest_02_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('Cave_SpiderNest_02_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('Cave_SpiderNest_02_D-json')">↺ 重置</button>
-        </div>
-        <div class="container" id="container-Cave_SpiderNest_02_D-json"><img src="images/Cave_SpiderNest_02.webp" class="image">        <div class="dot" data-index="602" data-x="29.766598" data-y="284.10403" data-z="146.0001" style="left: 50.93%; top: 58.88%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="613" data-x="29.766598" data-y="284.10403" data-z="146.0001" style="left: 50.93%; top: 58.88%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-</div>
-    </div>
-    <div class="map-card" id="map-card-Cave_Tomb_Center_HR_D-json">
-        <h3 class="map-title">洞穴墓葬<span class='debug-text'> (Cave_Tombs)</span><div class='map-filename'>Cave_Tomb_Center_HR_D.json</div></h3>
+    <div class="map-card" id="map-card-Cave_Tomb_Center_D-json">
+        <h3 class="map-title">洞穴墓葬<span class='debug-text'> (Cave_Tombs)</span><div class='map-filename'>Cave_Tomb_Center_D.json</div></h3>
         <div class="map-info">Cave_Tomb_Center.png | 找到 1 个位置 | 自动范围: ±1600</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('Cave_Tomb_Center_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-Cave_Tomb_Center_HR_D-json" value="1600" step="100" onchange="updateMapRange('Cave_Tomb_Center_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('Cave_Tomb_Center_HR_D-json', 2.0)">x2</button>
+                <button class="btn-scale" onclick="scaleRange('Cave_Tomb_Center_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-Cave_Tomb_Center_D-json" value="1600" step="100" onchange="updateMapRange('Cave_Tomb_Center_D-json')">
+                <button class="btn-scale" onclick="scaleRange('Cave_Tomb_Center_D-json', 2.0)">x2</button>
             </div>
-            <button class="btn-rotate" onclick="toggleRotate('Cave_Tomb_Center_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('Cave_Tomb_Center_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('Cave_Tomb_Center_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('Cave_Tomb_Center_HR_D-json')">↺ 重置</button>
+            <button class="btn-rotate" onclick="toggleRotate('Cave_Tomb_Center_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('Cave_Tomb_Center_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('Cave_Tomb_Center_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('Cave_Tomb_Center_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Cave_Tomb_Center_HR_D-json"><img src="images/Cave_Tomb_Center.webp" class="image">        <div class="dot" data-index="671" data-x="-161.38206" data-y="-883.4565" data-z="352.0" style="left: 44.96%; top: 22.39%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Cave_Tomb_Center_D-json"><img src="images/Cave_Tomb_Center.webp" class="image">        <div class="dot" data-index="734" data-x="-161.38206" data-y="-883.4565" data-z="352.0" style="left: 44.96%; top: 22.39%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
 </div>
     </div>
-    <div class="map-card" id="map-card-Cave_Valley_HR_D-json">
-        <h3 class="map-title">峡谷 A<span class='debug-text'> (Valley_A)</span><div class='map-filename'>Cave_Valley_HR_D.json</div></h3>
-        <div class="map-info">Cave_Valley.png | 找到 3 个位置 | 自动范围: ±1600</div>
-        <div class="controls">
-            <div class="input-group">
-                <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('Cave_Valley_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-Cave_Valley_HR_D-json" value="1600" step="100" onchange="updateMapRange('Cave_Valley_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('Cave_Valley_HR_D-json', 2.0)">x2</button>
-            </div>
-            <button class="btn-rotate" onclick="toggleRotate('Cave_Valley_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('Cave_Valley_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('Cave_Valley_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('Cave_Valley_HR_D-json')">↺ 重置</button>
-        </div>
-        <div class="container" id="container-Cave_Valley_HR_D-json"><img src="images/Cave_Valley.webp" class="image">        <div class="dot" data-index="745" data-x="82.21051" data-y="1165.188" data-z="-250.0" style="left: 52.57%; top: 86.41%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="746" data-x="-230.11151" data-y="1196.0903" data-z="-250.0" style="left: 42.81%; top: 87.38%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="747" data-x="-375.12076" data-y="1128.4714" data-z="-250.0" style="left: 38.28%; top: 85.26%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-</div>
-    </div>
-    <div class="map-card" id="map-card-StoneGrave_Center_02_HR_D-json">
-        <h3 class="map-title">石坟 B<span class='debug-text'> (Stone_Graves_B)</span><div class='map-filename'>StoneGrave_Center_02_HR_D.json</div></h3>
-        <div class="map-info">StoneGrave_Center_02.png | 找到 5 个位置 | 自动范围: ±1600</div>
-        <div class="controls">
-            <div class="input-group">
-                <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('StoneGrave_Center_02_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-StoneGrave_Center_02_HR_D-json" value="1600" step="100" onchange="updateMapRange('StoneGrave_Center_02_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('StoneGrave_Center_02_HR_D-json', 2.0)">x2</button>
-            </div>
-            <button class="btn-rotate" onclick="toggleRotate('StoneGrave_Center_02_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('StoneGrave_Center_02_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('StoneGrave_Center_02_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('StoneGrave_Center_02_HR_D-json')">↺ 重置</button>
-        </div>
-        <div class="container" id="container-StoneGrave_Center_02_HR_D-json"><img src="images/StoneGrave_Center_02.webp" class="image">        <div class="dot" data-index="1116" data-x="29.766594" data-y="284.10403" data-z="146.0001" style="left: 50.93%; top: 58.88%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="1122" data-x="29.766594" data-y="284.10403" data-z="146.0001" style="left: 50.93%; top: 58.88%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="1147" data-x="113.06888" data-y="-332.9013" data-z="162.0001" style="left: 53.53%; top: 39.60%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="1180" data-x="29.766594" data-y="284.10403" data-z="146.0001" style="left: 50.93%; top: 58.88%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="1215" data-x="-51.64032" data-y="365.10147" data-z="177.0001" style="left: 48.39%; top: 61.41%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-</div>
-    </div>
-    <div class="map-card" id="map-card-CaveTown_HR_D-json">
-        <h3 class="map-title">哥布林小镇 A<span class='debug-text'> (Goblin_Town_A)</span><div class='map-filename'>CaveTown_HR_D.json</div></h3>
+    <div class="map-card" id="map-card-CaveTown_D-json">
+        <h3 class="map-title">哥布林小镇 A<span class='debug-text'> (Goblin_Town_A)</span><div class='map-filename'>CaveTown_D.json</div></h3>
         <div class="map-info">CaveTown.png | 找到 2 个位置 | 自动范围: ±1600</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('CaveTown_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-CaveTown_HR_D-json" value="1600" step="100" onchange="updateMapRange('CaveTown_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('CaveTown_HR_D-json', 2.0)">x2</button>
+                <button class="btn-scale" onclick="scaleRange('CaveTown_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-CaveTown_D-json" value="1600" step="100" onchange="updateMapRange('CaveTown_D-json')">
+                <button class="btn-scale" onclick="scaleRange('CaveTown_D-json', 2.0)">x2</button>
             </div>
-            <button class="btn-rotate" onclick="toggleRotate('CaveTown_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('CaveTown_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('CaveTown_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('CaveTown_HR_D-json')">↺ 重置</button>
+            <button class="btn-rotate" onclick="toggleRotate('CaveTown_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('CaveTown_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('CaveTown_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('CaveTown_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-CaveTown_HR_D-json"><img src="images/CaveTown.webp" class="image">        <div class="dot" data-index="1279" data-x="37.00747" data-y="-37.142914" data-z="45.0" style="left: 51.16%; top: 48.84%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="1296" data-x="229.11417" data-y="72.87126" data-z="5.0" style="left: 57.16%; top: 52.28%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-CaveTown_D-json"><img src="images/CaveTown.webp" class="image">        <div class="dot" data-index="1314" data-x="37.00747" data-y="-37.142914" data-z="45.0" style="left: 51.16%; top: 48.84%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1316" data-x="229.11417" data-y="72.87126" data-z="5.0" style="left: 57.16%; top: 52.28%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
-    <div class="map-card" id="map-card-SpiderCave_02_HR_D-json">
-        <h3 class="map-title">蜘蛛洞<span class='debug-text'> (SpiderCave)</span><div class='map-filename'>SpiderCave_02_HR_D.json</div></h3>
+    <div class="map-card" id="map-card-SpiderCave_02_D-json">
+        <h3 class="map-title">蜘蛛洞<span class='debug-text'> (SpiderCave)</span><div class='map-filename'>SpiderCave_02_D.json</div></h3>
         <div class="map-info">SpiderCave_02.png | 找到 5 个位置 | 自动范围: ±1600</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('SpiderCave_02_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-SpiderCave_02_HR_D-json" value="1600" step="100" onchange="updateMapRange('SpiderCave_02_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('SpiderCave_02_HR_D-json', 2.0)">x2</button>
+                <button class="btn-scale" onclick="scaleRange('SpiderCave_02_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-SpiderCave_02_D-json" value="1600" step="100" onchange="updateMapRange('SpiderCave_02_D-json')">
+                <button class="btn-scale" onclick="scaleRange('SpiderCave_02_D-json', 2.0)">x2</button>
             </div>
-            <button class="btn-rotate" onclick="toggleRotate('SpiderCave_02_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('SpiderCave_02_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('SpiderCave_02_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('SpiderCave_02_HR_D-json')">↺ 重置</button>
+            <button class="btn-rotate" onclick="toggleRotate('SpiderCave_02_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('SpiderCave_02_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('SpiderCave_02_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('SpiderCave_02_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-SpiderCave_02_HR_D-json"><img src="images/SpiderCave_02.webp" class="image">        <div class="dot" data-index="1488" data-x="1265.0" data-y="480.00003" data-z="330.0" style="left: 89.53%; top: 65.00%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="1489" data-x="-670.0" data-y="-370.00003" data-z="355.0" style="left: 29.06%; top: 38.44%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="1494" data-x="8.993598" data-y="399.99976" data-z="470.0" style="left: 50.28%; top: 62.50%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="1495" data-x="1240.0" data-y="-554.99994" data-z="405.0" style="left: 88.75%; top: 32.66%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="1500" data-x="434.28598" data-y="-381.24298" data-z="575.0001" style="left: 63.57%; top: 38.09%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="container" id="container-SpiderCave_02_D-json"><img src="images/SpiderCave_02.webp" class="image">        <div class="dot" data-index="1554" data-x="1265.0" data-y="480.00003" data-z="330.0" style="left: 89.53%; top: 65.00%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1555" data-x="-670.0" data-y="-370.00003" data-z="355.0" style="left: 29.06%; top: 38.44%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1556" data-x="8.993598" data-y="399.99976" data-z="470.0" style="left: 50.28%; top: 62.50%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1557" data-x="1240.0" data-y="-554.99994" data-z="405.0" style="left: 88.75%; top: 32.66%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1558" data-x="434.28598" data-y="-381.24298" data-z="575.0001" style="left: 63.57%; top: 38.09%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="group-header">冰图1层</div>
-    <div class="map-card" id="map-card-IceCave_Altar_HR_D-json">
-        <h3 class="map-title">圣坛<span class='debug-text'> (IceCave_Altar)</span><div class='map-filename'>IceCave_Altar_HR_D.json</div></h3>
+    <div class="map-card" id="map-card-IceCave_Altar_D-json">
+        <h3 class="map-title">圣坛<span class='debug-text'> (IceCave_Altar)</span><div class='map-filename'>IceCave_Altar_D.json</div></h3>
         <div class="map-info">IceCave_Altar.png | 找到 1 个位置 | 自动范围: ±1600</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceCave_Altar_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceCave_Altar_HR_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_Altar_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceCave_Altar_HR_D-json', 2.0)">x2</button>
+                <button class="btn-scale" onclick="scaleRange('IceCave_Altar_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-IceCave_Altar_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_Altar_D-json')">
+                <button class="btn-scale" onclick="scaleRange('IceCave_Altar_D-json', 2.0)">x2</button>
             </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceCave_Altar_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_Altar_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_Altar_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceCave_Altar_HR_D-json')">↺ 重置</button>
+            <button class="btn-rotate" onclick="toggleRotate('IceCave_Altar_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_Altar_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_Altar_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('IceCave_Altar_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceCave_Altar_HR_D-json"><img src="images/IceCave_Altar.webp" class="image">        <div class="dot" data-index="5384" data-x="137.0" data-y="-1078.0" data-z="180.00009" style="left: 54.28%; top: 16.31%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceCave_Altar_D-json"><img src="images/IceCave_Altar.webp" class="image">        <div class="dot" data-index="5464" data-x="137.0" data-y="-1078.0" data-z="180.00009" style="left: 54.28%; top: 16.31%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
-    <div class="map-card" id="map-card-IceCave_CaveSwamp_HR_D-json">
-        <h3 class="map-title">洞穴沼泽<span class='debug-text'> (IceCave_CaveSwamp)</span><div class='map-filename'>IceCave_CaveSwamp_HR_D.json</div></h3>
-        <div class="map-info">IceCave_CaveSwamp.png | 找到 1 个位置 | 自动范围: ±1600</div>
-        <div class="controls">
-            <div class="input-group">
-                <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceCave_CaveSwamp_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceCave_CaveSwamp_HR_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_CaveSwamp_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceCave_CaveSwamp_HR_D-json', 2.0)">x2</button>
-            </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceCave_CaveSwamp_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_CaveSwamp_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_CaveSwamp_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceCave_CaveSwamp_HR_D-json')">↺ 重置</button>
-        </div>
-        <div class="container" id="container-IceCave_CaveSwamp_HR_D-json"><img src="images/IceCave_CaveSwamp.webp" class="image">        <div class="dot" data-index="5613" data-x="-94.0" data-y="15.0" data-z="332.0" style="left: 47.06%; top: 50.47%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-</div>
-    </div>
-    <div class="map-card" id="map-card-IceCave_Spiral_HR_D-json">
-        <h3 class="map-title">转楼<span class='debug-text'> (IceCave_Spiral)</span><div class='map-filename'>IceCave_Spiral_HR_D.json</div></h3>
+    <div class="map-card" id="map-card-IceCave_Spiral_D-json">
+        <h3 class="map-title">转楼<span class='debug-text'> (IceCave_Spiral)</span><div class='map-filename'>IceCave_Spiral_D.json</div></h3>
         <div class="map-info">IceCave_Spiral.png | 找到 2 个位置 | 自动范围: ±1600</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceCave_Spiral_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceCave_Spiral_HR_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_Spiral_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceCave_Spiral_HR_D-json', 2.0)">x2</button>
+                <button class="btn-scale" onclick="scaleRange('IceCave_Spiral_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-IceCave_Spiral_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_Spiral_D-json')">
+                <button class="btn-scale" onclick="scaleRange('IceCave_Spiral_D-json', 2.0)">x2</button>
             </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceCave_Spiral_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_Spiral_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_Spiral_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceCave_Spiral_HR_D-json')">↺ 重置</button>
+            <button class="btn-rotate" onclick="toggleRotate('IceCave_Spiral_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_Spiral_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_Spiral_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('IceCave_Spiral_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceCave_Spiral_HR_D-json"><img src="images/IceCave_Spiral.webp" class="image">        <div class="dot" data-index="6561" data-x="1136.0" data-y="-52.0" data-z="487.0" style="left: 85.50%; top: 48.38%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="6566" data-x="126.0" data-y="-1274.0" data-z="448.0" style="left: 53.94%; top: 10.19%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceCave_Spiral_D-json"><img src="images/IceCave_Spiral.webp" class="image">        <div class="dot" data-index="6633" data-x="1136.0" data-y="-52.0" data-z="487.0" style="left: 85.50%; top: 48.38%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="6637" data-x="126.0" data-y="-1274.0" data-z="448.0" style="left: 53.94%; top: 10.19%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="group-header">废墟1层</div>
-    <div class="map-card" id="map-card-Ruins_Armory_HR_D-json">
-        <h3 class="map-title">城堡军械库<span class='debug-text'> (Castle_Armory)</span><div class='map-filename'>Ruins_Armory_HR_D.json</div></h3>
-        <div class="map-info">Ruins_Armory.png | 找到 2 个位置 | 自动范围: ±1600</div>
-        <div class="controls">
-            <div class="input-group">
-                <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('Ruins_Armory_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-Ruins_Armory_HR_D-json" value="1600" step="100" onchange="updateMapRange('Ruins_Armory_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('Ruins_Armory_HR_D-json', 2.0)">x2</button>
-            </div>
-            <button class="btn-rotate" onclick="toggleRotate('Ruins_Armory_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('Ruins_Armory_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_Armory_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('Ruins_Armory_HR_D-json')">↺ 重置</button>
-        </div>
-        <div class="container" id="container-Ruins_Armory_HR_D-json"><img src="images/Ruins_Armory.webp" class="image">        <div class="dot" data-index="7953" data-x="-595.0" data-y="-211.99998" data-z="719.0001" style="left: 31.41%; top: 43.38%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="7959" data-x="-605.0" data-y="246.00002" data-z="719.0001" style="left: 31.09%; top: 57.69%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-</div>
-    </div>
-    <div class="map-card" id="map-card-Ruins_Forest_06_HR_D-json">
-        <h3 class="map-title">迷失森林<span class='debug-text'> (Fallen_Forest)</span><div class='map-filename'>Ruins_Forest_06_HR_D.json</div></h3>
+    <div class="map-card" id="map-card-Ruins_Forest_06_D-json">
+        <h3 class="map-title">迷失森林<span class='debug-text'> (Fallen_Forest)</span><div class='map-filename'>Ruins_Forest_06_D.json</div></h3>
         <div class="map-info">Ruins_Forest_06.png | 找到 1 个位置 | 自动范围: ±1600</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('Ruins_Forest_06_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-Ruins_Forest_06_HR_D-json" value="1600" step="100" onchange="updateMapRange('Ruins_Forest_06_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('Ruins_Forest_06_HR_D-json', 2.0)">x2</button>
+                <button class="btn-scale" onclick="scaleRange('Ruins_Forest_06_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-Ruins_Forest_06_D-json" value="1600" step="100" onchange="updateMapRange('Ruins_Forest_06_D-json')">
+                <button class="btn-scale" onclick="scaleRange('Ruins_Forest_06_D-json', 2.0)">x2</button>
             </div>
-            <button class="btn-rotate" onclick="toggleRotate('Ruins_Forest_06_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('Ruins_Forest_06_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_Forest_06_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('Ruins_Forest_06_HR_D-json')">↺ 重置</button>
+            <button class="btn-rotate" onclick="toggleRotate('Ruins_Forest_06_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('Ruins_Forest_06_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_Forest_06_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('Ruins_Forest_06_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Ruins_Forest_06_HR_D-json"><img src="images/Ruins_Forest_06.webp" class="image">        <div class="dot" data-index="8412" data-x="-1056.0" data-y="-91.99998" data-z="-599.9999" style="left: 17.00%; top: 47.13%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Ruins_Forest_06_D-json"><img src="images/Ruins_Forest_06.webp" class="image">        <div class="dot" data-index="8462" data-x="-1056.0" data-y="-91.99998" data-z="-599.9999" style="left: 17.00%; top: 47.13%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
-    <div class="map-card" id="map-card-Ruins_ForsakenCloister_HR_D-json">
-        <h3 class="map-title">寂灭回廊<span class='debug-text'> (ForsakenCloister)</span><div class='map-filename'>Ruins_ForsakenCloister_HR_D.json</div></h3>
+    <div class="map-card" id="map-card-Ruins_ForsakenCloister_D-json">
+        <h3 class="map-title">寂灭回廊<span class='debug-text'> (ForsakenCloister)</span><div class='map-filename'>Ruins_ForsakenCloister_D.json</div></h3>
         <div class="map-info">Ruins_ForsakenCloister.png | 找到 19 个位置 | 自动范围: ±1600</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('Ruins_ForsakenCloister_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-Ruins_ForsakenCloister_HR_D-json" value="1600" step="100" onchange="updateMapRange('Ruins_ForsakenCloister_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('Ruins_ForsakenCloister_HR_D-json', 2.0)">x2</button>
+                <button class="btn-scale" onclick="scaleRange('Ruins_ForsakenCloister_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-Ruins_ForsakenCloister_D-json" value="1600" step="100" onchange="updateMapRange('Ruins_ForsakenCloister_D-json')">
+                <button class="btn-scale" onclick="scaleRange('Ruins_ForsakenCloister_D-json', 2.0)">x2</button>
             </div>
-            <button class="btn-rotate" onclick="toggleRotate('Ruins_ForsakenCloister_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('Ruins_ForsakenCloister_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_ForsakenCloister_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('Ruins_ForsakenCloister_HR_D-json')">↺ 重置</button>
+            <button class="btn-rotate" onclick="toggleRotate('Ruins_ForsakenCloister_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('Ruins_ForsakenCloister_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_ForsakenCloister_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('Ruins_ForsakenCloister_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Ruins_ForsakenCloister_HR_D-json"><img src="images/Ruins_ForsakenCloister.webp" class="image">        <div class="dot" data-index="8477" data-x="45.0" data-y="100.0" data-z="350.0" style="left: 51.41%; top: 53.12%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="8494" data-x="35.0" data-y="-65.0" data-z="360.0" style="left: 51.09%; top: 47.97%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="8495" data-x="285.0" data-y="685.0" data-z="360.0" style="left: 58.91%; top: 71.41%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="8496" data-x="285.0" data-y="-2010.0" data-z="360.0" style="left: 58.91%; top: -12.81%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="8497" data-x="35.0" data-y="-1260.0" data-z="360.0" style="left: 51.09%; top: 10.62%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="8513" data-x="45.0" data-y="2190.0" data-z="350.0" style="left: 51.41%; top: 118.44%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="8514" data-x="-660.0" data-y="2310.0" data-z="350.0" style="left: 29.38%; top: 122.19%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="8515" data-x="-1950.0" data-y="2310.0" data-z="350.0" style="left: -10.94%; top: 122.19%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="8516" data-x="-2515.0" data-y="2310.0" data-z="350.0" style="left: -28.59%; top: 122.19%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="8517" data-x="-2515.0" data-y="515.0" data-z="350.0" style="left: -28.59%; top: 66.09%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="8518" data-x="-2515.0" data-y="-295.0" data-z="350.0" style="left: -28.59%; top: 40.78%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="8519" data-x="-690.0" data-y="-295.0" data-z="350.0" style="left: 28.44%; top: 40.78%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="8520" data-x="45.0" data-y="-295.0" data-z="950.0" style="left: 51.41%; top: 40.78%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="8521" data-x="45.0" data-y="655.0" data-z="950.0" style="left: 51.41%; top: 70.47%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="8522" data-x="45.0" data-y="1820.0" data-z="950.0" style="left: 51.41%; top: 106.88%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="8523" data-x="-945.0" data-y="2320.0" data-z="950.0" style="left: 20.47%; top: 122.50%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="8524" data-x="-1650.0" data-y="2320.0" data-z="950.0" style="left: -1.56%; top: 122.50%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="8525" data-x="-2615.0" data-y="1350.0" data-z="950.0" style="left: -31.72%; top: 92.19%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="8526" data-x="-2615.0" data-y="340.0" data-z="950.0" style="left: -31.72%; top: 60.62%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Ruins_ForsakenCloister_D-json"><img src="images/Ruins_ForsakenCloister.webp" class="image">        <div class="dot" data-index="8598" data-x="45.0" data-y="100.0" data-z="350.0" style="left: 51.41%; top: 53.12%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8599" data-x="35.0" data-y="-65.0" data-z="360.0" style="left: 51.09%; top: 47.97%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8600" data-x="285.0" data-y="685.0" data-z="360.0" style="left: 58.91%; top: 71.41%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8601" data-x="285.0" data-y="-2010.0" data-z="360.0" style="left: 58.91%; top: -12.81%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8602" data-x="35.0" data-y="-1260.0" data-z="360.0" style="left: 51.09%; top: 10.62%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8603" data-x="45.0" data-y="2190.0" data-z="350.0" style="left: 51.41%; top: 118.44%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8604" data-x="-660.0" data-y="2310.0" data-z="350.0" style="left: 29.38%; top: 122.19%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8605" data-x="-1950.0" data-y="2310.0" data-z="350.0" style="left: -10.94%; top: 122.19%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8606" data-x="-2515.0" data-y="2310.0" data-z="350.0" style="left: -28.59%; top: 122.19%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8607" data-x="-2515.0" data-y="515.0" data-z="350.0" style="left: -28.59%; top: 66.09%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8608" data-x="-2515.0" data-y="-295.0" data-z="350.0" style="left: -28.59%; top: 40.78%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8609" data-x="-690.0" data-y="-295.0" data-z="350.0" style="left: 28.44%; top: 40.78%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8610" data-x="45.0" data-y="-295.0" data-z="950.0" style="left: 51.41%; top: 40.78%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8611" data-x="45.0" data-y="655.0" data-z="950.0" style="left: 51.41%; top: 70.47%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8612" data-x="45.0" data-y="1820.0" data-z="950.0" style="left: 51.41%; top: 106.88%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8613" data-x="-945.0" data-y="2320.0" data-z="950.0" style="left: 20.47%; top: 122.50%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8614" data-x="-1650.0" data-y="2320.0" data-z="950.0" style="left: -1.56%; top: 122.50%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8615" data-x="-2615.0" data-y="1350.0" data-z="950.0" style="left: -31.72%; top: 92.19%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8616" data-x="-2615.0" data-y="340.0" data-z="950.0" style="left: -31.72%; top: 60.62%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="group-header">水图</div>
-    <div class="map-card" id="map-card-ShipGraveyard_ElephantIsland_HR_D-json">
-        <h3 class="map-title">象岛<span class='debug-text'> (ElephantIsland)</span><div class='map-filename'>ShipGraveyard_ElephantIsland_HR_D.json</div></h3>
+    <div class="map-card" id="map-card-ShipGraveyard_ElephantIsland_D-json">
+        <h3 class="map-title">象岛<span class='debug-text'> (ShipGraveyard_ElephantIsland)</span><div class='map-filename'>ShipGraveyard_ElephantIsland_D.json</div></h3>
         <div class="map-info">ShipGraveyard_ElephantIsland.png | 找到 1 个位置 | 自动范围: ±1600</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('ShipGraveyard_ElephantIsland_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-ShipGraveyard_ElephantIsland_HR_D-json" value="1600" step="100" onchange="updateMapRange('ShipGraveyard_ElephantIsland_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('ShipGraveyard_ElephantIsland_HR_D-json', 2.0)">x2</button>
+                <button class="btn-scale" onclick="scaleRange('ShipGraveyard_ElephantIsland_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-ShipGraveyard_ElephantIsland_D-json" value="1600" step="100" onchange="updateMapRange('ShipGraveyard_ElephantIsland_D-json')">
+                <button class="btn-scale" onclick="scaleRange('ShipGraveyard_ElephantIsland_D-json', 2.0)">x2</button>
             </div>
-            <button class="btn-rotate" onclick="toggleRotate('ShipGraveyard_ElephantIsland_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('ShipGraveyard_ElephantIsland_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('ShipGraveyard_ElephantIsland_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('ShipGraveyard_ElephantIsland_HR_D-json')">↺ 重置</button>
+            <button class="btn-rotate" onclick="toggleRotate('ShipGraveyard_ElephantIsland_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('ShipGraveyard_ElephantIsland_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('ShipGraveyard_ElephantIsland_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('ShipGraveyard_ElephantIsland_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-ShipGraveyard_ElephantIsland_HR_D-json"><img src="images/ShipGraveyard_ElephantIsland.webp" class="image">        <div class="dot" data-index="10035" data-x="-30.0" data-y="-15.0" data-z="1490.0" style="left: 49.06%; top: 49.53%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-</div>
-    </div>
-    <div class="map-card" id="map-card-ShipGraveyard_SkullIsland_D-json">
-        <h3 class="map-title">骷髅岛<span class='debug-text'> (ShipGraveyard_SkullIsland)</span><div class='map-filename'>ShipGraveyard_SkullIsland_D.json</div></h3>
-        <div class="map-info">ShipGraveyard_SkullIsland.png | 找到 4 个位置 | 自动范围: ±1600</div>
-        <div class="controls">
-            <div class="input-group">
-                <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('ShipGraveyard_SkullIsland_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-ShipGraveyard_SkullIsland_D-json" value="1600" step="100" onchange="updateMapRange('ShipGraveyard_SkullIsland_D-json')">
-                <button class="btn-scale" onclick="scaleRange('ShipGraveyard_SkullIsland_D-json', 2.0)">x2</button>
-            </div>
-            <button class="btn-rotate" onclick="toggleRotate('ShipGraveyard_SkullIsland_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('ShipGraveyard_SkullIsland_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('ShipGraveyard_SkullIsland_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('ShipGraveyard_SkullIsland_D-json')">↺ 重置</button>
-        </div>
-        <div class="container" id="container-ShipGraveyard_SkullIsland_D-json"><img src="images/ShipGraveyard_SkullIsland.webp" class="image">        <div class="dot" data-index="11115" data-x="628.7939" data-y="-311.8404" data-z="535.0" style="left: 69.65%; top: 40.25%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="11188" data-x="-200.0" data-y="470.0" data-z="740.0" style="left: 43.75%; top: 64.69%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="11189" data-x="1220.0" data-y="-140.0" data-z="2630.0" style="left: 88.12%; top: 45.62%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="11190" data-x="598.89087" data-y="-301.10913" data-z="1360.0" style="left: 68.72%; top: 40.59%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="container" id="container-ShipGraveyard_ElephantIsland_D-json"><img src="images/ShipGraveyard_ElephantIsland.webp" class="image">        <div class="dot" data-index="10090" data-x="-30.0" data-y="-15.0" data-z="1490.0" style="left: 49.06%; top: 49.53%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
 </div>
     </div>
 </div>
@@ -458,579 +301,369 @@
         <span class="color-dot" style="background-color: cyan;"></span> Z &gt; 299 (高于地面)
         <span class="color-dot" style="background-color: yellow;"></span> -299 ≤ Z ≤ 299 (正常高度)
         <span class="color-dot" style="background-color: red;"></span> Z &lt; -299 (低于地面)
-        <br><strong>位置统计：共 57 个位置点</strong><br><strong>包含地图：</strong> 哥布林匪窝, 哥布林小镇 A, 哥布林小镇 B, 圣坛, 城堡军械库, 寂灭回廊, 岩洞湖 B, 峡谷 A, 洞穴墓葬, 洞穴沼泽, 洞穴祭坛 B, 石坟 B, 蚁巢, 蛛网巢穴, 蜘蛛洞, 象岛, 转楼, 迷失森林, 骷髅岛
+        <br><strong>位置统计：共 36 个位置点</strong><br><strong>包含地图：</strong> 哥布林小镇 A, 哥布林小镇 B, 圣坛, 寂灭回廊, 岩洞湖 B, 洞穴墓葬, 洞穴祭坛 B, 蜘蛛洞, 象岛, 转楼, 迷失森林
     </div>
     <div class="summary" id="summary-section">
         <h2>所有坐标详情</h2>
-        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-169">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CavernLake_03_HR_D-json', 169, this)"></td>
+        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-184">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CavernLake_03_D-json', 184, this)"></td>
         <td>哥布林洞穴1层</td>
-        <td>CavernLake_03_HR_D.json</td>
+        <td>CavernLake_03_D.json</td>
         <td>岩洞湖 B</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>1094.90</td>
         <td>-597.34</td>
         <td>-160.00</td>
     </tr>
-    <tr id="row-230">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CaveTown_02_HR_D-json', 230, this)"></td>
+    <tr id="row-270">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CaveTown_02_D-json', 270, this)"></td>
         <td>哥布林洞穴1层</td>
-        <td>CaveTown_02_HR_D.json</td>
+        <td>CaveTown_02_D.json</td>
         <td>哥布林小镇 B</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>37.01</td>
         <td>-37.14</td>
         <td>45.00</td>
     </tr>
-    <tr id="row-249">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CaveTown_02_HR_D-json', 249, this)"></td>
+    <tr id="row-273">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CaveTown_02_D-json', 273, this)"></td>
         <td>哥布林洞穴1层</td>
-        <td>CaveTown_02_HR_D.json</td>
+        <td>CaveTown_02_D.json</td>
         <td>哥布林小镇 B</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>229.11</td>
         <td>72.87</td>
         <td>5.00</td>
     </tr>
-    <tr id="row-326">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Cave_Altar_02_HR_D-json', 326, this)"></td>
+    <tr id="row-338">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Cave_Altar_02_D-json', 338, this)"></td>
         <td>哥布林洞穴1层</td>
-        <td>Cave_Altar_02_HR_D.json</td>
+        <td>Cave_Altar_02_D.json</td>
         <td>洞穴祭坛 B</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>-14.00</td>
         <td>-39.00</td>
         <td>-379.69</td>
     </tr>
-    <tr id="row-455">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Cave_AntsNest_D-json', 455, this)"></td>
+    <tr id="row-734">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Cave_Tomb_Center_D-json', 734, this)"></td>
         <td>哥布林洞穴1层</td>
-        <td>Cave_AntsNest_D.json</td>
-        <td>蚁巢</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
-        <td>21.11</td>
-        <td>72.87</td>
-        <td>5.00</td>
-    </tr>
-    <tr id="row-531">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Cave_BanditCamp_Center_HR_D-json', 531, this)"></td>
-        <td>哥布林洞穴1层</td>
-        <td>Cave_BanditCamp_Center_HR_D.json</td>
-        <td>哥布林匪窝</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
-        <td>-14.00</td>
-        <td>-39.00</td>
-        <td>0.00</td>
-    </tr>
-    <tr id="row-534">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Cave_BanditCamp_Center_HR_D-json', 534, this)"></td>
-        <td>哥布林洞穴1层</td>
-        <td>Cave_BanditCamp_Center_HR_D.json</td>
-        <td>哥布林匪窝</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
-        <td>-14.00</td>
-        <td>-39.00</td>
-        <td>0.00</td>
-    </tr>
-    <tr id="row-540">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Cave_BanditCamp_Center_HR_D-json', 540, this)"></td>
-        <td>哥布林洞穴1层</td>
-        <td>Cave_BanditCamp_Center_HR_D.json</td>
-        <td>哥布林匪窝</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
-        <td>-14.00</td>
-        <td>-39.00</td>
-        <td>0.00</td>
-    </tr>
-    <tr id="row-602">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Cave_SpiderNest_02_D-json', 602, this)"></td>
-        <td>哥布林洞穴1层</td>
-        <td>Cave_SpiderNest_02_D.json</td>
-        <td>蛛网巢穴</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
-        <td>29.77</td>
-        <td>284.10</td>
-        <td>146.00</td>
-    </tr>
-    <tr id="row-613">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Cave_SpiderNest_02_D-json', 613, this)"></td>
-        <td>哥布林洞穴1层</td>
-        <td>Cave_SpiderNest_02_D.json</td>
-        <td>蛛网巢穴</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
-        <td>29.77</td>
-        <td>284.10</td>
-        <td>146.00</td>
-    </tr>
-    <tr id="row-671">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Cave_Tomb_Center_HR_D-json', 671, this)"></td>
-        <td>哥布林洞穴1层</td>
-        <td>Cave_Tomb_Center_HR_D.json</td>
+        <td>Cave_Tomb_Center_D.json</td>
         <td>洞穴墓葬</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>-161.38</td>
         <td>-883.46</td>
         <td>352.00</td>
     </tr>
-    <tr id="row-745">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Cave_Valley_HR_D-json', 745, this)"></td>
+    <tr id="row-1314">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CaveTown_D-json', 1314, this)"></td>
         <td>哥布林洞穴1层</td>
-        <td>Cave_Valley_HR_D.json</td>
-        <td>峡谷 A</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
-        <td>82.21</td>
-        <td>1165.19</td>
-        <td>-250.00</td>
-    </tr>
-    <tr id="row-746">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Cave_Valley_HR_D-json', 746, this)"></td>
-        <td>哥布林洞穴1层</td>
-        <td>Cave_Valley_HR_D.json</td>
-        <td>峡谷 A</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
-        <td>-230.11</td>
-        <td>1196.09</td>
-        <td>-250.00</td>
-    </tr>
-    <tr id="row-747">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Cave_Valley_HR_D-json', 747, this)"></td>
-        <td>哥布林洞穴1层</td>
-        <td>Cave_Valley_HR_D.json</td>
-        <td>峡谷 A</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
-        <td>-375.12</td>
-        <td>1128.47</td>
-        <td>-250.00</td>
-    </tr>
-    <tr id="row-1116">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('StoneGrave_Center_02_HR_D-json', 1116, this)"></td>
-        <td>哥布林洞穴1层</td>
-        <td>StoneGrave_Center_02_HR_D.json</td>
-        <td>石坟 B</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
-        <td>29.77</td>
-        <td>284.10</td>
-        <td>146.00</td>
-    </tr>
-    <tr id="row-1122">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('StoneGrave_Center_02_HR_D-json', 1122, this)"></td>
-        <td>哥布林洞穴1层</td>
-        <td>StoneGrave_Center_02_HR_D.json</td>
-        <td>石坟 B</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
-        <td>29.77</td>
-        <td>284.10</td>
-        <td>146.00</td>
-    </tr>
-    <tr id="row-1147">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('StoneGrave_Center_02_HR_D-json', 1147, this)"></td>
-        <td>哥布林洞穴1层</td>
-        <td>StoneGrave_Center_02_HR_D.json</td>
-        <td>石坟 B</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
-        <td>113.07</td>
-        <td>-332.90</td>
-        <td>162.00</td>
-    </tr>
-    <tr id="row-1180">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('StoneGrave_Center_02_HR_D-json', 1180, this)"></td>
-        <td>哥布林洞穴1层</td>
-        <td>StoneGrave_Center_02_HR_D.json</td>
-        <td>石坟 B</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
-        <td>29.77</td>
-        <td>284.10</td>
-        <td>146.00</td>
-    </tr>
-    <tr id="row-1215">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('StoneGrave_Center_02_HR_D-json', 1215, this)"></td>
-        <td>哥布林洞穴1层</td>
-        <td>StoneGrave_Center_02_HR_D.json</td>
-        <td>石坟 B</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
-        <td>-51.64</td>
-        <td>365.10</td>
-        <td>177.00</td>
-    </tr>
-    <tr id="row-1279">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CaveTown_HR_D-json', 1279, this)"></td>
-        <td>哥布林洞穴1层</td>
-        <td>CaveTown_HR_D.json</td>
+        <td>CaveTown_D.json</td>
         <td>哥布林小镇 A</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>37.01</td>
         <td>-37.14</td>
         <td>45.00</td>
     </tr>
-    <tr id="row-1296">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CaveTown_HR_D-json', 1296, this)"></td>
+    <tr id="row-1316">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CaveTown_D-json', 1316, this)"></td>
         <td>哥布林洞穴1层</td>
-        <td>CaveTown_HR_D.json</td>
+        <td>CaveTown_D.json</td>
         <td>哥布林小镇 A</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>229.11</td>
         <td>72.87</td>
         <td>5.00</td>
     </tr>
-    <tr id="row-1488">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('SpiderCave_02_HR_D-json', 1488, this)"></td>
+    <tr id="row-1554">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('SpiderCave_02_D-json', 1554, this)"></td>
         <td>哥布林洞穴1层</td>
-        <td>SpiderCave_02_HR_D.json</td>
+        <td>SpiderCave_02_D.json</td>
         <td>蜘蛛洞</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>1265.00</td>
         <td>480.00</td>
         <td>330.00</td>
     </tr>
-    <tr id="row-1489">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('SpiderCave_02_HR_D-json', 1489, this)"></td>
+    <tr id="row-1555">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('SpiderCave_02_D-json', 1555, this)"></td>
         <td>哥布林洞穴1层</td>
-        <td>SpiderCave_02_HR_D.json</td>
+        <td>SpiderCave_02_D.json</td>
         <td>蜘蛛洞</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>-670.00</td>
         <td>-370.00</td>
         <td>355.00</td>
     </tr>
-    <tr id="row-1494">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('SpiderCave_02_HR_D-json', 1494, this)"></td>
+    <tr id="row-1556">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('SpiderCave_02_D-json', 1556, this)"></td>
         <td>哥布林洞穴1层</td>
-        <td>SpiderCave_02_HR_D.json</td>
+        <td>SpiderCave_02_D.json</td>
         <td>蜘蛛洞</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>8.99</td>
         <td>400.00</td>
         <td>470.00</td>
     </tr>
-    <tr id="row-1495">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('SpiderCave_02_HR_D-json', 1495, this)"></td>
+    <tr id="row-1557">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('SpiderCave_02_D-json', 1557, this)"></td>
         <td>哥布林洞穴1层</td>
-        <td>SpiderCave_02_HR_D.json</td>
+        <td>SpiderCave_02_D.json</td>
         <td>蜘蛛洞</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>1240.00</td>
         <td>-555.00</td>
         <td>405.00</td>
     </tr>
-    <tr id="row-1500">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('SpiderCave_02_HR_D-json', 1500, this)"></td>
+    <tr id="row-1558">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('SpiderCave_02_D-json', 1558, this)"></td>
         <td>哥布林洞穴1层</td>
-        <td>SpiderCave_02_HR_D.json</td>
+        <td>SpiderCave_02_D.json</td>
         <td>蜘蛛洞</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>434.29</td>
         <td>-381.24</td>
         <td>575.00</td>
     </tr>
-    <tr id="row-5384">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Altar_HR_D-json', 5384, this)"></td>
+    <tr id="row-5464">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Altar_D-json', 5464, this)"></td>
         <td>冰图1层</td>
-        <td>IceCave_Altar_HR_D.json</td>
+        <td>IceCave_Altar_D.json</td>
         <td>圣坛</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>137.00</td>
         <td>-1078.00</td>
         <td>180.00</td>
     </tr>
-    <tr id="row-5613">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_CaveSwamp_HR_D-json', 5613, this)"></td>
+    <tr id="row-6633">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Spiral_D-json', 6633, this)"></td>
         <td>冰图1层</td>
-        <td>IceCave_CaveSwamp_HR_D.json</td>
-        <td>洞穴沼泽</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
-        <td>-94.00</td>
-        <td>15.00</td>
-        <td>332.00</td>
-    </tr>
-    <tr id="row-6561">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Spiral_HR_D-json', 6561, this)"></td>
-        <td>冰图1层</td>
-        <td>IceCave_Spiral_HR_D.json</td>
+        <td>IceCave_Spiral_D.json</td>
         <td>转楼</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>1136.00</td>
         <td>-52.00</td>
         <td>487.00</td>
     </tr>
-    <tr id="row-6566">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Spiral_HR_D-json', 6566, this)"></td>
+    <tr id="row-6637">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Spiral_D-json', 6637, this)"></td>
         <td>冰图1层</td>
-        <td>IceCave_Spiral_HR_D.json</td>
+        <td>IceCave_Spiral_D.json</td>
         <td>转楼</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>126.00</td>
         <td>-1274.00</td>
         <td>448.00</td>
     </tr>
-    <tr id="row-7953">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Armory_HR_D-json', 7953, this)"></td>
+    <tr id="row-8462">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Forest_06_D-json', 8462, this)"></td>
         <td>废墟1层</td>
-        <td>Ruins_Armory_HR_D.json</td>
-        <td>城堡军械库</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
-        <td>-595.00</td>
-        <td>-212.00</td>
-        <td>719.00</td>
-    </tr>
-    <tr id="row-7959">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Armory_HR_D-json', 7959, this)"></td>
-        <td>废墟1层</td>
-        <td>Ruins_Armory_HR_D.json</td>
-        <td>城堡军械库</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
-        <td>-605.00</td>
-        <td>246.00</td>
-        <td>719.00</td>
-    </tr>
-    <tr id="row-8412">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Forest_06_HR_D-json', 8412, this)"></td>
-        <td>废墟1层</td>
-        <td>Ruins_Forest_06_HR_D.json</td>
+        <td>Ruins_Forest_06_D.json</td>
         <td>迷失森林</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>-1056.00</td>
         <td>-92.00</td>
         <td>-600.00</td>
     </tr>
-    <tr id="row-8477">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_HR_D-json', 8477, this)"></td>
+    <tr id="row-8598">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_D-json', 8598, this)"></td>
         <td>废墟1层</td>
-        <td>Ruins_ForsakenCloister_HR_D.json</td>
+        <td>Ruins_ForsakenCloister_D.json</td>
         <td>寂灭回廊</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>45.00</td>
         <td>100.00</td>
         <td>350.00</td>
     </tr>
-    <tr id="row-8494">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_HR_D-json', 8494, this)"></td>
+    <tr id="row-8599">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_D-json', 8599, this)"></td>
         <td>废墟1层</td>
-        <td>Ruins_ForsakenCloister_HR_D.json</td>
+        <td>Ruins_ForsakenCloister_D.json</td>
         <td>寂灭回廊</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>35.00</td>
         <td>-65.00</td>
         <td>360.00</td>
     </tr>
-    <tr id="row-8495">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_HR_D-json', 8495, this)"></td>
+    <tr id="row-8600">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_D-json', 8600, this)"></td>
         <td>废墟1层</td>
-        <td>Ruins_ForsakenCloister_HR_D.json</td>
+        <td>Ruins_ForsakenCloister_D.json</td>
         <td>寂灭回廊</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>285.00</td>
         <td>685.00</td>
         <td>360.00</td>
     </tr>
-    <tr id="row-8496">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_HR_D-json', 8496, this)"></td>
+    <tr id="row-8601">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_D-json', 8601, this)"></td>
         <td>废墟1层</td>
-        <td>Ruins_ForsakenCloister_HR_D.json</td>
+        <td>Ruins_ForsakenCloister_D.json</td>
         <td>寂灭回廊</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>285.00</td>
         <td>-2010.00</td>
         <td>360.00</td>
     </tr>
-    <tr id="row-8497">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_HR_D-json', 8497, this)"></td>
+    <tr id="row-8602">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_D-json', 8602, this)"></td>
         <td>废墟1层</td>
-        <td>Ruins_ForsakenCloister_HR_D.json</td>
+        <td>Ruins_ForsakenCloister_D.json</td>
         <td>寂灭回廊</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>35.00</td>
         <td>-1260.00</td>
         <td>360.00</td>
     </tr>
-    <tr id="row-8513">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_HR_D-json', 8513, this)"></td>
+    <tr id="row-8603">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_D-json', 8603, this)"></td>
         <td>废墟1层</td>
-        <td>Ruins_ForsakenCloister_HR_D.json</td>
+        <td>Ruins_ForsakenCloister_D.json</td>
         <td>寂灭回廊</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>45.00</td>
         <td>2190.00</td>
         <td>350.00</td>
     </tr>
-    <tr id="row-8514">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_HR_D-json', 8514, this)"></td>
+    <tr id="row-8604">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_D-json', 8604, this)"></td>
         <td>废墟1层</td>
-        <td>Ruins_ForsakenCloister_HR_D.json</td>
+        <td>Ruins_ForsakenCloister_D.json</td>
         <td>寂灭回廊</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>-660.00</td>
         <td>2310.00</td>
         <td>350.00</td>
     </tr>
-    <tr id="row-8515">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_HR_D-json', 8515, this)"></td>
+    <tr id="row-8605">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_D-json', 8605, this)"></td>
         <td>废墟1层</td>
-        <td>Ruins_ForsakenCloister_HR_D.json</td>
+        <td>Ruins_ForsakenCloister_D.json</td>
         <td>寂灭回廊</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>-1950.00</td>
         <td>2310.00</td>
         <td>350.00</td>
     </tr>
-    <tr id="row-8516">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_HR_D-json', 8516, this)"></td>
+    <tr id="row-8606">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_D-json', 8606, this)"></td>
         <td>废墟1层</td>
-        <td>Ruins_ForsakenCloister_HR_D.json</td>
+        <td>Ruins_ForsakenCloister_D.json</td>
         <td>寂灭回廊</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>-2515.00</td>
         <td>2310.00</td>
         <td>350.00</td>
     </tr>
-    <tr id="row-8517">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_HR_D-json', 8517, this)"></td>
+    <tr id="row-8607">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_D-json', 8607, this)"></td>
         <td>废墟1层</td>
-        <td>Ruins_ForsakenCloister_HR_D.json</td>
+        <td>Ruins_ForsakenCloister_D.json</td>
         <td>寂灭回廊</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>-2515.00</td>
         <td>515.00</td>
         <td>350.00</td>
     </tr>
-    <tr id="row-8518">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_HR_D-json', 8518, this)"></td>
+    <tr id="row-8608">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_D-json', 8608, this)"></td>
         <td>废墟1层</td>
-        <td>Ruins_ForsakenCloister_HR_D.json</td>
+        <td>Ruins_ForsakenCloister_D.json</td>
         <td>寂灭回廊</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>-2515.00</td>
         <td>-295.00</td>
         <td>350.00</td>
     </tr>
-    <tr id="row-8519">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_HR_D-json', 8519, this)"></td>
+    <tr id="row-8609">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_D-json', 8609, this)"></td>
         <td>废墟1层</td>
-        <td>Ruins_ForsakenCloister_HR_D.json</td>
+        <td>Ruins_ForsakenCloister_D.json</td>
         <td>寂灭回廊</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>-690.00</td>
         <td>-295.00</td>
         <td>350.00</td>
     </tr>
-    <tr id="row-8520">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_HR_D-json', 8520, this)"></td>
+    <tr id="row-8610">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_D-json', 8610, this)"></td>
         <td>废墟1层</td>
-        <td>Ruins_ForsakenCloister_HR_D.json</td>
+        <td>Ruins_ForsakenCloister_D.json</td>
         <td>寂灭回廊</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>45.00</td>
         <td>-295.00</td>
         <td>950.00</td>
     </tr>
-    <tr id="row-8521">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_HR_D-json', 8521, this)"></td>
+    <tr id="row-8611">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_D-json', 8611, this)"></td>
         <td>废墟1层</td>
-        <td>Ruins_ForsakenCloister_HR_D.json</td>
+        <td>Ruins_ForsakenCloister_D.json</td>
         <td>寂灭回廊</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>45.00</td>
         <td>655.00</td>
         <td>950.00</td>
     </tr>
-    <tr id="row-8522">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_HR_D-json', 8522, this)"></td>
+    <tr id="row-8612">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_D-json', 8612, this)"></td>
         <td>废墟1层</td>
-        <td>Ruins_ForsakenCloister_HR_D.json</td>
+        <td>Ruins_ForsakenCloister_D.json</td>
         <td>寂灭回廊</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>45.00</td>
         <td>1820.00</td>
         <td>950.00</td>
     </tr>
-    <tr id="row-8523">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_HR_D-json', 8523, this)"></td>
+    <tr id="row-8613">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_D-json', 8613, this)"></td>
         <td>废墟1层</td>
-        <td>Ruins_ForsakenCloister_HR_D.json</td>
+        <td>Ruins_ForsakenCloister_D.json</td>
         <td>寂灭回廊</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>-945.00</td>
         <td>2320.00</td>
         <td>950.00</td>
     </tr>
-    <tr id="row-8524">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_HR_D-json', 8524, this)"></td>
+    <tr id="row-8614">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_D-json', 8614, this)"></td>
         <td>废墟1层</td>
-        <td>Ruins_ForsakenCloister_HR_D.json</td>
+        <td>Ruins_ForsakenCloister_D.json</td>
         <td>寂灭回廊</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>-1650.00</td>
         <td>2320.00</td>
         <td>950.00</td>
     </tr>
-    <tr id="row-8525">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_HR_D-json', 8525, this)"></td>
+    <tr id="row-8615">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_D-json', 8615, this)"></td>
         <td>废墟1层</td>
-        <td>Ruins_ForsakenCloister_HR_D.json</td>
+        <td>Ruins_ForsakenCloister_D.json</td>
         <td>寂灭回廊</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>-2615.00</td>
         <td>1350.00</td>
         <td>950.00</td>
     </tr>
-    <tr id="row-8526">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_HR_D-json', 8526, this)"></td>
+    <tr id="row-8616">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_D-json', 8616, this)"></td>
         <td>废墟1层</td>
-        <td>Ruins_ForsakenCloister_HR_D.json</td>
+        <td>Ruins_ForsakenCloister_D.json</td>
         <td>寂灭回廊</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>-2615.00</td>
         <td>340.00</td>
         <td>950.00</td>
     </tr>
-    <tr id="row-10035">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_ElephantIsland_HR_D-json', 10035, this)"></td>
+    <tr id="row-10090">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_ElephantIsland_D-json', 10090, this)"></td>
         <td>水图</td>
-        <td>ShipGraveyard_ElephantIsland_HR_D.json</td>
+        <td>ShipGraveyard_ElephantIsland_D.json</td>
         <td>象岛</td>
         <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
         <td>-30.00</td>
         <td>-15.00</td>
         <td>1490.00</td>
-    </tr>
-    <tr id="row-11115">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_SkullIsland_D-json', 11115, this)"></td>
-        <td>水图</td>
-        <td>ShipGraveyard_SkullIsland_D.json</td>
-        <td>骷髅岛</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
-        <td>628.79</td>
-        <td>-311.84</td>
-        <td>535.00</td>
-    </tr>
-    <tr id="row-11188">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_SkullIsland_D-json', 11188, this)"></td>
-        <td>水图</td>
-        <td>ShipGraveyard_SkullIsland_D.json</td>
-        <td>骷髅岛</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
-        <td>-200.00</td>
-        <td>470.00</td>
-        <td>740.00</td>
-    </tr>
-    <tr id="row-11189">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_SkullIsland_D-json', 11189, this)"></td>
-        <td>水图</td>
-        <td>ShipGraveyard_SkullIsland_D.json</td>
-        <td>骷髅岛</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
-        <td>1220.00</td>
-        <td>-140.00</td>
-        <td>2630.00</td>
-    </tr>
-    <tr id="row-11190">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_SkullIsland_D-json', 11190, this)"></td>
-        <td>水图</td>
-        <td>ShipGraveyard_SkullIsland_D.json</td>
-        <td>骷髅岛</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_GiantBat</td>
-        <td>598.89</td>
-        <td>-301.11</td>
-        <td>1360.00</td>
     </tr>
 </table>
     </div>

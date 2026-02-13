@@ -49,8 +49,8 @@
         .btn-mirror-y.active { background-color: #E91E63; box-shadow: 0 0 10px #E91E63; }
         .btn-reset { background-color: #9E9E9E; color: white; }
         .btn-reset:hover { background-color: #757575; }
-        .container { position: relative; width: 100%; max-width: 360px; margin: 0 auto; aspect-ratio: 1 / 1; background-color: #1a1a1a; border: 1px solid #444; border-radius: 3px; }
-        .image { width: 100%; height: 100%; display: block; border-radius: 2px; }
+        .container { position: relative; width: 100%; margin: 0 auto; aspect-ratio: 1 / 1; background-color: #1a1a1a; border: 1px solid #444; border-radius: 3px; }
+        .image { width: 100%; height: 100%; display: block; border-radius: 2px; object-fit: cover; }
         .image-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #666; background-color: #222; border-radius: 2px; font-size: 13px; }
         .dot { position: absolute; width: 9px; height: 9px; border-radius: 50%; transform: translate(-50%, -50%); z-index: 10; transition: left 0.3s ease, top 0.3s ease; display: block; }
         .summary { display: none; margin-top: 20px; padding: 10px; background-color: #3a3a3a; border-radius: 5px; }
@@ -84,7 +84,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('CenterTower_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('CenterTower_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-CenterTower_HR_D-json"><img src="images/CenterTower.webp" class="image">        <div class="dot" data-index="1879" data-x="-1512.7874" data-y="4371.3076" data-z="-1333.0" style="left: 38.18%; top: 84.15%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-CenterTower_HR_D-json"><img src="images/CenterTower.webp" class="image">        <div class="dot" data-index="1906" data-x="-1512.7874" data-y="4371.3076" data-z="-1333.0" style="left: 38.18%; top: 84.15%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-HBridge_HR_D-json">
@@ -102,28 +102,28 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('HBridge_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('HBridge_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-HBridge_HR_D-json"><img src="images/HBridge.webp" class="image">        <div class="dot" data-index="2613" data-x="-165.0" data-y="1128.0" data-z="0.0" style="left: 44.84%; top: 85.25%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="2614" data-x="470.0" data-y="1128.0" data-z="0.0" style="left: 64.69%; top: 85.25%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-HBridge_HR_D-json"><img src="images/HBridge.webp" class="image">        <div class="dot" data-index="2643" data-x="-165.0" data-y="1128.0" data-z="0.0" style="left: 44.84%; top: 85.25%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2644" data-x="470.0" data-y="1128.0" data-z="0.0" style="left: 64.69%; top: 85.25%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
-    <div class="map-card" id="map-card-TheCage_HR_D-json">
-        <h3 class="map-title">牢笼<span class='debug-text'> (Cage)</span><div class='map-filename'>TheCage_HR_D.json</div></h3>
+    <div class="map-card" id="map-card-TheCage_D-json">
+        <h3 class="map-title">牢笼<span class='debug-text'> (Cage)</span><div class='map-filename'>TheCage_D.json</div></h3>
         <div class="map-info">TheCage.png | 找到 3 个位置 | 自动范围: ±1600</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('TheCage_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-TheCage_HR_D-json" value="1600" step="100" onchange="updateMapRange('TheCage_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('TheCage_HR_D-json', 2.0)">x2</button>
+                <button class="btn-scale" onclick="scaleRange('TheCage_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-TheCage_D-json" value="1600" step="100" onchange="updateMapRange('TheCage_D-json')">
+                <button class="btn-scale" onclick="scaleRange('TheCage_D-json', 2.0)">x2</button>
             </div>
-            <button class="btn-rotate" onclick="toggleRotate('TheCage_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('TheCage_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('TheCage_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('TheCage_HR_D-json')">↺ 重置</button>
+            <button class="btn-rotate" onclick="toggleRotate('TheCage_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('TheCage_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('TheCage_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('TheCage_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-TheCage_HR_D-json"><img src="images/TheCage.webp" class="image">        <div class="dot" data-index="2815" data-x="235.0" data-y="-902.0" data-z="-500.0" style="left: 57.34%; top: 21.81%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="2889" data-x="-9.094947e-13" data-y="-901.0" data-z="-500.0" style="left: 50.00%; top: 21.84%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="2897" data-x="-235.0" data-y="-895.0" data-z="-500.0" style="left: 42.66%; top: 22.03%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-TheCage_D-json"><img src="images/TheCage.webp" class="image">        <div class="dot" data-index="2951" data-x="235.0" data-y="-902.0" data-z="-500.0" style="left: 57.34%; top: 21.81%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2952" data-x="2.4434848e-07" data-y="-901.0" data-z="-500.0" style="left: 50.00%; top: 21.84%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2953" data-x="-235.0" data-y="-895.0" data-z="-500.0" style="left: 42.66%; top: 22.03%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-Barracks_HR_D-json">
@@ -141,7 +141,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Barracks_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Barracks_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Barracks_HR_D-json"><img src="images/Barracks.webp" class="image">        <div class="dot" data-index="3233" data-x="-1215.0" data-y="160.0" data-z="-200.0" style="left: 12.03%; top: 55.00%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Barracks_HR_D-json"><img src="images/Barracks.webp" class="image">        <div class="dot" data-index="3279" data-x="-1215.0" data-y="160.0" data-z="-200.0" style="left: 12.03%; top: 55.00%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-MimicRoom_HR_D-json">
@@ -159,50 +159,32 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('MimicRoom_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('MimicRoom_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-MimicRoom_HR_D-json"><img src="images/MimicRoom.webp" class="image">        <div class="dot" data-index="3811" data-x="100.0" data-y="812.0" data-z="0.0" style="left: 53.12%; top: 75.38%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="3812" data-x="-140.0" data-y="47.0" data-z="0.0" style="left: 45.62%; top: 51.47%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="3818" data-x="-1390.0" data-y="-1380.0" data-z="0.0" style="left: 6.56%; top: 6.88%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="3821" data-x="110.065796" data-y="417.9504" data-z="0.0" style="left: 53.44%; top: 63.06%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="3822" data-x="872.0658" data-y="401.9504" data-z="0.0" style="left: 77.25%; top: 62.56%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="3825" data-x="108.065796" data-y="1199.9504" data-z="0.0" style="left: 53.38%; top: 87.50%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="3832" data-x="-798.0" data-y="409.0" data-z="-400.0" style="left: 25.06%; top: 62.78%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="3837" data-x="-1390.0" data-y="-780.0" data-z="0.0" style="left: 6.56%; top: 25.62%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-MimicRoom_HR_D-json"><img src="images/MimicRoom.webp" class="image">        <div class="dot" data-index="3854" data-x="100.0" data-y="812.0" data-z="0.0" style="left: 53.12%; top: 75.38%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="3855" data-x="-140.0" data-y="47.0" data-z="0.0" style="left: 45.62%; top: 51.47%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="3861" data-x="-1390.0" data-y="-1380.0" data-z="0.0" style="left: 6.56%; top: 6.88%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="3864" data-x="110.065796" data-y="417.9504" data-z="0.0" style="left: 53.44%; top: 63.06%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="3865" data-x="872.0658" data-y="401.9504" data-z="0.0" style="left: 77.25%; top: 62.56%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="3868" data-x="108.065796" data-y="1199.9504" data-z="0.0" style="left: 53.38%; top: 87.50%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="3875" data-x="-798.0" data-y="409.0" data-z="-400.0" style="left: 25.06%; top: 62.78%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="3880" data-x="-1390.0" data-y="-780.0" data-z="0.0" style="left: 6.56%; top: 25.62%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
-    <div class="map-card" id="map-card-Prison_01_HR_D-json">
-        <h3 class="map-title">监狱 B<span class='debug-text'> (Prisons_B)</span><div class='map-filename'>Prison_01_HR_D.json</div></h3>
-        <div class="map-info">Prison_01.png | 找到 1 个位置 | 自动范围: ±1600</div>
-        <div class="controls">
-            <div class="input-group">
-                <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('Prison_01_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-Prison_01_HR_D-json" value="1600" step="100" onchange="updateMapRange('Prison_01_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('Prison_01_HR_D-json', 2.0)">x2</button>
-            </div>
-            <button class="btn-rotate" onclick="toggleRotate('Prison_01_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('Prison_01_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('Prison_01_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('Prison_01_HR_D-json')">↺ 重置</button>
-        </div>
-        <div class="container" id="container-Prison_01_HR_D-json"><img src="images/Prison_01.webp" class="image">        <div class="dot" data-index="3951" data-x="1155.0" data-y="-147.0" data-z="0.0" style="left: 86.09%; top: 45.41%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-</div>
-    </div>
-    <div class="map-card" id="map-card-SkeletonPit_HR_D-json">
-        <h3 class="map-title">藏骨堂<span class='debug-text'> (Skeleton_Rooms)</span><div class='map-filename'>SkeletonPit_HR_D.json</div></h3>
+    <div class="map-card" id="map-card-SkeletonPit_D-json">
+        <h3 class="map-title">藏骨堂<span class='debug-text'> (Skeleton_Rooms)</span><div class='map-filename'>SkeletonPit_D.json</div></h3>
         <div class="map-info">SkeletonPit.png | 找到 1 个位置 | 自动范围: ±1600</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('SkeletonPit_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-SkeletonPit_HR_D-json" value="1600" step="100" onchange="updateMapRange('SkeletonPit_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('SkeletonPit_HR_D-json', 2.0)">x2</button>
+                <button class="btn-scale" onclick="scaleRange('SkeletonPit_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-SkeletonPit_D-json" value="1600" step="100" onchange="updateMapRange('SkeletonPit_D-json')">
+                <button class="btn-scale" onclick="scaleRange('SkeletonPit_D-json', 2.0)">x2</button>
             </div>
-            <button class="btn-rotate" onclick="toggleRotate('SkeletonPit_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('SkeletonPit_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('SkeletonPit_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('SkeletonPit_HR_D-json')">↺ 重置</button>
+            <button class="btn-rotate" onclick="toggleRotate('SkeletonPit_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('SkeletonPit_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('SkeletonPit_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('SkeletonPit_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-SkeletonPit_HR_D-json"><img src="images/SkeletonPit.webp" class="image">        <div class="dot" data-index="4109" data-x="424.28363" data-y="-427.98132" data-z="0.0" style="left: 63.26%; top: 36.63%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-SkeletonPit_D-json"><img src="images/SkeletonPit.webp" class="image">        <div class="dot" data-index="4189" data-x="424.28363" data-y="-427.98132" data-z="0.0" style="left: 63.26%; top: 36.63%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="group-header">废墟1层</div>
@@ -221,8 +203,8 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_GreatHall_01_Destroyed_BossTest_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Ruins_GreatHall_01_Destroyed_BossTest_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Ruins_GreatHall_01_Destroyed_BossTest_D-json"><div class="image-placeholder">未找到</div>        <div class="dot" data-index="8649" data-x="34.81624" data-y="-48.81623" data-z="-119.685936" style="left: 51.09%; top: 48.47%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="8653" data-x="1338.0797" data-y="-266.84" data-z="0.000208" style="left: 91.81%; top: 41.66%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Ruins_GreatHall_01_Destroyed_BossTest_D-json"><div class="image-placeholder">未找到</div>        <div class="dot" data-index="8691" data-x="34.81624" data-y="-48.81623" data-z="-119.685936" style="left: 51.09%; top: 48.47%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8695" data-x="1338.0797" data-y="-266.84" data-z="0.000208" style="left: 91.81%; top: 41.66%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-Ruins_GreatHall_01_Destroyed_HR_D-json">
@@ -240,26 +222,26 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_GreatHall_01_Destroyed_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Ruins_GreatHall_01_Destroyed_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Ruins_GreatHall_01_Destroyed_HR_D-json"><img src="images/Ruins_GreatHall_01_Destroyed.webp" class="image">        <div class="dot" data-index="8700" data-x="1338.0797" data-y="-266.84" data-z="0.000208" style="left: 91.81%; top: 41.66%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Ruins_GreatHall_01_Destroyed_HR_D-json"><img src="images/Ruins_GreatHall_01_Destroyed.webp" class="image">        <div class="dot" data-index="8742" data-x="1338.0797" data-y="-266.84" data-z="0.000208" style="left: 91.81%; top: 41.66%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="group-header">水图</div>
-    <div class="map-card" id="map-card-ShipGraveyard_PiratePrison_HR_D-json">
-        <h3 class="map-title">海盗监狱<span class='debug-text'> (PiratePrison)</span><div class='map-filename'>ShipGraveyard_PiratePrison_HR_D.json</div></h3>
+    <div class="map-card" id="map-card-ShipGraveyard_PiratePrison_D-json">
+        <h3 class="map-title">海盗监狱<span class='debug-text'> (ShipGraveyard_PiratePrison)</span><div class='map-filename'>ShipGraveyard_PiratePrison_D.json</div></h3>
         <div class="map-info">ShipGraveyard_PiratePrison.png | 找到 1 个位置 | 自动范围: ±6400</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('ShipGraveyard_PiratePrison_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-ShipGraveyard_PiratePrison_HR_D-json" value="6400" step="100" onchange="updateMapRange('ShipGraveyard_PiratePrison_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('ShipGraveyard_PiratePrison_HR_D-json', 2.0)">x2</button>
+                <button class="btn-scale" onclick="scaleRange('ShipGraveyard_PiratePrison_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-ShipGraveyard_PiratePrison_D-json" value="6400" step="100" onchange="updateMapRange('ShipGraveyard_PiratePrison_D-json')">
+                <button class="btn-scale" onclick="scaleRange('ShipGraveyard_PiratePrison_D-json', 2.0)">x2</button>
             </div>
-            <button class="btn-rotate" onclick="toggleRotate('ShipGraveyard_PiratePrison_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('ShipGraveyard_PiratePrison_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('ShipGraveyard_PiratePrison_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('ShipGraveyard_PiratePrison_HR_D-json')">↺ 重置</button>
+            <button class="btn-rotate" onclick="toggleRotate('ShipGraveyard_PiratePrison_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('ShipGraveyard_PiratePrison_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('ShipGraveyard_PiratePrison_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('ShipGraveyard_PiratePrison_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-ShipGraveyard_PiratePrison_HR_D-json"><img src="images/ShipGraveyard_PiratePrison.webp" class="image">        <div class="dot" data-index="10732" data-x="30.0" data-y="35.0" data-z="0.0" style="left: 50.23%; top: 50.27%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-ShipGraveyard_PiratePrison_D-json"><img src="images/ShipGraveyard_PiratePrison.webp" class="image">        <div class="dot" data-index="10936" data-x="30.0" data-y="35.0" data-z="0.0" style="left: 50.23%; top: 50.27%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
 </div>
@@ -268,12 +250,12 @@
         <span class="color-dot" style="background-color: cyan;"></span> Z &gt; 299 (高于地面)
         <span class="color-dot" style="background-color: yellow;"></span> -299 ≤ Z ≤ 299 (正常高度)
         <span class="color-dot" style="background-color: red;"></span> Z &lt; -299 (低于地面)
-        <br><strong>位置统计：共 21 个位置点</strong><br><strong>包含地图：</strong> 中心桥, 军营, 巨型环厅, 拟态巢穴, 海盗监狱, 牢笼, 监狱 B, 礼拜堂 A, 藏骨堂
+        <br><strong>位置统计：共 20 个位置点</strong><br><strong>包含地图：</strong> 中心桥, 军营, 巨型环厅, 拟态巢穴, 海盗监狱, 牢笼, 礼拜堂 A, 藏骨堂
     </div>
     <div class="summary" id="summary-section">
         <h2>所有坐标详情</h2>
-        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-1879">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CenterTower_HR_D-json', 1879, this)"></td>
+        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-1906">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CenterTower_HR_D-json', 1906, this)"></td>
         <td>废墟2层地牢</td>
         <td>CenterTower_HR_D.json</td>
         <td>巨型环厅</td>
@@ -282,8 +264,8 @@
         <td>4371.31</td>
         <td>-1333.00</td>
     </tr>
-    <tr id="row-2613">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('HBridge_HR_D-json', 2613, this)"></td>
+    <tr id="row-2643">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('HBridge_HR_D-json', 2643, this)"></td>
         <td>废墟2层地牢</td>
         <td>HBridge_HR_D.json</td>
         <td>中心桥</td>
@@ -292,8 +274,8 @@
         <td>1128.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-2614">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('HBridge_HR_D-json', 2614, this)"></td>
+    <tr id="row-2644">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('HBridge_HR_D-json', 2644, this)"></td>
         <td>废墟2层地牢</td>
         <td>HBridge_HR_D.json</td>
         <td>中心桥</td>
@@ -302,38 +284,38 @@
         <td>1128.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-2815">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2815, this)"></td>
+    <tr id="row-2951">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_D-json', 2951, this)"></td>
         <td>废墟2层地牢</td>
-        <td>TheCage_HR_D.json</td>
+        <td>TheCage_D.json</td>
         <td>牢笼</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_Mimic_Small_Simple_Elite</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_Mimic_Small_Simple</td>
         <td>235.00</td>
         <td>-902.00</td>
         <td>-500.00</td>
     </tr>
-    <tr id="row-2889">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2889, this)"></td>
+    <tr id="row-2952">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_D-json', 2952, this)"></td>
         <td>废墟2层地牢</td>
-        <td>TheCage_HR_D.json</td>
+        <td>TheCage_D.json</td>
         <td>牢笼</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_Mimic_Small_Simple_Elite</td>
-        <td>-0.00</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_Mimic_Small_Simple</td>
+        <td>0.00</td>
         <td>-901.00</td>
         <td>-500.00</td>
     </tr>
-    <tr id="row-2897">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2897, this)"></td>
+    <tr id="row-2953">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_D-json', 2953, this)"></td>
         <td>废墟2层地牢</td>
-        <td>TheCage_HR_D.json</td>
+        <td>TheCage_D.json</td>
         <td>牢笼</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_Mimic_Small_Simple_Elite</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_Mimic_Small_Simple</td>
         <td>-235.00</td>
         <td>-895.00</td>
         <td>-500.00</td>
     </tr>
-    <tr id="row-3233">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Barracks_HR_D-json', 3233, this)"></td>
+    <tr id="row-3279">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Barracks_HR_D-json', 3279, this)"></td>
         <td>废墟2层地牢</td>
         <td>Barracks_HR_D.json</td>
         <td>军营</td>
@@ -342,8 +324,8 @@
         <td>160.00</td>
         <td>-200.00</td>
     </tr>
-    <tr id="row-3811">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('MimicRoom_HR_D-json', 3811, this)"></td>
+    <tr id="row-3854">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('MimicRoom_HR_D-json', 3854, this)"></td>
         <td>废墟2层地牢</td>
         <td>MimicRoom_HR_D.json</td>
         <td>拟态巢穴</td>
@@ -352,8 +334,8 @@
         <td>812.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-3812">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('MimicRoom_HR_D-json', 3812, this)"></td>
+    <tr id="row-3855">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('MimicRoom_HR_D-json', 3855, this)"></td>
         <td>废墟2层地牢</td>
         <td>MimicRoom_HR_D.json</td>
         <td>拟态巢穴</td>
@@ -362,8 +344,8 @@
         <td>47.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-3818">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('MimicRoom_HR_D-json', 3818, this)"></td>
+    <tr id="row-3861">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('MimicRoom_HR_D-json', 3861, this)"></td>
         <td>废墟2层地牢</td>
         <td>MimicRoom_HR_D.json</td>
         <td>拟态巢穴</td>
@@ -372,8 +354,8 @@
         <td>-1380.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-3821">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('MimicRoom_HR_D-json', 3821, this)"></td>
+    <tr id="row-3864">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('MimicRoom_HR_D-json', 3864, this)"></td>
         <td>废墟2层地牢</td>
         <td>MimicRoom_HR_D.json</td>
         <td>拟态巢穴</td>
@@ -382,8 +364,8 @@
         <td>417.95</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-3822">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('MimicRoom_HR_D-json', 3822, this)"></td>
+    <tr id="row-3865">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('MimicRoom_HR_D-json', 3865, this)"></td>
         <td>废墟2层地牢</td>
         <td>MimicRoom_HR_D.json</td>
         <td>拟态巢穴</td>
@@ -392,8 +374,8 @@
         <td>401.95</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-3825">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('MimicRoom_HR_D-json', 3825, this)"></td>
+    <tr id="row-3868">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('MimicRoom_HR_D-json', 3868, this)"></td>
         <td>废墟2层地牢</td>
         <td>MimicRoom_HR_D.json</td>
         <td>拟态巢穴</td>
@@ -402,8 +384,8 @@
         <td>1199.95</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-3832">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('MimicRoom_HR_D-json', 3832, this)"></td>
+    <tr id="row-3875">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('MimicRoom_HR_D-json', 3875, this)"></td>
         <td>废墟2层地牢</td>
         <td>MimicRoom_HR_D.json</td>
         <td>拟态巢穴</td>
@@ -412,8 +394,8 @@
         <td>409.00</td>
         <td>-400.00</td>
     </tr>
-    <tr id="row-3837">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('MimicRoom_HR_D-json', 3837, this)"></td>
+    <tr id="row-3880">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('MimicRoom_HR_D-json', 3880, this)"></td>
         <td>废墟2层地牢</td>
         <td>MimicRoom_HR_D.json</td>
         <td>拟态巢穴</td>
@@ -422,28 +404,18 @@
         <td>-780.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-3951">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Prison_01_HR_D-json', 3951, this)"></td>
+    <tr id="row-4189">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('SkeletonPit_D-json', 4189, this)"></td>
         <td>废墟2层地牢</td>
-        <td>Prison_01_HR_D.json</td>
-        <td>监狱 B</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_Mimic_Small_Simple_Elite</td>
-        <td>1155.00</td>
-        <td>-147.00</td>
-        <td>0.00</td>
-    </tr>
-    <tr id="row-4109">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('SkeletonPit_HR_D-json', 4109, this)"></td>
-        <td>废墟2层地牢</td>
-        <td>SkeletonPit_HR_D.json</td>
+        <td>SkeletonPit_D.json</td>
         <td>藏骨堂</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_Mimic_Small_Simple_Elite</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_Mimic_Small_Simple</td>
         <td>424.28</td>
         <td>-427.98</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-8649">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_GreatHall_01_Destroyed_BossTest_D-json', 8649, this)"></td>
+    <tr id="row-8691">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_GreatHall_01_Destroyed_BossTest_D-json', 8691, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_GreatHall_01_Destroyed_BossTest_D.json</td>
         <td></td>
@@ -452,8 +424,8 @@
         <td>-48.82</td>
         <td>-119.69</td>
     </tr>
-    <tr id="row-8653">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_GreatHall_01_Destroyed_BossTest_D-json', 8653, this)"></td>
+    <tr id="row-8695">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_GreatHall_01_Destroyed_BossTest_D-json', 8695, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_GreatHall_01_Destroyed_BossTest_D.json</td>
         <td></td>
@@ -462,8 +434,8 @@
         <td>-266.84</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-8700">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_GreatHall_01_Destroyed_HR_D-json', 8700, this)"></td>
+    <tr id="row-8742">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_GreatHall_01_Destroyed_HR_D-json', 8742, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_GreatHall_01_Destroyed_HR_D.json</td>
         <td>礼拜堂 A</td>
@@ -472,10 +444,10 @@
         <td>-266.84</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-10732">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_PiratePrison_HR_D-json', 10732, this)"></td>
+    <tr id="row-10936">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_PiratePrison_D-json', 10936, this)"></td>
         <td>水图</td>
-        <td>ShipGraveyard_PiratePrison_HR_D.json</td>
+        <td>ShipGraveyard_PiratePrison_D.json</td>
         <td>海盗监狱</td>
         <td>GameSpawner_Id_Spawner_New_Monster_Mimic_Small_Simple</td>
         <td>30.00</td>

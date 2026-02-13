@@ -49,8 +49,8 @@
         .btn-mirror-y.active { background-color: #E91E63; box-shadow: 0 0 10px #E91E63; }
         .btn-reset { background-color: #9E9E9E; color: white; }
         .btn-reset:hover { background-color: #757575; }
-        .container { position: relative; width: 100%; max-width: 360px; margin: 0 auto; aspect-ratio: 1 / 1; background-color: #1a1a1a; border: 1px solid #444; border-radius: 3px; }
-        .image { width: 100%; height: 100%; display: block; border-radius: 2px; }
+        .container { position: relative; width: 100%; margin: 0 auto; aspect-ratio: 1 / 1; background-color: #1a1a1a; border: 1px solid #444; border-radius: 3px; }
+        .image { width: 100%; height: 100%; display: block; border-radius: 2px; object-fit: cover; }
         .image-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #666; background-color: #222; border-radius: 2px; font-size: 13px; }
         .dot { position: absolute; width: 9px; height: 9px; border-radius: 50%; transform: translate(-50%, -50%); z-index: 10; transition: left 0.3s ease, top 0.3s ease; display: block; }
         .summary { display: none; margin-top: 20px; padding: 10px; background-color: #3a3a3a; border-radius: 5px; }
@@ -84,9 +84,9 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('IceAbyss_DeathPit_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('IceAbyss_DeathPit_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceAbyss_DeathPit_HR_D-json"><img src="images/IceAbyss_DeathPit.webp" class="image">        <div class="dot" data-index="4613" data-x="-1131.0" data-y="-863.0" data-z="-499.9999" style="left: 14.66%; top: 23.03%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4616" data-x="-1057.0" data-y="757.0" data-z="-499.9999" style="left: 16.97%; top: 73.66%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4620" data-x="1123.0" data-y="-848.0" data-z="-499.9999" style="left: 85.09%; top: 23.50%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceAbyss_DeathPit_HR_D-json"><img src="images/IceAbyss_DeathPit.webp" class="image">        <div class="dot" data-index="4646" data-x="-1131.0" data-y="-863.0" data-z="-499.9999" style="left: 14.66%; top: 23.03%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4649" data-x="-1057.0" data-y="757.0" data-z="-499.9999" style="left: 16.97%; top: 73.66%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4653" data-x="1123.0" data-y="-848.0" data-z="-499.9999" style="left: 85.09%; top: 23.50%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-IceAbyss_FrozenHold_D-json">
@@ -104,8 +104,8 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('IceAbyss_FrozenHold_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('IceAbyss_FrozenHold_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceAbyss_FrozenHold_D-json"><img src="images/IceAbyss_FrozenHold.webp" class="image">        <div class="dot" data-index="4819" data-x="107.5" data-y="62.631397" data-z="-438.6504" style="left: 53.36%; top: 51.96%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4820" data-x="57.5" data-y="105.669876" data-z="-440.14365" style="left: 51.80%; top: 53.30%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceAbyss_FrozenHold_D-json"><img src="images/IceAbyss_FrozenHold.webp" class="image">        <div class="dot" data-index="4855" data-x="107.5" data-y="62.631397" data-z="-438.6504" style="left: 53.36%; top: 51.96%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4856" data-x="57.5" data-y="105.669876" data-z="-440.14365" style="left: 51.80%; top: 53.30%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="group-header">冰图1层</div>
@@ -124,10 +124,10 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_Bridge_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('IceCave_Bridge_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceCave_Bridge_HR_D-json"><img src="images/IceCave_Bridge.webp" class="image">        <div class="dot" data-index="5461" data-x="-157.99998" data-y="297.0" data-z="-599.9999" style="left: 45.06%; top: 59.28%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="5482" data-x="-345.00003" data-y="-651.0" data-z="-299.9999" style="left: 39.22%; top: 29.66%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="5483" data-x="435.0" data-y="-171.00002" data-z="-599.9999" style="left: 63.59%; top: 44.66%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="5484" data-x="226.00003" data-y="558.0" data-z="-599.9999" style="left: 57.06%; top: 67.44%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceCave_Bridge_HR_D-json"><img src="images/IceCave_Bridge.webp" class="image">        <div class="dot" data-index="5503" data-x="-157.99998" data-y="297.0" data-z="-599.9999" style="left: 45.06%; top: 59.28%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5524" data-x="-345.00003" data-y="-651.0" data-z="-299.9999" style="left: 39.22%; top: 29.66%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5525" data-x="435.0" data-y="-171.00002" data-z="-599.9999" style="left: 63.59%; top: 44.66%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5526" data-x="226.00003" data-y="558.0" data-z="-599.9999" style="left: 57.06%; top: 67.44%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-IceCave_Cabin_Raft_HR_D-json">
@@ -145,9 +145,9 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_Cabin_Raft_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('IceCave_Cabin_Raft_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceCave_Cabin_Raft_HR_D-json"><img src="images/IceCave_Cabin_Raft.webp" class="image">        <div class="dot" data-index="5532" data-x="212.0" data-y="-99.0" data-z="-620.91766" style="left: 56.62%; top: 46.91%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="5536" data-x="7.351022" data-y="801.4072" data-z="-636.9999" style="left: 50.23%; top: 75.04%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="5540" data-x="-553.0" data-y="-867.0" data-z="-636.9999" style="left: 32.72%; top: 22.91%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceCave_Cabin_Raft_HR_D-json"><img src="images/IceCave_Cabin_Raft.webp" class="image">        <div class="dot" data-index="5572" data-x="212.0" data-y="-99.0" data-z="-620.91766" style="left: 56.62%; top: 46.91%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5576" data-x="7.351022" data-y="801.4072" data-z="-636.9999" style="left: 50.23%; top: 75.04%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5580" data-x="-553.0" data-y="-867.0" data-z="-636.9999" style="left: 32.72%; top: 22.91%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-IceCave_FrozenLake_D-json">
@@ -165,8 +165,8 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_FrozenLake_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('IceCave_FrozenLake_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceCave_FrozenLake_D-json"><img src="images/IceCave_FrozenLake.webp" class="image">        <div class="dot" data-index="5824" data-x="75.0" data-y="645.0" data-z="-400.0" style="left: 52.34%; top: 70.16%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="5825" data-x="75.0" data-y="-340.0" data-z="-400.0" style="left: 52.34%; top: 39.38%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceCave_FrozenLake_D-json"><img src="images/IceCave_FrozenLake.webp" class="image">        <div class="dot" data-index="5855" data-x="75.0" data-y="645.0" data-z="-400.0" style="left: 52.34%; top: 70.16%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5856" data-x="75.0" data-y="-340.0" data-z="-400.0" style="left: 52.34%; top: 39.38%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-IceCave_Quarry_D-json">
@@ -184,8 +184,8 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_Quarry_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('IceCave_Quarry_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceCave_Quarry_D-json"><img src="images/IceCave_Quarry.webp" class="image">        <div class="dot" data-index="6481" data-x="810.0" data-y="-1065.0" data-z="-400.0" style="left: 75.31%; top: 16.72%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="6482" data-x="-1055.0" data-y="370.0" data-z="-400.0" style="left: 17.03%; top: 61.56%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceCave_Quarry_D-json"><img src="images/IceCave_Quarry.webp" class="image">        <div class="dot" data-index="6515" data-x="810.0" data-y="-1065.0" data-z="-400.0" style="left: 75.31%; top: 16.72%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="6516" data-x="-1055.0" data-y="370.0" data-z="-400.0" style="left: 17.03%; top: 61.56%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-IceCave_Sanctum_HR_D-json">
@@ -203,10 +203,10 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_Sanctum_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('IceCave_Sanctum_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceCave_Sanctum_HR_D-json"><img src="images/IceCave_Sanctum.webp" class="image">        <div class="dot" data-index="6490" data-x="659.37823" data-y="495.0" data-z="-599.9999" style="left: 70.61%; top: 65.47%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="6495" data-x="656.37823" data-y="-552.0" data-z="-599.9999" style="left: 70.51%; top: 32.75%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="6513" data-x="-761.0" data-y="543.0" data-z="-599.99994" style="left: 26.22%; top: 66.97%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="6515" data-x="-802.0" data-y="-664.0" data-z="-599.99994" style="left: 24.94%; top: 29.25%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceCave_Sanctum_HR_D-json"><img src="images/IceCave_Sanctum.webp" class="image">        <div class="dot" data-index="6524" data-x="659.37823" data-y="495.0" data-z="-599.9999" style="left: 70.61%; top: 65.47%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="6529" data-x="656.37823" data-y="-552.0" data-z="-599.9999" style="left: 70.51%; top: 32.75%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="6547" data-x="-761.0" data-y="543.0" data-z="-599.99994" style="left: 26.22%; top: 66.97%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="6549" data-x="-802.0" data-y="-664.0" data-z="-599.99994" style="left: 24.94%; top: 29.25%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-IceCave_Watchtower_HR_D-json">
@@ -224,10 +224,10 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_Watchtower_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('IceCave_Watchtower_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceCave_Watchtower_HR_D-json"><img src="images/IceCave_WatchTower.webp" class="image">        <div class="dot" data-index="6663" data-x="161.0" data-y="-49.0" data-z="-299.9999" style="left: 55.03%; top: 48.47%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="6695" data-x="460.0" data-y="651.0" data-z="-299.9999" style="left: 64.38%; top: 70.34%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="6696" data-x="-685.0" data-y="192.0" data-z="-299.9999" style="left: 28.59%; top: 56.00%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="6697" data-x="-522.0" data-y="-728.0" data-z="-299.9999" style="left: 33.69%; top: 27.25%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceCave_Watchtower_HR_D-json"><img src="images/IceCave_WatchTower.webp" class="image">        <div class="dot" data-index="6692" data-x="161.0" data-y="-49.0" data-z="-299.9999" style="left: 55.03%; top: 48.47%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="6724" data-x="460.0" data-y="651.0" data-z="-299.9999" style="left: 64.38%; top: 70.34%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="6725" data-x="-685.0" data-y="192.0" data-z="-299.9999" style="left: 28.59%; top: 56.00%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="6726" data-x="-522.0" data-y="-728.0" data-z="-299.9999" style="left: 33.69%; top: 27.25%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
 </div>
@@ -240,8 +240,8 @@
     </div>
     <div class="summary" id="summary-section">
         <h2>所有坐标详情</h2>
-        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-4613">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_DeathPit_HR_D-json', 4613, this)"></td>
+        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-4646">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_DeathPit_HR_D-json', 4646, this)"></td>
         <td>冰图2层</td>
         <td>IceAbyss_DeathPit_HR_D.json</td>
         <td>死亡深渊</td>
@@ -250,8 +250,8 @@
         <td>-863.00</td>
         <td>-500.00</td>
     </tr>
-    <tr id="row-4616">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_DeathPit_HR_D-json', 4616, this)"></td>
+    <tr id="row-4649">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_DeathPit_HR_D-json', 4649, this)"></td>
         <td>冰图2层</td>
         <td>IceAbyss_DeathPit_HR_D.json</td>
         <td>死亡深渊</td>
@@ -260,8 +260,8 @@
         <td>757.00</td>
         <td>-500.00</td>
     </tr>
-    <tr id="row-4620">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_DeathPit_HR_D-json', 4620, this)"></td>
+    <tr id="row-4653">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_DeathPit_HR_D-json', 4653, this)"></td>
         <td>冰图2层</td>
         <td>IceAbyss_DeathPit_HR_D.json</td>
         <td>死亡深渊</td>
@@ -270,8 +270,8 @@
         <td>-848.00</td>
         <td>-500.00</td>
     </tr>
-    <tr id="row-4819">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_FrozenHold_D-json', 4819, this)"></td>
+    <tr id="row-4855">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_FrozenHold_D-json', 4855, this)"></td>
         <td>冰图2层</td>
         <td>IceAbyss_FrozenHold_D.json</td>
         <td>霜锢堡垒</td>
@@ -280,8 +280,8 @@
         <td>62.63</td>
         <td>-438.65</td>
     </tr>
-    <tr id="row-4820">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_FrozenHold_D-json', 4820, this)"></td>
+    <tr id="row-4856">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_FrozenHold_D-json', 4856, this)"></td>
         <td>冰图2层</td>
         <td>IceAbyss_FrozenHold_D.json</td>
         <td>霜锢堡垒</td>
@@ -290,8 +290,8 @@
         <td>105.67</td>
         <td>-440.14</td>
     </tr>
-    <tr id="row-5461">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Bridge_HR_D-json', 5461, this)"></td>
+    <tr id="row-5503">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Bridge_HR_D-json', 5503, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_Bridge_HR_D.json</td>
         <td>冰桥</td>
@@ -300,8 +300,8 @@
         <td>297.00</td>
         <td>-600.00</td>
     </tr>
-    <tr id="row-5482">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Bridge_HR_D-json', 5482, this)"></td>
+    <tr id="row-5524">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Bridge_HR_D-json', 5524, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_Bridge_HR_D.json</td>
         <td>冰桥</td>
@@ -310,8 +310,8 @@
         <td>-651.00</td>
         <td>-300.00</td>
     </tr>
-    <tr id="row-5483">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Bridge_HR_D-json', 5483, this)"></td>
+    <tr id="row-5525">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Bridge_HR_D-json', 5525, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_Bridge_HR_D.json</td>
         <td>冰桥</td>
@@ -320,8 +320,8 @@
         <td>-171.00</td>
         <td>-600.00</td>
     </tr>
-    <tr id="row-5484">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Bridge_HR_D-json', 5484, this)"></td>
+    <tr id="row-5526">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Bridge_HR_D-json', 5526, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_Bridge_HR_D.json</td>
         <td>冰桥</td>
@@ -330,8 +330,8 @@
         <td>558.00</td>
         <td>-600.00</td>
     </tr>
-    <tr id="row-5532">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Cabin_Raft_HR_D-json', 5532, this)"></td>
+    <tr id="row-5572">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Cabin_Raft_HR_D-json', 5572, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_Cabin_Raft_HR_D.json</td>
         <td>冰港</td>
@@ -340,8 +340,8 @@
         <td>-99.00</td>
         <td>-620.92</td>
     </tr>
-    <tr id="row-5536">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Cabin_Raft_HR_D-json', 5536, this)"></td>
+    <tr id="row-5576">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Cabin_Raft_HR_D-json', 5576, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_Cabin_Raft_HR_D.json</td>
         <td>冰港</td>
@@ -350,8 +350,8 @@
         <td>801.41</td>
         <td>-637.00</td>
     </tr>
-    <tr id="row-5540">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Cabin_Raft_HR_D-json', 5540, this)"></td>
+    <tr id="row-5580">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Cabin_Raft_HR_D-json', 5580, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_Cabin_Raft_HR_D.json</td>
         <td>冰港</td>
@@ -360,8 +360,8 @@
         <td>-867.00</td>
         <td>-637.00</td>
     </tr>
-    <tr id="row-5824">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FrozenLake_D-json', 5824, this)"></td>
+    <tr id="row-5855">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FrozenLake_D-json', 5855, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_FrozenLake_D.json</td>
         <td>冻湖</td>
@@ -370,8 +370,8 @@
         <td>645.00</td>
         <td>-400.00</td>
     </tr>
-    <tr id="row-5825">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FrozenLake_D-json', 5825, this)"></td>
+    <tr id="row-5856">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FrozenLake_D-json', 5856, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_FrozenLake_D.json</td>
         <td>冻湖</td>
@@ -380,8 +380,8 @@
         <td>-340.00</td>
         <td>-400.00</td>
     </tr>
-    <tr id="row-6481">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Quarry_D-json', 6481, this)"></td>
+    <tr id="row-6515">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Quarry_D-json', 6515, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_Quarry_D.json</td>
         <td>采石场</td>
@@ -390,8 +390,8 @@
         <td>-1065.00</td>
         <td>-400.00</td>
     </tr>
-    <tr id="row-6482">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Quarry_D-json', 6482, this)"></td>
+    <tr id="row-6516">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Quarry_D-json', 6516, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_Quarry_D.json</td>
         <td>采石场</td>
@@ -400,8 +400,8 @@
         <td>370.00</td>
         <td>-400.00</td>
     </tr>
-    <tr id="row-6490">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Sanctum_HR_D-json', 6490, this)"></td>
+    <tr id="row-6524">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Sanctum_HR_D-json', 6524, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_Sanctum_HR_D.json</td>
         <td>密室</td>
@@ -410,8 +410,8 @@
         <td>495.00</td>
         <td>-600.00</td>
     </tr>
-    <tr id="row-6495">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Sanctum_HR_D-json', 6495, this)"></td>
+    <tr id="row-6529">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Sanctum_HR_D-json', 6529, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_Sanctum_HR_D.json</td>
         <td>密室</td>
@@ -420,8 +420,8 @@
         <td>-552.00</td>
         <td>-600.00</td>
     </tr>
-    <tr id="row-6513">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Sanctum_HR_D-json', 6513, this)"></td>
+    <tr id="row-6547">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Sanctum_HR_D-json', 6547, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_Sanctum_HR_D.json</td>
         <td>密室</td>
@@ -430,8 +430,8 @@
         <td>543.00</td>
         <td>-600.00</td>
     </tr>
-    <tr id="row-6515">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Sanctum_HR_D-json', 6515, this)"></td>
+    <tr id="row-6549">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Sanctum_HR_D-json', 6549, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_Sanctum_HR_D.json</td>
         <td>密室</td>
@@ -440,8 +440,8 @@
         <td>-664.00</td>
         <td>-600.00</td>
     </tr>
-    <tr id="row-6663">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Watchtower_HR_D-json', 6663, this)"></td>
+    <tr id="row-6692">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Watchtower_HR_D-json', 6692, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_Watchtower_HR_D.json</td>
         <td>了望塔</td>
@@ -450,8 +450,8 @@
         <td>-49.00</td>
         <td>-300.00</td>
     </tr>
-    <tr id="row-6695">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Watchtower_HR_D-json', 6695, this)"></td>
+    <tr id="row-6724">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Watchtower_HR_D-json', 6724, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_Watchtower_HR_D.json</td>
         <td>了望塔</td>
@@ -460,8 +460,8 @@
         <td>651.00</td>
         <td>-300.00</td>
     </tr>
-    <tr id="row-6696">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Watchtower_HR_D-json', 6696, this)"></td>
+    <tr id="row-6725">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Watchtower_HR_D-json', 6725, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_Watchtower_HR_D.json</td>
         <td>了望塔</td>
@@ -470,8 +470,8 @@
         <td>192.00</td>
         <td>-300.00</td>
     </tr>
-    <tr id="row-6697">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Watchtower_HR_D-json', 6697, this)"></td>
+    <tr id="row-6726">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Watchtower_HR_D-json', 6726, this)"></td>
         <td>冰图1层</td>
         <td>IceCave_Watchtower_HR_D.json</td>
         <td>了望塔</td>
