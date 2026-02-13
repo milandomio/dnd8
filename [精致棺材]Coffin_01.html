@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>精致棺材 位置汇总</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background-color: #2c2c2c; color: white; padding: 10px; }
+        .back-link { display: block; text-align: center; margin-bottom: 10px; color: #FFC107; font-size: 18px; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; color: #fff; }
+        h1 { margin-bottom: 8px; font-size: 28px; text-align: center; color: #00bcd4; }
+        .debug-title { display: none; font-size: 16px; color: #888; text-align: center; margin-bottom: 5px; }
+        .debug-title.visible { display: block; }
+        .maps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px; }
+        @media (max-width: 1200px) { .maps-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 800px) { .maps-grid { grid-template-columns: 1fr; } }
+        .group-header { grid-column: 1 / -1; font-size: 22px; font-weight: bold; color: #FFC107; padding: 5px 0; margin-top: 10px; border-bottom: 2px solid #FFC107; }
+        .map-card { padding: 5px; background-color: #3a3a3a; border-radius: 5px; border: 1px solid #555; display: flex; flex-direction: column; align-items: center; }
+        .map-title { font-size: 22px; margin-bottom: 2px; color: #00bcd4; text-align: center; width: 100%; line-height: 1.3; }
+        .debug-text { display: none; font-size: 13px; color: #888; }
+        .debug-text.visible { display: inline; }
+        .map-filename { font-size: 13px; color: #888; font-weight: normal; margin-top: 1px; display: none; }
+        .map-info { margin-bottom: 5px; font-size: 13px; color: #aaa; text-align: center; display: none; }
+        .controls { display: none; gap:3px; margin-bottom: 5px; justify-content: center; flex-wrap: wrap; width: 100%; align-items: center; }
+        .controls.visible { display: flex; }
+        .debug-panel { display: none; position: fixed; bottom: 60px; right: 20px; background-color: #333; border: 1px solid #555; border-radius: 8px; padding: 10px; z-index: 9998; }
+        .debug-panel.visible { display: block; }
+        .debug-panel label { font-size: 14px; color: #aaa; margin-right: 5px; }
+        .debug-panel input { width: 50px; padding: 3px; border-radius: 3px; border: 1px solid #555; background-color: #222; color: white; font-size: 14px; }
+        .debug-btn { position: fixed; bottom: 20px; right: 20px; padding: 10px 20px; background-color: #FFC107; color: #000; border: 2px solid #FF9800; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: bold; z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,0.5); transition: all 0.2s; }
+        .debug-btn:hover { background-color: #FF9800; color: #fff; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.6); }
+        .input-group { display: flex; align-items: center; gap:2px; background-color: #222; padding: 2px 5px; border-radius: 3px; }
+        .input-group label { font-size: 13px; color: #aaa; }
+        .input-group input { padding: 1px; border-radius:2px; border:1px solid #555; background-color: #333; color: white; font-size: 13px; width: 50px; text-align: center; }
+        .btn-scale { padding: 2px 4px; background-color: #555; color: white; border: none; border-radius: 2px; font-size: 13px; cursor: pointer; }
+        .btn-scale:hover { background-color: #777; }
+        .controls button { padding: 3px 6px; border: none; border-radius: 3px; font-size: 13px; cursor: pointer; transition: all 0.2s; }
+        .btn-rotate { background-color: #4CAF50; color: white; }
+        .btn-rotate:hover { background-color: #45a049; }
+        .btn-rotate.active { background-color: #FFC107; color: #000; box-shadow: 0 0 10px #FFC107; }
+        .btn-mirror-x { background-color: #2196F3; color: white; }
+        .btn-mirror-x:hover { background-color: #1976D2; }
+        .btn-mirror-x.active { background-color: #FF5722; box-shadow: 0 0 10px #FF5722; }
+        .btn-mirror-y { background-color: #9C27B0; color: white; }
+        .btn-mirror-y:hover { background-color: #7B1FA2; }
+        .btn-mirror-y.active { background-color: #E91E63; box-shadow: 0 0 10px #E91E63; }
+        .btn-reset { background-color: #9E9E9E; color: white; }
+        .btn-reset:hover { background-color: #757575; }
+        .container { position: relative; width: 100%; max-width: 360px; margin: 0 auto; aspect-ratio: 1 / 1; background-color: #1a1a1a; border: 1px solid #444; border-radius: 3px; }
+        .image { width: 100%; height: 100%; display: block; border-radius: 2px; }
+        .image-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #666; background-color: #222; border-radius: 2px; font-size: 13px; }
+        .dot { position: absolute; width: 9px; height: 9px; border-radius: 50%; transform: translate(-50%, -50%); z-index: 10; transition: left 0.3s ease, top 0.3s ease; display: block; }
+        .summary { display: none; margin-top: 20px; padding: 10px; background-color: #3a3a3a; border-radius: 5px; }
+        .summary.visible { display: block; }
+        .summary h2 { font-size: 18px; margin-bottom: 10px; text-align: center; color: #00bcd4; }
+        .summary table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        .summary th, .summary td { text-align: left; padding: 4px; border-bottom:1px solid #555; }
+        .summary th { background-color: #555; font-weight: bold; }
+        .legend { margin: 10px 0; padding: 10px; background-color: #3a3a3a; border-radius: 5px; font-size: 15px; text-align: center; color: #aaa; }
+        .color-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 3px; }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">&lt;&lt; 返回总览</a>
+    <h1>精致棺材 位置汇总</h1>
+    <div class="debug-title" id="debug-title">精致棺材 (Coffin_01)</div>
+    <div class="maps-grid" id="maps-grid">    <div class="group-header">Crypt</div>
+    <div class="map-card" id="map-card-Tomb_Center_HR_D-json">
+        <h3 class="map-title">陵墓<span class='debug-text'> (Tombs)</span><div class='map-filename'>Tomb_Center_HR_D.json</div></h3>
+        <div class="map-info">Tomb_Center.png | 找到 2 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('Tomb_Center_HR_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-Tomb_Center_HR_D-json" value="1600" step="100" onchange="updateMapRange('Tomb_Center_HR_D-json')">
+                <button class="btn-scale" onclick="scaleRange('Tomb_Center_HR_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('Tomb_Center_HR_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('Tomb_Center_HR_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('Tomb_Center_HR_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('Tomb_Center_HR_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-Tomb_Center_HR_D-json"><img src="images/Tomb_Center.webp" class="image">        <div class="dot" data-index="2361" data-x="1123.0" data-y="-92.0" data-z="120.0" style="left: 85.09%; top: 47.12%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2362" data-x="1033.0" data-y="380.0" data-z="120.0" style="left: 82.28%; top: 61.88%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="group-header">Ruins</div>
+    <div class="map-card" id="map-card-Ruins_Chapel_HR_D-json">
+        <h3 class="map-title">废弃圣所<span class='debug-text'> (Abandoned_Sanctuary)</span><div class='map-filename'>Ruins_Chapel_HR_D.json</div></h3>
+        <div class="map-info">Ruins_Chapel.png | 找到 1 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('Ruins_Chapel_HR_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-Ruins_Chapel_HR_D-json" value="1600" step="100" onchange="updateMapRange('Ruins_Chapel_HR_D-json')">
+                <button class="btn-scale" onclick="scaleRange('Ruins_Chapel_HR_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('Ruins_Chapel_HR_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('Ruins_Chapel_HR_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_Chapel_HR_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('Ruins_Chapel_HR_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-Ruins_Chapel_HR_D-json"><img src="images/Ruins_Chapel.webp" class="image">        <div class="dot" data-index="6684" data-x="-291.99997" data-y="-739.99994" data-z="-511.9109" style="left: 40.88%; top: 26.88%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="map-card" id="map-card-Ruins_ForsakenCloister_HR_D-json">
+        <h3 class="map-title">寂灭回廊<span class='debug-text'> (ForsakenCloister)</span><div class='map-filename'>Ruins_ForsakenCloister_HR_D.json</div></h3>
+        <div class="map-info">Ruins_ForsakenCloister.png | 找到 1 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('Ruins_ForsakenCloister_HR_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-Ruins_ForsakenCloister_HR_D-json" value="1600" step="100" onchange="updateMapRange('Ruins_ForsakenCloister_HR_D-json')">
+                <button class="btn-scale" onclick="scaleRange('Ruins_ForsakenCloister_HR_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('Ruins_ForsakenCloister_HR_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('Ruins_ForsakenCloister_HR_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_ForsakenCloister_HR_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('Ruins_ForsakenCloister_HR_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-Ruins_ForsakenCloister_HR_D-json"><img src="images/Ruins_ForsakenCloister.webp" class="image">        <div class="dot" data-index="6924" data-x="-150.0" data-y="0.0" data-z="-17.0" style="left: 45.31%; top: 50.00%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="map-card" id="map-card-Ruins_Watchtower_HR_D-json">
+        <h3 class="map-title">了望塔<span class='debug-text'> (Watchtower)</span><div class='map-filename'>Ruins_Watchtower_HR_D.json</div></h3>
+        <div class="map-info">Ruins_Watchtower.png | 找到 2 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('Ruins_Watchtower_HR_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-Ruins_Watchtower_HR_D-json" value="1600" step="100" onchange="updateMapRange('Ruins_Watchtower_HR_D-json')">
+                <button class="btn-scale" onclick="scaleRange('Ruins_Watchtower_HR_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('Ruins_Watchtower_HR_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('Ruins_Watchtower_HR_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_Watchtower_HR_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('Ruins_Watchtower_HR_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-Ruins_Watchtower_HR_D-json"><img src="images/Ruins_Watchtower.webp" class="image">        <div class="dot" data-index="7714" data-x="-1160.0" data-y="750.0" data-z="-530.0" style="left: 13.75%; top: 73.44%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="7715" data-x="-1160.0" data-y="50.0" data-z="-530.0" style="left: 13.75%; top: 51.56%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="group-header">ShipGraveyard</div>
+    <div class="map-card" id="map-card-ShipGraveyard_AbandonedShip_01_HR_D-json">
+        <h3 class="map-title">废弃舰船<span class='debug-text'> (AbandonedShip_01)</span><div class='map-filename'>ShipGraveyard_AbandonedShip_01_HR_D.json</div></h3>
+        <div class="map-info">ShipGraveyard_AbandonedShip_01.png | 找到 2 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('ShipGraveyard_AbandonedShip_01_HR_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-ShipGraveyard_AbandonedShip_01_HR_D-json" value="1600" step="100" onchange="updateMapRange('ShipGraveyard_AbandonedShip_01_HR_D-json')">
+                <button class="btn-scale" onclick="scaleRange('ShipGraveyard_AbandonedShip_01_HR_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('ShipGraveyard_AbandonedShip_01_HR_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('ShipGraveyard_AbandonedShip_01_HR_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('ShipGraveyard_AbandonedShip_01_HR_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('ShipGraveyard_AbandonedShip_01_HR_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-ShipGraveyard_AbandonedShip_01_HR_D-json"><img src="images/ShipGraveyard_AbandonedShip_01.webp" class="image">        <div class="dot" data-index="7891" data-x="174.52502" data-y="286.23123" data-z="-748.13367" style="left: 55.45%; top: 58.94%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="7921" data-x="371.22818" data-y="299.30215" data-z="-633.4726" style="left: 61.60%; top: 59.35%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="map-card" id="map-card-ShipGraveyard_CoralForest_01_D-json">
+        <h3 class="map-title">珊瑚密林<span class='debug-text'> (ShipGraveyard_CoralForest_01)</span><div class='map-filename'>ShipGraveyard_CoralForest_01_D.json</div></h3>
+        <div class="map-info">ShipGraveyard_CoralForest_01.png | 找到 2 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('ShipGraveyard_CoralForest_01_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-ShipGraveyard_CoralForest_01_D-json" value="1600" step="100" onchange="updateMapRange('ShipGraveyard_CoralForest_01_D-json')">
+                <button class="btn-scale" onclick="scaleRange('ShipGraveyard_CoralForest_01_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('ShipGraveyard_CoralForest_01_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('ShipGraveyard_CoralForest_01_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('ShipGraveyard_CoralForest_01_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('ShipGraveyard_CoralForest_01_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-ShipGraveyard_CoralForest_01_D-json"><img src="images/ShipGraveyard_CoralForest_01.webp" class="image">        <div class="dot" data-index="8079" data-x="708.75696" data-y="530.7142" data-z="-1010.0" style="left: 72.15%; top: 66.58%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8080" data-x="505.07904" data-y="556.5656" data-z="-1010.0" style="left: 65.78%; top: 67.39%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="map-card" id="map-card-ShipGraveyard_Hole_HR_D-json">
+        <h3 class="map-title">蓝洞<span class='debug-text'> (Hole)</span><div class='map-filename'>ShipGraveyard_Hole_HR_D.json</div></h3>
+        <div class="map-info">ShipGraveyard_Hole.png | 找到 7 个位置 | 自动范围: ±6400</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('ShipGraveyard_Hole_HR_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-ShipGraveyard_Hole_HR_D-json" value="6400" step="100" onchange="updateMapRange('ShipGraveyard_Hole_HR_D-json')">
+                <button class="btn-scale" onclick="scaleRange('ShipGraveyard_Hole_HR_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('ShipGraveyard_Hole_HR_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('ShipGraveyard_Hole_HR_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('ShipGraveyard_Hole_HR_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('ShipGraveyard_Hole_HR_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-ShipGraveyard_Hole_HR_D-json"><img src="images/ShipGraveyard_Hole.webp" class="image">        <div class="dot" data-index="8409" data-x="-1690.7137" data-y="-595.0" data-z="-1271.6295" style="left: 36.79%; top: 45.35%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8422" data-x="-1586.3728" data-y="-694.7707" data-z="-1301.9008" style="left: 37.61%; top: 44.57%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8437" data-x="1173.783" data-y="428.40137" data-z="-1560.3588" style="left: 59.17%; top: 53.35%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8443" data-x="548.87585" data-y="-1297.3572" data-z="-1461.518" style="left: 54.29%; top: 39.86%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8452" data-x="1650.9481" data-y="736.24335" data-z="-1255.145" style="left: 62.90%; top: 55.75%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8459" data-x="-1406.223" data-y="1664.9547" data-z="-1087.725" style="left: 39.01%; top: 63.01%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8464" data-x="-550.522" data-y="1719.9816" data-z="-1182.8711" style="left: 45.70%; top: 63.44%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="map-card" id="map-card-ShipGraveyard_RockIsland_D-json">
+        <h3 class="map-title">岩岛<span class='debug-text'> (ShipGraveyard_RockIsland)</span><div class='map-filename'>ShipGraveyard_RockIsland_D.json</div></h3>
+        <div class="map-info">ShipGraveyard_RockIsland.png | 找到 2 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('ShipGraveyard_RockIsland_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-ShipGraveyard_RockIsland_D-json" value="1600" step="100" onchange="updateMapRange('ShipGraveyard_RockIsland_D-json')">
+                <button class="btn-scale" onclick="scaleRange('ShipGraveyard_RockIsland_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('ShipGraveyard_RockIsland_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('ShipGraveyard_RockIsland_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('ShipGraveyard_RockIsland_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('ShipGraveyard_RockIsland_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-ShipGraveyard_RockIsland_D-json"><img src="images/ShipGraveyard_RockIsland.webp" class="image">        <div class="dot" data-index="8835" data-x="212.0" data-y="1133.7938" data-z="-1018.1596" style="left: 56.62%; top: 85.43%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8851" data-x="344.49203" data-y="-331.8739" data-z="-882.4963" style="left: 60.77%; top: 39.63%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="map-card" id="map-card-ShipGraveyard_SkullIsland_D-json">
+        <h3 class="map-title">骷髅岛<span class='debug-text'> (ShipGraveyard_SkullIsland)</span><div class='map-filename'>ShipGraveyard_SkullIsland_D.json</div></h3>
+        <div class="map-info">ShipGraveyard_SkullIsland.png | 找到 4 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('ShipGraveyard_SkullIsland_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-ShipGraveyard_SkullIsland_D-json" value="1600" step="100" onchange="updateMapRange('ShipGraveyard_SkullIsland_D-json')">
+                <button class="btn-scale" onclick="scaleRange('ShipGraveyard_SkullIsland_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('ShipGraveyard_SkullIsland_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('ShipGraveyard_SkullIsland_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('ShipGraveyard_SkullIsland_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('ShipGraveyard_SkullIsland_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-ShipGraveyard_SkullIsland_D-json"><img src="images/ShipGraveyard_SkullIsland.webp" class="image">        <div class="dot" data-index="8951" data-x="837.7729" data-y="-952.6632" data-z="-1011.3949" style="left: 76.18%; top: 20.23%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8957" data-x="535.6705" data-y="-3238.1208" data-z="-1065.2373" style="left: 66.74%; top: -51.19%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8959" data-x="556.39935" data-y="-3014.2417" data-z="-1096.1816" style="left: 67.39%; top: -44.20%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="9025" data-x="951.02576" data-y="-970.7618" data-z="-1019.8344" style="left: 79.72%; top: 19.66%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="map-card" id="map-card-ShipGraveyard_StarfishValley_D-json">
+        <h3 class="map-title">海星谷<span class='debug-text'> (ShipGraveyard_StarfishValley)</span><div class='map-filename'>ShipGraveyard_StarfishValley_D.json</div></h3>
+        <div class="map-info">ShipGraveyard_StarfishValley.png | 找到 3 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('ShipGraveyard_StarfishValley_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-ShipGraveyard_StarfishValley_D-json" value="1600" step="100" onchange="updateMapRange('ShipGraveyard_StarfishValley_D-json')">
+                <button class="btn-scale" onclick="scaleRange('ShipGraveyard_StarfishValley_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('ShipGraveyard_StarfishValley_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('ShipGraveyard_StarfishValley_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('ShipGraveyard_StarfishValley_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('ShipGraveyard_StarfishValley_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-ShipGraveyard_StarfishValley_D-json"><img src="images/ShipGraveyard_StarfishValley.webp" class="image">        <div class="dot" data-index="9105" data-x="-234.24352" data-y="105.58868" data-z="-1626.0242" style="left: 42.68%; top: 53.30%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="9115" data-x="230.0" data-y="110.0" data-z="-1680.0" style="left: 57.19%; top: 53.44%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="9118" data-x="-98.47787" data-y="408.7026" data-z="-1636.0242" style="left: 46.92%; top: 62.77%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="map-card" id="map-card-ShipGraveyard_SunkenShip_01_D-json">
+        <h3 class="map-title">沉没之船<span class='debug-text'> (ShipGraveyard_SunkenShip_01)</span><div class='map-filename'>ShipGraveyard_SunkenShip_01_D.json</div></h3>
+        <div class="map-info">ShipGraveyard_SunkenShip_01.png | 找到 1 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('ShipGraveyard_SunkenShip_01_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-ShipGraveyard_SunkenShip_01_D-json" value="1600" step="100" onchange="updateMapRange('ShipGraveyard_SunkenShip_01_D-json')">
+                <button class="btn-scale" onclick="scaleRange('ShipGraveyard_SunkenShip_01_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('ShipGraveyard_SunkenShip_01_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('ShipGraveyard_SunkenShip_01_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('ShipGraveyard_SunkenShip_01_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('ShipGraveyard_SunkenShip_01_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-ShipGraveyard_SunkenShip_01_D-json"><img src="images/ShipGraveyard_SunkenShip_01.webp" class="image">        <div class="dot" data-index="9173" data-x="-608.6325" data-y="-622.5127" data-z="-2164.9644" style="left: 30.98%; top: 30.55%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="map-card" id="map-card-ShipGraveyard_Trench_D-json">
+        <h3 class="map-title">海沟<span class='debug-text'> (ShipGraveyard_Trench)</span><div class='map-filename'>ShipGraveyard_Trench_D.json</div></h3>
+        <div class="map-info">ShipGraveyard_Trench.png | 找到 10 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('ShipGraveyard_Trench_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-ShipGraveyard_Trench_D-json" value="1600" step="100" onchange="updateMapRange('ShipGraveyard_Trench_D-json')">
+                <button class="btn-scale" onclick="scaleRange('ShipGraveyard_Trench_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('ShipGraveyard_Trench_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('ShipGraveyard_Trench_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('ShipGraveyard_Trench_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('ShipGraveyard_Trench_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-ShipGraveyard_Trench_D-json"><img src="images/ShipGraveyard_Trench.webp" class="image">        <div class="dot" data-index="9201" data-x="-513.75653" data-y="-828.11365" data-z="-2830.0" style="left: 33.95%; top: 24.12%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="9202" data-x="-410.07788" data-y="-845.75946" data-z="-2830.0" style="left: 37.19%; top: 23.57%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="9203" data-x="80.0" data-y="-1194.0631" data-z="-2785.774" style="left: 52.50%; top: 12.69%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="9204" data-x="681.96924" data-y="-525.8409" data-z="-2773.561" style="left: 71.31%; top: 33.57%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="9205" data-x="568.6302" data-y="-660.36194" data-z="-2776.4512" style="left: 67.77%; top: 29.36%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="9206" data-x="437.0619" data-y="-725.2627" data-z="-2787.7502" style="left: 63.66%; top: 27.34%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="9225" data-x="147.27876" data-y="451.9374" data-z="-2787.3953" style="left: 54.60%; top: 64.12%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="9250" data-x="-108.95439" data-y="696.1451" data-z="-2826.375" style="left: 46.60%; top: 71.75%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="9260" data-x="463.4202" data-y="759.07605" data-z="-2803.794" style="left: 64.48%; top: 73.72%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="9261" data-x="-602.0317" data-y="-746.2473" data-z="-2815.097" style="left: 31.19%; top: 26.68%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="map-card" id="map-card-Shipgraveyard_TwinChamber_D-json">
+        <h3 class="map-title">海底洞穴 B<span class='debug-text'> (Shipgraveyard_UnderSeaCave_02)</span><div class='map-filename'>Shipgraveyard_TwinChamber_D.json</div></h3>
+        <div class="map-info">Shipgraveyard_TwinChamber.png | 找到 2 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('Shipgraveyard_TwinChamber_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-Shipgraveyard_TwinChamber_D-json" value="1600" step="100" onchange="updateMapRange('Shipgraveyard_TwinChamber_D-json')">
+                <button class="btn-scale" onclick="scaleRange('Shipgraveyard_TwinChamber_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('Shipgraveyard_TwinChamber_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('Shipgraveyard_TwinChamber_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('Shipgraveyard_TwinChamber_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('Shipgraveyard_TwinChamber_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-Shipgraveyard_TwinChamber_D-json"><img src="images/Shipgraveyard_TwinChamber.webp" class="image">        <div class="dot" data-index="9264" data-x="-311.94183" data-y="-490.7083" data-z="-3089.3557" style="left: 40.25%; top: 34.67%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="9271" data-x="665.0" data-y="355.0" data-z="-3110.0" style="left: 70.78%; top: 61.09%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="map-card" id="map-card-ShipGraveyard_UnderSeaCave_01_D-json">
+        <h3 class="map-title">海底洞穴 A<span class='debug-text'> (ShipGraveyard_UnderSeaCave_01)</span><div class='map-filename'>ShipGraveyard_UnderSeaCave_01_D.json</div></h3>
+        <div class="map-info">ShipGraveyard_UnderSeaCave_01.png | 找到 5 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('ShipGraveyard_UnderSeaCave_01_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-ShipGraveyard_UnderSeaCave_01_D-json" value="1600" step="100" onchange="updateMapRange('ShipGraveyard_UnderSeaCave_01_D-json')">
+                <button class="btn-scale" onclick="scaleRange('ShipGraveyard_UnderSeaCave_01_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('ShipGraveyard_UnderSeaCave_01_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('ShipGraveyard_UnderSeaCave_01_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('ShipGraveyard_UnderSeaCave_01_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('ShipGraveyard_UnderSeaCave_01_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-ShipGraveyard_UnderSeaCave_01_D-json"><img src="images/ShipGraveyard_UnderSeaCave_01.webp" class="image">        <div class="dot" data-index="9283" data-x="274.42188" data-y="20.710945" data-z="-2972.5564" style="left: 58.58%; top: 50.65%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="9290" data-x="498.7988" data-y="-247.78842" data-z="-2980.3423" style="left: 65.59%; top: 42.26%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="9292" data-x="-1151.9846" data-y="112.101006" data-z="-3040.0" style="left: 14.00%; top: 53.50%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="9293" data-x="-1122.7076" data-y="211.34923" data-z="-3048.9797" style="left: 14.92%; top: 56.60%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="9294" data-x="-809.28253" data-y="531.79926" data-z="-3029.8105" style="left: 24.71%; top: 66.62%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+</div>
+    </div>
+</div>
+    <div class="legend">
+        <strong>颜色说明：</strong>
+        <span class="color-dot" style="background-color: cyan;"></span> Z &gt; 299 (高于地面)
+        <span class="color-dot" style="background-color: yellow;"></span> -299 ≤ Z ≤ 299 (正常高度)
+        <span class="color-dot" style="background-color: red;"></span> Z &lt; -299 (低于地面)
+        <br><strong>位置统计：共 44 个位置点</strong><br><strong>包含地图：</strong> 了望塔, 寂灭回廊, 岩岛, 废弃圣所, 废弃舰船, 沉没之船, 海底洞穴 A, 海底洞穴 B, 海星谷, 海沟, 珊瑚密林, 蓝洞, 陵墓, 骷髅岛
+    </div>
+    <div class="summary" id="summary-section">
+        <h2>所有坐标详情</h2>
+        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-2361">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Tomb_Center_HR_D-json', 2361, this)"></td>
+        <td>Crypt</td>
+        <td>Tomb_Center_HR_D.json</td>
+        <td>陵墓</td>
+        <td>GameSpawner_Id_Spawner_New_Props_Coffin_01</td>
+        <td>1123.00</td>
+        <td>-92.00</td>
+        <td>120.00</td>
+    </tr>
+    <tr id="row-2362">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Tomb_Center_HR_D-json', 2362, this)"></td>
+        <td>Crypt</td>
+        <td>Tomb_Center_HR_D.json</td>
+        <td>陵墓</td>
+        <td>GameSpawner_Id_Spawner_New_Props_Coffin_01</td>
+        <td>1033.00</td>
+        <td>380.00</td>
+        <td>120.00</td>
+    </tr>
+    <tr id="row-6684">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Chapel_HR_D-json', 6684, this)"></td>
+        <td>Ruins</td>
+        <td>Ruins_Chapel_HR_D.json</td>
+        <td>废弃圣所</td>
+        <td>GameSpawner_Id_Spawner_New_Props_Coffin_01</td>
+        <td>-292.00</td>
+        <td>-740.00</td>
+        <td>-511.91</td>
+    </tr>
+    <tr id="row-6924">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_ForsakenCloister_HR_D-json', 6924, this)"></td>
+        <td>Ruins</td>
+        <td>Ruins_ForsakenCloister_HR_D.json</td>
+        <td>寂灭回廊</td>
+        <td>GameSpawner_Id_Spawner_New_Props_Coffin_01</td>
+        <td>-150.00</td>
+        <td>0.00</td>
+        <td>-17.00</td>
+    </tr>
+    <tr id="row-7714">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Watchtower_HR_D-json', 7714, this)"></td>
+        <td>Ruins</td>
+        <td>Ruins_Watchtower_HR_D.json</td>
+        <td>了望塔</td>
+        <td>GameSpawner_Id_Spawner_New_Props_Coffin_01</td>
+        <td>-1160.00</td>
+        <td>750.00</td>
+        <td>-530.00</td>
+    </tr>
+    <tr id="row-7715">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Watchtower_HR_D-json', 7715, this)"></td>
+        <td>Ruins</td>
+        <td>Ruins_Watchtower_HR_D.json</td>
+        <td>了望塔</td>
+        <td>GameSpawner_Id_Spawner_New_Props_Coffin_01</td>
+        <td>-1160.00</td>
+        <td>50.00</td>
+        <td>-530.00</td>
+    </tr>
+    <tr id="row-7891">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_AbandonedShip_01_HR_D-json', 7891, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_AbandonedShip_01_HR_D.json</td>
+        <td>废弃舰船</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>174.53</td>
+        <td>286.23</td>
+        <td>-748.13</td>
+    </tr>
+    <tr id="row-7921">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_AbandonedShip_01_HR_D-json', 7921, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_AbandonedShip_01_HR_D.json</td>
+        <td>废弃舰船</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>371.23</td>
+        <td>299.30</td>
+        <td>-633.47</td>
+    </tr>
+    <tr id="row-8079">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_CoralForest_01_D-json', 8079, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_CoralForest_01_D.json</td>
+        <td>珊瑚密林</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>708.76</td>
+        <td>530.71</td>
+        <td>-1010.00</td>
+    </tr>
+    <tr id="row-8080">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_CoralForest_01_D-json', 8080, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_CoralForest_01_D.json</td>
+        <td>珊瑚密林</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>505.08</td>
+        <td>556.57</td>
+        <td>-1010.00</td>
+    </tr>
+    <tr id="row-8409">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Hole_HR_D-json', 8409, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_Hole_HR_D.json</td>
+        <td>蓝洞</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>-1690.71</td>
+        <td>-595.00</td>
+        <td>-1271.63</td>
+    </tr>
+    <tr id="row-8422">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Hole_HR_D-json', 8422, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_Hole_HR_D.json</td>
+        <td>蓝洞</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>-1586.37</td>
+        <td>-694.77</td>
+        <td>-1301.90</td>
+    </tr>
+    <tr id="row-8437">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Hole_HR_D-json', 8437, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_Hole_HR_D.json</td>
+        <td>蓝洞</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>1173.78</td>
+        <td>428.40</td>
+        <td>-1560.36</td>
+    </tr>
+    <tr id="row-8443">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Hole_HR_D-json', 8443, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_Hole_HR_D.json</td>
+        <td>蓝洞</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>548.88</td>
+        <td>-1297.36</td>
+        <td>-1461.52</td>
+    </tr>
+    <tr id="row-8452">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Hole_HR_D-json', 8452, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_Hole_HR_D.json</td>
+        <td>蓝洞</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>1650.95</td>
+        <td>736.24</td>
+        <td>-1255.14</td>
+    </tr>
+    <tr id="row-8459">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Hole_HR_D-json', 8459, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_Hole_HR_D.json</td>
+        <td>蓝洞</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>-1406.22</td>
+        <td>1664.95</td>
+        <td>-1087.72</td>
+    </tr>
+    <tr id="row-8464">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Hole_HR_D-json', 8464, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_Hole_HR_D.json</td>
+        <td>蓝洞</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>-550.52</td>
+        <td>1719.98</td>
+        <td>-1182.87</td>
+    </tr>
+    <tr id="row-8835">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_RockIsland_D-json', 8835, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_RockIsland_D.json</td>
+        <td>岩岛</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>212.00</td>
+        <td>1133.79</td>
+        <td>-1018.16</td>
+    </tr>
+    <tr id="row-8851">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_RockIsland_D-json', 8851, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_RockIsland_D.json</td>
+        <td>岩岛</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>344.49</td>
+        <td>-331.87</td>
+        <td>-882.50</td>
+    </tr>
+    <tr id="row-8951">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_SkullIsland_D-json', 8951, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_SkullIsland_D.json</td>
+        <td>骷髅岛</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>837.77</td>
+        <td>-952.66</td>
+        <td>-1011.39</td>
+    </tr>
+    <tr id="row-8957">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_SkullIsland_D-json', 8957, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_SkullIsland_D.json</td>
+        <td>骷髅岛</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>535.67</td>
+        <td>-3238.12</td>
+        <td>-1065.24</td>
+    </tr>
+    <tr id="row-8959">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_SkullIsland_D-json', 8959, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_SkullIsland_D.json</td>
+        <td>骷髅岛</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>556.40</td>
+        <td>-3014.24</td>
+        <td>-1096.18</td>
+    </tr>
+    <tr id="row-9025">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_SkullIsland_D-json', 9025, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_SkullIsland_D.json</td>
+        <td>骷髅岛</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>951.03</td>
+        <td>-970.76</td>
+        <td>-1019.83</td>
+    </tr>
+    <tr id="row-9105">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_StarfishValley_D-json', 9105, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_StarfishValley_D.json</td>
+        <td>海星谷</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>-234.24</td>
+        <td>105.59</td>
+        <td>-1626.02</td>
+    </tr>
+    <tr id="row-9115">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_StarfishValley_D-json', 9115, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_StarfishValley_D.json</td>
+        <td>海星谷</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>230.00</td>
+        <td>110.00</td>
+        <td>-1680.00</td>
+    </tr>
+    <tr id="row-9118">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_StarfishValley_D-json', 9118, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_StarfishValley_D.json</td>
+        <td>海星谷</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>-98.48</td>
+        <td>408.70</td>
+        <td>-1636.02</td>
+    </tr>
+    <tr id="row-9173">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_SunkenShip_01_D-json', 9173, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_SunkenShip_01_D.json</td>
+        <td>沉没之船</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>-608.63</td>
+        <td>-622.51</td>
+        <td>-2164.96</td>
+    </tr>
+    <tr id="row-9201">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Trench_D-json', 9201, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_Trench_D.json</td>
+        <td>海沟</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>-513.76</td>
+        <td>-828.11</td>
+        <td>-2830.00</td>
+    </tr>
+    <tr id="row-9202">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Trench_D-json', 9202, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_Trench_D.json</td>
+        <td>海沟</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>-410.08</td>
+        <td>-845.76</td>
+        <td>-2830.00</td>
+    </tr>
+    <tr id="row-9203">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Trench_D-json', 9203, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_Trench_D.json</td>
+        <td>海沟</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>80.00</td>
+        <td>-1194.06</td>
+        <td>-2785.77</td>
+    </tr>
+    <tr id="row-9204">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Trench_D-json', 9204, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_Trench_D.json</td>
+        <td>海沟</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>681.97</td>
+        <td>-525.84</td>
+        <td>-2773.56</td>
+    </tr>
+    <tr id="row-9205">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Trench_D-json', 9205, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_Trench_D.json</td>
+        <td>海沟</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>568.63</td>
+        <td>-660.36</td>
+        <td>-2776.45</td>
+    </tr>
+    <tr id="row-9206">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Trench_D-json', 9206, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_Trench_D.json</td>
+        <td>海沟</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>437.06</td>
+        <td>-725.26</td>
+        <td>-2787.75</td>
+    </tr>
+    <tr id="row-9225">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Trench_D-json', 9225, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_Trench_D.json</td>
+        <td>海沟</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>147.28</td>
+        <td>451.94</td>
+        <td>-2787.40</td>
+    </tr>
+    <tr id="row-9250">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Trench_D-json', 9250, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_Trench_D.json</td>
+        <td>海沟</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>-108.95</td>
+        <td>696.15</td>
+        <td>-2826.38</td>
+    </tr>
+    <tr id="row-9260">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Trench_D-json', 9260, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_Trench_D.json</td>
+        <td>海沟</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>463.42</td>
+        <td>759.08</td>
+        <td>-2803.79</td>
+    </tr>
+    <tr id="row-9261">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Trench_D-json', 9261, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_Trench_D.json</td>
+        <td>海沟</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>-602.03</td>
+        <td>-746.25</td>
+        <td>-2815.10</td>
+    </tr>
+    <tr id="row-9264">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Shipgraveyard_TwinChamber_D-json', 9264, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>Shipgraveyard_TwinChamber_D.json</td>
+        <td>海底洞穴 B</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>-311.94</td>
+        <td>-490.71</td>
+        <td>-3089.36</td>
+    </tr>
+    <tr id="row-9271">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Shipgraveyard_TwinChamber_D-json', 9271, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>Shipgraveyard_TwinChamber_D.json</td>
+        <td>海底洞穴 B</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>665.00</td>
+        <td>355.00</td>
+        <td>-3110.00</td>
+    </tr>
+    <tr id="row-9283">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_UnderSeaCave_01_D-json', 9283, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_UnderSeaCave_01_D.json</td>
+        <td>海底洞穴 A</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>274.42</td>
+        <td>20.71</td>
+        <td>-2972.56</td>
+    </tr>
+    <tr id="row-9290">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_UnderSeaCave_01_D-json', 9290, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_UnderSeaCave_01_D.json</td>
+        <td>海底洞穴 A</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>498.80</td>
+        <td>-247.79</td>
+        <td>-2980.34</td>
+    </tr>
+    <tr id="row-9292">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_UnderSeaCave_01_D-json', 9292, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_UnderSeaCave_01_D.json</td>
+        <td>海底洞穴 A</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>-1151.98</td>
+        <td>112.10</td>
+        <td>-3040.00</td>
+    </tr>
+    <tr id="row-9293">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_UnderSeaCave_01_D-json', 9293, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_UnderSeaCave_01_D.json</td>
+        <td>海底洞穴 A</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>-1122.71</td>
+        <td>211.35</td>
+        <td>-3048.98</td>
+    </tr>
+    <tr id="row-9294">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_UnderSeaCave_01_D-json', 9294, this)"></td>
+        <td>ShipGraveyard</td>
+        <td>ShipGraveyard_UnderSeaCave_01_D.json</td>
+        <td>海底洞穴 A</td>
+        <td>GameSpawner_Id_Spawner_New_Props_MermaidCoffin_01</td>
+        <td>-809.28</td>
+        <td>531.80</td>
+        <td>-3029.81</td>
+    </tr>
+</table>
+    </div>
+    <script>
+        window.mapStates = {};
+        function togglePoint(cardId, pointIndex, checkbox) {
+            const dot = document.querySelector(`#map-card-${cardId} .dot[data-index="${pointIndex}"]`);
+            if (dot) { dot.style.display = checkbox.checked ? 'block' : 'none'; }
+            const row = checkbox.closest('tr');
+            if (row) { row.style.opacity = checkbox.checked ? '1' : '0.4'; }
+        }
+        function scaleRange(id, factor) {
+            const input = document.getElementById('range-input-' + id);
+            let val = parseFloat(input.value);
+            if (val > 0) { val = val * factor; input.value = val; updateMapRange(id); }
+        }
+        function updateMapRange(id) {
+            const input = document.getElementById('range-input-' + id);
+            const val = parseFloat(input.value);
+            if (val > 0) { if (!window.mapStates[id]) window.mapStates[id] = { rotate: 1, mirrorX: false, mirrorY: false }; window.mapStates[id].range = val; updateDots(id, window.mapStates[id]); }
+        }
+        function updateDots(index, state) {
+            const card = document.getElementById('map-card-' + index);
+            if (!card) return;
+            const dots = card.querySelectorAll('.dot');
+            dots.forEach(dot => {
+                if (dot.style.display === 'none') return;
+                let x = parseFloat(dot.getAttribute('data-x'));
+                let y = parseFloat(dot.getAttribute('data-y'));
+                const range = state.range || 1600; 
+                if (state.rotate === 1) { const newX = y; const newY = -x; x = newX; y = newY; }
+                else if (state.rotate === 2) { x = -x; y = -y; }
+                else if (state.rotate === 3) { const newX = -y; const newY = x; x = newX; y = newY; }
+                if (state.mirrorX) x = -x;
+                if (state.mirrorY) y = -y;
+                const left = 50 + (x / range) * 50;
+                const top = 50 + (y / range) * 50;
+                dot.style.left = Math.max(0, Math.min(100, left)).toFixed(2) + '%';
+                dot.style.top = Math.max(0, Math.min(100, top)).toFixed(2) + '%';
+            });
+        }
+        function updateButtonUI(index, state) {
+            const card = document.getElementById('map-card-' + index);
+            if (!card) return;
+            const rotateBtn = card.querySelector('.btn-rotate');
+            const mirrorXBtn = card.querySelector('.btn-mirror-x');
+            const mirrorYBtn = card.querySelector('.btn-mirror-y');
+            const rotateLabels = ['↻ 旋转', '↻ 90°', '↻ 180°', '↻ 270°'];
+            rotateBtn.textContent = rotateLabels[state.rotate];
+            rotateBtn.classList.toggle('active', state.rotate !== 0);
+            mirrorXBtn.classList.toggle('active', state.mirrorX);
+            mirrorYBtn.classList.toggle('active', state.mirrorY);
+        }
+        function toggleRotate(index) {
+            if (!window.mapStates[index]) window.mapStates[index] = { rotate: 1, mirrorX: false, mirrorY: false };
+            window.mapStates[index].rotate = (window.mapStates[index].rotate + 1) % 4;
+            updateDots(index, window.mapStates[index]);
+            updateButtonUI(index, window.mapStates[index]);
+        }
+        function toggleMirrorX(index) {
+            if (!window.mapStates[index]) window.mapStates[index] = { rotate: 1, mirrorX: false, mirrorY: false };
+            window.mapStates[index].mirrorX = !window.mapStates[index].mirrorX;
+            updateDots(index, window.mapStates[index]);
+            updateButtonUI(index, window.mapStates[index]);
+        }
+        function toggleMirrorY(index) {
+            if (!window.mapStates[index]) window.mapStates[index] = { rotate: 1, mirrorX: false, mirrorY: false };
+            window.mapStates[index].mirrorY = !window.mapStates[index].mirrorY;
+            updateDots(index, window.mapStates[index]);
+            updateButtonUI(index, window.mapStates[index]);
+        }
+        function resetMap(index) {
+            const input = document.getElementById('range-input-' + index);
+            const defaultRange = parseFloat(input.value);
+            window.mapStates[index] = { rotate: 1, mirrorX: false, mirrorY: false, range: defaultRange };
+            updateDots(index, window.mapStates[index]);
+            updateButtonUI(index, window.mapStates[index]);
+        }
+        function setColumns(cols) {
+            const grid = document.getElementById('maps-grid');
+            grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+        }
+        function toggleDebugInfo() {
+            const filenames = document.querySelectorAll('.map-filename');
+            const infos = document.querySelectorAll('.map-info');
+            const controls = document.querySelectorAll('.controls');
+            const debugTexts = document.querySelectorAll('.debug-text');
+            const debugTitle = document.getElementById('debug-title');
+            const summary = document.getElementById('summary-section');
+            const debugPanel = document.getElementById('debug-panel');
+            const btn = document.getElementById('debug-toggle-btn');
+            const isVisible = filenames.length > 0 && filenames[0].style.display === 'block';
+            
+            filenames.forEach(el => el.style.display = isVisible ? 'none' : 'block');
+            infos.forEach(el => el.style.display = isVisible ? 'none' : 'block');
+            controls.forEach(el => el.classList.toggle('visible', !isVisible));
+            debugTexts.forEach(el => el.classList.toggle('visible', !isVisible));
+            debugTitle.classList.toggle('visible', !isVisible);
+            summary.classList.toggle('visible', !isVisible);
+            debugPanel.classList.toggle('visible', !isVisible);
+            btn.textContent = isVisible ? '显示调试信息' : '隐藏调试信息';
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const mapCards = document.querySelectorAll('.map-card');
+            mapCards.forEach((card) => {
+                const idParts = card.id.split('map-card-')[1];
+                const input = document.getElementById('range-input-' + idParts);
+                const initialRange = input ? parseFloat(input.value) : 1600;
+                window.mapStates[idParts] = { rotate: 1, mirrorX: false, mirrorY: false, range: initialRange };
+                updateDots(idParts, window.mapStates[idParts]);
+                updateButtonUI(idParts, window.mapStates[idParts]);
+            });
+        });
+    </script>
+    <div id="debug-panel" class="debug-panel">
+        <label>每行卡片数:</label>
+        <input type="number" id="cols-input" value="3" min="1" max="10" onchange="setColumns(this.value)">
+    </div>
+    <button id="debug-toggle-btn" class="debug-btn" onclick="toggleDebugInfo()">显示调试信息</button>
+</body>
+</html>

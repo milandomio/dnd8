@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>铠甲傀儡 位置汇总</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background-color: #2c2c2c; color: white; padding: 10px; }
+        .back-link { display: block; text-align: center; margin-bottom: 10px; color: #FFC107; font-size: 18px; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; color: #fff; }
+        h1 { margin-bottom: 8px; font-size: 28px; text-align: center; color: #00bcd4; }
+        .debug-title { display: none; font-size: 16px; color: #888; text-align: center; margin-bottom: 5px; }
+        .debug-title.visible { display: block; }
+        .maps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px; }
+        @media (max-width: 1200px) { .maps-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 800px) { .maps-grid { grid-template-columns: 1fr; } }
+        .group-header { grid-column: 1 / -1; font-size: 22px; font-weight: bold; color: #FFC107; padding: 5px 0; margin-top: 10px; border-bottom: 2px solid #FFC107; }
+        .map-card { padding: 5px; background-color: #3a3a3a; border-radius: 5px; border: 1px solid #555; display: flex; flex-direction: column; align-items: center; }
+        .map-title { font-size: 22px; margin-bottom: 2px; color: #00bcd4; text-align: center; width: 100%; line-height: 1.3; }
+        .debug-text { display: none; font-size: 13px; color: #888; }
+        .debug-text.visible { display: inline; }
+        .map-filename { font-size: 13px; color: #888; font-weight: normal; margin-top: 1px; display: none; }
+        .map-info { margin-bottom: 5px; font-size: 13px; color: #aaa; text-align: center; display: none; }
+        .controls { display: none; gap:3px; margin-bottom: 5px; justify-content: center; flex-wrap: wrap; width: 100%; align-items: center; }
+        .controls.visible { display: flex; }
+        .debug-panel { display: none; position: fixed; bottom: 60px; right: 20px; background-color: #333; border: 1px solid #555; border-radius: 8px; padding: 10px; z-index: 9998; }
+        .debug-panel.visible { display: block; }
+        .debug-panel label { font-size: 14px; color: #aaa; margin-right: 5px; }
+        .debug-panel input { width: 50px; padding: 3px; border-radius: 3px; border: 1px solid #555; background-color: #222; color: white; font-size: 14px; }
+        .debug-btn { position: fixed; bottom: 20px; right: 20px; padding: 10px 20px; background-color: #FFC107; color: #000; border: 2px solid #FF9800; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: bold; z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,0.5); transition: all 0.2s; }
+        .debug-btn:hover { background-color: #FF9800; color: #fff; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.6); }
+        .input-group { display: flex; align-items: center; gap:2px; background-color: #222; padding: 2px 5px; border-radius: 3px; }
+        .input-group label { font-size: 13px; color: #aaa; }
+        .input-group input { padding: 1px; border-radius:2px; border:1px solid #555; background-color: #333; color: white; font-size: 13px; width: 50px; text-align: center; }
+        .btn-scale { padding: 2px 4px; background-color: #555; color: white; border: none; border-radius: 2px; font-size: 13px; cursor: pointer; }
+        .btn-scale:hover { background-color: #777; }
+        .controls button { padding: 3px 6px; border: none; border-radius: 3px; font-size: 13px; cursor: pointer; transition: all 0.2s; }
+        .btn-rotate { background-color: #4CAF50; color: white; }
+        .btn-rotate:hover { background-color: #45a049; }
+        .btn-rotate.active { background-color: #FFC107; color: #000; box-shadow: 0 0 10px #FFC107; }
+        .btn-mirror-x { background-color: #2196F3; color: white; }
+        .btn-mirror-x:hover { background-color: #1976D2; }
+        .btn-mirror-x.active { background-color: #FF5722; box-shadow: 0 0 10px #FF5722; }
+        .btn-mirror-y { background-color: #9C27B0; color: white; }
+        .btn-mirror-y:hover { background-color: #7B1FA2; }
+        .btn-mirror-y.active { background-color: #E91E63; box-shadow: 0 0 10px #E91E63; }
+        .btn-reset { background-color: #9E9E9E; color: white; }
+        .btn-reset:hover { background-color: #757575; }
+        .container { position: relative; width: 100%; max-width: 360px; margin: 0 auto; aspect-ratio: 1 / 1; background-color: #1a1a1a; border: 1px solid #444; border-radius: 3px; }
+        .image { width: 100%; height: 100%; display: block; border-radius: 2px; }
+        .image-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #666; background-color: #222; border-radius: 2px; font-size: 13px; }
+        .dot { position: absolute; width: 9px; height: 9px; border-radius: 50%; transform: translate(-50%, -50%); z-index: 10; transition: left 0.3s ease, top 0.3s ease; display: block; }
+        .summary { display: none; margin-top: 20px; padding: 10px; background-color: #3a3a3a; border-radius: 5px; }
+        .summary.visible { display: block; }
+        .summary h2 { font-size: 18px; margin-bottom: 10px; text-align: center; color: #00bcd4; }
+        .summary table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        .summary th, .summary td { text-align: left; padding: 4px; border-bottom:1px solid #555; }
+        .summary th { background-color: #555; font-weight: bold; }
+        .legend { margin: 10px 0; padding: 10px; background-color: #3a3a3a; border-radius: 5px; font-size: 15px; text-align: center; color: #aaa; }
+        .color-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 3px; }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">&lt;&lt; 返回总览</a>
+    <h1>铠甲傀儡 位置汇总</h1>
+    <div class="debug-title" id="debug-title">铠甲傀儡 (LivingArmor)</div>
+    <div class="maps-grid" id="maps-grid">    <div class="map-card" id="map-card-Ruins_Armory_HR_D-json">
+        <h3 class="map-title">城堡军械库<span class='debug-text'> (Castle_Armory)</span><div class='map-filename'>Ruins_Armory_HR_D.json</div></h3>
+        <div class="map-info">Ruins_Armory.png | 找到 1 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('Ruins_Armory_HR_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-Ruins_Armory_HR_D-json" value="1600" step="100" onchange="updateMapRange('Ruins_Armory_HR_D-json')">
+                <button class="btn-scale" onclick="scaleRange('Ruins_Armory_HR_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('Ruins_Armory_HR_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('Ruins_Armory_HR_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_Armory_HR_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('Ruins_Armory_HR_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-Ruins_Armory_HR_D-json"><img src="images/Ruins_Armory.webp" class="image">        <div class="dot" data-index="6466" data-x="-1343.4712" data-y="-457.07578" data-z="2e-06" style="left: 8.02%; top: 35.72%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="map-card" id="map-card-Ruins_GreatHall_01_Destroyed_HR_D-json">
+        <h3 class="map-title">礼拜堂 A<span class='debug-text'> (Greathall_A)</span><div class='map-filename'>Ruins_GreatHall_01_Destroyed_HR_D.json</div></h3>
+        <div class="map-info">Ruins_GreatHall_01_Destroyed.png | 找到 2 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('Ruins_GreatHall_01_Destroyed_HR_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-Ruins_GreatHall_01_Destroyed_HR_D-json" value="1600" step="100" onchange="updateMapRange('Ruins_GreatHall_01_Destroyed_HR_D-json')">
+                <button class="btn-scale" onclick="scaleRange('Ruins_GreatHall_01_Destroyed_HR_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('Ruins_GreatHall_01_Destroyed_HR_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('Ruins_GreatHall_01_Destroyed_HR_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_GreatHall_01_Destroyed_HR_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('Ruins_GreatHall_01_Destroyed_HR_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-Ruins_GreatHall_01_Destroyed_HR_D-json"><img src="images/Ruins_GreatHall_01_Destroyed.webp" class="image">        <div class="dot" data-index="7067" data-x="1467.0" data-y="1105.0" data-z="-400.0" style="left: 95.84%; top: 84.53%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="7069" data-x="-1458.0" data-y="-1105.0" data-z="-400.0" style="left: 4.44%; top: 15.47%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="map-card" id="map-card-Ruins_GreatHall_03_Destroyed_HR_D-json">
+        <h3 class="map-title">礼拜堂 C<span class='debug-text'> (Greathall_C)</span><div class='map-filename'>Ruins_GreatHall_03_Destroyed_HR_D.json</div></h3>
+        <div class="map-info">Ruins_GreatHall_03_Destroyed.png | 找到 6 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('Ruins_GreatHall_03_Destroyed_HR_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-Ruins_GreatHall_03_Destroyed_HR_D-json" value="1600" step="100" onchange="updateMapRange('Ruins_GreatHall_03_Destroyed_HR_D-json')">
+                <button class="btn-scale" onclick="scaleRange('Ruins_GreatHall_03_Destroyed_HR_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('Ruins_GreatHall_03_Destroyed_HR_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('Ruins_GreatHall_03_Destroyed_HR_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_GreatHall_03_Destroyed_HR_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('Ruins_GreatHall_03_Destroyed_HR_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-Ruins_GreatHall_03_Destroyed_HR_D-json"><img src="images/Ruins_GreatHall_03_Destroyed.webp" class="image">        <div class="dot" data-index="7135" data-x="64.3426" data-y="473.3133" data-z="11.051007" style="left: 52.01%; top: 64.79%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="7136" data-x="66.121574" data-y="-1.877244" data-z="11.051011" style="left: 52.07%; top: 49.94%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="7137" data-x="66.68206" data-y="-483.15463" data-z="11.051013" style="left: 52.08%; top: 34.90%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="7138" data-x="752.1633" data-y="-482.02258" data-z="11.051008" style="left: 73.51%; top: 34.94%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="7139" data-x="752.1633" data-y="0.32256857" data-z="11.051007" style="left: 73.51%; top: 50.01%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="7140" data-x="821.8643" data-y="914.13367" data-z="11.051007" style="left: 75.68%; top: 78.57%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="map-card" id="map-card-Ruins_Keep_HR_D-json">
+        <h3 class="map-title">要塞<span class='debug-text'> (Keep)</span><div class='map-filename'>Ruins_Keep_HR_D.json</div></h3>
+        <div class="map-info">Ruins_Keep.png | 找到 2 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('Ruins_Keep_HR_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-Ruins_Keep_HR_D-json" value="1600" step="100" onchange="updateMapRange('Ruins_Keep_HR_D-json')">
+                <button class="btn-scale" onclick="scaleRange('Ruins_Keep_HR_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('Ruins_Keep_HR_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('Ruins_Keep_HR_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_Keep_HR_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('Ruins_Keep_HR_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-Ruins_Keep_HR_D-json"><img src="images/Ruins_Keep.webp" class="image">        <div class="dot" data-index="7148" data-x="83.76374" data-y="438.60645" data-z="1.0000075" style="left: 52.62%; top: 63.71%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="7149" data-x="646.2152" data-y="438.60645" data-z="1.0000082" style="left: 70.19%; top: 63.71%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="map-card" id="map-card-Ruins_Refectory_HR_D-json">
+        <h3 class="map-title">修道院食堂<span class='debug-text'> (Refectory)</span><div class='map-filename'>Ruins_Refectory_HR_D.json</div></h3>
+        <div class="map-info">Ruins_Refectory.png | 找到 2 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('Ruins_Refectory_HR_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-Ruins_Refectory_HR_D-json" value="1600" step="100" onchange="updateMapRange('Ruins_Refectory_HR_D-json')">
+                <button class="btn-scale" onclick="scaleRange('Ruins_Refectory_HR_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('Ruins_Refectory_HR_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('Ruins_Refectory_HR_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_Refectory_HR_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('Ruins_Refectory_HR_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-Ruins_Refectory_HR_D-json"><img src="images/Ruins_Refectory.webp" class="image">        <div class="dot" data-index="7200" data-x="400.0" data-y="770.0" data-z="0.0" style="left: 62.50%; top: 74.06%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="7205" data-x="815.0" data-y="-200.0" data-z="0.0" style="left: 75.47%; top: 43.75%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+</div>
+    </div>
+</div>
+    <div class="legend">
+        <strong>颜色说明：</strong>
+        <span class="color-dot" style="background-color: cyan;"></span> Z &gt; 299 (高于地面)
+        <span class="color-dot" style="background-color: yellow;"></span> -299 ≤ Z ≤ 299 (正常高度)
+        <span class="color-dot" style="background-color: red;"></span> Z &lt; -299 (低于地面)
+        <br><strong>位置统计：共 13 个位置点</strong><br><strong>包含地图：</strong> 修道院食堂, 城堡军械库, 礼拜堂 A, 礼拜堂 C, 要塞
+    </div>
+    <div class="summary" id="summary-section">
+        <h2>所有坐标详情</h2>
+        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-6466">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Armory_HR_D-json', 6466, this)"></td>
+        <td>Ruins</td>
+        <td>Ruins_Armory_HR_D.json</td>
+        <td>城堡军械库</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_LivingArmor</td>
+        <td>-1343.47</td>
+        <td>-457.08</td>
+        <td>0.00</td>
+    </tr>
+    <tr id="row-7067">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_GreatHall_01_Destroyed_HR_D-json', 7067, this)"></td>
+        <td>Ruins</td>
+        <td>Ruins_GreatHall_01_Destroyed_HR_D.json</td>
+        <td>礼拜堂 A</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_LivingArmor</td>
+        <td>1467.00</td>
+        <td>1105.00</td>
+        <td>-400.00</td>
+    </tr>
+    <tr id="row-7069">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_GreatHall_01_Destroyed_HR_D-json', 7069, this)"></td>
+        <td>Ruins</td>
+        <td>Ruins_GreatHall_01_Destroyed_HR_D.json</td>
+        <td>礼拜堂 A</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_LivingArmor</td>
+        <td>-1458.00</td>
+        <td>-1105.00</td>
+        <td>-400.00</td>
+    </tr>
+    <tr id="row-7135">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_GreatHall_03_Destroyed_HR_D-json', 7135, this)"></td>
+        <td>Ruins</td>
+        <td>Ruins_GreatHall_03_Destroyed_HR_D.json</td>
+        <td>礼拜堂 C</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_LivingArmor</td>
+        <td>64.34</td>
+        <td>473.31</td>
+        <td>11.05</td>
+    </tr>
+    <tr id="row-7136">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_GreatHall_03_Destroyed_HR_D-json', 7136, this)"></td>
+        <td>Ruins</td>
+        <td>Ruins_GreatHall_03_Destroyed_HR_D.json</td>
+        <td>礼拜堂 C</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_LivingArmor</td>
+        <td>66.12</td>
+        <td>-1.88</td>
+        <td>11.05</td>
+    </tr>
+    <tr id="row-7137">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_GreatHall_03_Destroyed_HR_D-json', 7137, this)"></td>
+        <td>Ruins</td>
+        <td>Ruins_GreatHall_03_Destroyed_HR_D.json</td>
+        <td>礼拜堂 C</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_LivingArmor</td>
+        <td>66.68</td>
+        <td>-483.15</td>
+        <td>11.05</td>
+    </tr>
+    <tr id="row-7138">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_GreatHall_03_Destroyed_HR_D-json', 7138, this)"></td>
+        <td>Ruins</td>
+        <td>Ruins_GreatHall_03_Destroyed_HR_D.json</td>
+        <td>礼拜堂 C</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_LivingArmor</td>
+        <td>752.16</td>
+        <td>-482.02</td>
+        <td>11.05</td>
+    </tr>
+    <tr id="row-7139">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_GreatHall_03_Destroyed_HR_D-json', 7139, this)"></td>
+        <td>Ruins</td>
+        <td>Ruins_GreatHall_03_Destroyed_HR_D.json</td>
+        <td>礼拜堂 C</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_LivingArmor</td>
+        <td>752.16</td>
+        <td>0.32</td>
+        <td>11.05</td>
+    </tr>
+    <tr id="row-7140">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_GreatHall_03_Destroyed_HR_D-json', 7140, this)"></td>
+        <td>Ruins</td>
+        <td>Ruins_GreatHall_03_Destroyed_HR_D.json</td>
+        <td>礼拜堂 C</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_LivingArmor</td>
+        <td>821.86</td>
+        <td>914.13</td>
+        <td>11.05</td>
+    </tr>
+    <tr id="row-7148">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Keep_HR_D-json', 7148, this)"></td>
+        <td>Ruins</td>
+        <td>Ruins_Keep_HR_D.json</td>
+        <td>要塞</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_LivingArmor</td>
+        <td>83.76</td>
+        <td>438.61</td>
+        <td>1.00</td>
+    </tr>
+    <tr id="row-7149">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Keep_HR_D-json', 7149, this)"></td>
+        <td>Ruins</td>
+        <td>Ruins_Keep_HR_D.json</td>
+        <td>要塞</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_LivingArmor</td>
+        <td>646.22</td>
+        <td>438.61</td>
+        <td>1.00</td>
+    </tr>
+    <tr id="row-7200">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Refectory_HR_D-json', 7200, this)"></td>
+        <td>Ruins</td>
+        <td>Ruins_Refectory_HR_D.json</td>
+        <td>修道院食堂</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_LivingArmor</td>
+        <td>400.00</td>
+        <td>770.00</td>
+        <td>0.00</td>
+    </tr>
+    <tr id="row-7205">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Refectory_HR_D-json', 7205, this)"></td>
+        <td>Ruins</td>
+        <td>Ruins_Refectory_HR_D.json</td>
+        <td>修道院食堂</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_LivingArmor</td>
+        <td>815.00</td>
+        <td>-200.00</td>
+        <td>0.00</td>
+    </tr>
+</table>
+    </div>
+    <script>
+        window.mapStates = {};
+        function togglePoint(cardId, pointIndex, checkbox) {
+            const dot = document.querySelector(`#map-card-${cardId} .dot[data-index="${pointIndex}"]`);
+            if (dot) { dot.style.display = checkbox.checked ? 'block' : 'none'; }
+            const row = checkbox.closest('tr');
+            if (row) { row.style.opacity = checkbox.checked ? '1' : '0.4'; }
+        }
+        function scaleRange(id, factor) {
+            const input = document.getElementById('range-input-' + id);
+            let val = parseFloat(input.value);
+            if (val > 0) { val = val * factor; input.value = val; updateMapRange(id); }
+        }
+        function updateMapRange(id) {
+            const input = document.getElementById('range-input-' + id);
+            const val = parseFloat(input.value);
+            if (val > 0) { if (!window.mapStates[id]) window.mapStates[id] = { rotate: 1, mirrorX: false, mirrorY: false }; window.mapStates[id].range = val; updateDots(id, window.mapStates[id]); }
+        }
+        function updateDots(index, state) {
+            const card = document.getElementById('map-card-' + index);
+            if (!card) return;
+            const dots = card.querySelectorAll('.dot');
+            dots.forEach(dot => {
+                if (dot.style.display === 'none') return;
+                let x = parseFloat(dot.getAttribute('data-x'));
+                let y = parseFloat(dot.getAttribute('data-y'));
+                const range = state.range || 1600; 
+                if (state.rotate === 1) { const newX = y; const newY = -x; x = newX; y = newY; }
+                else if (state.rotate === 2) { x = -x; y = -y; }
+                else if (state.rotate === 3) { const newX = -y; const newY = x; x = newX; y = newY; }
+                if (state.mirrorX) x = -x;
+                if (state.mirrorY) y = -y;
+                const left = 50 + (x / range) * 50;
+                const top = 50 + (y / range) * 50;
+                dot.style.left = Math.max(0, Math.min(100, left)).toFixed(2) + '%';
+                dot.style.top = Math.max(0, Math.min(100, top)).toFixed(2) + '%';
+            });
+        }
+        function updateButtonUI(index, state) {
+            const card = document.getElementById('map-card-' + index);
+            if (!card) return;
+            const rotateBtn = card.querySelector('.btn-rotate');
+            const mirrorXBtn = card.querySelector('.btn-mirror-x');
+            const mirrorYBtn = card.querySelector('.btn-mirror-y');
+            const rotateLabels = ['↻ 旋转', '↻ 90°', '↻ 180°', '↻ 270°'];
+            rotateBtn.textContent = rotateLabels[state.rotate];
+            rotateBtn.classList.toggle('active', state.rotate !== 0);
+            mirrorXBtn.classList.toggle('active', state.mirrorX);
+            mirrorYBtn.classList.toggle('active', state.mirrorY);
+        }
+        function toggleRotate(index) {
+            if (!window.mapStates[index]) window.mapStates[index] = { rotate: 1, mirrorX: false, mirrorY: false };
+            window.mapStates[index].rotate = (window.mapStates[index].rotate + 1) % 4;
+            updateDots(index, window.mapStates[index]);
+            updateButtonUI(index, window.mapStates[index]);
+        }
+        function toggleMirrorX(index) {
+            if (!window.mapStates[index]) window.mapStates[index] = { rotate: 1, mirrorX: false, mirrorY: false };
+            window.mapStates[index].mirrorX = !window.mapStates[index].mirrorX;
+            updateDots(index, window.mapStates[index]);
+            updateButtonUI(index, window.mapStates[index]);
+        }
+        function toggleMirrorY(index) {
+            if (!window.mapStates[index]) window.mapStates[index] = { rotate: 1, mirrorX: false, mirrorY: false };
+            window.mapStates[index].mirrorY = !window.mapStates[index].mirrorY;
+            updateDots(index, window.mapStates[index]);
+            updateButtonUI(index, window.mapStates[index]);
+        }
+        function resetMap(index) {
+            const input = document.getElementById('range-input-' + index);
+            const defaultRange = parseFloat(input.value);
+            window.mapStates[index] = { rotate: 1, mirrorX: false, mirrorY: false, range: defaultRange };
+            updateDots(index, window.mapStates[index]);
+            updateButtonUI(index, window.mapStates[index]);
+        }
+        function setColumns(cols) {
+            const grid = document.getElementById('maps-grid');
+            grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+        }
+        function toggleDebugInfo() {
+            const filenames = document.querySelectorAll('.map-filename');
+            const infos = document.querySelectorAll('.map-info');
+            const controls = document.querySelectorAll('.controls');
+            const debugTexts = document.querySelectorAll('.debug-text');
+            const debugTitle = document.getElementById('debug-title');
+            const summary = document.getElementById('summary-section');
+            const debugPanel = document.getElementById('debug-panel');
+            const btn = document.getElementById('debug-toggle-btn');
+            const isVisible = filenames.length > 0 && filenames[0].style.display === 'block';
+            
+            filenames.forEach(el => el.style.display = isVisible ? 'none' : 'block');
+            infos.forEach(el => el.style.display = isVisible ? 'none' : 'block');
+            controls.forEach(el => el.classList.toggle('visible', !isVisible));
+            debugTexts.forEach(el => el.classList.toggle('visible', !isVisible));
+            debugTitle.classList.toggle('visible', !isVisible);
+            summary.classList.toggle('visible', !isVisible);
+            debugPanel.classList.toggle('visible', !isVisible);
+            btn.textContent = isVisible ? '显示调试信息' : '隐藏调试信息';
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const mapCards = document.querySelectorAll('.map-card');
+            mapCards.forEach((card) => {
+                const idParts = card.id.split('map-card-')[1];
+                const input = document.getElementById('range-input-' + idParts);
+                const initialRange = input ? parseFloat(input.value) : 1600;
+                window.mapStates[idParts] = { rotate: 1, mirrorX: false, mirrorY: false, range: initialRange };
+                updateDots(idParts, window.mapStates[idParts]);
+                updateButtonUI(idParts, window.mapStates[idParts]);
+            });
+        });
+    </script>
+    <div id="debug-panel" class="debug-panel">
+        <label>每行卡片数:</label>
+        <input type="number" id="cols-input" value="3" min="1" max="10" onchange="setColumns(this.value)">
+    </div>
+    <button id="debug-toggle-btn" class="debug-btn" onclick="toggleDebugInfo()">显示调试信息</button>
+</body>
+</html>

@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>冰霜骷髅步兵 位置汇总</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background-color: #2c2c2c; color: white; padding: 10px; }
+        .back-link { display: block; text-align: center; margin-bottom: 10px; color: #FFC107; font-size: 18px; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; color: #fff; }
+        h1 { margin-bottom: 8px; font-size: 28px; text-align: center; color: #00bcd4; }
+        .debug-title { display: none; font-size: 16px; color: #888; text-align: center; margin-bottom: 5px; }
+        .debug-title.visible { display: block; }
+        .maps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px; }
+        @media (max-width: 1200px) { .maps-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 800px) { .maps-grid { grid-template-columns: 1fr; } }
+        .group-header { grid-column: 1 / -1; font-size: 22px; font-weight: bold; color: #FFC107; padding: 5px 0; margin-top: 10px; border-bottom: 2px solid #FFC107; }
+        .map-card { padding: 5px; background-color: #3a3a3a; border-radius: 5px; border: 1px solid #555; display: flex; flex-direction: column; align-items: center; }
+        .map-title { font-size: 22px; margin-bottom: 2px; color: #00bcd4; text-align: center; width: 100%; line-height: 1.3; }
+        .debug-text { display: none; font-size: 13px; color: #888; }
+        .debug-text.visible { display: inline; }
+        .map-filename { font-size: 13px; color: #888; font-weight: normal; margin-top: 1px; display: none; }
+        .map-info { margin-bottom: 5px; font-size: 13px; color: #aaa; text-align: center; display: none; }
+        .controls { display: none; gap:3px; margin-bottom: 5px; justify-content: center; flex-wrap: wrap; width: 100%; align-items: center; }
+        .controls.visible { display: flex; }
+        .debug-panel { display: none; position: fixed; bottom: 60px; right: 20px; background-color: #333; border: 1px solid #555; border-radius: 8px; padding: 10px; z-index: 9998; }
+        .debug-panel.visible { display: block; }
+        .debug-panel label { font-size: 14px; color: #aaa; margin-right: 5px; }
+        .debug-panel input { width: 50px; padding: 3px; border-radius: 3px; border: 1px solid #555; background-color: #222; color: white; font-size: 14px; }
+        .debug-btn { position: fixed; bottom: 20px; right: 20px; padding: 10px 20px; background-color: #FFC107; color: #000; border: 2px solid #FF9800; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: bold; z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,0.5); transition: all 0.2s; }
+        .debug-btn:hover { background-color: #FF9800; color: #fff; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.6); }
+        .input-group { display: flex; align-items: center; gap:2px; background-color: #222; padding: 2px 5px; border-radius: 3px; }
+        .input-group label { font-size: 13px; color: #aaa; }
+        .input-group input { padding: 1px; border-radius:2px; border:1px solid #555; background-color: #333; color: white; font-size: 13px; width: 50px; text-align: center; }
+        .btn-scale { padding: 2px 4px; background-color: #555; color: white; border: none; border-radius: 2px; font-size: 13px; cursor: pointer; }
+        .btn-scale:hover { background-color: #777; }
+        .controls button { padding: 3px 6px; border: none; border-radius: 3px; font-size: 13px; cursor: pointer; transition: all 0.2s; }
+        .btn-rotate { background-color: #4CAF50; color: white; }
+        .btn-rotate:hover { background-color: #45a049; }
+        .btn-rotate.active { background-color: #FFC107; color: #000; box-shadow: 0 0 10px #FFC107; }
+        .btn-mirror-x { background-color: #2196F3; color: white; }
+        .btn-mirror-x:hover { background-color: #1976D2; }
+        .btn-mirror-x.active { background-color: #FF5722; box-shadow: 0 0 10px #FF5722; }
+        .btn-mirror-y { background-color: #9C27B0; color: white; }
+        .btn-mirror-y:hover { background-color: #7B1FA2; }
+        .btn-mirror-y.active { background-color: #E91E63; box-shadow: 0 0 10px #E91E63; }
+        .btn-reset { background-color: #9E9E9E; color: white; }
+        .btn-reset:hover { background-color: #757575; }
+        .container { position: relative; width: 100%; max-width: 360px; margin: 0 auto; aspect-ratio: 1 / 1; background-color: #1a1a1a; border: 1px solid #444; border-radius: 3px; }
+        .image { width: 100%; height: 100%; display: block; border-radius: 2px; }
+        .image-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #666; background-color: #222; border-radius: 2px; font-size: 13px; }
+        .dot { position: absolute; width: 9px; height: 9px; border-radius: 50%; transform: translate(-50%, -50%); z-index: 10; transition: left 0.3s ease, top 0.3s ease; display: block; }
+        .summary { display: none; margin-top: 20px; padding: 10px; background-color: #3a3a3a; border-radius: 5px; }
+        .summary.visible { display: block; }
+        .summary h2 { font-size: 18px; margin-bottom: 10px; text-align: center; color: #00bcd4; }
+        .summary table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        .summary th, .summary td { text-align: left; padding: 4px; border-bottom:1px solid #555; }
+        .summary th { background-color: #555; font-weight: bold; }
+        .legend { margin: 10px 0; padding: 10px; background-color: #3a3a3a; border-radius: 5px; font-size: 15px; text-align: center; color: #aaa; }
+        .color-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 3px; }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">&lt;&lt; 返回总览</a>
+    <h1>冰霜骷髅步兵 位置汇总</h1>
+    <div class="debug-title" id="debug-title">冰霜骷髅步兵 (FrostSkeletonFootman)</div>
+    <div class="maps-grid" id="maps-grid">    <div class="group-header">IceAbyss</div>
+    <div class="map-card" id="map-card-IceAbyss_ImpRitualRooms_D-json">
+        <h3 class="map-title">恶灵仪式室<span class='debug-text'> (IceAbyss_ImpRitualRooms)</span><div class='map-filename'>IceAbyss_ImpRitualRooms_D.json</div></h3>
+        <div class="map-info">IceAbyss_ImpRitualRooms.png | 找到 1 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('IceAbyss_ImpRitualRooms_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-IceAbyss_ImpRitualRooms_D-json" value="1600" step="100" onchange="updateMapRange('IceAbyss_ImpRitualRooms_D-json')">
+                <button class="btn-scale" onclick="scaleRange('IceAbyss_ImpRitualRooms_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('IceAbyss_ImpRitualRooms_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('IceAbyss_ImpRitualRooms_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('IceAbyss_ImpRitualRooms_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('IceAbyss_ImpRitualRooms_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-IceAbyss_ImpRitualRooms_D-json"><img src="images/IceAbyss_ImpRitualRooms.webp" class="image">        <div class="dot" data-index="4016" data-x="488.58185" data-y="-499.90668" data-z="0.0" style="left: 65.27%; top: 34.38%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="map-card" id="map-card-IceAbyss_ReversedPyramid_D-json">
+        <h3 class="map-title">倒金字塔<span class='debug-text'> (IceAbyss_ReversedPyramid)</span><div class='map-filename'>IceAbyss_ReversedPyramid_D.json</div></h3>
+        <div class="map-info">IceAbyss_ReversedPyramid.png | 找到 2 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('IceAbyss_ReversedPyramid_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-IceAbyss_ReversedPyramid_D-json" value="1600" step="100" onchange="updateMapRange('IceAbyss_ReversedPyramid_D-json')">
+                <button class="btn-scale" onclick="scaleRange('IceAbyss_ReversedPyramid_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('IceAbyss_ReversedPyramid_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('IceAbyss_ReversedPyramid_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('IceAbyss_ReversedPyramid_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('IceAbyss_ReversedPyramid_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-IceAbyss_ReversedPyramid_D-json"><img src="images/IceAbyss_ReversedPyramid.webp" class="image">        <div class="dot" data-index="4106" data-x="-823.0" data-y="766.0" data-z="-99.99992" style="left: 24.28%; top: 73.94%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4108" data-x="802.0" data-y="850.0" data-z="-99.9999" style="left: 75.06%; top: 76.56%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="group-header">IceCave</div>
+    <div class="map-card" id="map-card-IceCave_Cabin_Raft_D-json">
+        <h3 class="map-title">冰港<span class='debug-text'> (IceCave_Cabin)</span><div class='map-filename'>IceCave_Cabin_Raft_D.json</div></h3>
+        <div class="map-info">IceCave_Cabin_Raft.png | 找到 3 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('IceCave_Cabin_Raft_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-IceCave_Cabin_Raft_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_Cabin_Raft_D-json')">
+                <button class="btn-scale" onclick="scaleRange('IceCave_Cabin_Raft_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('IceCave_Cabin_Raft_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_Cabin_Raft_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_Cabin_Raft_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('IceCave_Cabin_Raft_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-IceCave_Cabin_Raft_D-json"><img src="images/IceCave_Cabin_Raft.webp" class="image">        <div class="dot" data-index="4440" data-x="0.65098" data-y="1334.8074" data-z="7.8e-05" style="left: 50.02%; top: 91.71%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4441" data-x="-1328.1428" data-y="11.525417" data-z="7.8e-05" style="left: 8.50%; top: 50.36%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4448" data-x="1174.0" data-y="1162.0" data-z="6.6714834e-05" style="left: 86.69%; top: 86.31%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="map-card" id="map-card-IceCave_CavePathway_D-json">
+        <h3 class="map-title">洞穴通道<span class='debug-text'> (IceCave_CavePathway)</span><div class='map-filename'>IceCave_CavePathway_D.json</div></h3>
+        <div class="map-info">IceCave_CavePathway.png | 找到 3 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('IceCave_CavePathway_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-IceCave_CavePathway_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_CavePathway_D-json')">
+                <button class="btn-scale" onclick="scaleRange('IceCave_CavePathway_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('IceCave_CavePathway_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_CavePathway_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_CavePathway_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('IceCave_CavePathway_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-IceCave_CavePathway_D-json"><img src="images/IceCave_CavePathway.webp" class="image">        <div class="dot" data-index="4495" data-x="461.46072" data-y="-490.27402" data-z="-500.0" style="left: 64.42%; top: 34.68%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4498" data-x="-875.0" data-y="675.0" data-z="0.31406567" style="left: 22.66%; top: 71.09%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4499" data-x="44.460728" data-y="-150.27403" data-z="-500.0" style="left: 51.39%; top: 45.30%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="map-card" id="map-card-IceCave_CrossRoad_D-json">
+        <h3 class="map-title">十字路口<span class='debug-text'> (IceCave_CrossRoad)</span><div class='map-filename'>IceCave_CrossRoad_D.json</div></h3>
+        <div class="map-info">IceCave_CrossRoad.png | 找到 1 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('IceCave_CrossRoad_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-IceCave_CrossRoad_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_CrossRoad_D-json')">
+                <button class="btn-scale" onclick="scaleRange('IceCave_CrossRoad_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('IceCave_CrossRoad_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_CrossRoad_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_CrossRoad_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('IceCave_CrossRoad_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-IceCave_CrossRoad_D-json"><img src="images/IceCave_CrossRoad.webp" class="image">        <div class="dot" data-index="4566" data-x="55.0" data-y="-271.0" data-z="-599.99994" style="left: 51.72%; top: 41.53%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="map-card" id="map-card-IceCave_Guardpost_D-json">
+        <h3 class="map-title">岗哨<span class='debug-text'> (IceCave_Guardpost)</span><div class='map-filename'>IceCave_Guardpost_D.json</div></h3>
+        <div class="map-info">GuardPost.png | 找到 3 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('IceCave_Guardpost_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-IceCave_Guardpost_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_Guardpost_D-json')">
+                <button class="btn-scale" onclick="scaleRange('IceCave_Guardpost_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('IceCave_Guardpost_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_Guardpost_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_Guardpost_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('IceCave_Guardpost_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-IceCave_Guardpost_D-json"><img src="images/GuardPost.webp" class="image">        <div class="dot" data-index="4721" data-x="1056.0" data-y="-251.0" data-z="0.000100817866" style="left: 83.00%; top: 42.16%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4723" data-x="-342.0" data-y="-59.0" data-z="0.000101" style="left: 39.31%; top: 48.16%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4724" data-x="203.0" data-y="448.0" data-z="0.000101" style="left: 56.34%; top: 64.00%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="map-card" id="map-card-IceCave_Hut_01_D-json">
+        <h3 class="map-title">小屋 A<span class='debug-text'> (IceCave_Hut_A)</span><div class='map-filename'>IceCave_Hut_01_D.json</div></h3>
+        <div class="map-info">IceCave_Hut_01.png | 找到 8 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('IceCave_Hut_01_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-IceCave_Hut_01_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_Hut_01_D-json')">
+                <button class="btn-scale" onclick="scaleRange('IceCave_Hut_01_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('IceCave_Hut_01_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_Hut_01_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_Hut_01_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('IceCave_Hut_01_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-IceCave_Hut_01_D-json"><img src="images/IceCave_Hut_01.webp" class="image">        <div class="dot" data-index="4830" data-x="1181.0" data-y="-122.0" data-z="9.482421e-05" style="left: 86.91%; top: 46.19%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4831" data-x="30.0" data-y="386.0" data-z="301.61584" style="left: 50.94%; top: 62.06%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4832" data-x="-1031.0" data-y="654.0" data-z="-599.9999" style="left: 17.78%; top: 70.44%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4833" data-x="780.0" data-y="801.0" data-z="-599.9999" style="left: 74.38%; top: 75.03%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4834" data-x="-197.0" data-y="429.0" data-z="300.55057" style="left: 43.84%; top: 63.41%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4835" data-x="311.76077" data-y="-913.5137" data-z="-599.0621" style="left: 59.74%; top: 21.45%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4836" data-x="757.0" data-y="826.0" data-z="-89.9999" style="left: 73.66%; top: 75.81%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4841" data-x="-770.7473" data-y="633.4978" data-z="-599.9999" style="left: 25.91%; top: 69.80%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="map-card" id="map-card-IceCave_Hut_02_D-json">
+        <h3 class="map-title">小屋 B<span class='debug-text'> (IceCave_Hut_B)</span><div class='map-filename'>IceCave_Hut_02_D.json</div></h3>
+        <div class="map-info">IceCave_Hut_02.png | 找到 3 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('IceCave_Hut_02_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-IceCave_Hut_02_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_Hut_02_D-json')">
+                <button class="btn-scale" onclick="scaleRange('IceCave_Hut_02_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('IceCave_Hut_02_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_Hut_02_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_Hut_02_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('IceCave_Hut_02_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-IceCave_Hut_02_D-json"><img src="images/IceCave_Hut_02.webp" class="image">        <div class="dot" data-index="4882" data-x="806.0" data-y="859.0" data-z="-579.9999" style="left: 75.19%; top: 76.84%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4884" data-x="-222.0" data-y="-538.0" data-z="-599.99994" style="left: 43.06%; top: 33.19%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4886" data-x="449.03482" data-y="-548.6333" data-z="-599.9999" style="left: 64.03%; top: 32.86%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="map-card" id="map-card-IceCave_Maze_D-json">
+        <h3 class="map-title">迷宫<span class='debug-text'> (IceCave_Maze)</span><div class='map-filename'>IceCave_Maze_D.json</div></h3>
+        <div class="map-info">IceCave_Maze.png | 找到 2 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('IceCave_Maze_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-IceCave_Maze_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_Maze_D-json')">
+                <button class="btn-scale" onclick="scaleRange('IceCave_Maze_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('IceCave_Maze_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_Maze_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_Maze_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('IceCave_Maze_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-IceCave_Maze_D-json"><img src="images/IceCave_Maze.webp" class="image">        <div class="dot" data-index="4989" data-x="176.0" data-y="-30.0" data-z="20.000093" style="left: 55.50%; top: 49.06%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4990" data-x="-354.0" data-y="-304.0" data-z="0.000101" style="left: 38.94%; top: 40.50%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="map-card" id="map-card-IceCave_Watchtower_D-json">
+        <h3 class="map-title">了望塔<span class='debug-text'> (IceCave_Watchtower)</span><div class='map-filename'>IceCave_Watchtower_D.json</div></h3>
+        <div class="map-info">IceCave_WatchTower.png | 找到 2 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('IceCave_Watchtower_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-IceCave_Watchtower_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_Watchtower_D-json')">
+                <button class="btn-scale" onclick="scaleRange('IceCave_Watchtower_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('IceCave_Watchtower_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_Watchtower_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_Watchtower_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('IceCave_Watchtower_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-IceCave_Watchtower_D-json"><img src="images/IceCave_WatchTower.webp" class="image">        <div class="dot" data-index="5376" data-x="-1250.0" data-y="-116.0" data-z="0.31406066" style="left: 10.94%; top: 46.38%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5382" data-x="-1264.0" data-y="38.0" data-z="0.314061" style="left: 10.50%; top: 51.19%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+</div>
+    </div>
+</div>
+    <div class="legend">
+        <strong>颜色说明：</strong>
+        <span class="color-dot" style="background-color: cyan;"></span> Z &gt; 299 (高于地面)
+        <span class="color-dot" style="background-color: yellow;"></span> -299 ≤ Z ≤ 299 (正常高度)
+        <span class="color-dot" style="background-color: red;"></span> Z &lt; -299 (低于地面)
+        <br><strong>位置统计：共 28 个位置点</strong><br><strong>包含地图：</strong> 了望塔, 倒金字塔, 冰港, 十字路口, 小屋 A, 小屋 B, 岗哨, 恶灵仪式室, 洞穴通道, 迷宫
+    </div>
+    <div class="summary" id="summary-section">
+        <h2>所有坐标详情</h2>
+        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-4016">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_ImpRitualRooms_D-json', 4016, this)"></td>
+        <td>IceAbyss</td>
+        <td>IceAbyss_ImpRitualRooms_D.json</td>
+        <td>恶灵仪式室</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonFootmanFromFakeDeath</td>
+        <td>488.58</td>
+        <td>-499.91</td>
+        <td>0.00</td>
+    </tr>
+    <tr id="row-4106">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_ReversedPyramid_D-json', 4106, this)"></td>
+        <td>IceAbyss</td>
+        <td>IceAbyss_ReversedPyramid_D.json</td>
+        <td>倒金字塔</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonFootmanFromFakeDeath</td>
+        <td>-823.00</td>
+        <td>766.00</td>
+        <td>-100.00</td>
+    </tr>
+    <tr id="row-4108">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceAbyss_ReversedPyramid_D-json', 4108, this)"></td>
+        <td>IceAbyss</td>
+        <td>IceAbyss_ReversedPyramid_D.json</td>
+        <td>倒金字塔</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonFootmanFromFakeDeath</td>
+        <td>802.00</td>
+        <td>850.00</td>
+        <td>-100.00</td>
+    </tr>
+    <tr id="row-4440">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Cabin_Raft_D-json', 4440, this)"></td>
+        <td>IceCave</td>
+        <td>IceCave_Cabin_Raft_D.json</td>
+        <td>冰港</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonFootmanFromFakeDeath</td>
+        <td>0.65</td>
+        <td>1334.81</td>
+        <td>0.00</td>
+    </tr>
+    <tr id="row-4441">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Cabin_Raft_D-json', 4441, this)"></td>
+        <td>IceCave</td>
+        <td>IceCave_Cabin_Raft_D.json</td>
+        <td>冰港</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonFootmanFromFakeDeath</td>
+        <td>-1328.14</td>
+        <td>11.53</td>
+        <td>0.00</td>
+    </tr>
+    <tr id="row-4448">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Cabin_Raft_D-json', 4448, this)"></td>
+        <td>IceCave</td>
+        <td>IceCave_Cabin_Raft_D.json</td>
+        <td>冰港</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonFootmanFromFakeDeath</td>
+        <td>1174.00</td>
+        <td>1162.00</td>
+        <td>0.00</td>
+    </tr>
+    <tr id="row-4495">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_CavePathway_D-json', 4495, this)"></td>
+        <td>IceCave</td>
+        <td>IceCave_CavePathway_D.json</td>
+        <td>洞穴通道</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonFootmanFromFakeDeath</td>
+        <td>461.46</td>
+        <td>-490.27</td>
+        <td>-500.00</td>
+    </tr>
+    <tr id="row-4498">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_CavePathway_D-json', 4498, this)"></td>
+        <td>IceCave</td>
+        <td>IceCave_CavePathway_D.json</td>
+        <td>洞穴通道</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonFootmanFromFakeDeath</td>
+        <td>-875.00</td>
+        <td>675.00</td>
+        <td>0.31</td>
+    </tr>
+    <tr id="row-4499">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_CavePathway_D-json', 4499, this)"></td>
+        <td>IceCave</td>
+        <td>IceCave_CavePathway_D.json</td>
+        <td>洞穴通道</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonFootmanFromFakeDeath</td>
+        <td>44.46</td>
+        <td>-150.27</td>
+        <td>-500.00</td>
+    </tr>
+    <tr id="row-4566">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_CrossRoad_D-json', 4566, this)"></td>
+        <td>IceCave</td>
+        <td>IceCave_CrossRoad_D.json</td>
+        <td>十字路口</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonFootmanFromFakeDeath</td>
+        <td>55.00</td>
+        <td>-271.00</td>
+        <td>-600.00</td>
+    </tr>
+    <tr id="row-4721">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Guardpost_D-json', 4721, this)"></td>
+        <td>IceCave</td>
+        <td>IceCave_Guardpost_D.json</td>
+        <td>岗哨</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonFootmanFromFakeDeath</td>
+        <td>1056.00</td>
+        <td>-251.00</td>
+        <td>0.00</td>
+    </tr>
+    <tr id="row-4723">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Guardpost_D-json', 4723, this)"></td>
+        <td>IceCave</td>
+        <td>IceCave_Guardpost_D.json</td>
+        <td>岗哨</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonFootmanFromFakeDeath</td>
+        <td>-342.00</td>
+        <td>-59.00</td>
+        <td>0.00</td>
+    </tr>
+    <tr id="row-4724">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Guardpost_D-json', 4724, this)"></td>
+        <td>IceCave</td>
+        <td>IceCave_Guardpost_D.json</td>
+        <td>岗哨</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonFootmanFromFakeDeath</td>
+        <td>203.00</td>
+        <td>448.00</td>
+        <td>0.00</td>
+    </tr>
+    <tr id="row-4830">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Hut_01_D-json', 4830, this)"></td>
+        <td>IceCave</td>
+        <td>IceCave_Hut_01_D.json</td>
+        <td>小屋 A</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonFootmanFromFakeDeath</td>
+        <td>1181.00</td>
+        <td>-122.00</td>
+        <td>0.00</td>
+    </tr>
+    <tr id="row-4831">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Hut_01_D-json', 4831, this)"></td>
+        <td>IceCave</td>
+        <td>IceCave_Hut_01_D.json</td>
+        <td>小屋 A</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonFootmanFromFakeDeath</td>
+        <td>30.00</td>
+        <td>386.00</td>
+        <td>301.62</td>
+    </tr>
+    <tr id="row-4832">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Hut_01_D-json', 4832, this)"></td>
+        <td>IceCave</td>
+        <td>IceCave_Hut_01_D.json</td>
+        <td>小屋 A</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonFootmanFromFakeDeath</td>
+        <td>-1031.00</td>
+        <td>654.00</td>
+        <td>-600.00</td>
+    </tr>
+    <tr id="row-4833">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Hut_01_D-json', 4833, this)"></td>
+        <td>IceCave</td>
+        <td>IceCave_Hut_01_D.json</td>
+        <td>小屋 A</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonFootmanFromFakeDeath</td>
+        <td>780.00</td>
+        <td>801.00</td>
+        <td>-600.00</td>
+    </tr>
+    <tr id="row-4834">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Hut_01_D-json', 4834, this)"></td>
+        <td>IceCave</td>
+        <td>IceCave_Hut_01_D.json</td>
+        <td>小屋 A</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonFootmanFromFakeDeath</td>
+        <td>-197.00</td>
+        <td>429.00</td>
+        <td>300.55</td>
+    </tr>
+    <tr id="row-4835">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Hut_01_D-json', 4835, this)"></td>
+        <td>IceCave</td>
+        <td>IceCave_Hut_01_D.json</td>
+        <td>小屋 A</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonFootmanFromFakeDeath</td>
+        <td>311.76</td>
+        <td>-913.51</td>
+        <td>-599.06</td>
+    </tr>
+    <tr id="row-4836">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Hut_01_D-json', 4836, this)"></td>
+        <td>IceCave</td>
+        <td>IceCave_Hut_01_D.json</td>
+        <td>小屋 A</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonFootmanFromFakeDeath</td>
+        <td>757.00</td>
+        <td>826.00</td>
+        <td>-90.00</td>
+    </tr>
+    <tr id="row-4841">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Hut_01_D-json', 4841, this)"></td>
+        <td>IceCave</td>
+        <td>IceCave_Hut_01_D.json</td>
+        <td>小屋 A</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonFootmanFromFakeDeath</td>
+        <td>-770.75</td>
+        <td>633.50</td>
+        <td>-600.00</td>
+    </tr>
+    <tr id="row-4882">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Hut_02_D-json', 4882, this)"></td>
+        <td>IceCave</td>
+        <td>IceCave_Hut_02_D.json</td>
+        <td>小屋 B</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonFootmanFromFakeDeath</td>
+        <td>806.00</td>
+        <td>859.00</td>
+        <td>-580.00</td>
+    </tr>
+    <tr id="row-4884">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Hut_02_D-json', 4884, this)"></td>
+        <td>IceCave</td>
+        <td>IceCave_Hut_02_D.json</td>
+        <td>小屋 B</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonFootmanFromFakeDeath</td>
+        <td>-222.00</td>
+        <td>-538.00</td>
+        <td>-600.00</td>
+    </tr>
+    <tr id="row-4886">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Hut_02_D-json', 4886, this)"></td>
+        <td>IceCave</td>
+        <td>IceCave_Hut_02_D.json</td>
+        <td>小屋 B</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonFootmanFromFakeDeath</td>
+        <td>449.03</td>
+        <td>-548.63</td>
+        <td>-600.00</td>
+    </tr>
+    <tr id="row-4989">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Maze_D-json', 4989, this)"></td>
+        <td>IceCave</td>
+        <td>IceCave_Maze_D.json</td>
+        <td>迷宫</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonFootmanFromFakeDeath</td>
+        <td>176.00</td>
+        <td>-30.00</td>
+        <td>20.00</td>
+    </tr>
+    <tr id="row-4990">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Maze_D-json', 4990, this)"></td>
+        <td>IceCave</td>
+        <td>IceCave_Maze_D.json</td>
+        <td>迷宫</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonFootmanFromFakeDeath</td>
+        <td>-354.00</td>
+        <td>-304.00</td>
+        <td>0.00</td>
+    </tr>
+    <tr id="row-5376">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Watchtower_D-json', 5376, this)"></td>
+        <td>IceCave</td>
+        <td>IceCave_Watchtower_D.json</td>
+        <td>了望塔</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonFootmanFromFakeDeath</td>
+        <td>-1250.00</td>
+        <td>-116.00</td>
+        <td>0.31</td>
+    </tr>
+    <tr id="row-5382">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Watchtower_D-json', 5382, this)"></td>
+        <td>IceCave</td>
+        <td>IceCave_Watchtower_D.json</td>
+        <td>了望塔</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_FrostSkeletonFootmanFromFakeDeath</td>
+        <td>-1264.00</td>
+        <td>38.00</td>
+        <td>0.31</td>
+    </tr>
+</table>
+    </div>
+    <script>
+        window.mapStates = {};
+        function togglePoint(cardId, pointIndex, checkbox) {
+            const dot = document.querySelector(`#map-card-${cardId} .dot[data-index="${pointIndex}"]`);
+            if (dot) { dot.style.display = checkbox.checked ? 'block' : 'none'; }
+            const row = checkbox.closest('tr');
+            if (row) { row.style.opacity = checkbox.checked ? '1' : '0.4'; }
+        }
+        function scaleRange(id, factor) {
+            const input = document.getElementById('range-input-' + id);
+            let val = parseFloat(input.value);
+            if (val > 0) { val = val * factor; input.value = val; updateMapRange(id); }
+        }
+        function updateMapRange(id) {
+            const input = document.getElementById('range-input-' + id);
+            const val = parseFloat(input.value);
+            if (val > 0) { if (!window.mapStates[id]) window.mapStates[id] = { rotate: 1, mirrorX: false, mirrorY: false }; window.mapStates[id].range = val; updateDots(id, window.mapStates[id]); }
+        }
+        function updateDots(index, state) {
+            const card = document.getElementById('map-card-' + index);
+            if (!card) return;
+            const dots = card.querySelectorAll('.dot');
+            dots.forEach(dot => {
+                if (dot.style.display === 'none') return;
+                let x = parseFloat(dot.getAttribute('data-x'));
+                let y = parseFloat(dot.getAttribute('data-y'));
+                const range = state.range || 1600; 
+                if (state.rotate === 1) { const newX = y; const newY = -x; x = newX; y = newY; }
+                else if (state.rotate === 2) { x = -x; y = -y; }
+                else if (state.rotate === 3) { const newX = -y; const newY = x; x = newX; y = newY; }
+                if (state.mirrorX) x = -x;
+                if (state.mirrorY) y = -y;
+                const left = 50 + (x / range) * 50;
+                const top = 50 + (y / range) * 50;
+                dot.style.left = Math.max(0, Math.min(100, left)).toFixed(2) + '%';
+                dot.style.top = Math.max(0, Math.min(100, top)).toFixed(2) + '%';
+            });
+        }
+        function updateButtonUI(index, state) {
+            const card = document.getElementById('map-card-' + index);
+            if (!card) return;
+            const rotateBtn = card.querySelector('.btn-rotate');
+            const mirrorXBtn = card.querySelector('.btn-mirror-x');
+            const mirrorYBtn = card.querySelector('.btn-mirror-y');
+            const rotateLabels = ['↻ 旋转', '↻ 90°', '↻ 180°', '↻ 270°'];
+            rotateBtn.textContent = rotateLabels[state.rotate];
+            rotateBtn.classList.toggle('active', state.rotate !== 0);
+            mirrorXBtn.classList.toggle('active', state.mirrorX);
+            mirrorYBtn.classList.toggle('active', state.mirrorY);
+        }
+        function toggleRotate(index) {
+            if (!window.mapStates[index]) window.mapStates[index] = { rotate: 1, mirrorX: false, mirrorY: false };
+            window.mapStates[index].rotate = (window.mapStates[index].rotate + 1) % 4;
+            updateDots(index, window.mapStates[index]);
+            updateButtonUI(index, window.mapStates[index]);
+        }
+        function toggleMirrorX(index) {
+            if (!window.mapStates[index]) window.mapStates[index] = { rotate: 1, mirrorX: false, mirrorY: false };
+            window.mapStates[index].mirrorX = !window.mapStates[index].mirrorX;
+            updateDots(index, window.mapStates[index]);
+            updateButtonUI(index, window.mapStates[index]);
+        }
+        function toggleMirrorY(index) {
+            if (!window.mapStates[index]) window.mapStates[index] = { rotate: 1, mirrorX: false, mirrorY: false };
+            window.mapStates[index].mirrorY = !window.mapStates[index].mirrorY;
+            updateDots(index, window.mapStates[index]);
+            updateButtonUI(index, window.mapStates[index]);
+        }
+        function resetMap(index) {
+            const input = document.getElementById('range-input-' + index);
+            const defaultRange = parseFloat(input.value);
+            window.mapStates[index] = { rotate: 1, mirrorX: false, mirrorY: false, range: defaultRange };
+            updateDots(index, window.mapStates[index]);
+            updateButtonUI(index, window.mapStates[index]);
+        }
+        function setColumns(cols) {
+            const grid = document.getElementById('maps-grid');
+            grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+        }
+        function toggleDebugInfo() {
+            const filenames = document.querySelectorAll('.map-filename');
+            const infos = document.querySelectorAll('.map-info');
+            const controls = document.querySelectorAll('.controls');
+            const debugTexts = document.querySelectorAll('.debug-text');
+            const debugTitle = document.getElementById('debug-title');
+            const summary = document.getElementById('summary-section');
+            const debugPanel = document.getElementById('debug-panel');
+            const btn = document.getElementById('debug-toggle-btn');
+            const isVisible = filenames.length > 0 && filenames[0].style.display === 'block';
+            
+            filenames.forEach(el => el.style.display = isVisible ? 'none' : 'block');
+            infos.forEach(el => el.style.display = isVisible ? 'none' : 'block');
+            controls.forEach(el => el.classList.toggle('visible', !isVisible));
+            debugTexts.forEach(el => el.classList.toggle('visible', !isVisible));
+            debugTitle.classList.toggle('visible', !isVisible);
+            summary.classList.toggle('visible', !isVisible);
+            debugPanel.classList.toggle('visible', !isVisible);
+            btn.textContent = isVisible ? '显示调试信息' : '隐藏调试信息';
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const mapCards = document.querySelectorAll('.map-card');
+            mapCards.forEach((card) => {
+                const idParts = card.id.split('map-card-')[1];
+                const input = document.getElementById('range-input-' + idParts);
+                const initialRange = input ? parseFloat(input.value) : 1600;
+                window.mapStates[idParts] = { rotate: 1, mirrorX: false, mirrorY: false, range: initialRange };
+                updateDots(idParts, window.mapStates[idParts]);
+                updateButtonUI(idParts, window.mapStates[idParts]);
+            });
+        });
+    </script>
+    <div id="debug-panel" class="debug-panel">
+        <label>每行卡片数:</label>
+        <input type="number" id="cols-input" value="3" min="1" max="10" onchange="setColumns(this.value)">
+    </div>
+    <button id="debug-toggle-btn" class="debug-btn" onclick="toggleDebugInfo()">显示调试信息</button>
+</body>
+</html>
