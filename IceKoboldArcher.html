@@ -10,11 +10,13 @@
         .back-link:hover { text-decoration: underline; color: #fff; }
         h1 { margin-bottom: 8px; font-size: 28px; text-align: center; color: #00bcd4; }
         .disclaimer { text-align: center; color: #ff6b6b; font-size: 14px; margin-bottom: 10px; padding: 8px; background-color: #3a3a3a; border-radius: 5px; }
+        .disclaimer .time { color: #aaa; margin-left: 15px; }
         .debug-title { display: none; font-size: 16px; color: #888; text-align: center; margin-bottom: 5px; }
         .debug-title.visible { display: block; }
-        .maps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px; }
-        @media (max-width: 1200px) { .maps-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 800px) { .maps-grid { grid-template-columns: 1fr; } }
+        .maps-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 20px; }
+        @media (max-width: 1200px) { .maps-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 800px) { .maps-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 500px) { .maps-grid { grid-template-columns: 1fr; } }
         .group-header { grid-column: 1 / -1; font-size: 22px; font-weight: bold; color: #FFC107; padding: 5px 0; margin-top: 10px; border-bottom: 2px solid #FFC107; }
         .map-card { padding: 5px; background-color: #3a3a3a; border-radius: 5px; border: 1px solid #555; display: flex; flex-direction: column; align-items: center; }
         .map-title { font-size: 22px; margin-bottom: 2px; color: #00bcd4; text-align: center; width: 100%; line-height: 1.3; }
@@ -64,240 +66,145 @@
 <body>
     <a href="index.html" class="back-link">&lt;&lt; 返回总览</a>
     <h1>寒冰狗头人弓手 位置汇总</h1>
-    <div class="disclaimer">⚠️ 数据有误差，以实际游戏内为准</div>
+    <div class="disclaimer">⚠️ 数据有误差，以实际游戏内为准<span class="time">地图生成日期：2026-02-13日21点</span></div>
     <div class="debug-title" id="debug-title">寒冰狗头人弓手 (IceKoboldArcher)</div>
     <div class="maps-grid" id="maps-grid">    <div class="group-header">冰图1层</div>
-    <div class="map-card" id="map-card-IceCave_Altar_HR_D-json">
-        <h3 class="map-title">圣坛<span class='debug-text'> (IceCave_Altar)</span><div class='map-filename'>IceCave_Altar_HR_D.json</div></h3>
+    <div class="map-card" id="map-card-IceCave_Altar_D-json">
+        <h3 class="map-title">圣坛<span class='debug-text'> (IceCave_Altar)</span><div class='map-filename'>IceCave_Altar_D.json</div></h3>
         <div class="map-info">IceCave_Altar.png | 找到 2 个位置 | 自动范围: ±1600</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceCave_Altar_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceCave_Altar_HR_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_Altar_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceCave_Altar_HR_D-json', 2.0)">x2</button>
+                <button class="btn-scale" onclick="scaleRange('IceCave_Altar_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-IceCave_Altar_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_Altar_D-json')">
+                <button class="btn-scale" onclick="scaleRange('IceCave_Altar_D-json', 2.0)">x2</button>
             </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceCave_Altar_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_Altar_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_Altar_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceCave_Altar_HR_D-json')">↺ 重置</button>
+            <button class="btn-rotate" onclick="toggleRotate('IceCave_Altar_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_Altar_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_Altar_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('IceCave_Altar_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceCave_Altar_HR_D-json"><img src="images/IceCave_Altar.webp" class="image">        <div class="dot" data-index="4445" data-x="-203.0" data-y="247.0" data-z="0.000115706054" style="left: 43.66%; top: 57.72%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4446" data-x="226.99998" data-y="261.99997" data-z="0.00011" style="left: 57.09%; top: 58.19%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceCave_Altar_D-json"><img src="images/IceCave_Altar.webp" class="image">        <div class="dot" data-index="5420" data-x="-203.0" data-y="247.0" data-z="0.000115706054" style="left: 43.66%; top: 57.72%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5421" data-x="226.99998" data-y="261.99997" data-z="0.00011" style="left: 57.09%; top: 58.19%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
-    <div class="map-card" id="map-card-IceCave_Bridge_HR_D-json">
-        <h3 class="map-title">冰桥<span class='debug-text'> (IceCave_Bridge)</span><div class='map-filename'>IceCave_Bridge_HR_D.json</div></h3>
+    <div class="map-card" id="map-card-IceCave_Bridge_D-json">
+        <h3 class="map-title">冰桥<span class='debug-text'> (IceCave_Bridge)</span><div class='map-filename'>IceCave_Bridge_D.json</div></h3>
         <div class="map-info">IceCave_Bridge.png | 找到 2 个位置 | 自动范围: ±1600</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceCave_Bridge_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceCave_Bridge_HR_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_Bridge_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceCave_Bridge_HR_D-json', 2.0)">x2</button>
+                <button class="btn-scale" onclick="scaleRange('IceCave_Bridge_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-IceCave_Bridge_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_Bridge_D-json')">
+                <button class="btn-scale" onclick="scaleRange('IceCave_Bridge_D-json', 2.0)">x2</button>
             </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceCave_Bridge_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_Bridge_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_Bridge_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceCave_Bridge_HR_D-json')">↺ 重置</button>
+            <button class="btn-rotate" onclick="toggleRotate('IceCave_Bridge_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_Bridge_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_Bridge_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('IceCave_Bridge_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceCave_Bridge_HR_D-json"><img src="images/IceCave_Bridge.webp" class="image">        <div class="dot" data-index="4504" data-x="-690.77264" data-y="-964.905" data-z="0.00010236375" style="left: 28.41%; top: 19.85%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4520" data-x="872.2275" data-y="935.0949" data-z="8.832714e-05" style="left: 77.26%; top: 79.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceCave_Bridge_D-json"><img src="images/IceCave_Bridge.webp" class="image">        <div class="dot" data-index="5503" data-x="-690.77264" data-y="-964.905" data-z="0.00010236375" style="left: 28.41%; top: 19.85%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5511" data-x="872.2275" data-y="935.0949" data-z="8.832714e-05" style="left: 77.26%; top: 79.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
-    <div class="map-card" id="map-card-IceCave_CaveSwamp_HR_D-json">
-        <h3 class="map-title">洞穴沼泽<span class='debug-text'> (IceCave_CaveSwamp)</span><div class='map-filename'>IceCave_CaveSwamp_HR_D.json</div></h3>
-        <div class="map-info">IceCave_CaveSwamp.png | 找到 3 个位置 | 自动范围: ±1600</div>
-        <div class="controls">
-            <div class="input-group">
-                <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceCave_CaveSwamp_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceCave_CaveSwamp_HR_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_CaveSwamp_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceCave_CaveSwamp_HR_D-json', 2.0)">x2</button>
-            </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceCave_CaveSwamp_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_CaveSwamp_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_CaveSwamp_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceCave_CaveSwamp_HR_D-json')">↺ 重置</button>
-        </div>
-        <div class="container" id="container-IceCave_CaveSwamp_HR_D-json"><img src="images/IceCave_CaveSwamp.webp" class="image">        <div class="dot" data-index="4638" data-x="-1220.2284" data-y="-499.80222" data-z="5.986067" style="left: 11.87%; top: 34.38%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4639" data-x="1272.7726" data-y="56.905056" data-z="5.986067" style="left: 89.77%; top: 51.78%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4644" data-x="-1097.0" data-y="-296.0" data-z="-574.9999" style="left: 15.72%; top: 40.75%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-</div>
-    </div>
-    <div class="map-card" id="map-card-IceCave_CrossRoad_HR_D-json">
-        <h3 class="map-title">十字路口<span class='debug-text'> (IceCave_CrossRoad)</span><div class='map-filename'>IceCave_CrossRoad_HR_D.json</div></h3>
+    <div class="map-card" id="map-card-IceCave_CrossRoad_D-json">
+        <h3 class="map-title">十字路口<span class='debug-text'> (IceCave_CrossRoad)</span><div class='map-filename'>IceCave_CrossRoad_D.json</div></h3>
         <div class="map-info">IceCave_CrossRoad.png | 找到 2 个位置 | 自动范围: ±1600</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceCave_CrossRoad_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceCave_CrossRoad_HR_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_CrossRoad_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceCave_CrossRoad_HR_D-json', 2.0)">x2</button>
+                <button class="btn-scale" onclick="scaleRange('IceCave_CrossRoad_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-IceCave_CrossRoad_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_CrossRoad_D-json')">
+                <button class="btn-scale" onclick="scaleRange('IceCave_CrossRoad_D-json', 2.0)">x2</button>
             </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceCave_CrossRoad_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_CrossRoad_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_CrossRoad_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceCave_CrossRoad_HR_D-json')">↺ 重置</button>
+            <button class="btn-rotate" onclick="toggleRotate('IceCave_CrossRoad_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_CrossRoad_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_CrossRoad_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('IceCave_CrossRoad_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceCave_CrossRoad_HR_D-json"><img src="images/IceCave_CrossRoad.webp" class="image">        <div class="dot" data-index="4651" data-x="325.7111" data-y="-875.56104" data-z="0.00010844726" style="left: 60.18%; top: 22.64%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4683" data-x="1281.0" data-y="-51.0" data-z="0.314066" style="left: 90.03%; top: 48.41%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceCave_CrossRoad_D-json"><img src="images/IceCave_CrossRoad.webp" class="image">        <div class="dot" data-index="5682" data-x="325.7111" data-y="-875.56104" data-z="0.000108" style="left: 60.18%; top: 22.64%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5695" data-x="1281.0" data-y="-51.0" data-z="0.314066" style="left: 90.03%; top: 48.41%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
-    <div class="map-card" id="map-card-IceCave_DualCaverns_HR_D-json">
-        <h3 class="map-title">双子洞穴<span class='debug-text'> (IceCave_DualCaverns)</span><div class='map-filename'>IceCave_DualCaverns_HR_D.json</div></h3>
+    <div class="map-card" id="map-card-IceCave_DualCaverns_D-json">
+        <h3 class="map-title">双子洞穴<span class='debug-text'> (IceCave_DualCaverns)</span><div class='map-filename'>IceCave_DualCaverns_D.json</div></h3>
         <div class="map-info">IceCave_DualCaverns.png | 找到 2 个位置 | 自动范围: ±1600</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceCave_DualCaverns_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceCave_DualCaverns_HR_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_DualCaverns_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceCave_DualCaverns_HR_D-json', 2.0)">x2</button>
+                <button class="btn-scale" onclick="scaleRange('IceCave_DualCaverns_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-IceCave_DualCaverns_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_DualCaverns_D-json')">
+                <button class="btn-scale" onclick="scaleRange('IceCave_DualCaverns_D-json', 2.0)">x2</button>
             </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceCave_DualCaverns_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_DualCaverns_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_DualCaverns_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceCave_DualCaverns_HR_D-json')">↺ 重置</button>
+            <button class="btn-rotate" onclick="toggleRotate('IceCave_DualCaverns_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_DualCaverns_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_DualCaverns_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('IceCave_DualCaverns_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceCave_DualCaverns_HR_D-json"><img src="images/IceCave_DualCaverns.webp" class="image">        <div class="dot" data-index="4708" data-x="-504.2889" data-y="684.43896" data-z="-299.9999" style="left: 34.24%; top: 71.39%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4710" data-x="-850.28894" data-y="-438.561" data-z="-299.9999" style="left: 23.43%; top: 36.29%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceCave_DualCaverns_D-json"><img src="images/IceCave_DualCaverns.webp" class="image">        <div class="dot" data-index="5736" data-x="-504.2889" data-y="684.43896" data-z="-299.9999" style="left: 34.24%; top: 71.39%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5738" data-x="-850.28894" data-y="-438.561" data-z="-299.9999" style="left: 23.43%; top: 36.29%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
-    <div class="map-card" id="map-card-IceCave_FourRoute_HR_D-json">
-        <h3 class="map-title">四方路<span class='debug-text'> (IceCave_FourRoute)</span><div class='map-filename'>IceCave_FourRoute_HR_D.json</div></h3>
+    <div class="map-card" id="map-card-IceCave_FourRoute_D-json">
+        <h3 class="map-title">四方路<span class='debug-text'> (IceCave_FourRoute)</span><div class='map-filename'>IceCave_FourRoute_D.json</div></h3>
         <div class="map-info">IceCave_FourRoute.png | 找到 6 个位置 | 自动范围: ±1600</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceCave_FourRoute_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceCave_FourRoute_HR_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_FourRoute_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceCave_FourRoute_HR_D-json', 2.0)">x2</button>
+                <button class="btn-scale" onclick="scaleRange('IceCave_FourRoute_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-IceCave_FourRoute_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_FourRoute_D-json')">
+                <button class="btn-scale" onclick="scaleRange('IceCave_FourRoute_D-json', 2.0)">x2</button>
             </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceCave_FourRoute_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_FourRoute_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_FourRoute_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceCave_FourRoute_HR_D-json')">↺ 重置</button>
+            <button class="btn-rotate" onclick="toggleRotate('IceCave_FourRoute_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_FourRoute_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_FourRoute_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('IceCave_FourRoute_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceCave_FourRoute_HR_D-json"><img src="images/IceCave_FourRoute.webp" class="image">        <div class="dot" data-index="4740" data-x="954.37823" data-y="129.0" data-z="-599.9999" style="left: 79.82%; top: 54.03%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4741" data-x="-46.288918" data-y="-872.56104" data-z="0.31406647" style="left: 48.55%; top: 22.73%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4744" data-x="161.37822" data-y="-924.0" data-z="-599.9999" style="left: 55.04%; top: 21.12%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4750" data-x="161.37822" data-y="956.0" data-z="-599.9999" style="left: 55.04%; top: 79.88%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4758" data-x="-32.0" data-y="1027.0" data-z="0.314064" style="left: 49.00%; top: 82.09%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4759" data-x="987.0" data-y="18.0" data-z="15.000101" style="left: 80.84%; top: 50.56%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceCave_FourRoute_D-json"><img src="images/IceCave_FourRoute.webp" class="image">        <div class="dot" data-index="5797" data-x="954.37823" data-y="129.0" data-z="-599.9999" style="left: 79.82%; top: 54.03%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5798" data-x="-46.288918" data-y="-872.56104" data-z="0.31406647" style="left: 48.55%; top: 22.73%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5801" data-x="161.37822" data-y="-924.0" data-z="-599.9999" style="left: 55.04%; top: 21.12%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5804" data-x="161.37822" data-y="956.0" data-z="-599.9999" style="left: 55.04%; top: 79.88%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5807" data-x="-32.0" data-y="1027.0" data-z="0.31406412" style="left: 49.00%; top: 82.09%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5808" data-x="987.0" data-y="18.0" data-z="15.000101" style="left: 80.84%; top: 50.56%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
-    <div class="map-card" id="map-card-IceCave_FrozenLake_D-json">
-        <h3 class="map-title">冻湖<span class='debug-text'> (IceCave_FrozenLake)</span><div class='map-filename'>IceCave_FrozenLake_D.json</div></h3>
-        <div class="map-info">IceCave_FrozenLake.png | 找到 2 个位置 | 自动范围: ±1600</div>
-        <div class="controls">
-            <div class="input-group">
-                <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceCave_FrozenLake_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceCave_FrozenLake_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_FrozenLake_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceCave_FrozenLake_D-json', 2.0)">x2</button>
-            </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceCave_FrozenLake_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_FrozenLake_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_FrozenLake_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceCave_FrozenLake_D-json')">↺ 重置</button>
-        </div>
-        <div class="container" id="container-IceCave_FrozenLake_D-json"><img src="images/IceCave_FrozenLake.webp" class="image">        <div class="dot" data-index="4793" data-x="-1250.0" data-y="1095.0" data-z="400.0001" style="left: 10.94%; top: 84.22%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="4812" data-x="100.0" data-y="150.0" data-z="0.0" style="left: 53.12%; top: 54.69%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-</div>
-    </div>
-    <div class="map-card" id="map-card-IceCave_IcicleCave_HR_D-json">
-        <h3 class="map-title">冰柱洞<span class='debug-text'> (IceCave_IcicleCave)</span><div class='map-filename'>IceCave_IcicleCave_HR_D.json</div></h3>
+    <div class="map-card" id="map-card-IceCave_IcicleCave_D-json">
+        <h3 class="map-title">冰柱洞<span class='debug-text'> (IceCave_IcicleCave)</span><div class='map-filename'>IceCave_IcicleCave_D.json</div></h3>
         <div class="map-info">IceCave_IcicleCave.png | 找到 3 个位置 | 自动范围: ±1600</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceCave_IcicleCave_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceCave_IcicleCave_HR_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_IcicleCave_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceCave_IcicleCave_HR_D-json', 2.0)">x2</button>
+                <button class="btn-scale" onclick="scaleRange('IceCave_IcicleCave_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-IceCave_IcicleCave_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_IcicleCave_D-json')">
+                <button class="btn-scale" onclick="scaleRange('IceCave_IcicleCave_D-json', 2.0)">x2</button>
             </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceCave_IcicleCave_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_IcicleCave_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_IcicleCave_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceCave_IcicleCave_HR_D-json')">↺ 重置</button>
+            <button class="btn-rotate" onclick="toggleRotate('IceCave_IcicleCave_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_IcicleCave_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_IcicleCave_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('IceCave_IcicleCave_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceCave_IcicleCave_HR_D-json"><img src="images/IceCave_IcicleCave.webp" class="image">        <div class="dot" data-index="5061" data-x="-237.0" data-y="323.0" data-z="0.0" style="left: 42.59%; top: 60.09%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="5062" data-x="-1210.0" data-y="105.0" data-z="0.0" style="left: 12.19%; top: 53.28%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="5064" data-x="-370.0" data-y="-90.0" data-z="0.0" style="left: 38.44%; top: 47.19%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceCave_IcicleCave_D-json"><img src="images/IceCave_IcicleCave.webp" class="image">        <div class="dot" data-index="6164" data-x="-237.0" data-y="323.0" data-z="0.0" style="left: 42.59%; top: 60.09%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="6165" data-x="-1210.0" data-y="105.0" data-z="0.0" style="left: 12.19%; top: 53.28%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="6167" data-x="-370.0" data-y="-90.0" data-z="0.0" style="left: 38.44%; top: 47.19%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
-    <div class="map-card" id="map-card-IceCave_MountainPass_D-json">
-        <h3 class="map-title">山隘<span class='debug-text'> (IceCave_MountainPass)</span><div class='map-filename'>IceCave_MountainPass_D.json</div></h3>
-        <div class="map-info">IceCave_MountainPass.png | 找到 2 个位置 | 自动范围: ±1600</div>
-        <div class="controls">
-            <div class="input-group">
-                <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceCave_MountainPass_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceCave_MountainPass_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_MountainPass_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceCave_MountainPass_D-json', 2.0)">x2</button>
-            </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceCave_MountainPass_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_MountainPass_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_MountainPass_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceCave_MountainPass_D-json')">↺ 重置</button>
-        </div>
-        <div class="container" id="container-IceCave_MountainPass_D-json"><img src="images/IceCave_MountainPass.webp" class="image">        <div class="dot" data-index="5172" data-x="-15.0" data-y="-245.0" data-z="300.0" style="left: 49.53%; top: 42.34%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="5177" data-x="360.0" data-y="360.0" data-z="750.0" style="left: 61.25%; top: 61.25%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-</div>
-    </div>
-    <div class="map-card" id="map-card-IceCave_NarrowBridge_HR_D-json">
-        <h3 class="map-title">窄桥<span class='debug-text'> (IceCave_NarrowBridge)</span><div class='map-filename'>IceCave_NarrowBridge_HR_D.json</div></h3>
-        <div class="map-info">IceCave_NarrowBridge.png | 找到 1 个位置 | 自动范围: ±1600</div>
-        <div class="controls">
-            <div class="input-group">
-                <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceCave_NarrowBridge_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceCave_NarrowBridge_HR_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_NarrowBridge_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceCave_NarrowBridge_HR_D-json', 2.0)">x2</button>
-            </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceCave_NarrowBridge_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_NarrowBridge_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_NarrowBridge_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceCave_NarrowBridge_HR_D-json')">↺ 重置</button>
-        </div>
-        <div class="container" id="container-IceCave_NarrowBridge_HR_D-json"><img src="images/IceCave_NarrowBridge.webp" class="image">        <div class="dot" data-index="5213" data-x="-772.28894" data-y="-159.56102" data-z="0.000108" style="left: 25.87%; top: 45.01%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-</div>
-    </div>
-    <div class="map-card" id="map-card-IceCave_Quarry_D-json">
-        <h3 class="map-title">采石场<span class='debug-text'> (IceCave_Quarry)</span><div class='map-filename'>IceCave_Quarry_D.json</div></h3>
-        <div class="map-info">IceCave_Quarry.png | 找到 2 个位置 | 自动范围: ±1600</div>
-        <div class="controls">
-            <div class="input-group">
-                <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceCave_Quarry_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceCave_Quarry_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_Quarry_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceCave_Quarry_D-json', 2.0)">x2</button>
-            </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceCave_Quarry_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_Quarry_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_Quarry_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceCave_Quarry_D-json')">↺ 重置</button>
-        </div>
-        <div class="container" id="container-IceCave_Quarry_D-json"><img src="images/IceCave_Quarry.webp" class="image">        <div class="dot" data-index="5338" data-x="-235.0" data-y="315.0" data-z="350.0001" style="left: 42.66%; top: 59.84%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="5339" data-x="-210.0" data-y="-655.0" data-z="100.0" style="left: 43.44%; top: 29.53%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-</div>
-    </div>
-    <div class="map-card" id="map-card-IceCave_Spiral_HR_D-json">
-        <h3 class="map-title">转楼<span class='debug-text'> (IceCave_Spiral)</span><div class='map-filename'>IceCave_Spiral_HR_D.json</div></h3>
+    <div class="map-card" id="map-card-IceCave_Spiral_D-json">
+        <h3 class="map-title">转楼<span class='debug-text'> (IceCave_Spiral)</span><div class='map-filename'>IceCave_Spiral_D.json</div></h3>
         <div class="map-info">IceCave_Spiral.png | 找到 2 个位置 | 自动范围: ±1600</div>
         <div class="controls">
             <div class="input-group">
                 <label>范围:</label>
-                <button class="btn-scale" onclick="scaleRange('IceCave_Spiral_HR_D-json', 0.5)">÷2</button>
-                <input type="number" id="range-input-IceCave_Spiral_HR_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_Spiral_HR_D-json')">
-                <button class="btn-scale" onclick="scaleRange('IceCave_Spiral_HR_D-json', 2.0)">x2</button>
+                <button class="btn-scale" onclick="scaleRange('IceCave_Spiral_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-IceCave_Spiral_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_Spiral_D-json')">
+                <button class="btn-scale" onclick="scaleRange('IceCave_Spiral_D-json', 2.0)">x2</button>
             </div>
-            <button class="btn-rotate" onclick="toggleRotate('IceCave_Spiral_HR_D-json')">↻ 旋转</button>
-            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_Spiral_HR_D-json')">⇄ 左右</button>
-            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_Spiral_HR_D-json')">⇅ 上下</button>
-            <button class="btn-reset" onclick="resetMap('IceCave_Spiral_HR_D-json')">↺ 重置</button>
+            <button class="btn-rotate" onclick="toggleRotate('IceCave_Spiral_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_Spiral_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_Spiral_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('IceCave_Spiral_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-IceCave_Spiral_HR_D-json"><img src="images/IceCave_Spiral.webp" class="image">        <div class="dot" data-index="5418" data-x="1157.7726" data-y="-140.09494" data-z="0.31404105" style="left: 86.18%; top: 45.62%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="5427" data-x="-1237.0" data-y="214.0" data-z="0.31406" style="left: 11.34%; top: 56.69%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-IceCave_Spiral_D-json"><img src="images/IceCave_Spiral.webp" class="image">        <div class="dot" data-index="6608" data-x="1157.7726" data-y="-140.09494" data-z="0.31404105" style="left: 86.18%; top: 45.62%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="6612" data-x="-1237.0" data-y="214.0" data-z="0.31406" style="left: 11.34%; top: 56.69%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
 </div>
@@ -306,294 +213,194 @@
         <span class="color-dot" style="background-color: cyan;"></span> Z &gt; 299 (高于地面)
         <span class="color-dot" style="background-color: yellow;"></span> -299 ≤ Z ≤ 299 (正常高度)
         <span class="color-dot" style="background-color: red;"></span> Z &lt; -299 (低于地面)
-        <br><strong>位置统计：共 29 个位置点</strong><br><strong>包含地图：</strong> 冰柱洞, 冰桥, 冻湖, 十字路口, 双子洞穴, 四方路, 圣坛, 山隘, 洞穴沼泽, 窄桥, 转楼, 采石场
+        <br><strong>位置统计：共 19 个位置点</strong><br><strong>包含地图：</strong> 冰柱洞, 冰桥, 十字路口, 双子洞穴, 四方路, 圣坛, 转楼
     </div>
     <div class="summary" id="summary-section">
         <h2>所有坐标详情</h2>
-        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-4445">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Altar_HR_D-json', 4445, this)"></td>
+        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-5420">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Altar_D-json', 5420, this)"></td>
         <td>冰图1层</td>
-        <td>IceCave_Altar_HR_D.json</td>
+        <td>IceCave_Altar_D.json</td>
         <td>圣坛</td>
         <td>GameSpawner_Id_Spawner_New_Monster_IceKoboldArcher</td>
         <td>-203.00</td>
         <td>247.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-4446">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Altar_HR_D-json', 4446, this)"></td>
+    <tr id="row-5421">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Altar_D-json', 5421, this)"></td>
         <td>冰图1层</td>
-        <td>IceCave_Altar_HR_D.json</td>
+        <td>IceCave_Altar_D.json</td>
         <td>圣坛</td>
         <td>GameSpawner_Id_Spawner_New_Monster_IceKoboldArcher</td>
         <td>227.00</td>
         <td>262.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-4504">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Bridge_HR_D-json', 4504, this)"></td>
+    <tr id="row-5503">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Bridge_D-json', 5503, this)"></td>
         <td>冰图1层</td>
-        <td>IceCave_Bridge_HR_D.json</td>
+        <td>IceCave_Bridge_D.json</td>
         <td>冰桥</td>
         <td>GameSpawner_Id_Spawner_New_Monster_IceKoboldArcher</td>
         <td>-690.77</td>
         <td>-964.90</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-4520">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Bridge_HR_D-json', 4520, this)"></td>
+    <tr id="row-5511">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Bridge_D-json', 5511, this)"></td>
         <td>冰图1层</td>
-        <td>IceCave_Bridge_HR_D.json</td>
+        <td>IceCave_Bridge_D.json</td>
         <td>冰桥</td>
         <td>GameSpawner_Id_Spawner_New_Monster_IceKoboldArcher</td>
         <td>872.23</td>
         <td>935.09</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-4638">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_CaveSwamp_HR_D-json', 4638, this)"></td>
+    <tr id="row-5682">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_CrossRoad_D-json', 5682, this)"></td>
         <td>冰图1层</td>
-        <td>IceCave_CaveSwamp_HR_D.json</td>
-        <td>洞穴沼泽</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_IceKoboldArcher</td>
-        <td>-1220.23</td>
-        <td>-499.80</td>
-        <td>5.99</td>
-    </tr>
-    <tr id="row-4639">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_CaveSwamp_HR_D-json', 4639, this)"></td>
-        <td>冰图1层</td>
-        <td>IceCave_CaveSwamp_HR_D.json</td>
-        <td>洞穴沼泽</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_IceKoboldArcher</td>
-        <td>1272.77</td>
-        <td>56.91</td>
-        <td>5.99</td>
-    </tr>
-    <tr id="row-4644">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_CaveSwamp_HR_D-json', 4644, this)"></td>
-        <td>冰图1层</td>
-        <td>IceCave_CaveSwamp_HR_D.json</td>
-        <td>洞穴沼泽</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_IceKoboldArcher</td>
-        <td>-1097.00</td>
-        <td>-296.00</td>
-        <td>-575.00</td>
-    </tr>
-    <tr id="row-4651">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_CrossRoad_HR_D-json', 4651, this)"></td>
-        <td>冰图1层</td>
-        <td>IceCave_CrossRoad_HR_D.json</td>
+        <td>IceCave_CrossRoad_D.json</td>
         <td>十字路口</td>
         <td>GameSpawner_Id_Spawner_New_Monster_IceKoboldArcher</td>
         <td>325.71</td>
         <td>-875.56</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-4683">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_CrossRoad_HR_D-json', 4683, this)"></td>
+    <tr id="row-5695">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_CrossRoad_D-json', 5695, this)"></td>
         <td>冰图1层</td>
-        <td>IceCave_CrossRoad_HR_D.json</td>
+        <td>IceCave_CrossRoad_D.json</td>
         <td>十字路口</td>
         <td>GameSpawner_Id_Spawner_New_Monster_IceKoboldArcher</td>
         <td>1281.00</td>
         <td>-51.00</td>
         <td>0.31</td>
     </tr>
-    <tr id="row-4708">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_DualCaverns_HR_D-json', 4708, this)"></td>
+    <tr id="row-5736">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_DualCaverns_D-json', 5736, this)"></td>
         <td>冰图1层</td>
-        <td>IceCave_DualCaverns_HR_D.json</td>
+        <td>IceCave_DualCaverns_D.json</td>
         <td>双子洞穴</td>
         <td>GameSpawner_Id_Spawner_New_Monster_IceKoboldArcher</td>
         <td>-504.29</td>
         <td>684.44</td>
         <td>-300.00</td>
     </tr>
-    <tr id="row-4710">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_DualCaverns_HR_D-json', 4710, this)"></td>
+    <tr id="row-5738">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_DualCaverns_D-json', 5738, this)"></td>
         <td>冰图1层</td>
-        <td>IceCave_DualCaverns_HR_D.json</td>
+        <td>IceCave_DualCaverns_D.json</td>
         <td>双子洞穴</td>
         <td>GameSpawner_Id_Spawner_New_Monster_IceKoboldArcher</td>
         <td>-850.29</td>
         <td>-438.56</td>
         <td>-300.00</td>
     </tr>
-    <tr id="row-4740">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FourRoute_HR_D-json', 4740, this)"></td>
+    <tr id="row-5797">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FourRoute_D-json', 5797, this)"></td>
         <td>冰图1层</td>
-        <td>IceCave_FourRoute_HR_D.json</td>
+        <td>IceCave_FourRoute_D.json</td>
         <td>四方路</td>
         <td>GameSpawner_Id_Spawner_New_Monster_IceKoboldArcher</td>
         <td>954.38</td>
         <td>129.00</td>
         <td>-600.00</td>
     </tr>
-    <tr id="row-4741">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FourRoute_HR_D-json', 4741, this)"></td>
+    <tr id="row-5798">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FourRoute_D-json', 5798, this)"></td>
         <td>冰图1层</td>
-        <td>IceCave_FourRoute_HR_D.json</td>
+        <td>IceCave_FourRoute_D.json</td>
         <td>四方路</td>
         <td>GameSpawner_Id_Spawner_New_Monster_IceKoboldArcher</td>
         <td>-46.29</td>
         <td>-872.56</td>
         <td>0.31</td>
     </tr>
-    <tr id="row-4744">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FourRoute_HR_D-json', 4744, this)"></td>
+    <tr id="row-5801">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FourRoute_D-json', 5801, this)"></td>
         <td>冰图1层</td>
-        <td>IceCave_FourRoute_HR_D.json</td>
+        <td>IceCave_FourRoute_D.json</td>
         <td>四方路</td>
         <td>GameSpawner_Id_Spawner_New_Monster_IceKoboldArcher</td>
         <td>161.38</td>
         <td>-924.00</td>
         <td>-600.00</td>
     </tr>
-    <tr id="row-4750">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FourRoute_HR_D-json', 4750, this)"></td>
+    <tr id="row-5804">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FourRoute_D-json', 5804, this)"></td>
         <td>冰图1层</td>
-        <td>IceCave_FourRoute_HR_D.json</td>
+        <td>IceCave_FourRoute_D.json</td>
         <td>四方路</td>
         <td>GameSpawner_Id_Spawner_New_Monster_IceKoboldArcher</td>
         <td>161.38</td>
         <td>956.00</td>
         <td>-600.00</td>
     </tr>
-    <tr id="row-4758">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FourRoute_HR_D-json', 4758, this)"></td>
+    <tr id="row-5807">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FourRoute_D-json', 5807, this)"></td>
         <td>冰图1层</td>
-        <td>IceCave_FourRoute_HR_D.json</td>
+        <td>IceCave_FourRoute_D.json</td>
         <td>四方路</td>
         <td>GameSpawner_Id_Spawner_New_Monster_IceKoboldArcher</td>
         <td>-32.00</td>
         <td>1027.00</td>
         <td>0.31</td>
     </tr>
-    <tr id="row-4759">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FourRoute_HR_D-json', 4759, this)"></td>
+    <tr id="row-5808">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FourRoute_D-json', 5808, this)"></td>
         <td>冰图1层</td>
-        <td>IceCave_FourRoute_HR_D.json</td>
+        <td>IceCave_FourRoute_D.json</td>
         <td>四方路</td>
         <td>GameSpawner_Id_Spawner_New_Monster_IceKoboldArcher</td>
         <td>987.00</td>
         <td>18.00</td>
         <td>15.00</td>
     </tr>
-    <tr id="row-4793">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FrozenLake_D-json', 4793, this)"></td>
+    <tr id="row-6164">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_IcicleCave_D-json', 6164, this)"></td>
         <td>冰图1层</td>
-        <td>IceCave_FrozenLake_D.json</td>
-        <td>冻湖</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_IceKoboldArcher</td>
-        <td>-1250.00</td>
-        <td>1095.00</td>
-        <td>400.00</td>
-    </tr>
-    <tr id="row-4812">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FrozenLake_D-json', 4812, this)"></td>
-        <td>冰图1层</td>
-        <td>IceCave_FrozenLake_D.json</td>
-        <td>冻湖</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_IceKoboldArcher</td>
-        <td>100.00</td>
-        <td>150.00</td>
-        <td>0.00</td>
-    </tr>
-    <tr id="row-5061">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_IcicleCave_HR_D-json', 5061, this)"></td>
-        <td>冰图1层</td>
-        <td>IceCave_IcicleCave_HR_D.json</td>
+        <td>IceCave_IcicleCave_D.json</td>
         <td>冰柱洞</td>
         <td>GameSpawner_Id_Spawner_New_Monster_IceKoboldArcher</td>
         <td>-237.00</td>
         <td>323.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-5062">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_IcicleCave_HR_D-json', 5062, this)"></td>
+    <tr id="row-6165">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_IcicleCave_D-json', 6165, this)"></td>
         <td>冰图1层</td>
-        <td>IceCave_IcicleCave_HR_D.json</td>
+        <td>IceCave_IcicleCave_D.json</td>
         <td>冰柱洞</td>
         <td>GameSpawner_Id_Spawner_New_Monster_IceKoboldArcher</td>
         <td>-1210.00</td>
         <td>105.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-5064">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_IcicleCave_HR_D-json', 5064, this)"></td>
+    <tr id="row-6167">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_IcicleCave_D-json', 6167, this)"></td>
         <td>冰图1层</td>
-        <td>IceCave_IcicleCave_HR_D.json</td>
+        <td>IceCave_IcicleCave_D.json</td>
         <td>冰柱洞</td>
         <td>GameSpawner_Id_Spawner_New_Monster_IceKoboldArcher</td>
         <td>-370.00</td>
         <td>-90.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-5172">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_MountainPass_D-json', 5172, this)"></td>
+    <tr id="row-6608">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Spiral_D-json', 6608, this)"></td>
         <td>冰图1层</td>
-        <td>IceCave_MountainPass_D.json</td>
-        <td>山隘</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_IceKoboldArcher</td>
-        <td>-15.00</td>
-        <td>-245.00</td>
-        <td>300.00</td>
-    </tr>
-    <tr id="row-5177">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_MountainPass_D-json', 5177, this)"></td>
-        <td>冰图1层</td>
-        <td>IceCave_MountainPass_D.json</td>
-        <td>山隘</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_IceKoboldArcher</td>
-        <td>360.00</td>
-        <td>360.00</td>
-        <td>750.00</td>
-    </tr>
-    <tr id="row-5213">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_NarrowBridge_HR_D-json', 5213, this)"></td>
-        <td>冰图1层</td>
-        <td>IceCave_NarrowBridge_HR_D.json</td>
-        <td>窄桥</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_IceKoboldArcher</td>
-        <td>-772.29</td>
-        <td>-159.56</td>
-        <td>0.00</td>
-    </tr>
-    <tr id="row-5338">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Quarry_D-json', 5338, this)"></td>
-        <td>冰图1层</td>
-        <td>IceCave_Quarry_D.json</td>
-        <td>采石场</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_IceKoboldArcher</td>
-        <td>-235.00</td>
-        <td>315.00</td>
-        <td>350.00</td>
-    </tr>
-    <tr id="row-5339">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Quarry_D-json', 5339, this)"></td>
-        <td>冰图1层</td>
-        <td>IceCave_Quarry_D.json</td>
-        <td>采石场</td>
-        <td>GameSpawner_Id_Spawner_New_Monster_IceKoboldArcher</td>
-        <td>-210.00</td>
-        <td>-655.00</td>
-        <td>100.00</td>
-    </tr>
-    <tr id="row-5418">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Spiral_HR_D-json', 5418, this)"></td>
-        <td>冰图1层</td>
-        <td>IceCave_Spiral_HR_D.json</td>
+        <td>IceCave_Spiral_D.json</td>
         <td>转楼</td>
         <td>GameSpawner_Id_Spawner_New_Monster_IceKoboldArcher</td>
         <td>1157.77</td>
         <td>-140.09</td>
         <td>0.31</td>
     </tr>
-    <tr id="row-5427">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Spiral_HR_D-json', 5427, this)"></td>
+    <tr id="row-6612">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_Spiral_D-json', 6612, this)"></td>
         <td>冰图1层</td>
-        <td>IceCave_Spiral_HR_D.json</td>
+        <td>IceCave_Spiral_D.json</td>
         <td>转楼</td>
         <td>GameSpawner_Id_Spawner_New_Monster_IceKoboldArcher</td>
         <td>-1237.00</td>
@@ -715,7 +522,7 @@
     </script>
     <div id="debug-panel" class="debug-panel">
         <label>每行卡片数:</label>
-        <input type="number" id="cols-input" value="3" min="1" max="10" onchange="setColumns(this.value)">
+        <input type="number" id="cols-input" value="5" min="1" max="10" onchange="setColumns(this.value)">
     </div>
     <button id="debug-toggle-btn" class="debug-btn" onclick="toggleDebugInfo()">显示调试信息</button>
 </body>

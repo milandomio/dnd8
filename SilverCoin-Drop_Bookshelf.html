@@ -1,0 +1,3083 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>银币>目标>Drop_Bookshelf 位置汇总</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background-color: #2c2c2c; color: white; padding: 10px; }
+        .back-link { display: block; text-align: center; margin-bottom: 10px; color: #FFC107; font-size: 18px; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; color: #fff; }
+        h1 { margin-bottom: 8px; font-size: 28px; text-align: center; color: #00bcd4; }
+        .disclaimer { text-align: center; color: #ff6b6b; font-size: 14px; margin-bottom: 10px; padding: 8px; background-color: #3a3a3a; border-radius: 5px; }
+        .disclaimer .time { color: #aaa; margin-left: 15px; }
+        .debug-title { display: none; font-size: 16px; color: #888; text-align: center; margin-bottom: 5px; }
+        .debug-title.visible { display: block; }
+        .maps-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 20px; }
+        @media (max-width: 1200px) { .maps-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 800px) { .maps-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 500px) { .maps-grid { grid-template-columns: 1fr; } }
+        .group-header { grid-column: 1 / -1; font-size: 22px; font-weight: bold; color: #FFC107; padding: 5px 0; margin-top: 10px; border-bottom: 2px solid #FFC107; }
+        .map-card { padding: 5px; background-color: #3a3a3a; border-radius: 5px; border: 1px solid #555; display: flex; flex-direction: column; align-items: center; }
+        .map-title { font-size: 22px; margin-bottom: 2px; color: #00bcd4; text-align: center; width: 100%; line-height: 1.3; }
+        .debug-text { display: none; font-size: 13px; color: #888; }
+        .debug-text.visible { display: inline; }
+        .map-filename { font-size: 13px; color: #888; font-weight: normal; margin-top: 1px; display: none; }
+        .map-info { margin-bottom: 5px; font-size: 13px; color: #aaa; text-align: center; display: none; }
+        .controls { display: none; gap:3px; margin-bottom: 5px; justify-content: center; flex-wrap: wrap; width: 100%; align-items: center; }
+        .controls.visible { display: flex; }
+        .debug-panel { display: none; position: fixed; bottom: 60px; right: 20px; background-color: #333; border: 1px solid #555; border-radius: 8px; padding: 10px; z-index: 9998; }
+        .debug-panel.visible { display: block; }
+        .debug-panel label { font-size: 14px; color: #aaa; margin-right: 5px; }
+        .debug-panel input { width: 50px; padding: 3px; border-radius: 3px; border: 1px solid #555; background-color: #222; color: white; font-size: 14px; }
+        .debug-btn { position: fixed; bottom: 20px; right: 20px; padding: 10px 20px; background-color: #FFC107; color: #000; border: 2px solid #FF9800; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: bold; z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,0.5); transition: all 0.2s; }
+        .debug-btn:hover { background-color: #FF9800; color: #fff; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.6); }
+        .input-group { display: flex; align-items: center; gap:2px; background-color: #222; padding: 2px 5px; border-radius: 3px; }
+        .input-group label { font-size: 13px; color: #aaa; }
+        .input-group input { padding: 1px; border-radius:2px; border:1px solid #555; background-color: #333; color: white; font-size: 13px; width: 50px; text-align: center; }
+        .btn-scale { padding: 2px 4px; background-color: #555; color: white; border: none; border-radius: 2px; font-size: 13px; cursor: pointer; }
+        .btn-scale:hover { background-color: #777; }
+        .controls button { padding: 3px 6px; border: none; border-radius: 3px; font-size: 13px; cursor: pointer; transition: all 0.2s; }
+        .btn-rotate { background-color: #4CAF50; color: white; }
+        .btn-rotate:hover { background-color: #45a049; }
+        .btn-rotate.active { background-color: #FFC107; color: #000; box-shadow: 0 0 10px #FFC107; }
+        .btn-mirror-x { background-color: #2196F3; color: white; }
+        .btn-mirror-x:hover { background-color: #1976D2; }
+        .btn-mirror-x.active { background-color: #FF5722; box-shadow: 0 0 10px #FF5722; }
+        .btn-mirror-y { background-color: #9C27B0; color: white; }
+        .btn-mirror-y:hover { background-color: #7B1FA2; }
+        .btn-mirror-y.active { background-color: #E91E63; box-shadow: 0 0 10px #E91E63; }
+        .btn-reset { background-color: #9E9E9E; color: white; }
+        .btn-reset:hover { background-color: #757575; }
+        .container { position: relative; width: 100%; max-width: 360px; margin: 0 auto; aspect-ratio: 1 / 1; background-color: #1a1a1a; border: 1px solid #444; border-radius: 3px; }
+        .image { width: 100%; height: 100%; display: block; border-radius: 2px; }
+        .image-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #666; background-color: #222; border-radius: 2px; font-size: 13px; }
+        .dot { position: absolute; width: 9px; height: 9px; border-radius: 50%; transform: translate(-50%, -50%); z-index: 10; transition: left 0.3s ease, top 0.3s ease; display: block; }
+        .summary { display: none; margin-top: 20px; padding: 10px; background-color: #3a3a3a; border-radius: 5px; }
+        .summary.visible { display: block; }
+        .summary h2 { font-size: 18px; margin-bottom: 10px; text-align: center; color: #00bcd4; }
+        .summary table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        .summary th, .summary td { text-align: left; padding: 4px; border-bottom:1px solid #555; }
+        .summary th { background-color: #555; font-weight: bold; }
+        .legend { margin: 10px 0; padding: 10px; background-color: #3a3a3a; border-radius: 5px; font-size: 15px; text-align: center; color: #aaa; }
+        .color-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 3px; }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">&lt;&lt; 返回总览</a>
+    <h1>银币>目标>Drop_Bookshelf 位置汇总</h1>
+    <div class="disclaimer">⚠️ 数据有误差，以实际游戏内为准<span class="time">地图生成日期：2026-02-13日21点</span></div>
+    <div class="debug-title" id="debug-title">银币 (SilverCoin) 目标 Drop_Bookshelf</div>
+    <div class="maps-grid" id="maps-grid">    <div class="group-header">废墟2层地牢</div>
+    <div class="map-card" id="map-card-Crypt_AltarRoomAB_HR_D-json">
+        <h3 class="map-title">祭坛室<span class='debug-text'> (AltarRoom)</span><div class='map-filename'>Crypt_AltarRoomAB_HR_D.json</div></h3>
+        <div class="map-info">AltarRoomAB.png | 找到 79 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('Crypt_AltarRoomAB_HR_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-Crypt_AltarRoomAB_HR_D-json" value="1600" step="100" onchange="updateMapRange('Crypt_AltarRoomAB_HR_D-json')">
+                <button class="btn-scale" onclick="scaleRange('Crypt_AltarRoomAB_HR_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('Crypt_AltarRoomAB_HR_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('Crypt_AltarRoomAB_HR_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('Crypt_AltarRoomAB_HR_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('Crypt_AltarRoomAB_HR_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-Crypt_AltarRoomAB_HR_D-json"><img src="images/AltarRoomAB.webp" class="image">        <div class="dot" data-index="1583" data-x="-66.0" data-y="214.0" data-z="158.0" style="left: 47.94%; top: 56.69%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1584" data-x="-66.0" data-y="155.0" data-z="159.0" style="left: 47.94%; top: 54.84%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1585" data-x="-66.0" data-y="145.0" data-z="120.0" style="left: 47.94%; top: 54.53%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1586" data-x="-61.0" data-y="328.0" data-z="136.0" style="left: 48.09%; top: 60.25%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1587" data-x="-66.0" data-y="205.0" data-z="80.0" style="left: 47.94%; top: 56.41%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1588" data-x="-66.0" data-y="155.0" data-z="80.0" style="left: 47.94%; top: 54.84%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1589" data-x="-62.0" data-y="320.0" data-z="19.0" style="left: 48.06%; top: 60.00%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1590" data-x="-66.0" data-y="150.0" data-z="10.0" style="left: 47.94%; top: 54.69%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1591" data-x="-71.0" data-y="51.0" data-z="0.0" style="left: 47.78%; top: 51.59%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1592" data-x="-66.0" data-y="360.0" data-z="18.0" style="left: 47.94%; top: 61.25%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1593" data-x="-66.0" data-y="317.0" data-z="58.0" style="left: 47.94%; top: 59.91%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1594" data-x="64.0" data-y="29.0" data-z="80.0" style="left: 52.00%; top: 50.91%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1595" data-x="-58.0" data-y="466.0" data-z="96.0" style="left: 48.19%; top: 64.56%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1596" data-x="-58.0" data-y="438.0" data-z="136.0" style="left: 48.19%; top: 63.69%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1597" data-x="-66.0" data-y="490.0" data-z="58.0" style="left: 47.94%; top: 65.31%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1598" data-x="-55.0" data-y="445.0" data-z="18.0" style="left: 48.28%; top: 63.91%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1600" data-x="50.0" data-y="50.0" data-z="85.0" style="left: 51.56%; top: 51.56%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1601" data-x="11.0" data-y="50.0" data-z="85.0" style="left: 50.34%; top: 51.56%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1602" data-x="65.0" data-y="50.0" data-z="45.0" style="left: 52.03%; top: 51.56%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1603" data-x="-120.0" data-y="35.0" data-z="19.0" style="left: 46.25%; top: 51.09%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1604" data-x="54.0" data-y="14.0" data-z="10.0" style="left: 51.69%; top: 50.44%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1605" data-x="-105.0" data-y="36.0" data-z="57.0" style="left: 46.72%; top: 51.12%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1606" data-x="-155.0" data-y="50.0" data-z="95.0" style="left: 45.16%; top: 51.56%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1607" data-x="-270.0" data-y="35.0" data-z="96.0" style="left: 41.56%; top: 51.09%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1608" data-x="-265.0" data-y="41.0" data-z="58.0" style="left: 41.72%; top: 51.28%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1609" data-x="-208.0" data-y="31.0" data-z="58.0" style="left: 43.50%; top: 50.97%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1610" data-x="-9.0" data-y="-1492.0" data-z="0.0" style="left: 49.72%; top: 3.38%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1611" data-x="19.0" data-y="-1463.0" data-z="0.0" style="left: 50.59%; top: 4.28%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1612" data-x="-230.0" data-y="30.0" data-z="135.0" style="left: 42.81%; top: 50.94%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1613" data-x="-360.0" data-y="45.0" data-z="120.0" style="left: 38.75%; top: 51.41%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1614" data-x="-350.0" data-y="45.0" data-z="45.0" style="left: 39.06%; top: 51.41%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1615" data-x="-425.0" data-y="50.0" data-z="85.0" style="left: 36.72%; top: 51.56%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1617" data-x="-390.0" data-y="40.0" data-z="10.0" style="left: 37.81%; top: 51.25%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1618" data-x="162.0" data-y="151.0" data-z="114.0" style="left: 55.06%; top: 54.72%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1619" data-x="102.0" data-y="168.0" data-z="115.0" style="left: 53.19%; top: 55.25%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1622" data-x="-644.0" data-y="-664.0" data-z="115.0" style="left: 29.88%; top: 29.25%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1623" data-x="12.0" data-y="168.0" data-z="115.0" style="left: 50.38%; top: 55.25%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1625" data-x="37.0" data-y="196.0" data-z="115.0" style="left: 51.16%; top: 56.12%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1626" data-x="11.0" data-y="165.0" data-z="83.0" style="left: 50.34%; top: 55.16%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1627" data-x="1.0" data-y="196.0" data-z="84.0" style="left: 50.03%; top: 56.12%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1628" data-x="-274.0" data-y="101.0" data-z="158.0" style="left: 41.44%; top: 53.16%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1629" data-x="-280.0" data-y="121.0" data-z="82.0" style="left: 41.25%; top: 53.78%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1630" data-x="-273.0" data-y="81.0" data-z="45.0" style="left: 41.47%; top: 52.53%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1631" data-x="-273.0" data-y="136.0" data-z="45.0" style="left: 41.47%; top: 54.25%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1632" data-x="-273.0" data-y="176.0" data-z="45.0" style="left: 41.47%; top: 55.50%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1633" data-x="-273.0" data-y="111.0" data-z="10.0" style="left: 41.47%; top: 53.47%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1634" data-x="65.0" data-y="-56.0" data-z="136.0" style="left: 52.03%; top: 48.25%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1635" data-x="-279.0" data-y="-69.0" data-z="120.0" style="left: 41.28%; top: 47.84%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1636" data-x="-278.0" data-y="-109.0" data-z="85.0" style="left: 41.31%; top: 46.59%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1637" data-x="-278.0" data-y="-54.0" data-z="45.0" style="left: 41.31%; top: 48.31%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1638" data-x="-278.0" data-y="-99.0" data-z="10.0" style="left: 41.31%; top: 46.91%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1639" data-x="-56.0" data-y="-121.0" data-z="115.0" style="left: 48.25%; top: 46.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1640" data-x="14.0" data-y="-136.0" data-z="84.0" style="left: 50.44%; top: 45.75%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1642" data-x="81.0" data-y="-162.0" data-z="115.0" style="left: 52.53%; top: 44.94%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1643" data-x="42.0" data-y="-137.0" data-z="145.0" style="left: 51.31%; top: 45.72%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1644" data-x="161.0" data-y="-120.0" data-z="114.0" style="left: 55.03%; top: 46.25%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1645" data-x="87.0" data-y="-136.0" data-z="115.0" style="left: 52.72%; top: 45.75%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1646" data-x="104.0" data-y="-162.0" data-z="84.0" style="left: 53.25%; top: 44.94%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1648" data-x="639.0" data-y="-80.0" data-z="80.0" style="left: 69.97%; top: 47.50%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1649" data-x="624.0" data-y="-65.0" data-z="45.0" style="left: 69.50%; top: 47.97%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1650" data-x="644.0" data-y="-70.0" data-z="120.0" style="left: 70.12%; top: 47.81%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1651" data-x="59.0" data-y="-16.0" data-z="120.0" style="left: 51.84%; top: 49.50%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1652" data-x="59.0" data-y="44.0" data-z="160.0" style="left: 51.84%; top: 51.38%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1653" data-x="59.0" data-y="-151.0" data-z="10.0" style="left: 51.84%; top: 45.28%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1654" data-x="64.0" data-y="-151.0" data-z="45.0" style="left: 52.00%; top: 45.28%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1655" data-x="64.0" data-y="-106.0" data-z="80.0" style="left: 52.00%; top: 46.69%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1656" data-x="59.0" data-y="-126.0" data-z="120.0" style="left: 51.84%; top: 46.06%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1657" data-x="59.0" data-y="-296.0" data-z="120.0" style="left: 51.84%; top: 40.75%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1658" data-x="64.0" data-y="-246.0" data-z="80.0" style="left: 52.00%; top: 42.31%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1659" data-x="59.0" data-y="-316.0" data-z="45.0" style="left: 51.84%; top: 40.12%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1660" data-x="59.0" data-y="-266.0" data-z="10.0" style="left: 51.84%; top: 41.69%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1661" data-x="49.0" data-y="-231.0" data-z="157.0" style="left: 51.53%; top: 42.78%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1662" data-x="-279.0" data-y="-129.0" data-z="160.0" style="left: 41.28%; top: 45.97%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1663" data-x="-31.0" data-y="-65.0" data-z="95.0" style="left: 49.03%; top: 47.97%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1664" data-x="84.0" data-y="-65.0" data-z="58.0" style="left: 52.62%; top: 47.97%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1665" data-x="-66.0" data-y="351.0" data-z="95.0" style="left: 47.94%; top: 60.97%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1666" data-x="-66.0" data-y="70.0" data-z="120.0" style="left: 47.94%; top: 52.19%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1667" data-x="-66.0" data-y="20.0" data-z="80.0" style="left: 47.94%; top: 50.62%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="1670" data-x="64.0" data-y="-292.0" data-z="199.5" style="left: 52.00%; top: 40.88%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="map-card" id="map-card-ComplexHall_HR_D-json">
+        <h3 class="map-title">门控房间<span class='debug-text'> (Gated_Rooms)</span><div class='map-filename'>ComplexHall_HR_D.json</div></h3>
+        <div class="map-info">ComplexHall.png | 找到 4 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('ComplexHall_HR_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-ComplexHall_HR_D-json" value="1600" step="100" onchange="updateMapRange('ComplexHall_HR_D-json')">
+                <button class="btn-scale" onclick="scaleRange('ComplexHall_HR_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('ComplexHall_HR_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('ComplexHall_HR_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('ComplexHall_HR_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('ComplexHall_HR_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-ComplexHall_HR_D-json"><img src="images/ComplexHall.webp" class="image">        <div class="dot" data-index="2067" data-x="-275.0" data-y="180.0" data-z="-150.0" style="left: 41.41%; top: 55.62%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2070" data-x="1020.0" data-y="890.0" data-z="0.0" style="left: 81.88%; top: 77.81%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2071" data-x="1000.0" data-y="845.0" data-z="0.0" style="left: 81.25%; top: 76.41%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2072" data-x="1040.0" data-y="845.0" data-z="0.0" style="left: 82.50%; top: 76.41%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="map-card" id="map-card-DarkMagicLibrary_Center_HR_D-json">
+        <h3 class="map-title">黑魔法图书馆<span class='debug-text'> (Dark_Magic_Library)</span><div class='map-filename'>DarkMagicLibrary_Center_HR_D.json</div></h3>
+        <div class="map-info">DarkMagicLibrary_Center.png | 找到 94 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('DarkMagicLibrary_Center_HR_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-DarkMagicLibrary_Center_HR_D-json" value="1600" step="100" onchange="updateMapRange('DarkMagicLibrary_Center_HR_D-json')">
+                <button class="btn-scale" onclick="scaleRange('DarkMagicLibrary_Center_HR_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('DarkMagicLibrary_Center_HR_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('DarkMagicLibrary_Center_HR_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('DarkMagicLibrary_Center_HR_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('DarkMagicLibrary_Center_HR_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-DarkMagicLibrary_Center_HR_D-json"><img src="images/DarkMagicLibrary_Center.webp" class="image">        <div class="dot" data-index="2130" data-x="136.0" data-y="1224.0" data-z="119.0" style="left: 54.25%; top: 88.25%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2133" data-x="1179.0" data-y="-279.0" data-z="119.0" style="left: 86.84%; top: 41.28%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2134" data-x="1085.0" data-y="-281.0" data-z="118.0" style="left: 83.91%; top: 41.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2135" data-x="1031.0" data-y="-288.0" data-z="44.0" style="left: 82.22%; top: 41.00%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2137" data-x="1233.0" data-y="-210.0" data-z="119.0" style="left: 88.53%; top: 43.44%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2139" data-x="1228.0" data-y="-234.0" data-z="45.0" style="left: 88.38%; top: 42.69%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2140" data-x="1213.0" data-y="336.0" data-z="111.0" style="left: 87.91%; top: 60.50%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2141" data-x="1213.0" data-y="260.0" data-z="154.0" style="left: 87.91%; top: 58.12%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2142" data-x="183.0" data-y="1024.0" data-z="158.0" style="left: 55.72%; top: 82.00%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2143" data-x="183.0" data-y="1026.0" data-z="84.0" style="left: 55.72%; top: 82.06%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2144" data-x="-227.0" data-y="413.0" data-z="119.0" style="left: 42.91%; top: 62.91%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2148" data-x="-431.0" data-y="-23.0" data-z="156.0" style="left: 36.53%; top: 49.28%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2149" data-x="396.0" data-y="-627.0" data-z="112.0" style="left: 62.38%; top: 30.41%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2150" data-x="359.0" data-y="421.0" data-z="112.0" style="left: 61.22%; top: 63.16%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2151" data-x="-203.0" data-y="374.0" data-z="81.0001" style="left: 43.66%; top: 61.69%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2152" data-x="-85.0" data-y="377.0" data-z="81.0001" style="left: 47.34%; top: 61.78%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2154" data-x="-160.0" data-y="370.0" data-z="44.0001" style="left: 45.00%; top: 61.56%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2155" data-x="-11.0" data-y="370.0" data-z="44.0001" style="left: 49.66%; top: 61.56%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2156" data-x="258.0" data-y="232.0" data-z="81.0001" style="left: 58.06%; top: 57.25%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2158" data-x="441.0" data-y="-589.0" data-z="112.0001" style="left: 63.78%; top: 31.59%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2159" data-x="213.0" data-y="-380.0" data-z="114.0001" style="left: 56.66%; top: 38.12%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2160" data-x="341.0" data-y="232.0" data-z="45.0001" style="left: 60.66%; top: 57.25%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2161" data-x="296.0" data-y="232.0" data-z="119.0001" style="left: 59.25%; top: 57.25%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2162" data-x="301.0" data-y="232.0" data-z="158.0001" style="left: 59.41%; top: 57.25%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2163" data-x="341.0" data-y="232.0" data-z="119.0001" style="left: 60.66%; top: 57.25%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2164" data-x="257.0" data-y="232.0" data-z="9.0001" style="left: 58.03%; top: 57.25%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2165" data-x="-1113.0" data-y="378.0" data-z="113.0" style="left: 15.22%; top: 61.81%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2166" data-x="449.0" data-y="39.0" data-z="81.0001" style="left: 64.03%; top: 51.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2167" data-x="-24.000002" data-y="-430.0" data-z="45.0001" style="left: 49.25%; top: 36.56%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2168" data-x="-232.0" data-y="-383.0" data-z="119.0001" style="left: 42.75%; top: 38.03%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2169" data-x="-232.0" data-y="-369.0" data-z="82.0001" style="left: 42.75%; top: 38.47%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2170" data-x="-424.0" data-y="347.0" data-z="81.0" style="left: 36.75%; top: 60.84%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2171" data-x="387.0" data-y="-189.0" data-z="113.0" style="left: 62.09%; top: 44.09%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2172" data-x="573.0" data-y="631.0" data-z="82.0" style="left: 67.91%; top: 69.72%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2173" data-x="-428.0" data-y="-242.0" data-z="45.0" style="left: 36.62%; top: 42.44%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2176" data-x="-371.0" data-y="-644.0" data-z="45.0" style="left: 38.41%; top: 29.88%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2177" data-x="-610.0" data-y="-589.0" data-z="45.0" style="left: 30.94%; top: 31.59%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2178" data-x="42.0" data-y="-636.0" data-z="45.0" style="left: 51.31%; top: 30.12%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2179" data-x="665.0" data-y="-109.0" data-z="45.0" style="left: 70.78%; top: 46.59%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2180" data-x="614.0" data-y="620.0" data-z="45.0" style="left: 69.19%; top: 69.38%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2181" data-x="-8.0" data-y="413.0" data-z="82.0" style="left: 49.75%; top: 62.91%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2182" data-x="-426.0" data-y="294.0" data-z="119.0" style="left: 36.69%; top: 59.19%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2183" data-x="-426.0" data-y="-285.0" data-z="119.0" style="left: 36.69%; top: 41.09%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2184" data-x="-426.0" data-y="-517.0" data-z="119.0" style="left: 36.69%; top: 33.84%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2185" data-x="-351.0" data-y="-642.0" data-z="119.0" style="left: 39.03%; top: 29.94%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2187" data-x="-640.0" data-y="-594.0" data-z="119.0" style="left: 30.00%; top: 31.44%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2188" data-x="669.0" data-y="-149.0" data-z="119.0" style="left: 70.91%; top: 45.34%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2189" data-x="669.0" data-y="435.0" data-z="119.0" style="left: 70.91%; top: 63.59%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2190" data-x="569.0" data-y="569.0" data-z="119.0" style="left: 67.78%; top: 67.78%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2191" data-x="1548.0" data-y="-196.0" data-z="578.0" style="left: 98.38%; top: 43.88%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2192" data-x="1537.0" data-y="-23.0" data-z="578.0" style="left: 98.03%; top: 49.28%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2193" data-x="1539.8347" data-y="-712.0" data-z="642.9034" style="left: 98.12%; top: 27.75%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2194" data-x="1552.0" data-y="-1339.0" data-z="615.0" style="left: 98.50%; top: 8.16%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2195" data-x="1273.0" data-y="-1547.0" data-z="576.0" style="left: 89.78%; top: 1.66%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2196" data-x="788.0" data-y="-1545.0" data-z="651.57935" style="left: 74.62%; top: 1.72%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2197" data-x="674.0079" data-y="-1546.8707" data-z="648.90796" style="left: 71.06%; top: 1.66%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2198" data-x="-267.0" data-y="-1546.6448" data-z="606.0" style="left: 41.66%; top: 1.67%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2199" data-x="-664.0" data-y="-1546.2556" data-z="651.4274" style="left: 29.25%; top: 1.68%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2200" data-x="-1549.4841" data-y="-970.7275" data-z="652.80817" style="left: 1.58%; top: 19.66%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2201" data-x="-1545.0" data-y="1340.0" data-z="614.0" style="left: 1.72%; top: 91.88%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2202" data-x="-844.0" data-y="1527.7667" data-z="578.0" style="left: 23.62%; top: 97.74%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2203" data-x="-408.0" data-y="1519.0" data-z="587.0" style="left: 37.25%; top: 97.47%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2204" data-x="1520.0" data-y="1173.0" data-z="576.0" style="left: 97.50%; top: 86.66%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2205" data-x="-1551.0" data-y="223.0" data-z="577.0" style="left: 1.53%; top: 56.97%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2206" data-x="-141.0" data-y="1519.0" data-z="623.0" style="left: 45.59%; top: 97.47%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2208" data-x="824.0" data-y="1527.0" data-z="578.0" style="left: 75.75%; top: 97.72%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2209" data-x="1240.0" data-y="1523.0" data-z="543.0" style="left: 88.75%; top: 97.59%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2210" data-x="1370.0" data-y="1523.0" data-z="587.0" style="left: 92.81%; top: 97.59%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2211" data-x="1489.0" data-y="1523.0" data-z="625.0" style="left: 96.53%; top: 97.59%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2212" data-x="1546.0" data-y="-114.0" data-z="615.0" style="left: 98.31%; top: 46.44%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2213" data-x="1548.0" data-y="-196.0" data-z="504.0" style="left: 98.38%; top: 43.88%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2214" data-x="1552.0" data-y="-1349.0" data-z="541.0" style="left: 98.50%; top: 7.84%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2215" data-x="-822.0" data-y="-1547.0" data-z="656.6525" style="left: 24.31%; top: 1.66%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2216" data-x="-1220.0" data-y="-1547.0" data-z="581.0" style="left: 11.88%; top: 1.66%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2217" data-x="-1554.0" data-y="-674.0" data-z="652.7898" style="left: 1.44%; top: 28.94%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2218" data-x="-1547.0" data-y="-430.0" data-z="577.0" style="left: 1.66%; top: 36.56%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2219" data-x="-1542.0" data-y="357.0" data-z="503.0" style="left: 1.81%; top: 61.16%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2220" data-x="-1551.0" data-y="624.0" data-z="652.85645" style="left: 1.53%; top: 69.50%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2221" data-x="-1359.0" data-y="1523.0" data-z="586.0" style="left: 7.53%; top: 97.59%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2222" data-x="1305.0" data-y="1523.0" data-z="585.0" style="left: 90.78%; top: 97.59%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2223" data-x="1205.0" data-y="1523.0" data-z="506.0" style="left: 87.66%; top: 97.59%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2224" data-x="-1551.0" data-y="290.0" data-z="539.0" style="left: 1.53%; top: 59.06%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2225" data-x="-1551.0" data-y="242.0" data-z="503.0" style="left: 1.53%; top: 57.56%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2226" data-x="136.0" data-y="1186.0" data-z="44.0" style="left: 54.25%; top: 87.06%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2229" data-x="-1033.0" data-y="378.0" data-z="154.0" style="left: 17.72%; top: 61.81%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2231" data-x="-1057.0" data-y="343.0" data-z="154.0" style="left: 16.97%; top: 60.72%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2233" data-x="-1114.0" data-y="343.0" data-z="111.0" style="left: 15.19%; top: 60.72%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2234" data-x="-1263.0" data-y="-455.0" data-z="119.0" style="left: 10.53%; top: 35.78%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2235" data-x="-1263.0" data-y="-393.0" data-z="45.0" style="left: 10.53%; top: 37.72%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2236" data-x="-386.0" data-y="-1206.0" data-z="82.0" style="left: 37.94%; top: 12.31%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2238" data-x="-335.0" data-y="-1034.0" data-z="45.0" style="left: 39.53%; top: 17.69%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2239" data-x="-331.0" data-y="-1170.0" data-z="119.0" style="left: 39.66%; top: 13.44%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2240" data-x="60.0" data-y="-1241.0" data-z="119.0" style="left: 51.88%; top: 11.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2241" data-x="1230.0" data-y="-279.0" data-z="45.0" style="left: 88.44%; top: 41.28%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="map-card" id="map-card-TheCage_HR_D-json">
+        <h3 class="map-title">牢笼<span class='debug-text'> (Cage)</span><div class='map-filename'>TheCage_HR_D.json</div></h3>
+        <div class="map-info">TheCage.png | 找到 50 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('TheCage_HR_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-TheCage_HR_D-json" value="1600" step="100" onchange="updateMapRange('TheCage_HR_D-json')">
+                <button class="btn-scale" onclick="scaleRange('TheCage_HR_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('TheCage_HR_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('TheCage_HR_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('TheCage_HR_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('TheCage_HR_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-TheCage_HR_D-json"><img src="images/TheCage.webp" class="image">        <div class="dot" data-index="2817" data-x="1110.0" data-y="270.0" data-z="-415.0" style="left: 84.69%; top: 58.44%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2818" data-x="1175.0" data-y="275.0" data-z="-455.0" style="left: 86.72%; top: 58.59%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2819" data-x="1130.0" data-y="275.0" data-z="-490.0" style="left: 85.31%; top: 58.59%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2820" data-x="1035.0" data-y="170.0" data-z="-340.0" style="left: 82.34%; top: 55.31%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2821" data-x="1035.0" data-y="165.0" data-z="-380.0" style="left: 82.34%; top: 55.16%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2822" data-x="1035.0" data-y="75.0" data-z="-415.0" style="left: 82.34%; top: 52.34%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2823" data-x="1035.0" data-y="140.0" data-z="-455.0" style="left: 82.34%; top: 54.38%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2825" data-x="1035.0" data-y="100.0" data-z="-490.0" style="left: 82.34%; top: 53.12%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2826" data-x="-1040.0" data-y="80.0" data-z="-490.0" style="left: 17.50%; top: 52.50%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2827" data-x="-1040.0" data-y="125.0" data-z="-490.0" style="left: 17.50%; top: 53.91%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2828" data-x="-1040.0" data-y="100.0" data-z="-450.0" style="left: 17.50%; top: 53.12%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2829" data-x="-1035.0" data-y="145.0" data-z="-420.0" style="left: 17.66%; top: 54.53%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2830" data-x="-1035.0" data-y="80.0" data-z="-420.0" style="left: 17.66%; top: 52.50%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2831" data-x="-1035.0" data-y="170.0" data-z="-380.0" style="left: 17.66%; top: 55.31%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2832" data-x="-1035.0" data-y="120.0" data-z="-380.0" style="left: 17.66%; top: 53.75%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2833" data-x="-1120.0" data-y="295.0" data-z="-420.0" style="left: 15.00%; top: 59.22%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2834" data-x="-1160.0" data-y="295.0" data-z="-415.0" style="left: 13.75%; top: 59.22%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2836" data-x="-1120.0" data-y="295.0" data-z="-380.0" style="left: 15.00%; top: 59.22%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2837" data-x="-1095.0" data-y="295.0" data-z="-455.0" style="left: 15.78%; top: 59.22%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2838" data-x="-1125.0" data-y="295.0" data-z="-340.0" style="left: 14.84%; top: 59.22%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2839" data-x="-1135.0" data-y="295.0" data-z="-490.0" style="left: 14.53%; top: 59.22%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2840" data-x="-1175.0" data-y="295.0" data-z="-490.0" style="left: 13.28%; top: 59.22%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2841" data-x="-459.99997" data-y="1255.0" data-z="160.0" style="left: 35.63%; top: 89.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2842" data-x="-419.99997" data-y="1255.0" data-z="120.0" style="left: 36.88%; top: 89.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2843" data-x="-469.99997" data-y="1255.0" data-z="85.0" style="left: 35.31%; top: 89.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2844" data-x="-384.99997" data-y="1255.0" data-z="45.0" style="left: 37.97%; top: 89.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2846" data-x="-434.99997" data-y="1255.0" data-z="10.0" style="left: 36.41%; top: 89.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2847" data-x="-204.99995" data-y="1255.0" data-z="160.0" style="left: 43.59%; top: 89.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2848" data-x="-114.999954" data-y="1255.0" data-z="85.0" style="left: 46.41%; top: 89.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2849" data-x="-59.999958" data-y="1255.0" data-z="85.0" style="left: 48.13%; top: 89.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2850" data-x="-89.999954" data-y="1255.0" data-z="120.0" style="left: 47.19%; top: 89.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2851" data-x="-139.99995" data-y="1255.0" data-z="120.0" style="left: 45.63%; top: 89.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2852" data-x="-34.999958" data-y="1255.0" data-z="160.0" style="left: 48.91%; top: 89.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2853" data-x="-64.999954" data-y="1255.0" data-z="45.0" style="left: 47.97%; top: 89.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2854" data-x="-104.999954" data-y="1255.0" data-z="10.0" style="left: 46.72%; top: 89.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2855" data-x="-44.999958" data-y="1255.0" data-z="10.0" style="left: 48.59%; top: 89.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2857" data-x="55.000042" data-y="1255.0" data-z="10.0" style="left: 51.72%; top: 89.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2858" data-x="115.000046" data-y="1255.0" data-z="45.0" style="left: 53.59%; top: 89.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2859" data-x="35.000042" data-y="1255.0" data-z="85.0" style="left: 51.09%; top: 89.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2860" data-x="90.000046" data-y="1255.0" data-z="85.0" style="left: 52.81%; top: 89.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2861" data-x="95.000046" data-y="1255.0" data-z="120.0" style="left: 52.97%; top: 89.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2862" data-x="70.000046" data-y="1255.0" data-z="160.0" style="left: 52.19%; top: 89.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2863" data-x="215.00005" data-y="1255.0" data-z="160.0" style="left: 56.72%; top: 89.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2864" data-x="275.00003" data-y="1255.0" data-z="120.0" style="left: 58.59%; top: 89.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2865" data-x="220.00005" data-y="1255.0" data-z="85.0" style="left: 56.88%; top: 89.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2866" data-x="295.00003" data-y="1255.0" data-z="45.0" style="left: 59.22%; top: 89.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2868" data-x="245.00005" data-y="1255.0" data-z="10.0" style="left: 57.66%; top: 89.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2869" data-x="410.00003" data-y="1254.9999" data-z="10.0" style="left: 62.81%; top: 89.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2917" data-x="1100.0" data-y="270.0" data-z="-340.0" style="left: 84.38%; top: 58.44%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="2918" data-x="1155.0" data-y="270.0" data-z="-380.0" style="left: 86.09%; top: 58.44%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="map-card" id="map-card-Hallways_HR_D-json">
+        <h3 class="map-title">回廊<span class='debug-text'> (Hallways)</span><div class='map-filename'>Hallways_HR_D.json</div></h3>
+        <div class="map-info">Hallways.png | 找到 4 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('Hallways_HR_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-Hallways_HR_D-json" value="1600" step="100" onchange="updateMapRange('Hallways_HR_D-json')">
+                <button class="btn-scale" onclick="scaleRange('Hallways_HR_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('Hallways_HR_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('Hallways_HR_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('Hallways_HR_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('Hallways_HR_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-Hallways_HR_D-json"><img src="images/Hallways.webp" class="image">        <div class="dot" data-index="3674" data-x="375.0" data-y="-915.0" data-z="-400.0" style="left: 61.72%; top: 21.41%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="3675" data-x="-365.0" data-y="-905.0" data-z="-395.0" style="left: 38.59%; top: 21.72%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="3676" data-x="10.0" data-y="-480.0" data-z="-400.0" style="left: 50.31%; top: 35.00%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="3679" data-x="925.0" data-y="-410.0" data-z="0.0" style="left: 78.91%; top: 37.19%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="group-header">冰图1层</div>
+    <div class="map-card" id="map-card-IceCave_FrozenLake_D-json">
+        <h3 class="map-title">冻湖<span class='debug-text'> (IceCave_FrozenLake)</span><div class='map-filename'>IceCave_FrozenLake_D.json</div></h3>
+        <div class="map-info">IceCave_FrozenLake.png | 找到 16 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('IceCave_FrozenLake_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-IceCave_FrozenLake_D-json" value="1600" step="100" onchange="updateMapRange('IceCave_FrozenLake_D-json')">
+                <button class="btn-scale" onclick="scaleRange('IceCave_FrozenLake_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('IceCave_FrozenLake_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('IceCave_FrozenLake_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('IceCave_FrozenLake_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('IceCave_FrozenLake_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-IceCave_FrozenLake_D-json"><img src="images/IceCave_FrozenLake.webp" class="image">        <div class="dot" data-index="5838" data-x="-1440.0" data-y="-274.0" data-z="84.64332" style="left: 5.00%; top: 41.44%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5839" data-x="-1440.0" data-y="-323.0" data-z="84.643326" style="left: 5.00%; top: 39.91%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5840" data-x="-1440.0" data-y="-290.0" data-z="155.51857" style="left: 5.00%; top: 40.94%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5841" data-x="-1440.0" data-y="-355.0" data-z="155.51857" style="left: 5.00%; top: 38.91%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5842" data-x="-1325.0" data-y="110.0" data-z="120.0" style="left: 8.59%; top: 53.44%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5843" data-x="-1400.0" data-y="110.0" data-z="120.0" style="left: 6.25%; top: 53.44%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5844" data-x="-1371.0" data-y="110.0" data-z="49.0" style="left: 7.16%; top: 53.44%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5845" data-x="-550.0" data-y="-396.0" data-z="145.0" style="left: 32.81%; top: 37.62%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5846" data-x="-550.0" data-y="-331.0" data-z="145.0" style="left: 32.81%; top: 39.66%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5847" data-x="-550.0" data-y="230.0" data-z="145.0" style="left: 32.81%; top: 57.19%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5848" data-x="-550.0" data-y="650.0" data-z="148.0" style="left: 32.81%; top: 70.31%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5849" data-x="-550.0" data-y="710.0" data-z="149.0" style="left: 32.81%; top: 72.19%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5851" data-x="-1440.0" data-y="1100.0" data-z="90.0" style="left: 5.00%; top: 84.38%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5852" data-x="-1440.0" data-y="1025.0" data-z="90.0" style="left: 5.00%; top: 82.03%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5853" data-x="-1440.0" data-y="995.0" data-z="160.59435" style="left: 5.00%; top: 81.09%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="5854" data-x="-1145.0" data-y="1460.0" data-z="145.0" style="left: 14.22%; top: 95.62%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="group-header">废墟1层</div>
+    <div class="map-card" id="map-card-Ruins_EndWall_HR_D-json">
+        <h3 class="map-title">城墙尽头<span class='debug-text'> (EndWall)</span><div class='map-filename'>Ruins_EndWall_HR_D.json</div></h3>
+        <div class="map-info">Ruins_EndWall.png | 找到 4 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('Ruins_EndWall_HR_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-Ruins_EndWall_HR_D-json" value="1600" step="100" onchange="updateMapRange('Ruins_EndWall_HR_D-json')">
+                <button class="btn-scale" onclick="scaleRange('Ruins_EndWall_HR_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('Ruins_EndWall_HR_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('Ruins_EndWall_HR_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_EndWall_HR_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('Ruins_EndWall_HR_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-Ruins_EndWall_HR_D-json"><img src="images/Ruins_EndWall.webp" class="image">        <div class="dot" data-index="8338" data-x="475.0" data-y="575.0" data-z="-100.0" style="left: 64.84%; top: 67.97%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8340" data-x="575.0" data-y="575.0" data-z="-100.0" style="left: 67.97%; top: 67.97%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8343" data-x="-575.0" data-y="-475.0" data-z="-100.0" style="left: 32.03%; top: 35.16%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8345" data-x="-555.0" data-y="-405.0" data-z="-100.0" style="left: 32.66%; top: 37.34%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+</div>
+    </div>
+</div>
+    <div class="legend">
+        <strong>颜色说明：</strong>
+        <span class="color-dot" style="background-color: cyan;"></span> Z &gt; 299 (高于地面)
+        <span class="color-dot" style="background-color: yellow;"></span> -299 ≤ Z ≤ 299 (正常高度)
+        <span class="color-dot" style="background-color: red;"></span> Z &lt; -299 (低于地面)
+        <br><strong>位置统计：共 251 个位置点</strong><br><strong>包含地图：</strong> 冻湖, 回廊, 城墙尽头, 牢笼, 祭坛室, 门控房间, 黑魔法图书馆
+    </div>
+    <div class="summary" id="summary-section">
+        <h2>所有坐标详情</h2>
+        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-1583">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1583, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-66.00</td>
+        <td>214.00</td>
+        <td>158.00</td>
+    </tr>
+    <tr id="row-1584">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1584, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-66.00</td>
+        <td>155.00</td>
+        <td>159.00</td>
+    </tr>
+    <tr id="row-1585">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1585, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-66.00</td>
+        <td>145.00</td>
+        <td>120.00</td>
+    </tr>
+    <tr id="row-1586">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1586, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-61.00</td>
+        <td>328.00</td>
+        <td>136.00</td>
+    </tr>
+    <tr id="row-1587">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1587, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-66.00</td>
+        <td>205.00</td>
+        <td>80.00</td>
+    </tr>
+    <tr id="row-1588">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1588, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-66.00</td>
+        <td>155.00</td>
+        <td>80.00</td>
+    </tr>
+    <tr id="row-1589">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1589, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-62.00</td>
+        <td>320.00</td>
+        <td>19.00</td>
+    </tr>
+    <tr id="row-1590">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1590, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-66.00</td>
+        <td>150.00</td>
+        <td>10.00</td>
+    </tr>
+    <tr id="row-1591">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1591, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-71.00</td>
+        <td>51.00</td>
+        <td>0.00</td>
+    </tr>
+    <tr id="row-1592">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1592, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-66.00</td>
+        <td>360.00</td>
+        <td>18.00</td>
+    </tr>
+    <tr id="row-1593">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1593, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-66.00</td>
+        <td>317.00</td>
+        <td>58.00</td>
+    </tr>
+    <tr id="row-1594">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1594, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>64.00</td>
+        <td>29.00</td>
+        <td>80.00</td>
+    </tr>
+    <tr id="row-1595">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1595, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-58.00</td>
+        <td>466.00</td>
+        <td>96.00</td>
+    </tr>
+    <tr id="row-1596">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1596, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-58.00</td>
+        <td>438.00</td>
+        <td>136.00</td>
+    </tr>
+    <tr id="row-1597">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1597, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-66.00</td>
+        <td>490.00</td>
+        <td>58.00</td>
+    </tr>
+    <tr id="row-1598">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1598, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-55.00</td>
+        <td>445.00</td>
+        <td>18.00</td>
+    </tr>
+    <tr id="row-1600">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1600, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>50.00</td>
+        <td>50.00</td>
+        <td>85.00</td>
+    </tr>
+    <tr id="row-1601">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1601, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>11.00</td>
+        <td>50.00</td>
+        <td>85.00</td>
+    </tr>
+    <tr id="row-1602">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1602, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>65.00</td>
+        <td>50.00</td>
+        <td>45.00</td>
+    </tr>
+    <tr id="row-1603">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1603, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-120.00</td>
+        <td>35.00</td>
+        <td>19.00</td>
+    </tr>
+    <tr id="row-1604">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1604, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>54.00</td>
+        <td>14.00</td>
+        <td>10.00</td>
+    </tr>
+    <tr id="row-1605">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1605, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-105.00</td>
+        <td>36.00</td>
+        <td>57.00</td>
+    </tr>
+    <tr id="row-1606">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1606, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-155.00</td>
+        <td>50.00</td>
+        <td>95.00</td>
+    </tr>
+    <tr id="row-1607">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1607, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-270.00</td>
+        <td>35.00</td>
+        <td>96.00</td>
+    </tr>
+    <tr id="row-1608">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1608, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-265.00</td>
+        <td>41.00</td>
+        <td>58.00</td>
+    </tr>
+    <tr id="row-1609">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1609, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-208.00</td>
+        <td>31.00</td>
+        <td>58.00</td>
+    </tr>
+    <tr id="row-1610">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1610, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-9.00</td>
+        <td>-1492.00</td>
+        <td>0.00</td>
+    </tr>
+    <tr id="row-1611">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1611, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>19.00</td>
+        <td>-1463.00</td>
+        <td>0.00</td>
+    </tr>
+    <tr id="row-1612">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1612, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-230.00</td>
+        <td>30.00</td>
+        <td>135.00</td>
+    </tr>
+    <tr id="row-1613">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1613, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-360.00</td>
+        <td>45.00</td>
+        <td>120.00</td>
+    </tr>
+    <tr id="row-1614">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1614, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-350.00</td>
+        <td>45.00</td>
+        <td>45.00</td>
+    </tr>
+    <tr id="row-1615">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1615, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-425.00</td>
+        <td>50.00</td>
+        <td>85.00</td>
+    </tr>
+    <tr id="row-1617">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1617, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-390.00</td>
+        <td>40.00</td>
+        <td>10.00</td>
+    </tr>
+    <tr id="row-1618">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1618, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>162.00</td>
+        <td>151.00</td>
+        <td>114.00</td>
+    </tr>
+    <tr id="row-1619">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1619, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>102.00</td>
+        <td>168.00</td>
+        <td>115.00</td>
+    </tr>
+    <tr id="row-1622">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1622, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-644.00</td>
+        <td>-664.00</td>
+        <td>115.00</td>
+    </tr>
+    <tr id="row-1623">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1623, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>12.00</td>
+        <td>168.00</td>
+        <td>115.00</td>
+    </tr>
+    <tr id="row-1625">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1625, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>37.00</td>
+        <td>196.00</td>
+        <td>115.00</td>
+    </tr>
+    <tr id="row-1626">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1626, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>11.00</td>
+        <td>165.00</td>
+        <td>83.00</td>
+    </tr>
+    <tr id="row-1627">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1627, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1.00</td>
+        <td>196.00</td>
+        <td>84.00</td>
+    </tr>
+    <tr id="row-1628">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1628, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-274.00</td>
+        <td>101.00</td>
+        <td>158.00</td>
+    </tr>
+    <tr id="row-1629">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1629, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-280.00</td>
+        <td>121.00</td>
+        <td>82.00</td>
+    </tr>
+    <tr id="row-1630">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1630, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-273.00</td>
+        <td>81.00</td>
+        <td>45.00</td>
+    </tr>
+    <tr id="row-1631">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1631, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-273.00</td>
+        <td>136.00</td>
+        <td>45.00</td>
+    </tr>
+    <tr id="row-1632">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1632, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-273.00</td>
+        <td>176.00</td>
+        <td>45.00</td>
+    </tr>
+    <tr id="row-1633">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1633, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-273.00</td>
+        <td>111.00</td>
+        <td>10.00</td>
+    </tr>
+    <tr id="row-1634">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1634, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>65.00</td>
+        <td>-56.00</td>
+        <td>136.00</td>
+    </tr>
+    <tr id="row-1635">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1635, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-279.00</td>
+        <td>-69.00</td>
+        <td>120.00</td>
+    </tr>
+    <tr id="row-1636">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1636, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-278.00</td>
+        <td>-109.00</td>
+        <td>85.00</td>
+    </tr>
+    <tr id="row-1637">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1637, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-278.00</td>
+        <td>-54.00</td>
+        <td>45.00</td>
+    </tr>
+    <tr id="row-1638">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1638, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-278.00</td>
+        <td>-99.00</td>
+        <td>10.00</td>
+    </tr>
+    <tr id="row-1639">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1639, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-56.00</td>
+        <td>-121.00</td>
+        <td>115.00</td>
+    </tr>
+    <tr id="row-1640">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1640, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>14.00</td>
+        <td>-136.00</td>
+        <td>84.00</td>
+    </tr>
+    <tr id="row-1642">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1642, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>81.00</td>
+        <td>-162.00</td>
+        <td>115.00</td>
+    </tr>
+    <tr id="row-1643">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1643, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>42.00</td>
+        <td>-137.00</td>
+        <td>145.00</td>
+    </tr>
+    <tr id="row-1644">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1644, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>161.00</td>
+        <td>-120.00</td>
+        <td>114.00</td>
+    </tr>
+    <tr id="row-1645">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1645, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>87.00</td>
+        <td>-136.00</td>
+        <td>115.00</td>
+    </tr>
+    <tr id="row-1646">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1646, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>104.00</td>
+        <td>-162.00</td>
+        <td>84.00</td>
+    </tr>
+    <tr id="row-1648">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1648, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>639.00</td>
+        <td>-80.00</td>
+        <td>80.00</td>
+    </tr>
+    <tr id="row-1649">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1649, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>624.00</td>
+        <td>-65.00</td>
+        <td>45.00</td>
+    </tr>
+    <tr id="row-1650">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1650, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>644.00</td>
+        <td>-70.00</td>
+        <td>120.00</td>
+    </tr>
+    <tr id="row-1651">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1651, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>59.00</td>
+        <td>-16.00</td>
+        <td>120.00</td>
+    </tr>
+    <tr id="row-1652">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1652, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>59.00</td>
+        <td>44.00</td>
+        <td>160.00</td>
+    </tr>
+    <tr id="row-1653">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1653, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>59.00</td>
+        <td>-151.00</td>
+        <td>10.00</td>
+    </tr>
+    <tr id="row-1654">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1654, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>64.00</td>
+        <td>-151.00</td>
+        <td>45.00</td>
+    </tr>
+    <tr id="row-1655">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1655, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>64.00</td>
+        <td>-106.00</td>
+        <td>80.00</td>
+    </tr>
+    <tr id="row-1656">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1656, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>59.00</td>
+        <td>-126.00</td>
+        <td>120.00</td>
+    </tr>
+    <tr id="row-1657">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1657, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>59.00</td>
+        <td>-296.00</td>
+        <td>120.00</td>
+    </tr>
+    <tr id="row-1658">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1658, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>64.00</td>
+        <td>-246.00</td>
+        <td>80.00</td>
+    </tr>
+    <tr id="row-1659">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1659, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>59.00</td>
+        <td>-316.00</td>
+        <td>45.00</td>
+    </tr>
+    <tr id="row-1660">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1660, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>59.00</td>
+        <td>-266.00</td>
+        <td>10.00</td>
+    </tr>
+    <tr id="row-1661">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1661, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>49.00</td>
+        <td>-231.00</td>
+        <td>157.00</td>
+    </tr>
+    <tr id="row-1662">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1662, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-279.00</td>
+        <td>-129.00</td>
+        <td>160.00</td>
+    </tr>
+    <tr id="row-1663">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1663, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-31.00</td>
+        <td>-65.00</td>
+        <td>95.00</td>
+    </tr>
+    <tr id="row-1664">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1664, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>84.00</td>
+        <td>-65.00</td>
+        <td>58.00</td>
+    </tr>
+    <tr id="row-1665">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1665, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-66.00</td>
+        <td>351.00</td>
+        <td>95.00</td>
+    </tr>
+    <tr id="row-1666">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1666, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-66.00</td>
+        <td>70.00</td>
+        <td>120.00</td>
+    </tr>
+    <tr id="row-1667">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1667, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-66.00</td>
+        <td>20.00</td>
+        <td>80.00</td>
+    </tr>
+    <tr id="row-1670">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Crypt_AltarRoomAB_HR_D-json', 1670, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Crypt_AltarRoomAB_HR_D.json</td>
+        <td>祭坛室</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>64.00</td>
+        <td>-292.00</td>
+        <td>199.50</td>
+    </tr>
+    <tr id="row-2067">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ComplexHall_HR_D-json', 2067, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>ComplexHall_HR_D.json</td>
+        <td>门控房间</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-275.00</td>
+        <td>180.00</td>
+        <td>-150.00</td>
+    </tr>
+    <tr id="row-2070">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ComplexHall_HR_D-json', 2070, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>ComplexHall_HR_D.json</td>
+        <td>门控房间</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1020.00</td>
+        <td>890.00</td>
+        <td>0.00</td>
+    </tr>
+    <tr id="row-2071">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ComplexHall_HR_D-json', 2071, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>ComplexHall_HR_D.json</td>
+        <td>门控房间</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1000.00</td>
+        <td>845.00</td>
+        <td>0.00</td>
+    </tr>
+    <tr id="row-2072">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ComplexHall_HR_D-json', 2072, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>ComplexHall_HR_D.json</td>
+        <td>门控房间</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1040.00</td>
+        <td>845.00</td>
+        <td>0.00</td>
+    </tr>
+    <tr id="row-2130">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2130, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>136.00</td>
+        <td>1224.00</td>
+        <td>119.00</td>
+    </tr>
+    <tr id="row-2133">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2133, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1179.00</td>
+        <td>-279.00</td>
+        <td>119.00</td>
+    </tr>
+    <tr id="row-2134">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2134, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1085.00</td>
+        <td>-281.00</td>
+        <td>118.00</td>
+    </tr>
+    <tr id="row-2135">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2135, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1031.00</td>
+        <td>-288.00</td>
+        <td>44.00</td>
+    </tr>
+    <tr id="row-2137">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2137, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1233.00</td>
+        <td>-210.00</td>
+        <td>119.00</td>
+    </tr>
+    <tr id="row-2139">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2139, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1228.00</td>
+        <td>-234.00</td>
+        <td>45.00</td>
+    </tr>
+    <tr id="row-2140">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2140, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1213.00</td>
+        <td>336.00</td>
+        <td>111.00</td>
+    </tr>
+    <tr id="row-2141">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2141, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1213.00</td>
+        <td>260.00</td>
+        <td>154.00</td>
+    </tr>
+    <tr id="row-2142">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2142, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>183.00</td>
+        <td>1024.00</td>
+        <td>158.00</td>
+    </tr>
+    <tr id="row-2143">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2143, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>183.00</td>
+        <td>1026.00</td>
+        <td>84.00</td>
+    </tr>
+    <tr id="row-2144">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2144, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-227.00</td>
+        <td>413.00</td>
+        <td>119.00</td>
+    </tr>
+    <tr id="row-2148">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2148, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-431.00</td>
+        <td>-23.00</td>
+        <td>156.00</td>
+    </tr>
+    <tr id="row-2149">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2149, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>396.00</td>
+        <td>-627.00</td>
+        <td>112.00</td>
+    </tr>
+    <tr id="row-2150">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2150, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>359.00</td>
+        <td>421.00</td>
+        <td>112.00</td>
+    </tr>
+    <tr id="row-2151">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2151, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-203.00</td>
+        <td>374.00</td>
+        <td>81.00</td>
+    </tr>
+    <tr id="row-2152">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2152, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-85.00</td>
+        <td>377.00</td>
+        <td>81.00</td>
+    </tr>
+    <tr id="row-2154">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2154, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-160.00</td>
+        <td>370.00</td>
+        <td>44.00</td>
+    </tr>
+    <tr id="row-2155">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2155, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-11.00</td>
+        <td>370.00</td>
+        <td>44.00</td>
+    </tr>
+    <tr id="row-2156">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2156, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>258.00</td>
+        <td>232.00</td>
+        <td>81.00</td>
+    </tr>
+    <tr id="row-2158">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2158, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>441.00</td>
+        <td>-589.00</td>
+        <td>112.00</td>
+    </tr>
+    <tr id="row-2159">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2159, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>213.00</td>
+        <td>-380.00</td>
+        <td>114.00</td>
+    </tr>
+    <tr id="row-2160">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2160, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>341.00</td>
+        <td>232.00</td>
+        <td>45.00</td>
+    </tr>
+    <tr id="row-2161">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2161, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>296.00</td>
+        <td>232.00</td>
+        <td>119.00</td>
+    </tr>
+    <tr id="row-2162">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2162, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>301.00</td>
+        <td>232.00</td>
+        <td>158.00</td>
+    </tr>
+    <tr id="row-2163">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2163, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>341.00</td>
+        <td>232.00</td>
+        <td>119.00</td>
+    </tr>
+    <tr id="row-2164">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2164, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>257.00</td>
+        <td>232.00</td>
+        <td>9.00</td>
+    </tr>
+    <tr id="row-2165">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2165, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1113.00</td>
+        <td>378.00</td>
+        <td>113.00</td>
+    </tr>
+    <tr id="row-2166">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2166, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>449.00</td>
+        <td>39.00</td>
+        <td>81.00</td>
+    </tr>
+    <tr id="row-2167">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2167, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-24.00</td>
+        <td>-430.00</td>
+        <td>45.00</td>
+    </tr>
+    <tr id="row-2168">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2168, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-232.00</td>
+        <td>-383.00</td>
+        <td>119.00</td>
+    </tr>
+    <tr id="row-2169">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2169, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-232.00</td>
+        <td>-369.00</td>
+        <td>82.00</td>
+    </tr>
+    <tr id="row-2170">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2170, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-424.00</td>
+        <td>347.00</td>
+        <td>81.00</td>
+    </tr>
+    <tr id="row-2171">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2171, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>387.00</td>
+        <td>-189.00</td>
+        <td>113.00</td>
+    </tr>
+    <tr id="row-2172">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2172, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>573.00</td>
+        <td>631.00</td>
+        <td>82.00</td>
+    </tr>
+    <tr id="row-2173">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2173, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-428.00</td>
+        <td>-242.00</td>
+        <td>45.00</td>
+    </tr>
+    <tr id="row-2176">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2176, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-371.00</td>
+        <td>-644.00</td>
+        <td>45.00</td>
+    </tr>
+    <tr id="row-2177">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2177, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-610.00</td>
+        <td>-589.00</td>
+        <td>45.00</td>
+    </tr>
+    <tr id="row-2178">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2178, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>42.00</td>
+        <td>-636.00</td>
+        <td>45.00</td>
+    </tr>
+    <tr id="row-2179">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2179, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>665.00</td>
+        <td>-109.00</td>
+        <td>45.00</td>
+    </tr>
+    <tr id="row-2180">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2180, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>614.00</td>
+        <td>620.00</td>
+        <td>45.00</td>
+    </tr>
+    <tr id="row-2181">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2181, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-8.00</td>
+        <td>413.00</td>
+        <td>82.00</td>
+    </tr>
+    <tr id="row-2182">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2182, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-426.00</td>
+        <td>294.00</td>
+        <td>119.00</td>
+    </tr>
+    <tr id="row-2183">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2183, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-426.00</td>
+        <td>-285.00</td>
+        <td>119.00</td>
+    </tr>
+    <tr id="row-2184">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2184, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-426.00</td>
+        <td>-517.00</td>
+        <td>119.00</td>
+    </tr>
+    <tr id="row-2185">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2185, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-351.00</td>
+        <td>-642.00</td>
+        <td>119.00</td>
+    </tr>
+    <tr id="row-2187">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2187, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-640.00</td>
+        <td>-594.00</td>
+        <td>119.00</td>
+    </tr>
+    <tr id="row-2188">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2188, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>669.00</td>
+        <td>-149.00</td>
+        <td>119.00</td>
+    </tr>
+    <tr id="row-2189">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2189, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>669.00</td>
+        <td>435.00</td>
+        <td>119.00</td>
+    </tr>
+    <tr id="row-2190">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2190, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>569.00</td>
+        <td>569.00</td>
+        <td>119.00</td>
+    </tr>
+    <tr id="row-2191">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2191, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1548.00</td>
+        <td>-196.00</td>
+        <td>578.00</td>
+    </tr>
+    <tr id="row-2192">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2192, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1537.00</td>
+        <td>-23.00</td>
+        <td>578.00</td>
+    </tr>
+    <tr id="row-2193">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2193, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1539.83</td>
+        <td>-712.00</td>
+        <td>642.90</td>
+    </tr>
+    <tr id="row-2194">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2194, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1552.00</td>
+        <td>-1339.00</td>
+        <td>615.00</td>
+    </tr>
+    <tr id="row-2195">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2195, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1273.00</td>
+        <td>-1547.00</td>
+        <td>576.00</td>
+    </tr>
+    <tr id="row-2196">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2196, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>788.00</td>
+        <td>-1545.00</td>
+        <td>651.58</td>
+    </tr>
+    <tr id="row-2197">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2197, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>674.01</td>
+        <td>-1546.87</td>
+        <td>648.91</td>
+    </tr>
+    <tr id="row-2198">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2198, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-267.00</td>
+        <td>-1546.64</td>
+        <td>606.00</td>
+    </tr>
+    <tr id="row-2199">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2199, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-664.00</td>
+        <td>-1546.26</td>
+        <td>651.43</td>
+    </tr>
+    <tr id="row-2200">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2200, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1549.48</td>
+        <td>-970.73</td>
+        <td>652.81</td>
+    </tr>
+    <tr id="row-2201">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2201, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1545.00</td>
+        <td>1340.00</td>
+        <td>614.00</td>
+    </tr>
+    <tr id="row-2202">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2202, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-844.00</td>
+        <td>1527.77</td>
+        <td>578.00</td>
+    </tr>
+    <tr id="row-2203">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2203, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-408.00</td>
+        <td>1519.00</td>
+        <td>587.00</td>
+    </tr>
+    <tr id="row-2204">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2204, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1520.00</td>
+        <td>1173.00</td>
+        <td>576.00</td>
+    </tr>
+    <tr id="row-2205">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2205, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1551.00</td>
+        <td>223.00</td>
+        <td>577.00</td>
+    </tr>
+    <tr id="row-2206">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2206, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-141.00</td>
+        <td>1519.00</td>
+        <td>623.00</td>
+    </tr>
+    <tr id="row-2208">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2208, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>824.00</td>
+        <td>1527.00</td>
+        <td>578.00</td>
+    </tr>
+    <tr id="row-2209">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2209, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1240.00</td>
+        <td>1523.00</td>
+        <td>543.00</td>
+    </tr>
+    <tr id="row-2210">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2210, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1370.00</td>
+        <td>1523.00</td>
+        <td>587.00</td>
+    </tr>
+    <tr id="row-2211">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2211, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1489.00</td>
+        <td>1523.00</td>
+        <td>625.00</td>
+    </tr>
+    <tr id="row-2212">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2212, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1546.00</td>
+        <td>-114.00</td>
+        <td>615.00</td>
+    </tr>
+    <tr id="row-2213">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2213, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1548.00</td>
+        <td>-196.00</td>
+        <td>504.00</td>
+    </tr>
+    <tr id="row-2214">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2214, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1552.00</td>
+        <td>-1349.00</td>
+        <td>541.00</td>
+    </tr>
+    <tr id="row-2215">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2215, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-822.00</td>
+        <td>-1547.00</td>
+        <td>656.65</td>
+    </tr>
+    <tr id="row-2216">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2216, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1220.00</td>
+        <td>-1547.00</td>
+        <td>581.00</td>
+    </tr>
+    <tr id="row-2217">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2217, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1554.00</td>
+        <td>-674.00</td>
+        <td>652.79</td>
+    </tr>
+    <tr id="row-2218">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2218, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1547.00</td>
+        <td>-430.00</td>
+        <td>577.00</td>
+    </tr>
+    <tr id="row-2219">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2219, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1542.00</td>
+        <td>357.00</td>
+        <td>503.00</td>
+    </tr>
+    <tr id="row-2220">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2220, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1551.00</td>
+        <td>624.00</td>
+        <td>652.86</td>
+    </tr>
+    <tr id="row-2221">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2221, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1359.00</td>
+        <td>1523.00</td>
+        <td>586.00</td>
+    </tr>
+    <tr id="row-2222">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2222, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1305.00</td>
+        <td>1523.00</td>
+        <td>585.00</td>
+    </tr>
+    <tr id="row-2223">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2223, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1205.00</td>
+        <td>1523.00</td>
+        <td>506.00</td>
+    </tr>
+    <tr id="row-2224">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2224, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1551.00</td>
+        <td>290.00</td>
+        <td>539.00</td>
+    </tr>
+    <tr id="row-2225">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2225, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1551.00</td>
+        <td>242.00</td>
+        <td>503.00</td>
+    </tr>
+    <tr id="row-2226">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2226, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>136.00</td>
+        <td>1186.00</td>
+        <td>44.00</td>
+    </tr>
+    <tr id="row-2229">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2229, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1033.00</td>
+        <td>378.00</td>
+        <td>154.00</td>
+    </tr>
+    <tr id="row-2231">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2231, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1057.00</td>
+        <td>343.00</td>
+        <td>154.00</td>
+    </tr>
+    <tr id="row-2233">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2233, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1114.00</td>
+        <td>343.00</td>
+        <td>111.00</td>
+    </tr>
+    <tr id="row-2234">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2234, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1263.00</td>
+        <td>-455.00</td>
+        <td>119.00</td>
+    </tr>
+    <tr id="row-2235">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2235, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1263.00</td>
+        <td>-393.00</td>
+        <td>45.00</td>
+    </tr>
+    <tr id="row-2236">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2236, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-386.00</td>
+        <td>-1206.00</td>
+        <td>82.00</td>
+    </tr>
+    <tr id="row-2238">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2238, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-335.00</td>
+        <td>-1034.00</td>
+        <td>45.00</td>
+    </tr>
+    <tr id="row-2239">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2239, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-331.00</td>
+        <td>-1170.00</td>
+        <td>119.00</td>
+    </tr>
+    <tr id="row-2240">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2240, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>60.00</td>
+        <td>-1241.00</td>
+        <td>119.00</td>
+    </tr>
+    <tr id="row-2241">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DarkMagicLibrary_Center_HR_D-json', 2241, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>DarkMagicLibrary_Center_HR_D.json</td>
+        <td>黑魔法图书馆</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1230.00</td>
+        <td>-279.00</td>
+        <td>45.00</td>
+    </tr>
+    <tr id="row-2817">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2817, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1110.00</td>
+        <td>270.00</td>
+        <td>-415.00</td>
+    </tr>
+    <tr id="row-2818">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2818, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1175.00</td>
+        <td>275.00</td>
+        <td>-455.00</td>
+    </tr>
+    <tr id="row-2819">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2819, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1130.00</td>
+        <td>275.00</td>
+        <td>-490.00</td>
+    </tr>
+    <tr id="row-2820">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2820, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1035.00</td>
+        <td>170.00</td>
+        <td>-340.00</td>
+    </tr>
+    <tr id="row-2821">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2821, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1035.00</td>
+        <td>165.00</td>
+        <td>-380.00</td>
+    </tr>
+    <tr id="row-2822">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2822, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1035.00</td>
+        <td>75.00</td>
+        <td>-415.00</td>
+    </tr>
+    <tr id="row-2823">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2823, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1035.00</td>
+        <td>140.00</td>
+        <td>-455.00</td>
+    </tr>
+    <tr id="row-2825">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2825, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1035.00</td>
+        <td>100.00</td>
+        <td>-490.00</td>
+    </tr>
+    <tr id="row-2826">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2826, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1040.00</td>
+        <td>80.00</td>
+        <td>-490.00</td>
+    </tr>
+    <tr id="row-2827">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2827, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1040.00</td>
+        <td>125.00</td>
+        <td>-490.00</td>
+    </tr>
+    <tr id="row-2828">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2828, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1040.00</td>
+        <td>100.00</td>
+        <td>-450.00</td>
+    </tr>
+    <tr id="row-2829">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2829, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1035.00</td>
+        <td>145.00</td>
+        <td>-420.00</td>
+    </tr>
+    <tr id="row-2830">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2830, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1035.00</td>
+        <td>80.00</td>
+        <td>-420.00</td>
+    </tr>
+    <tr id="row-2831">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2831, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1035.00</td>
+        <td>170.00</td>
+        <td>-380.00</td>
+    </tr>
+    <tr id="row-2832">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2832, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1035.00</td>
+        <td>120.00</td>
+        <td>-380.00</td>
+    </tr>
+    <tr id="row-2833">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2833, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1120.00</td>
+        <td>295.00</td>
+        <td>-420.00</td>
+    </tr>
+    <tr id="row-2834">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2834, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1160.00</td>
+        <td>295.00</td>
+        <td>-415.00</td>
+    </tr>
+    <tr id="row-2836">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2836, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1120.00</td>
+        <td>295.00</td>
+        <td>-380.00</td>
+    </tr>
+    <tr id="row-2837">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2837, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1095.00</td>
+        <td>295.00</td>
+        <td>-455.00</td>
+    </tr>
+    <tr id="row-2838">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2838, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1125.00</td>
+        <td>295.00</td>
+        <td>-340.00</td>
+    </tr>
+    <tr id="row-2839">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2839, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1135.00</td>
+        <td>295.00</td>
+        <td>-490.00</td>
+    </tr>
+    <tr id="row-2840">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2840, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1175.00</td>
+        <td>295.00</td>
+        <td>-490.00</td>
+    </tr>
+    <tr id="row-2841">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2841, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-460.00</td>
+        <td>1255.00</td>
+        <td>160.00</td>
+    </tr>
+    <tr id="row-2842">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2842, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-420.00</td>
+        <td>1255.00</td>
+        <td>120.00</td>
+    </tr>
+    <tr id="row-2843">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2843, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-470.00</td>
+        <td>1255.00</td>
+        <td>85.00</td>
+    </tr>
+    <tr id="row-2844">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2844, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-385.00</td>
+        <td>1255.00</td>
+        <td>45.00</td>
+    </tr>
+    <tr id="row-2846">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2846, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-435.00</td>
+        <td>1255.00</td>
+        <td>10.00</td>
+    </tr>
+    <tr id="row-2847">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2847, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-205.00</td>
+        <td>1255.00</td>
+        <td>160.00</td>
+    </tr>
+    <tr id="row-2848">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2848, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-115.00</td>
+        <td>1255.00</td>
+        <td>85.00</td>
+    </tr>
+    <tr id="row-2849">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2849, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-60.00</td>
+        <td>1255.00</td>
+        <td>85.00</td>
+    </tr>
+    <tr id="row-2850">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2850, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-90.00</td>
+        <td>1255.00</td>
+        <td>120.00</td>
+    </tr>
+    <tr id="row-2851">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2851, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-140.00</td>
+        <td>1255.00</td>
+        <td>120.00</td>
+    </tr>
+    <tr id="row-2852">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2852, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-35.00</td>
+        <td>1255.00</td>
+        <td>160.00</td>
+    </tr>
+    <tr id="row-2853">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2853, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-65.00</td>
+        <td>1255.00</td>
+        <td>45.00</td>
+    </tr>
+    <tr id="row-2854">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2854, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-105.00</td>
+        <td>1255.00</td>
+        <td>10.00</td>
+    </tr>
+    <tr id="row-2855">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2855, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-45.00</td>
+        <td>1255.00</td>
+        <td>10.00</td>
+    </tr>
+    <tr id="row-2857">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2857, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>55.00</td>
+        <td>1255.00</td>
+        <td>10.00</td>
+    </tr>
+    <tr id="row-2858">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2858, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>115.00</td>
+        <td>1255.00</td>
+        <td>45.00</td>
+    </tr>
+    <tr id="row-2859">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2859, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>35.00</td>
+        <td>1255.00</td>
+        <td>85.00</td>
+    </tr>
+    <tr id="row-2860">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2860, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>90.00</td>
+        <td>1255.00</td>
+        <td>85.00</td>
+    </tr>
+    <tr id="row-2861">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2861, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>95.00</td>
+        <td>1255.00</td>
+        <td>120.00</td>
+    </tr>
+    <tr id="row-2862">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2862, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>70.00</td>
+        <td>1255.00</td>
+        <td>160.00</td>
+    </tr>
+    <tr id="row-2863">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2863, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>215.00</td>
+        <td>1255.00</td>
+        <td>160.00</td>
+    </tr>
+    <tr id="row-2864">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2864, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>275.00</td>
+        <td>1255.00</td>
+        <td>120.00</td>
+    </tr>
+    <tr id="row-2865">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2865, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>220.00</td>
+        <td>1255.00</td>
+        <td>85.00</td>
+    </tr>
+    <tr id="row-2866">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2866, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>295.00</td>
+        <td>1255.00</td>
+        <td>45.00</td>
+    </tr>
+    <tr id="row-2868">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2868, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>245.00</td>
+        <td>1255.00</td>
+        <td>10.00</td>
+    </tr>
+    <tr id="row-2869">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2869, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>410.00</td>
+        <td>1255.00</td>
+        <td>10.00</td>
+    </tr>
+    <tr id="row-2917">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2917, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1100.00</td>
+        <td>270.00</td>
+        <td>-340.00</td>
+    </tr>
+    <tr id="row-2918">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('TheCage_HR_D-json', 2918, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>TheCage_HR_D.json</td>
+        <td>牢笼</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>1155.00</td>
+        <td>270.00</td>
+        <td>-380.00</td>
+    </tr>
+    <tr id="row-3674">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Hallways_HR_D-json', 3674, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Hallways_HR_D.json</td>
+        <td>回廊</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>375.00</td>
+        <td>-915.00</td>
+        <td>-400.00</td>
+    </tr>
+    <tr id="row-3675">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Hallways_HR_D-json', 3675, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Hallways_HR_D.json</td>
+        <td>回廊</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-365.00</td>
+        <td>-905.00</td>
+        <td>-395.00</td>
+    </tr>
+    <tr id="row-3676">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Hallways_HR_D-json', 3676, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Hallways_HR_D.json</td>
+        <td>回廊</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>10.00</td>
+        <td>-480.00</td>
+        <td>-400.00</td>
+    </tr>
+    <tr id="row-3679">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Hallways_HR_D-json', 3679, this)"></td>
+        <td>废墟2层地牢</td>
+        <td>Hallways_HR_D.json</td>
+        <td>回廊</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>925.00</td>
+        <td>-410.00</td>
+        <td>0.00</td>
+    </tr>
+    <tr id="row-5838">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FrozenLake_D-json', 5838, this)"></td>
+        <td>冰图1层</td>
+        <td>IceCave_FrozenLake_D.json</td>
+        <td>冻湖</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1440.00</td>
+        <td>-274.00</td>
+        <td>84.64</td>
+    </tr>
+    <tr id="row-5839">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FrozenLake_D-json', 5839, this)"></td>
+        <td>冰图1层</td>
+        <td>IceCave_FrozenLake_D.json</td>
+        <td>冻湖</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1440.00</td>
+        <td>-323.00</td>
+        <td>84.64</td>
+    </tr>
+    <tr id="row-5840">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FrozenLake_D-json', 5840, this)"></td>
+        <td>冰图1层</td>
+        <td>IceCave_FrozenLake_D.json</td>
+        <td>冻湖</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1440.00</td>
+        <td>-290.00</td>
+        <td>155.52</td>
+    </tr>
+    <tr id="row-5841">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FrozenLake_D-json', 5841, this)"></td>
+        <td>冰图1层</td>
+        <td>IceCave_FrozenLake_D.json</td>
+        <td>冻湖</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1440.00</td>
+        <td>-355.00</td>
+        <td>155.52</td>
+    </tr>
+    <tr id="row-5842">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FrozenLake_D-json', 5842, this)"></td>
+        <td>冰图1层</td>
+        <td>IceCave_FrozenLake_D.json</td>
+        <td>冻湖</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1325.00</td>
+        <td>110.00</td>
+        <td>120.00</td>
+    </tr>
+    <tr id="row-5843">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FrozenLake_D-json', 5843, this)"></td>
+        <td>冰图1层</td>
+        <td>IceCave_FrozenLake_D.json</td>
+        <td>冻湖</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1400.00</td>
+        <td>110.00</td>
+        <td>120.00</td>
+    </tr>
+    <tr id="row-5844">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FrozenLake_D-json', 5844, this)"></td>
+        <td>冰图1层</td>
+        <td>IceCave_FrozenLake_D.json</td>
+        <td>冻湖</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1371.00</td>
+        <td>110.00</td>
+        <td>49.00</td>
+    </tr>
+    <tr id="row-5845">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FrozenLake_D-json', 5845, this)"></td>
+        <td>冰图1层</td>
+        <td>IceCave_FrozenLake_D.json</td>
+        <td>冻湖</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-550.00</td>
+        <td>-396.00</td>
+        <td>145.00</td>
+    </tr>
+    <tr id="row-5846">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FrozenLake_D-json', 5846, this)"></td>
+        <td>冰图1层</td>
+        <td>IceCave_FrozenLake_D.json</td>
+        <td>冻湖</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-550.00</td>
+        <td>-331.00</td>
+        <td>145.00</td>
+    </tr>
+    <tr id="row-5847">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FrozenLake_D-json', 5847, this)"></td>
+        <td>冰图1层</td>
+        <td>IceCave_FrozenLake_D.json</td>
+        <td>冻湖</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-550.00</td>
+        <td>230.00</td>
+        <td>145.00</td>
+    </tr>
+    <tr id="row-5848">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FrozenLake_D-json', 5848, this)"></td>
+        <td>冰图1层</td>
+        <td>IceCave_FrozenLake_D.json</td>
+        <td>冻湖</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-550.00</td>
+        <td>650.00</td>
+        <td>148.00</td>
+    </tr>
+    <tr id="row-5849">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FrozenLake_D-json', 5849, this)"></td>
+        <td>冰图1层</td>
+        <td>IceCave_FrozenLake_D.json</td>
+        <td>冻湖</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-550.00</td>
+        <td>710.00</td>
+        <td>149.00</td>
+    </tr>
+    <tr id="row-5851">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FrozenLake_D-json', 5851, this)"></td>
+        <td>冰图1层</td>
+        <td>IceCave_FrozenLake_D.json</td>
+        <td>冻湖</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1440.00</td>
+        <td>1100.00</td>
+        <td>90.00</td>
+    </tr>
+    <tr id="row-5852">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FrozenLake_D-json', 5852, this)"></td>
+        <td>冰图1层</td>
+        <td>IceCave_FrozenLake_D.json</td>
+        <td>冻湖</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1440.00</td>
+        <td>1025.00</td>
+        <td>90.00</td>
+    </tr>
+    <tr id="row-5853">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FrozenLake_D-json', 5853, this)"></td>
+        <td>冰图1层</td>
+        <td>IceCave_FrozenLake_D.json</td>
+        <td>冻湖</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1440.00</td>
+        <td>995.00</td>
+        <td>160.59</td>
+    </tr>
+    <tr id="row-5854">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('IceCave_FrozenLake_D-json', 5854, this)"></td>
+        <td>冰图1层</td>
+        <td>IceCave_FrozenLake_D.json</td>
+        <td>冻湖</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-1145.00</td>
+        <td>1460.00</td>
+        <td>145.00</td>
+    </tr>
+    <tr id="row-8338">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_EndWall_HR_D-json', 8338, this)"></td>
+        <td>废墟1层</td>
+        <td>Ruins_EndWall_HR_D.json</td>
+        <td>城墙尽头</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>475.00</td>
+        <td>575.00</td>
+        <td>-100.00</td>
+    </tr>
+    <tr id="row-8340">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_EndWall_HR_D-json', 8340, this)"></td>
+        <td>废墟1层</td>
+        <td>Ruins_EndWall_HR_D.json</td>
+        <td>城墙尽头</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>575.00</td>
+        <td>575.00</td>
+        <td>-100.00</td>
+    </tr>
+    <tr id="row-8343">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_EndWall_HR_D-json', 8343, this)"></td>
+        <td>废墟1层</td>
+        <td>Ruins_EndWall_HR_D.json</td>
+        <td>城墙尽头</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-575.00</td>
+        <td>-475.00</td>
+        <td>-100.00</td>
+    </tr>
+    <tr id="row-8345">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_EndWall_HR_D-json', 8345, this)"></td>
+        <td>废墟1层</td>
+        <td>Ruins_EndWall_HR_D.json</td>
+        <td>城墙尽头</td>
+        <td>GameSpawner_Id_Spawner_New_LootDrop_Bookshelf</td>
+        <td>-555.00</td>
+        <td>-405.00</td>
+        <td>-100.00</td>
+    </tr>
+</table>
+    </div>
+    <script>
+        window.mapStates = {};
+        function togglePoint(cardId, pointIndex, checkbox) {
+            const dot = document.querySelector(`#map-card-${cardId} .dot[data-index="${pointIndex}"]`);
+            if (dot) { dot.style.display = checkbox.checked ? 'block' : 'none'; }
+            const row = checkbox.closest('tr');
+            if (row) { row.style.opacity = checkbox.checked ? '1' : '0.4'; }
+        }
+        function scaleRange(id, factor) {
+            const input = document.getElementById('range-input-' + id);
+            let val = parseFloat(input.value);
+            if (val > 0) { val = val * factor; input.value = val; updateMapRange(id); }
+        }
+        function updateMapRange(id) {
+            const input = document.getElementById('range-input-' + id);
+            const val = parseFloat(input.value);
+            if (val > 0) { if (!window.mapStates[id]) window.mapStates[id] = { rotate: 1, mirrorX: false, mirrorY: false }; window.mapStates[id].range = val; updateDots(id, window.mapStates[id]); }
+        }
+        function updateDots(index, state) {
+            const card = document.getElementById('map-card-' + index);
+            if (!card) return;
+            const dots = card.querySelectorAll('.dot');
+            dots.forEach(dot => {
+                if (dot.style.display === 'none') return;
+                let x = parseFloat(dot.getAttribute('data-x'));
+                let y = parseFloat(dot.getAttribute('data-y'));
+                const range = state.range || 1600; 
+                if (state.rotate === 1) { const newX = y; const newY = -x; x = newX; y = newY; }
+                else if (state.rotate === 2) { x = -x; y = -y; }
+                else if (state.rotate === 3) { const newX = -y; const newY = x; x = newX; y = newY; }
+                if (state.mirrorX) x = -x;
+                if (state.mirrorY) y = -y;
+                const left = 50 + (x / range) * 50;
+                const top = 50 + (y / range) * 50;
+                dot.style.left = Math.max(0, Math.min(100, left)).toFixed(2) + '%';
+                dot.style.top = Math.max(0, Math.min(100, top)).toFixed(2) + '%';
+            });
+        }
+        function updateButtonUI(index, state) {
+            const card = document.getElementById('map-card-' + index);
+            if (!card) return;
+            const rotateBtn = card.querySelector('.btn-rotate');
+            const mirrorXBtn = card.querySelector('.btn-mirror-x');
+            const mirrorYBtn = card.querySelector('.btn-mirror-y');
+            const rotateLabels = ['↻ 旋转', '↻ 90°', '↻ 180°', '↻ 270°'];
+            rotateBtn.textContent = rotateLabels[state.rotate];
+            rotateBtn.classList.toggle('active', state.rotate !== 0);
+            mirrorXBtn.classList.toggle('active', state.mirrorX);
+            mirrorYBtn.classList.toggle('active', state.mirrorY);
+        }
+        function toggleRotate(index) {
+            if (!window.mapStates[index]) window.mapStates[index] = { rotate: 1, mirrorX: false, mirrorY: false };
+            window.mapStates[index].rotate = (window.mapStates[index].rotate + 1) % 4;
+            updateDots(index, window.mapStates[index]);
+            updateButtonUI(index, window.mapStates[index]);
+        }
+        function toggleMirrorX(index) {
+            if (!window.mapStates[index]) window.mapStates[index] = { rotate: 1, mirrorX: false, mirrorY: false };
+            window.mapStates[index].mirrorX = !window.mapStates[index].mirrorX;
+            updateDots(index, window.mapStates[index]);
+            updateButtonUI(index, window.mapStates[index]);
+        }
+        function toggleMirrorY(index) {
+            if (!window.mapStates[index]) window.mapStates[index] = { rotate: 1, mirrorX: false, mirrorY: false };
+            window.mapStates[index].mirrorY = !window.mapStates[index].mirrorY;
+            updateDots(index, window.mapStates[index]);
+            updateButtonUI(index, window.mapStates[index]);
+        }
+        function resetMap(index) {
+            const input = document.getElementById('range-input-' + index);
+            const defaultRange = parseFloat(input.value);
+            window.mapStates[index] = { rotate: 1, mirrorX: false, mirrorY: false, range: defaultRange };
+            updateDots(index, window.mapStates[index]);
+            updateButtonUI(index, window.mapStates[index]);
+        }
+        function setColumns(cols) {
+            const grid = document.getElementById('maps-grid');
+            grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+        }
+        function toggleDebugInfo() {
+            const filenames = document.querySelectorAll('.map-filename');
+            const infos = document.querySelectorAll('.map-info');
+            const controls = document.querySelectorAll('.controls');
+            const debugTexts = document.querySelectorAll('.debug-text');
+            const debugTitle = document.getElementById('debug-title');
+            const summary = document.getElementById('summary-section');
+            const debugPanel = document.getElementById('debug-panel');
+            const btn = document.getElementById('debug-toggle-btn');
+            const isVisible = filenames.length > 0 && filenames[0].style.display === 'block';
+            
+            filenames.forEach(el => el.style.display = isVisible ? 'none' : 'block');
+            infos.forEach(el => el.style.display = isVisible ? 'none' : 'block');
+            controls.forEach(el => el.classList.toggle('visible', !isVisible));
+            debugTexts.forEach(el => el.classList.toggle('visible', !isVisible));
+            debugTitle.classList.toggle('visible', !isVisible);
+            summary.classList.toggle('visible', !isVisible);
+            debugPanel.classList.toggle('visible', !isVisible);
+            btn.textContent = isVisible ? '显示调试信息' : '隐藏调试信息';
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const mapCards = document.querySelectorAll('.map-card');
+            mapCards.forEach((card) => {
+                const idParts = card.id.split('map-card-')[1];
+                const input = document.getElementById('range-input-' + idParts);
+                const initialRange = input ? parseFloat(input.value) : 1600;
+                window.mapStates[idParts] = { rotate: 1, mirrorX: false, mirrorY: false, range: initialRange };
+                updateDots(idParts, window.mapStates[idParts]);
+                updateButtonUI(idParts, window.mapStates[idParts]);
+            });
+        });
+    </script>
+    <div id="debug-panel" class="debug-panel">
+        <label>每行卡片数:</label>
+        <input type="number" id="cols-input" value="5" min="1" max="10" onchange="setColumns(this.value)">
+    </div>
+    <button id="debug-toggle-btn" class="debug-btn" onclick="toggleDebugInfo()">显示调试信息</button>
+</body>
+</html>

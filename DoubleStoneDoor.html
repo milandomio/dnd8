@@ -10,11 +10,13 @@
         .back-link:hover { text-decoration: underline; color: #fff; }
         h1 { margin-bottom: 8px; font-size: 28px; text-align: center; color: #00bcd4; }
         .disclaimer { text-align: center; color: #ff6b6b; font-size: 14px; margin-bottom: 10px; padding: 8px; background-color: #3a3a3a; border-radius: 5px; }
+        .disclaimer .time { color: #aaa; margin-left: 15px; }
         .debug-title { display: none; font-size: 16px; color: #888; text-align: center; margin-bottom: 5px; }
         .debug-title.visible { display: block; }
-        .maps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px; }
-        @media (max-width: 1200px) { .maps-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 800px) { .maps-grid { grid-template-columns: 1fr; } }
+        .maps-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 20px; }
+        @media (max-width: 1200px) { .maps-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 800px) { .maps-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 500px) { .maps-grid { grid-template-columns: 1fr; } }
         .group-header { grid-column: 1 / -1; font-size: 22px; font-weight: bold; color: #FFC107; padding: 5px 0; margin-top: 10px; border-bottom: 2px solid #FFC107; }
         .map-card { padding: 5px; background-color: #3a3a3a; border-radius: 5px; border: 1px solid #555; display: flex; flex-direction: column; align-items: center; }
         .map-title { font-size: 22px; margin-bottom: 2px; color: #00bcd4; text-align: center; width: 100%; line-height: 1.3; }
@@ -64,7 +66,7 @@
 <body>
     <a href="index.html" class="back-link">&lt;&lt; 返回总览</a>
     <h1>双开石门 位置汇总</h1>
-    <div class="disclaimer">⚠️ 数据有误差，以实际游戏内为准</div>
+    <div class="disclaimer">⚠️ 数据有误差，以实际游戏内为准<span class="time">地图生成日期：2026-02-13日21点</span></div>
     <div class="debug-title" id="debug-title">双开石门 (DoubleStoneDoor)</div>
     <div class="maps-grid" id="maps-grid">    <div class="group-header">哥布林洞穴1层</div>
     <div class="map-card" id="map-card-CaveMaze_HR_D-json">
@@ -101,8 +103,8 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('CaveTown_02_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('CaveTown_02_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-CaveTown_02_HR_D-json"><img src="images/CaveTown_02.webp" class="image">        <div class="dot" data-index="162" data-x="-6246.9043" data-y="-5512.6978" data-z="-63.53766" style="left: -145.22%; top: -122.27%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="164" data-x="10.000008" data-y="-88.99991" data-z="0.0001" style="left: 50.31%; top: 47.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-CaveTown_02_HR_D-json"><img src="images/CaveTown_02.webp" class="image">        <div class="dot" data-index="185" data-x="-6246.9043" data-y="-5512.6978" data-z="-63.53766" style="left: -145.22%; top: -122.27%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="187" data-x="10.000008" data-y="-88.99991" data-z="0.0001" style="left: 50.31%; top: 47.22%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="group-header">哥布林洞穴2层</div>
@@ -121,7 +123,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Firedeep_Greatforge_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Firedeep_Greatforge_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Firedeep_Greatforge_D-json"><div class="image-placeholder">未找到</div>        <div class="dot" data-index="3606" data-x="-1053.5355" data-y="1054.0381" data-z="-3465.0" style="left: 17.08%; top: 82.94%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Firedeep_Greatforge_D-json"><div class="image-placeholder">未找到</div>        <div class="dot" data-index="4404" data-x="-1053.5355" data-y="1054.0381" data-z="-3465.0" style="left: 17.08%; top: 82.94%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-Firedeep_MagmaFalls_D-json">
@@ -139,7 +141,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Firedeep_MagmaFalls_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Firedeep_MagmaFalls_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Firedeep_MagmaFalls_D-json"><img src="images/Magmafalls.webp" class="image">        <div class="dot" data-index="3640" data-x="-1060.6066" data-y="1060.6066" data-z="-19.0" style="left: 16.86%; top: 83.14%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Firedeep_MagmaFalls_D-json"><img src="images/Magmafalls.webp" class="image">        <div class="dot" data-index="4443" data-x="-1060.6066" data-y="1060.6066" data-z="-19.0" style="left: 16.86%; top: 83.14%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="group-header">废墟1层</div>
@@ -158,7 +160,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_Barbican_01_BossTest_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Ruins_Barbican_01_BossTest_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Ruins_Barbican_01_BossTest_D-json"><div class="image-placeholder">未找到</div>        <div class="dot" data-index="6718" data-x="-45.0" data-y="4880.0" data-z="-699.9999" style="left: 48.59%; top: 202.50%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Ruins_Barbican_01_BossTest_D-json"><div class="image-placeholder">未找到</div>        <div class="dot" data-index="8048" data-x="-45.0" data-y="4880.0" data-z="-699.9999" style="left: 48.59%; top: 202.50%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-Ruins_Barbican_01_HR_D-json">
@@ -176,7 +178,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_Barbican_01_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Ruins_Barbican_01_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Ruins_Barbican_01_HR_D-json"><img src="images/Ruins_Barbican_01.webp" class="image">        <div class="dot" data-index="6750" data-x="-45.0" data-y="4880.0" data-z="-699.9999" style="left: 48.59%; top: 202.50%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Ruins_Barbican_01_HR_D-json"><img src="images/Ruins_Barbican_01.webp" class="image">        <div class="dot" data-index="8086" data-x="-45.0" data-y="4880.0" data-z="-699.9999" style="left: 48.59%; top: 202.50%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-Ruins_GreatHall_01_Destroyed_BossTest_D-json">
@@ -194,8 +196,8 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_GreatHall_01_Destroyed_BossTest_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Ruins_GreatHall_01_Destroyed_BossTest_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Ruins_GreatHall_01_Destroyed_BossTest_D-json"><div class="image-placeholder">未找到</div>        <div class="dot" data-index="7233" data-x="965.0" data-y="-605.0" data-z="0.0" style="left: 80.16%; top: 31.09%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="7234" data-x="4800.0" data-y="-85.0" data-z="-795.9999" style="left: 200.00%; top: 47.34%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Ruins_GreatHall_01_Destroyed_BossTest_D-json"><div class="image-placeholder">未找到</div>        <div class="dot" data-index="8610" data-x="965.0" data-y="-605.0" data-z="0.0" style="left: 80.16%; top: 31.09%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8611" data-x="4800.0" data-y="-85.0" data-z="-795.9999" style="left: 200.00%; top: 47.34%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-Ruins_GreatHall_01_Destroyed_HR_D-json">
@@ -213,8 +215,8 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_GreatHall_01_Destroyed_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Ruins_GreatHall_01_Destroyed_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Ruins_GreatHall_01_Destroyed_HR_D-json"><img src="images/Ruins_GreatHall_01_Destroyed.webp" class="image">        <div class="dot" data-index="7266" data-x="4800.0" data-y="-85.0" data-z="-795.9999" style="left: 200.00%; top: 47.34%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="7267" data-x="965.0" data-y="-605.0" data-z="0.0" style="left: 80.16%; top: 31.09%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Ruins_GreatHall_01_Destroyed_HR_D-json"><img src="images/Ruins_GreatHall_01_Destroyed.webp" class="image">        <div class="dot" data-index="8657" data-x="4800.0" data-y="-85.0" data-z="-795.9999" style="left: 200.00%; top: 47.34%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8658" data-x="965.0" data-y="-605.0" data-z="0.0" style="left: 80.16%; top: 31.09%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
 </div>
@@ -247,8 +249,8 @@
         <td>-90.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-162">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CaveTown_02_HR_D-json', 162, this)"></td>
+    <tr id="row-185">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CaveTown_02_HR_D-json', 185, this)"></td>
         <td>哥布林洞穴1层</td>
         <td>CaveTown_02_HR_D.json</td>
         <td>哥布林小镇 B</td>
@@ -257,8 +259,8 @@
         <td>-5512.70</td>
         <td>-63.54</td>
     </tr>
-    <tr id="row-164">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CaveTown_02_HR_D-json', 164, this)"></td>
+    <tr id="row-187">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('CaveTown_02_HR_D-json', 187, this)"></td>
         <td>哥布林洞穴1层</td>
         <td>CaveTown_02_HR_D.json</td>
         <td>哥布林小镇 B</td>
@@ -267,8 +269,8 @@
         <td>-89.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-3606">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_Greatforge_D-json', 3606, this)"></td>
+    <tr id="row-4404">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_Greatforge_D-json', 4404, this)"></td>
         <td>哥布林洞穴2层</td>
         <td>Firedeep_Greatforge_D.json</td>
         <td>巨熔炉</td>
@@ -277,8 +279,8 @@
         <td>1054.04</td>
         <td>-3465.00</td>
     </tr>
-    <tr id="row-3640">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_MagmaFalls_D-json', 3640, this)"></td>
+    <tr id="row-4443">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_MagmaFalls_D-json', 4443, this)"></td>
         <td>哥布林洞穴2层</td>
         <td>Firedeep_MagmaFalls_D.json</td>
         <td>岩浆瀑布</td>
@@ -287,8 +289,8 @@
         <td>1060.61</td>
         <td>-19.00</td>
     </tr>
-    <tr id="row-6718">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Barbican_01_BossTest_D-json', 6718, this)"></td>
+    <tr id="row-8048">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Barbican_01_BossTest_D-json', 8048, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_Barbican_01_BossTest_D.json</td>
         <td></td>
@@ -297,8 +299,8 @@
         <td>4880.00</td>
         <td>-700.00</td>
     </tr>
-    <tr id="row-6750">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Barbican_01_HR_D-json', 6750, this)"></td>
+    <tr id="row-8086">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Barbican_01_HR_D-json', 8086, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_Barbican_01_HR_D.json</td>
         <td>瓮城</td>
@@ -307,8 +309,8 @@
         <td>4880.00</td>
         <td>-700.00</td>
     </tr>
-    <tr id="row-7233">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_GreatHall_01_Destroyed_BossTest_D-json', 7233, this)"></td>
+    <tr id="row-8610">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_GreatHall_01_Destroyed_BossTest_D-json', 8610, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_GreatHall_01_Destroyed_BossTest_D.json</td>
         <td></td>
@@ -317,8 +319,8 @@
         <td>-605.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-7234">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_GreatHall_01_Destroyed_BossTest_D-json', 7234, this)"></td>
+    <tr id="row-8611">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_GreatHall_01_Destroyed_BossTest_D-json', 8611, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_GreatHall_01_Destroyed_BossTest_D.json</td>
         <td></td>
@@ -327,8 +329,8 @@
         <td>-85.00</td>
         <td>-796.00</td>
     </tr>
-    <tr id="row-7266">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_GreatHall_01_Destroyed_HR_D-json', 7266, this)"></td>
+    <tr id="row-8657">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_GreatHall_01_Destroyed_HR_D-json', 8657, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_GreatHall_01_Destroyed_HR_D.json</td>
         <td>礼拜堂 A</td>
@@ -337,8 +339,8 @@
         <td>-85.00</td>
         <td>-796.00</td>
     </tr>
-    <tr id="row-7267">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_GreatHall_01_Destroyed_HR_D-json', 7267, this)"></td>
+    <tr id="row-8658">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_GreatHall_01_Destroyed_HR_D-json', 8658, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_GreatHall_01_Destroyed_HR_D.json</td>
         <td>礼拜堂 A</td>
@@ -462,7 +464,7 @@
     </script>
     <div id="debug-panel" class="debug-panel">
         <label>每行卡片数:</label>
-        <input type="number" id="cols-input" value="3" min="1" max="10" onchange="setColumns(this.value)">
+        <input type="number" id="cols-input" value="5" min="1" max="10" onchange="setColumns(this.value)">
     </div>
     <button id="debug-toggle-btn" class="debug-btn" onclick="toggleDebugInfo()">显示调试信息</button>
 </body>

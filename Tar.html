@@ -10,11 +10,13 @@
         .back-link:hover { text-decoration: underline; color: #fff; }
         h1 { margin-bottom: 8px; font-size: 28px; text-align: center; color: #00bcd4; }
         .disclaimer { text-align: center; color: #ff6b6b; font-size: 14px; margin-bottom: 10px; padding: 8px; background-color: #3a3a3a; border-radius: 5px; }
+        .disclaimer .time { color: #aaa; margin-left: 15px; }
         .debug-title { display: none; font-size: 16px; color: #888; text-align: center; margin-bottom: 5px; }
         .debug-title.visible { display: block; }
-        .maps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px; }
-        @media (max-width: 1200px) { .maps-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 800px) { .maps-grid { grid-template-columns: 1fr; } }
+        .maps-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 20px; }
+        @media (max-width: 1200px) { .maps-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 800px) { .maps-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 500px) { .maps-grid { grid-template-columns: 1fr; } }
         .group-header { grid-column: 1 / -1; font-size: 22px; font-weight: bold; color: #FFC107; padding: 5px 0; margin-top: 10px; border-bottom: 2px solid #FFC107; }
         .map-card { padding: 5px; background-color: #3a3a3a; border-radius: 5px; border: 1px solid #555; display: flex; flex-direction: column; align-items: center; }
         .map-title { font-size: 22px; margin-bottom: 2px; color: #00bcd4; text-align: center; width: 100%; line-height: 1.3; }
@@ -64,7 +66,7 @@
 <body>
     <a href="index.html" class="back-link">&lt;&lt; 返回总览</a>
     <h1>焦油 位置汇总</h1>
-    <div class="disclaimer">⚠️ 数据有误差，以实际游戏内为准</div>
+    <div class="disclaimer">⚠️ 数据有误差，以实际游戏内为准<span class="time">地图生成日期：2026-02-13日21点</span></div>
     <div class="debug-title" id="debug-title">焦油 (Tar)</div>
     <div class="maps-grid" id="maps-grid">    <div class="group-header">水图</div>
     <div class="map-card" id="map-card-ShipGraveyard_AbandonedShip_01_HR_D-json">
@@ -82,7 +84,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('ShipGraveyard_AbandonedShip_01_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('ShipGraveyard_AbandonedShip_01_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-ShipGraveyard_AbandonedShip_01_HR_D-json"><img src="images/ShipGraveyard_AbandonedShip_01.webp" class="image">        <div class="dot" data-index="8232" data-x="1705.715" data-y="9.2612705" data-z="20.0" style="left: 103.30%; top: 50.29%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-ShipGraveyard_AbandonedShip_01_HR_D-json"><img src="images/ShipGraveyard_AbandonedShip_01.webp" class="image">        <div class="dot" data-index="9838" data-x="1705.715" data-y="9.2612705" data-z="20.0" style="left: 103.30%; top: 50.29%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-ShipGraveyard_BladehandRefuge_D-json">
@@ -100,7 +102,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('ShipGraveyard_BladehandRefuge_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('ShipGraveyard_BladehandRefuge_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-ShipGraveyard_BladehandRefuge_D-json"><img src="images/ShipGraveyard_BladehandRefuge.webp" class="image">        <div class="dot" data-index="8269" data-x="3763.9504" data-y="2119.0369" data-z="303.24527" style="left: 167.62%; top: 116.22%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="container" id="container-ShipGraveyard_BladehandRefuge_D-json"><img src="images/ShipGraveyard_BladehandRefuge.webp" class="image">        <div class="dot" data-index="9872" data-x="3763.9504" data-y="2119.0369" data-z="303.24527" style="left: 167.62%; top: 116.22%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-ShipGraveyard_SeaFortress_D-json">
@@ -118,7 +120,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('ShipGraveyard_SeaFortress_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('ShipGraveyard_SeaFortress_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-ShipGraveyard_SeaFortress_D-json"><img src="images/ShipGraveyard_SeaFortress.webp" class="image">        <div class="dot" data-index="9251" data-x="120.0" data-y="-460.0" data-z="600.0" style="left: 53.75%; top: 35.62%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="container" id="container-ShipGraveyard_SeaFortress_D-json"><img src="images/ShipGraveyard_SeaFortress.webp" class="image">        <div class="dot" data-index="10998" data-x="120.0" data-y="-460.0" data-z="600.0" style="left: 53.75%; top: 35.62%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-ShipGraveyard_SkullIsland_D-json">
@@ -136,7 +138,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('ShipGraveyard_SkullIsland_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('ShipGraveyard_SkullIsland_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-ShipGraveyard_SkullIsland_D-json"><img src="images/ShipGraveyard_SkullIsland.webp" class="image">        <div class="dot" data-index="9342" data-x="606.27875" data-y="485.87515" data-z="995.0" style="left: 68.95%; top: 65.18%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="container" id="container-ShipGraveyard_SkullIsland_D-json"><img src="images/ShipGraveyard_SkullIsland.webp" class="image">        <div class="dot" data-index="11111" data-x="606.27875" data-y="485.87515" data-z="995.0" style="left: 68.95%; top: 65.18%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
 </div>
     </div>
 </div>
@@ -149,8 +151,8 @@
     </div>
     <div class="summary" id="summary-section">
         <h2>所有坐标详情</h2>
-        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-8232">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_AbandonedShip_01_HR_D-json', 8232, this)"></td>
+        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-9838">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_AbandonedShip_01_HR_D-json', 9838, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_AbandonedShip_01_HR_D.json</td>
         <td>废弃舰船</td>
@@ -159,8 +161,8 @@
         <td>9.26</td>
         <td>20.00</td>
     </tr>
-    <tr id="row-8269">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_BladehandRefuge_D-json', 8269, this)"></td>
+    <tr id="row-9872">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_BladehandRefuge_D-json', 9872, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_BladehandRefuge_D.json</td>
         <td>钉手的藏身处</td>
@@ -169,8 +171,8 @@
         <td>2119.04</td>
         <td>303.25</td>
     </tr>
-    <tr id="row-9251">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_SeaFortress_D-json', 9251, this)"></td>
+    <tr id="row-10998">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_SeaFortress_D-json', 10998, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_SeaFortress_D.json</td>
         <td>海洋要塞 A</td>
@@ -179,8 +181,8 @@
         <td>-460.00</td>
         <td>600.00</td>
     </tr>
-    <tr id="row-9342">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_SkullIsland_D-json', 9342, this)"></td>
+    <tr id="row-11111">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_SkullIsland_D-json', 11111, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_SkullIsland_D.json</td>
         <td>骷髅岛</td>
@@ -304,7 +306,7 @@
     </script>
     <div id="debug-panel" class="debug-panel">
         <label>每行卡片数:</label>
-        <input type="number" id="cols-input" value="3" min="1" max="10" onchange="setColumns(this.value)">
+        <input type="number" id="cols-input" value="5" min="1" max="10" onchange="setColumns(this.value)">
     </div>
     <button id="debug-toggle-btn" class="debug-btn" onclick="toggleDebugInfo()">显示调试信息</button>
 </body>

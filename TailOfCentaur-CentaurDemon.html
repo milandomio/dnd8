@@ -10,11 +10,13 @@
         .back-link:hover { text-decoration: underline; color: #fff; }
         h1 { margin-bottom: 8px; font-size: 28px; text-align: center; color: #00bcd4; }
         .disclaimer { text-align: center; color: #ff6b6b; font-size: 14px; margin-bottom: 10px; padding: 8px; background-color: #3a3a3a; border-radius: 5px; }
+        .disclaimer .time { color: #aaa; margin-left: 15px; }
         .debug-title { display: none; font-size: 16px; color: #888; text-align: center; margin-bottom: 5px; }
         .debug-title.visible { display: block; }
-        .maps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px; }
-        @media (max-width: 1200px) { .maps-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 800px) { .maps-grid { grid-template-columns: 1fr; } }
+        .maps-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 20px; }
+        @media (max-width: 1200px) { .maps-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 800px) { .maps-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 500px) { .maps-grid { grid-template-columns: 1fr; } }
         .group-header { grid-column: 1 / -1; font-size: 22px; font-weight: bold; color: #FFC107; padding: 5px 0; margin-top: 10px; border-bottom: 2px solid #FFC107; }
         .map-card { padding: 5px; background-color: #3a3a3a; border-radius: 5px; border: 1px solid #555; display: flex; flex-direction: column; align-items: center; }
         .map-title { font-size: 22px; margin-bottom: 2px; color: #00bcd4; text-align: center; width: 100%; line-height: 1.3; }
@@ -64,7 +66,7 @@
 <body>
     <a href="index.html" class="back-link">&lt;&lt; 返回总览</a>
     <h1>半人马之尾>目标>恶魔半人马 位置汇总</h1>
-    <div class="disclaimer">⚠️ 数据有误差，以实际游戏内为准</div>
+    <div class="disclaimer">⚠️ 数据有误差，以实际游戏内为准<span class="time">地图生成日期：2026-02-13日21点</span></div>
     <div class="debug-title" id="debug-title">半人马之尾 (TailOfCentaur) 目标 恶魔半人马 (CentaurDemon)</div>
     <div class="maps-grid" id="maps-grid">    <div class="group-header">废墟3层炼狱</div>
     <div class="map-card" id="map-card-Inferno_DownStair_HR_D-json">
@@ -82,7 +84,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Inferno_DownStair_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Inferno_DownStair_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Inferno_DownStair_HR_D-json"><img src="images/Inferno_DownStair.webp" class="image">        <div class="dot" data-index="5743" data-x="-475.86713" data-y="865.95435" data-z="0.0" style="left: 35.13%; top: 77.06%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Inferno_DownStair_HR_D-json"><img src="images/Inferno_DownStair.webp" class="image">        <div class="dot" data-index="6960" data-x="-475.86713" data-y="865.95435" data-z="0.0" style="left: 35.13%; top: 77.06%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-DemonDen_HR_D-json">
@@ -100,7 +102,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('DemonDen_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('DemonDen_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-DemonDen_HR_D-json"><img src="images/DemonDen.webp" class="image">        <div class="dot" data-index="6181" data-x="0.0" data-y="-45.0" data-z="600.00006" style="left: 50.00%; top: 48.59%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="container" id="container-DemonDen_HR_D-json"><img src="images/DemonDen.webp" class="image">        <div class="dot" data-index="7482" data-x="0.0" data-y="-45.0" data-z="600.00006" style="left: 50.00%; top: 48.59%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-InfernoColumns_HR_D-json">
@@ -118,7 +120,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('InfernoColumns_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('InfernoColumns_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-InfernoColumns_HR_D-json"><img src="images/InfernoColumns.webp" class="image">        <div class="dot" data-index="6252" data-x="-732.0" data-y="-749.0" data-z="14.0" style="left: 27.12%; top: 26.59%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-InfernoColumns_HR_D-json"><img src="images/InfernoColumns.webp" class="image">        <div class="dot" data-index="7552" data-x="-732.0" data-y="-749.0" data-z="14.0" style="left: 27.12%; top: 26.59%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-InfernoRiver_HR_D-json">
@@ -136,7 +138,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('InfernoRiver_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('InfernoRiver_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-InfernoRiver_HR_D-json"><img src="images/InfernoRiver.webp" class="image">        <div class="dot" data-index="6373" data-x="-882.0836" data-y="-882.7931" data-z="-8.0" style="left: 22.43%; top: 22.41%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-InfernoRiver_HR_D-json"><img src="images/InfernoRiver.webp" class="image">        <div class="dot" data-index="7686" data-x="-882.0836" data-y="-882.7931" data-z="-8.0" style="left: 22.43%; top: 22.41%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
 </div>
@@ -149,8 +151,8 @@
     </div>
     <div class="summary" id="summary-section">
         <h2>所有坐标详情</h2>
-        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-5743">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Inferno_DownStair_HR_D-json', 5743, this)"></td>
+        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-6960">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Inferno_DownStair_HR_D-json', 6960, this)"></td>
         <td>废墟3层炼狱</td>
         <td>Inferno_DownStair_HR_D.json</td>
         <td>等候室</td>
@@ -159,8 +161,8 @@
         <td>865.95</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-6181">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DemonDen_HR_D-json', 6181, this)"></td>
+    <tr id="row-7482">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('DemonDen_HR_D-json', 7482, this)"></td>
         <td>废墟3层炼狱</td>
         <td>DemonDen_HR_D.json</td>
         <td>炼狱魔窟</td>
@@ -169,8 +171,8 @@
         <td>-45.00</td>
         <td>600.00</td>
     </tr>
-    <tr id="row-6252">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('InfernoColumns_HR_D-json', 6252, this)"></td>
+    <tr id="row-7552">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('InfernoColumns_HR_D-json', 7552, this)"></td>
         <td>废墟3层炼狱</td>
         <td>InfernoColumns_HR_D.json</td>
         <td>鲜血柱廊</td>
@@ -179,8 +181,8 @@
         <td>-749.00</td>
         <td>14.00</td>
     </tr>
-    <tr id="row-6373">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('InfernoRiver_HR_D-json', 6373, this)"></td>
+    <tr id="row-7686">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('InfernoRiver_HR_D-json', 7686, this)"></td>
         <td>废墟3层炼狱</td>
         <td>InfernoRiver_HR_D.json</td>
         <td>血河</td>
@@ -304,7 +306,7 @@
     </script>
     <div id="debug-panel" class="debug-panel">
         <label>每行卡片数:</label>
-        <input type="number" id="cols-input" value="3" min="1" max="10" onchange="setColumns(this.value)">
+        <input type="number" id="cols-input" value="5" min="1" max="10" onchange="setColumns(this.value)">
     </div>
     <button id="debug-toggle-btn" class="debug-btn" onclick="toggleDebugInfo()">显示调试信息</button>
 </body>

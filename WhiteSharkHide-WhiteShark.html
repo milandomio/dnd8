@@ -10,11 +10,13 @@
         .back-link:hover { text-decoration: underline; color: #fff; }
         h1 { margin-bottom: 8px; font-size: 28px; text-align: center; color: #00bcd4; }
         .disclaimer { text-align: center; color: #ff6b6b; font-size: 14px; margin-bottom: 10px; padding: 8px; background-color: #3a3a3a; border-radius: 5px; }
+        .disclaimer .time { color: #aaa; margin-left: 15px; }
         .debug-title { display: none; font-size: 16px; color: #888; text-align: center; margin-bottom: 5px; }
         .debug-title.visible { display: block; }
-        .maps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px; }
-        @media (max-width: 1200px) { .maps-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 800px) { .maps-grid { grid-template-columns: 1fr; } }
+        .maps-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 20px; }
+        @media (max-width: 1200px) { .maps-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 800px) { .maps-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 500px) { .maps-grid { grid-template-columns: 1fr; } }
         .group-header { grid-column: 1 / -1; font-size: 22px; font-weight: bold; color: #FFC107; padding: 5px 0; margin-top: 10px; border-bottom: 2px solid #FFC107; }
         .map-card { padding: 5px; background-color: #3a3a3a; border-radius: 5px; border: 1px solid #555; display: flex; flex-direction: column; align-items: center; }
         .map-title { font-size: 22px; margin-bottom: 2px; color: #00bcd4; text-align: center; width: 100%; line-height: 1.3; }
@@ -64,7 +66,7 @@
 <body>
     <a href="index.html" class="back-link">&lt;&lt; 返回总览</a>
     <h1>大白鲨的皮>目标>大白鲨 位置汇总</h1>
-    <div class="disclaimer">⚠️ 数据有误差，以实际游戏内为准</div>
+    <div class="disclaimer">⚠️ 数据有误差，以实际游戏内为准<span class="time">地图生成日期：2026-02-13日21点</span></div>
     <div class="debug-title" id="debug-title">大白鲨的皮 (WhiteSharkHide) 目标 大白鲨 (WhiteShark)</div>
     <div class="maps-grid" id="maps-grid">    <div class="group-header">水图</div>
     <div class="map-card" id="map-card-ShipGraveyard_BladehandRefuge_D-json">
@@ -82,7 +84,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('ShipGraveyard_BladehandRefuge_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('ShipGraveyard_BladehandRefuge_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-ShipGraveyard_BladehandRefuge_D-json"><img src="images/ShipGraveyard_BladehandRefuge.webp" class="image">        <div class="dot" data-index="8312" data-x="2800.0" data-y="1300.0" data-z="-350.0" style="left: 137.50%; top: 90.62%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-ShipGraveyard_BladehandRefuge_D-json"><img src="images/ShipGraveyard_BladehandRefuge.webp" class="image">        <div class="dot" data-index="9915" data-x="2800.0" data-y="1300.0" data-z="-350.0" style="left: 137.50%; top: 90.62%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-ShipGraveyard_Hole_HR_D-json">
@@ -100,7 +102,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('ShipGraveyard_Hole_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('ShipGraveyard_Hole_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-ShipGraveyard_Hole_HR_D-json"><img src="images/ShipGraveyard_Hole.webp" class="image">        <div class="dot" data-index="8774" data-x="255.0" data-y="315.0" data-z="555.0" style="left: 51.99%; top: 52.46%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="container" id="container-ShipGraveyard_Hole_HR_D-json"><img src="images/ShipGraveyard_Hole.webp" class="image">        <div class="dot" data-index="10480" data-x="255.0" data-y="315.0" data-z="555.0" style="left: 51.99%; top: 52.46%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-ShipGraveyard_SunkenShip_01_D-json">
@@ -118,7 +120,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('ShipGraveyard_SunkenShip_01_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('ShipGraveyard_SunkenShip_01_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-ShipGraveyard_SunkenShip_01_D-json"><img src="images/ShipGraveyard_SunkenShip_01.webp" class="image">        <div class="dot" data-index="9574" data-x="1004.0" data-y="-1230.0" data-z="-530.0" style="left: 81.38%; top: 11.56%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="container" id="container-ShipGraveyard_SunkenShip_01_D-json"><img src="images/ShipGraveyard_SunkenShip_01.webp" class="image">        <div class="dot" data-index="11423" data-x="1004.0" data-y="-1230.0" data-z="-530.0" style="left: 81.38%; top: 11.56%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-ShipGraveyard_Trench_D-json">
@@ -136,7 +138,7 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('ShipGraveyard_Trench_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('ShipGraveyard_Trench_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-ShipGraveyard_Trench_D-json"><img src="images/ShipGraveyard_Trench.webp" class="image">        <div class="dot" data-index="9613" data-x="-43.020546" data-y="-676.4525" data-z="2157.0" style="left: 48.66%; top: 28.86%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="container" id="container-ShipGraveyard_Trench_D-json"><img src="images/ShipGraveyard_Trench.webp" class="image">        <div class="dot" data-index="11462" data-x="-43.020546" data-y="-676.4525" data-z="2157.0" style="left: 48.66%; top: 28.86%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
 </div>
     </div>
 </div>
@@ -149,8 +151,8 @@
     </div>
     <div class="summary" id="summary-section">
         <h2>所有坐标详情</h2>
-        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-8312">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_BladehandRefuge_D-json', 8312, this)"></td>
+        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-9915">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_BladehandRefuge_D-json', 9915, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_BladehandRefuge_D.json</td>
         <td>钉手的藏身处</td>
@@ -159,8 +161,8 @@
         <td>1300.00</td>
         <td>-350.00</td>
     </tr>
-    <tr id="row-8774">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Hole_HR_D-json', 8774, this)"></td>
+    <tr id="row-10480">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Hole_HR_D-json', 10480, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_Hole_HR_D.json</td>
         <td>蓝洞</td>
@@ -169,8 +171,8 @@
         <td>315.00</td>
         <td>555.00</td>
     </tr>
-    <tr id="row-9574">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_SunkenShip_01_D-json', 9574, this)"></td>
+    <tr id="row-11423">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_SunkenShip_01_D-json', 11423, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_SunkenShip_01_D.json</td>
         <td>沉没之船</td>
@@ -179,8 +181,8 @@
         <td>-1230.00</td>
         <td>-530.00</td>
     </tr>
-    <tr id="row-9613">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Trench_D-json', 9613, this)"></td>
+    <tr id="row-11462">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('ShipGraveyard_Trench_D-json', 11462, this)"></td>
         <td>水图</td>
         <td>ShipGraveyard_Trench_D.json</td>
         <td>海沟</td>
@@ -304,7 +306,7 @@
     </script>
     <div id="debug-panel" class="debug-panel">
         <label>每行卡片数:</label>
-        <input type="number" id="cols-input" value="3" min="1" max="10" onchange="setColumns(this.value)">
+        <input type="number" id="cols-input" value="5" min="1" max="10" onchange="setColumns(this.value)">
     </div>
     <button id="debug-toggle-btn" class="debug-btn" onclick="toggleDebugInfo()">显示调试信息</button>
 </body>

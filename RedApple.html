@@ -10,11 +10,13 @@
         .back-link:hover { text-decoration: underline; color: #fff; }
         h1 { margin-bottom: 8px; font-size: 28px; text-align: center; color: #00bcd4; }
         .disclaimer { text-align: center; color: #ff6b6b; font-size: 14px; margin-bottom: 10px; padding: 8px; background-color: #3a3a3a; border-radius: 5px; }
+        .disclaimer .time { color: #aaa; margin-left: 15px; }
         .debug-title { display: none; font-size: 16px; color: #888; text-align: center; margin-bottom: 5px; }
         .debug-title.visible { display: block; }
-        .maps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px; }
-        @media (max-width: 1200px) { .maps-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 800px) { .maps-grid { grid-template-columns: 1fr; } }
+        .maps-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 20px; }
+        @media (max-width: 1200px) { .maps-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 800px) { .maps-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 500px) { .maps-grid { grid-template-columns: 1fr; } }
         .group-header { grid-column: 1 / -1; font-size: 22px; font-weight: bold; color: #FFC107; padding: 5px 0; margin-top: 10px; border-bottom: 2px solid #FFC107; }
         .map-card { padding: 5px; background-color: #3a3a3a; border-radius: 5px; border: 1px solid #555; display: flex; flex-direction: column; align-items: center; }
         .map-title { font-size: 22px; margin-bottom: 2px; color: #00bcd4; text-align: center; width: 100%; line-height: 1.3; }
@@ -64,7 +66,7 @@
 <body>
     <a href="index.html" class="back-link">&lt;&lt; 返回总览</a>
     <h1>红苹果 位置汇总</h1>
-    <div class="disclaimer">⚠️ 数据有误差，以实际游戏内为准</div>
+    <div class="disclaimer">⚠️ 数据有误差，以实际游戏内为准<span class="time">地图生成日期：2026-02-13日21点</span></div>
     <div class="debug-title" id="debug-title">红苹果 (RedApple)</div>
     <div class="maps-grid" id="maps-grid">    <div class="group-header">废墟1层</div>
     <div class="map-card" id="map-card-Ruins_Armory_HR_D-json">
@@ -82,9 +84,9 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_Armory_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Ruins_Armory_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Ruins_Armory_HR_D-json"><img src="images/Ruins_Armory.webp" class="image">        <div class="dot" data-index="6611" data-x="-1273.0" data-y="-11.0" data-z="109.0" style="left: 10.22%; top: 49.66%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="6618" data-x="-455.0" data-y="-78.0" data-z="507.0" style="left: 35.78%; top: 47.56%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="6619" data-x="-459.0" data-y="92.0" data-z="515.0" style="left: 35.66%; top: 52.88%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Ruins_Armory_HR_D-json"><img src="images/Ruins_Armory.webp" class="image">        <div class="dot" data-index="7931" data-x="-1273.0" data-y="-11.0" data-z="109.0" style="left: 10.22%; top: 49.66%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="7938" data-x="-455.0" data-y="-78.0" data-z="507.0" style="left: 35.78%; top: 47.56%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="7939" data-x="-459.0" data-y="92.0" data-z="515.0" style="left: 35.66%; top: 52.88%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-Ruins_Keep_HR_D-json">
@@ -102,9 +104,9 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_Keep_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Ruins_Keep_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Ruins_Keep_HR_D-json"><img src="images/Ruins_Keep.webp" class="image">        <div class="dot" data-index="7406" data-x="813.0" data-y="-868.0" data-z="698.0" style="left: 75.41%; top: 22.88%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="7407" data-x="748.0" data-y="-1362.0" data-z="680.0" style="left: 73.38%; top: 7.44%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="7410" data-x="626.0" data-y="-770.0" data-z="698.0" style="left: 69.56%; top: 25.94%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Ruins_Keep_HR_D-json"><img src="images/Ruins_Keep.webp" class="image">        <div class="dot" data-index="8821" data-x="813.0" data-y="-868.0" data-z="698.0" style="left: 75.41%; top: 22.88%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8822" data-x="748.0" data-y="-1362.0" data-z="680.0" style="left: 73.38%; top: 7.44%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8826" data-x="626.0" data-y="-770.0" data-z="698.0" style="left: 69.56%; top: 25.94%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-Ruins_Refectory_HR_D-json">
@@ -122,9 +124,9 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_Refectory_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Ruins_Refectory_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Ruins_Refectory_HR_D-json"><img src="images/Ruins_Refectory.webp" class="image">        <div class="dot" data-index="7437" data-x="-1197.0" data-y="-448.0" data-z="-325.0" style="left: 12.59%; top: 36.00%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="7475" data-x="-1189.0" data-y="-515.0" data-z="-325.0" style="left: 12.84%; top: 33.91%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="7483" data-x="830.0" data-y="-589.0" data-z="98.0" style="left: 75.94%; top: 31.59%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Ruins_Refectory_HR_D-json"><img src="images/Ruins_Refectory.webp" class="image">        <div class="dot" data-index="8878" data-x="-1197.0" data-y="-448.0" data-z="-325.0" style="left: 12.59%; top: 36.00%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8916" data-x="-1189.0" data-y="-515.0" data-z="-325.0" style="left: 12.84%; top: 33.91%; background-color: red; box-shadow: 0 0 6px red; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8930" data-x="830.0" data-y="-589.0" data-z="98.0" style="left: 75.94%; top: 31.59%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
 </div>
@@ -137,8 +139,8 @@
     </div>
     <div class="summary" id="summary-section">
         <h2>所有坐标详情</h2>
-        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-6611">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Armory_HR_D-json', 6611, this)"></td>
+        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-7931">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Armory_HR_D-json', 7931, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_Armory_HR_D.json</td>
         <td>城堡军械库</td>
@@ -147,8 +149,8 @@
         <td>-11.00</td>
         <td>109.00</td>
     </tr>
-    <tr id="row-6618">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Armory_HR_D-json', 6618, this)"></td>
+    <tr id="row-7938">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Armory_HR_D-json', 7938, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_Armory_HR_D.json</td>
         <td>城堡军械库</td>
@@ -157,8 +159,8 @@
         <td>-78.00</td>
         <td>507.00</td>
     </tr>
-    <tr id="row-6619">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Armory_HR_D-json', 6619, this)"></td>
+    <tr id="row-7939">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Armory_HR_D-json', 7939, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_Armory_HR_D.json</td>
         <td>城堡军械库</td>
@@ -167,8 +169,8 @@
         <td>92.00</td>
         <td>515.00</td>
     </tr>
-    <tr id="row-7406">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Keep_HR_D-json', 7406, this)"></td>
+    <tr id="row-8821">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Keep_HR_D-json', 8821, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_Keep_HR_D.json</td>
         <td>要塞</td>
@@ -177,8 +179,8 @@
         <td>-868.00</td>
         <td>698.00</td>
     </tr>
-    <tr id="row-7407">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Keep_HR_D-json', 7407, this)"></td>
+    <tr id="row-8822">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Keep_HR_D-json', 8822, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_Keep_HR_D.json</td>
         <td>要塞</td>
@@ -187,8 +189,8 @@
         <td>-1362.00</td>
         <td>680.00</td>
     </tr>
-    <tr id="row-7410">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Keep_HR_D-json', 7410, this)"></td>
+    <tr id="row-8826">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Keep_HR_D-json', 8826, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_Keep_HR_D.json</td>
         <td>要塞</td>
@@ -197,8 +199,8 @@
         <td>-770.00</td>
         <td>698.00</td>
     </tr>
-    <tr id="row-7437">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Refectory_HR_D-json', 7437, this)"></td>
+    <tr id="row-8878">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Refectory_HR_D-json', 8878, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_Refectory_HR_D.json</td>
         <td>修道院食堂</td>
@@ -207,8 +209,8 @@
         <td>-448.00</td>
         <td>-325.00</td>
     </tr>
-    <tr id="row-7475">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Refectory_HR_D-json', 7475, this)"></td>
+    <tr id="row-8916">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Refectory_HR_D-json', 8916, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_Refectory_HR_D.json</td>
         <td>修道院食堂</td>
@@ -217,8 +219,8 @@
         <td>-515.00</td>
         <td>-325.00</td>
     </tr>
-    <tr id="row-7483">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Refectory_HR_D-json', 7483, this)"></td>
+    <tr id="row-8930">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Refectory_HR_D-json', 8930, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_Refectory_HR_D.json</td>
         <td>修道院食堂</td>
@@ -342,7 +344,7 @@
     </script>
     <div id="debug-panel" class="debug-panel">
         <label>每行卡片数:</label>
-        <input type="number" id="cols-input" value="3" min="1" max="10" onchange="setColumns(this.value)">
+        <input type="number" id="cols-input" value="5" min="1" max="10" onchange="setColumns(this.value)">
     </div>
     <button id="debug-toggle-btn" class="debug-btn" onclick="toggleDebugInfo()">显示调试信息</button>
 </body>
