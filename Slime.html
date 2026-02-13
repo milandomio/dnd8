@@ -66,9 +66,68 @@
 <body>
     <a href="index.html" class="back-link">&lt;&lt; 返回总览</a>
     <h1>史莱姆 位置汇总</h1>
-    <div class="disclaimer">⚠️ 数据有误差，以实际游戏内为准<span class="time">地图生成日期：2026-02-13日21点</span></div>
+    <div class="disclaimer">⚠️ 数据有误差，以实际游戏内为准<span class="time">地图生成日期：2026-02-13日23点</span></div>
     <div class="debug-title" id="debug-title">史莱姆 (Slime)</div>
-    <div class="maps-grid" id="maps-grid">    <div class="group-header">废墟1层</div>
+    <div class="maps-grid" id="maps-grid">    <div class="group-header">哥布林洞穴2层</div>
+    <div class="map-card" id="map-card-Firedeep_BurningCourt_D-json">
+        <h3 class="map-title">焚庭<span class='debug-text'> (BurningCourt)</span><div class='map-filename'>Firedeep_BurningCourt_D.json</div></h3>
+        <div class="map-info">BurningCourt.png | 找到 3 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('Firedeep_BurningCourt_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-Firedeep_BurningCourt_D-json" value="1600" step="100" onchange="updateMapRange('Firedeep_BurningCourt_D-json')">
+                <button class="btn-scale" onclick="scaleRange('Firedeep_BurningCourt_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('Firedeep_BurningCourt_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('Firedeep_BurningCourt_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('Firedeep_BurningCourt_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('Firedeep_BurningCourt_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-Firedeep_BurningCourt_D-json"><img src="images/BurningCourt.webp" class="image">        <div class="dot" data-index="4462" data-x="150.0" data-y="1190.0" data-z="205.0" style="left: 54.69%; top: 87.19%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4463" data-x="-1325.0" data-y="175.0" data-z="205.0" style="left: 8.59%; top: 55.47%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4481" data-x="-513.16986" data-y="-265.1314" data-z="210.80829" style="left: 33.96%; top: 41.71%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="map-card" id="map-card-Firedeep_MagmaFalls_D-json">
+        <h3 class="map-title">岩浆瀑布<span class='debug-text'> (MagmaFalls)</span><div class='map-filename'>Firedeep_MagmaFalls_D.json</div></h3>
+        <div class="map-info">Magmafalls.png | 找到 1 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('Firedeep_MagmaFalls_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-Firedeep_MagmaFalls_D-json" value="1600" step="100" onchange="updateMapRange('Firedeep_MagmaFalls_D-json')">
+                <button class="btn-scale" onclick="scaleRange('Firedeep_MagmaFalls_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('Firedeep_MagmaFalls_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('Firedeep_MagmaFalls_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('Firedeep_MagmaFalls_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('Firedeep_MagmaFalls_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-Firedeep_MagmaFalls_D-json"><img src="images/Magmafalls.webp" class="image">        <div class="dot" data-index="4515" data-x="5.0" data-y="1035.0" data-z="-26.975525" style="left: 50.16%; top: 82.34%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="map-card" id="map-card-Firedeep_MoltenPit_D-json">
+        <h3 class="map-title">熔坑<span class='debug-text'> (MoltenPit)</span><div class='map-filename'>Firedeep_MoltenPit_D.json</div></h3>
+        <div class="map-info">MoltenPit.png | 找到 3 个位置 | 自动范围: ±1600</div>
+        <div class="controls">
+            <div class="input-group">
+                <label>范围:</label>
+                <button class="btn-scale" onclick="scaleRange('Firedeep_MoltenPit_D-json', 0.5)">÷2</button>
+                <input type="number" id="range-input-Firedeep_MoltenPit_D-json" value="1600" step="100" onchange="updateMapRange('Firedeep_MoltenPit_D-json')">
+                <button class="btn-scale" onclick="scaleRange('Firedeep_MoltenPit_D-json', 2.0)">x2</button>
+            </div>
+            <button class="btn-rotate" onclick="toggleRotate('Firedeep_MoltenPit_D-json')">↻ 旋转</button>
+            <button class="btn-mirror-x" onclick="toggleMirrorX('Firedeep_MoltenPit_D-json')">⇄ 左右</button>
+            <button class="btn-mirror-y" onclick="toggleMirrorY('Firedeep_MoltenPit_D-json')">⇅ 上下</button>
+            <button class="btn-reset" onclick="resetMap('Firedeep_MoltenPit_D-json')">↺ 重置</button>
+        </div>
+        <div class="container" id="container-Firedeep_MoltenPit_D-json"><img src="images/MoltenPit.webp" class="image">        <div class="dot" data-index="4558" data-x="1195.0" data-y="1115.0" data-z="390.0" style="left: 87.34%; top: 84.84%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4575" data-x="-57.365444" data-y="-104.43651" data-z="-0.6301719" style="left: 48.21%; top: 46.74%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="4576" data-x="-1355.0" data-y="-1285.0" data-z="390.0" style="left: 7.66%; top: 9.84%; background-color: cyan; box-shadow: 0 0 6px cyan; border: 1px solid #fff;"></div>
+</div>
+    </div>
+    <div class="group-header">废墟1层</div>
     <div class="map-card" id="map-card-Ruins_Forest_08_HR_D-json">
         <h3 class="map-title">林间小路<span class='debug-text'> (Forest_Path)</span><div class='map-filename'>Ruins_Forest_08_HR_D.json</div></h3>
         <div class="map-info">Ruins_Forest_08.png | 找到 2 个位置 | 自动范围: ±1600</div>
@@ -84,8 +143,8 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_Forest_08_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Ruins_Forest_08_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Ruins_Forest_08_HR_D-json"><img src="images/Ruins_Forest_08.webp" class="image">        <div class="dot" data-index="8490" data-x="-250.00002" data-y="650.0" data-z="0.0" style="left: 42.19%; top: 70.31%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="8496" data-x="1340.8682" data-y="-39.60041" data-z="0.0" style="left: 91.90%; top: 48.76%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Ruins_Forest_08_HR_D-json"><img src="images/Ruins_Forest_08.webp" class="image">        <div class="dot" data-index="8607" data-x="-250.00002" data-y="650.0" data-z="0.0" style="left: 42.19%; top: 70.31%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="8613" data-x="1340.8682" data-y="-39.60041" data-z="0.0" style="left: 91.90%; top: 48.76%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-Ruins_SlimeForest_01_HR_D-json">
@@ -103,12 +162,12 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_SlimeForest_01_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Ruins_SlimeForest_01_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Ruins_SlimeForest_01_HR_D-json"><img src="images/Ruins_SlimeForest_01.webp" class="image">        <div class="dot" data-index="8986" data-x="285.0" data-y="-131.0" data-z="0.0" style="left: 58.91%; top: 45.91%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="8992" data-x="-136.0" data-y="185.0" data-z="0.0" style="left: 45.75%; top: 55.78%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="9007" data-x="-1350.0" data-y="1065.0001" data-z="0.0" style="left: 7.81%; top: 83.28%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="9008" data-x="-1099.0" data-y="-190.99994" data-z="0.0001" style="left: 15.66%; top: 44.03%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="9009" data-x="1115.0" data-y="698.0" data-z="0.0" style="left: 84.84%; top: 71.81%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="9010" data-x="1789.0" data-y="1399.0" data-z="0.0" style="left: 105.91%; top: 93.72%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Ruins_SlimeForest_01_HR_D-json"><img src="images/Ruins_SlimeForest_01.webp" class="image">        <div class="dot" data-index="9120" data-x="285.0" data-y="-131.0" data-z="0.0" style="left: 58.91%; top: 45.91%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="9126" data-x="-136.0" data-y="185.0" data-z="0.0" style="left: 45.75%; top: 55.78%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="9141" data-x="-1350.0" data-y="1065.0001" data-z="0.0" style="left: 7.81%; top: 83.28%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="9142" data-x="-1099.0" data-y="-190.99994" data-z="0.0001" style="left: 15.66%; top: 44.03%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="9143" data-x="1115.0" data-y="698.0" data-z="0.0" style="left: 84.84%; top: 71.81%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="9144" data-x="1789.0" data-y="1399.0" data-z="0.0" style="left: 105.91%; top: 93.72%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
     <div class="map-card" id="map-card-Ruins_Wells_02_HR_D-json">
@@ -126,9 +185,9 @@
             <button class="btn-mirror-y" onclick="toggleMirrorY('Ruins_Wells_02_HR_D-json')">⇅ 上下</button>
             <button class="btn-reset" onclick="resetMap('Ruins_Wells_02_HR_D-json')">↺ 重置</button>
         </div>
-        <div class="container" id="container-Ruins_Wells_02_HR_D-json"><img src="images/Ruins_Wells_02.webp" class="image">        <div class="dot" data-index="9681" data-x="-51.4854" data-y="-162.39166" data-z="0.0" style="left: 48.39%; top: 44.93%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="9712" data-x="-169.0" data-y="208.0" data-z="0.0" style="left: 44.72%; top: 56.50%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
-        <div class="dot" data-index="9734" data-x="-448.0" data-y="-112.0" data-z="0.0001" style="left: 36.00%; top: 46.50%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="container" id="container-Ruins_Wells_02_HR_D-json"><img src="images/Ruins_Wells_02.webp" class="image">        <div class="dot" data-index="9823" data-x="-51.4854" data-y="-162.39166" data-z="0.0" style="left: 48.39%; top: 44.93%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="9854" data-x="-169.0" data-y="208.0" data-z="0.0" style="left: 44.72%; top: 56.50%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
+        <div class="dot" data-index="9876" data-x="-448.0" data-y="-112.0" data-z="0.0001" style="left: 36.00%; top: 46.50%; background-color: yellow; box-shadow: 0 0 6px yellow; border: 1px solid #fff;"></div>
 </div>
     </div>
 </div>
@@ -137,12 +196,82 @@
         <span class="color-dot" style="background-color: cyan;"></span> Z &gt; 299 (高于地面)
         <span class="color-dot" style="background-color: yellow;"></span> -299 ≤ Z ≤ 299 (正常高度)
         <span class="color-dot" style="background-color: red;"></span> Z &lt; -299 (低于地面)
-        <br><strong>位置统计：共 11 个位置点</strong><br><strong>包含地图：</strong> 史莱姆森林, 林间小路, 水井
+        <br><strong>位置统计：共 18 个位置点</strong><br><strong>包含地图：</strong> 史莱姆森林, 岩浆瀑布, 林间小路, 水井, 焚庭, 熔坑
     </div>
     <div class="summary" id="summary-section">
         <h2>所有坐标详情</h2>
-        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-8490">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Forest_08_HR_D-json', 8490, this)"></td>
+        <table><tr><th>显示</th><th>分组</th><th>地图文件</th><th>地图汉化</th><th>标签</th><th>位置 X</th><th>位置 Y</th><th>位置 Z</th></tr>    <tr id="row-4462">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_BurningCourt_D-json', 4462, this)"></td>
+        <td>哥布林洞穴2层</td>
+        <td>Firedeep_BurningCourt_D.json</td>
+        <td>焚庭</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_LavaSlime</td>
+        <td>150.00</td>
+        <td>1190.00</td>
+        <td>205.00</td>
+    </tr>
+    <tr id="row-4463">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_BurningCourt_D-json', 4463, this)"></td>
+        <td>哥布林洞穴2层</td>
+        <td>Firedeep_BurningCourt_D.json</td>
+        <td>焚庭</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_LavaSlime</td>
+        <td>-1325.00</td>
+        <td>175.00</td>
+        <td>205.00</td>
+    </tr>
+    <tr id="row-4481">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_BurningCourt_D-json', 4481, this)"></td>
+        <td>哥布林洞穴2层</td>
+        <td>Firedeep_BurningCourt_D.json</td>
+        <td>焚庭</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_LavaSlime</td>
+        <td>-513.17</td>
+        <td>-265.13</td>
+        <td>210.81</td>
+    </tr>
+    <tr id="row-4515">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_MagmaFalls_D-json', 4515, this)"></td>
+        <td>哥布林洞穴2层</td>
+        <td>Firedeep_MagmaFalls_D.json</td>
+        <td>岩浆瀑布</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_LavaSlime</td>
+        <td>5.00</td>
+        <td>1035.00</td>
+        <td>-26.98</td>
+    </tr>
+    <tr id="row-4558">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_MoltenPit_D-json', 4558, this)"></td>
+        <td>哥布林洞穴2层</td>
+        <td>Firedeep_MoltenPit_D.json</td>
+        <td>熔坑</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_LavaSlime</td>
+        <td>1195.00</td>
+        <td>1115.00</td>
+        <td>390.00</td>
+    </tr>
+    <tr id="row-4575">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_MoltenPit_D-json', 4575, this)"></td>
+        <td>哥布林洞穴2层</td>
+        <td>Firedeep_MoltenPit_D.json</td>
+        <td>熔坑</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_LavaSlime</td>
+        <td>-57.37</td>
+        <td>-104.44</td>
+        <td>-0.63</td>
+    </tr>
+    <tr id="row-4576">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Firedeep_MoltenPit_D-json', 4576, this)"></td>
+        <td>哥布林洞穴2层</td>
+        <td>Firedeep_MoltenPit_D.json</td>
+        <td>熔坑</td>
+        <td>GameSpawner_Id_Spawner_New_Monster_LavaSlime</td>
+        <td>-1355.00</td>
+        <td>-1285.00</td>
+        <td>390.00</td>
+    </tr>
+    <tr id="row-8607">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Forest_08_HR_D-json', 8607, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_Forest_08_HR_D.json</td>
         <td>林间小路</td>
@@ -151,8 +280,8 @@
         <td>650.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-8496">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Forest_08_HR_D-json', 8496, this)"></td>
+    <tr id="row-8613">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Forest_08_HR_D-json', 8613, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_Forest_08_HR_D.json</td>
         <td>林间小路</td>
@@ -161,8 +290,8 @@
         <td>-39.60</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-8986">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_SlimeForest_01_HR_D-json', 8986, this)"></td>
+    <tr id="row-9120">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_SlimeForest_01_HR_D-json', 9120, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_SlimeForest_01_HR_D.json</td>
         <td>史莱姆森林</td>
@@ -171,8 +300,8 @@
         <td>-131.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-8992">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_SlimeForest_01_HR_D-json', 8992, this)"></td>
+    <tr id="row-9126">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_SlimeForest_01_HR_D-json', 9126, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_SlimeForest_01_HR_D.json</td>
         <td>史莱姆森林</td>
@@ -181,8 +310,8 @@
         <td>185.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-9007">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_SlimeForest_01_HR_D-json', 9007, this)"></td>
+    <tr id="row-9141">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_SlimeForest_01_HR_D-json', 9141, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_SlimeForest_01_HR_D.json</td>
         <td>史莱姆森林</td>
@@ -191,8 +320,8 @@
         <td>1065.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-9008">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_SlimeForest_01_HR_D-json', 9008, this)"></td>
+    <tr id="row-9142">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_SlimeForest_01_HR_D-json', 9142, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_SlimeForest_01_HR_D.json</td>
         <td>史莱姆森林</td>
@@ -201,8 +330,8 @@
         <td>-191.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-9009">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_SlimeForest_01_HR_D-json', 9009, this)"></td>
+    <tr id="row-9143">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_SlimeForest_01_HR_D-json', 9143, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_SlimeForest_01_HR_D.json</td>
         <td>史莱姆森林</td>
@@ -211,8 +340,8 @@
         <td>698.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-9010">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_SlimeForest_01_HR_D-json', 9010, this)"></td>
+    <tr id="row-9144">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_SlimeForest_01_HR_D-json', 9144, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_SlimeForest_01_HR_D.json</td>
         <td>史莱姆森林</td>
@@ -221,8 +350,8 @@
         <td>1399.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-9681">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Wells_02_HR_D-json', 9681, this)"></td>
+    <tr id="row-9823">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Wells_02_HR_D-json', 9823, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_Wells_02_HR_D.json</td>
         <td>水井</td>
@@ -231,8 +360,8 @@
         <td>-162.39</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-9712">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Wells_02_HR_D-json', 9712, this)"></td>
+    <tr id="row-9854">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Wells_02_HR_D-json', 9854, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_Wells_02_HR_D.json</td>
         <td>水井</td>
@@ -241,8 +370,8 @@
         <td>208.00</td>
         <td>0.00</td>
     </tr>
-    <tr id="row-9734">
-        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Wells_02_HR_D-json', 9734, this)"></td>
+    <tr id="row-9876">
+        <td style="text-align:center; vertical-align:middle;"><input type="checkbox" checked onchange="togglePoint('Ruins_Wells_02_HR_D-json', 9876, this)"></td>
         <td>废墟1层</td>
         <td>Ruins_Wells_02_HR_D.json</td>
         <td>水井</td>
